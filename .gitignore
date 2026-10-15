@@ -1,0 +1,26 @@
+# Environment and secrets
+.env
+*.env.local
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs & temp
+logs/
+*.log
+
+# Reports and runtime state
+data/reports/*.csv
+data/reports/*.md
+data/state/*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp

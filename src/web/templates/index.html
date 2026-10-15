@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VNStock Price Action Dashboard - John Lucas Pruni</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            },
+            dark: {
+              900: '#0b0f17',
+              800: '#111827',
+              700: '#1f2937',
+              600: '#374151'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0b0f17;
+      color: #e2e8f0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #111827;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #374151;
+      border-radius: 3px;
+    }
+    .glass-card {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col custom-scrollbar">
+
+  <!-- Top Navigation Header -->
+  <header class="border-b border-gray-800 bg-gray-900/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+          <svg class="w-6 h-6 text-gray-950 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-lg font-bold tracking-tight text-white">VNStock Price Action</h1>
+            <span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">John Lucas Pruni</span>
+          </div>
+          <p class="text-xs text-gray-400">Phương pháp "2 Cấu trúc & 3 Cây nến" • Oracle Database</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex space-x-1 sm:space-x-2 bg-gray-950/60 p-1.5 rounded-xl border border-gray-800/80">
+        <button onclick="switchTab('signals')" id="tab-btn-signals" class="tab-btn px-3 py-1.5 rounded-lg text-sm font-medium transition-all text-white bg-gray-800 shadow-sm flex items-center space-x-2">
+          <span>📈 Tín Hiệu Hợp Lưu</span>
+        </button>
+        <button onclick="switchTab('backtest')" id="tab-btn-backtest" class="tab-btn px-3 py-1.5 rounded-lg text-sm font-medium transition-all text-gray-400 hover:text-white flex items-center space-x-2">
+          <span>🧪 Backtesting Studio</span>
+        </button>
+        <button onclick="switchTab('sensitivity')" id="tab-btn-sensitivity" class="tab-btn px-3 py-1.5 rounded-lg text-sm font-medium transition-all text-gray-400 hover:text-white flex items-center space-x-2">
+          <span>🎯 Độ Nhạy Tham Số</span>
+        </button>
+        <button onclick="switchTab('data')" id="tab-btn-data" class="tab-btn px-3 py-1.5 rounded-lg text-sm font-medium transition-all text-gray-400 hover:text-white flex items-center space-x-2">
+          <span>📥 Quản Lý Dữ Liệu</span>
+        </button>
+      </nav>
+
+      <!-- Status Indicator -->
+      <div class="hidden md:flex items-center space-x-3 text-xs">
+        <span class="flex items-center space-x-1.5 text-gray-400 bg-gray-800/80 px-2.5 py-1 rounded-full border border-gray-700/50">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span id="db-badge">Database: SQLite Mock</span>
+        </span>
+        <span id="symbols-badge" class="text-gray-400 bg-gray-800/80 px-2.5 py-1 rounded-full border border-gray-700/50">
+          Mã: 6 / Bản ghi: 24,029
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+
+    <!-- ======================================================== -->
+    <!-- TAB 1: SIGNALS & CHARTS -->
+    <!-- ======================================================== -->
+    <div id="tab-content-signals" class="space-y-6">
+      
+      <!-- Top Action Bar -->
+      <div class="glass-card rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center space-x-4">
+          <label class="text-sm font-semibold text-gray-300">Chọn Cổ Phiếu:</label>
+          <select id="signals-symbol-select" onchange="loadSignalsTab()" class="bg-gray-900 border border-gray-700 text-white font-mono text-sm rounded-xl px-4 py-2 focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+            <!-- Populated via JS -->
+          </select>
+          <button onclick="loadSignalsTab()" class="px-3.5 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-sm font-medium text-gray-300 border border-gray-700 transition">
+            🔄 Làm Mới
+          </button>
+        </div>
+
+        <div class="flex items-center space-x-3 text-xs text-gray-400">
+          <span class="px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 font-mono">BOS: Phá Vỡ Cấu Trúc</span>
+          <span class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 font-mono">Gann Box: ≤ 75% Discount</span>
+          <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono">3 Nến: Thân > Râu 2 đầu</span>
+          <span class="px-2.5 py-1 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20 font-mono">FVG: Mất Cân Bằng</span>
+        </div>
+      </div>
+
+      <!-- Price Chart & Strategy Cards Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Interactive Chart Card -->
+        <div class="lg:col-span-2 glass-card rounded-2xl p-5 space-y-4">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+            <div>
+              <h2 id="chart-title" class="text-base font-bold text-white flex items-center space-x-2">
+                <span>Biểu Đồ Lịch Sử Giá & Khối Lượng</span>
+                <span id="chart-symbol-badge" class="px-2 py-0.5 text-xs font-mono rounded bg-emerald-500/20 text-emerald-400">HPG</span>
+              </h2>
+              <p class="text-xs text-gray-400">Đường giá đóng cửa (Close Price) và thanh khối lượng giao dịch</p>
+            </div>
+            <div id="chart-latest-price" class="text-right">
+              <!-- Price stats -->
+            </div>
+          </div>
+          <div class="h-80 w-full relative">
+            <canvas id="priceChart"></canvas>
+          </div>
+        </div>
+
+        <!-- 4-Tier Strategy Info Card -->
+        <div class="glass-card rounded-2xl p-5 space-y-4">
+          <h3 class="text-base font-bold text-white border-b border-gray-800 pb-3 flex items-center space-x-2">
+            <span>Mô Hình 2 Cấu Trúc & 3 Nến</span>
+          </h3>
+
+          <div class="space-y-3 text-xs">
+            <div class="p-3 rounded-xl bg-gray-900/80 border border-gray-800 space-y-1">
+              <div class="font-bold text-emerald-400 flex items-center justify-between">
+                <span>1. Hai Lần Phá Vỡ Cấu Trúc (2 BOS)</span>
+                <span class="text-[10px] bg-emerald-500/20 px-1.5 py-0.5 rounded text-emerald-300">Xu hướng</span>
+              </div>
+              <p class="text-gray-400 leading-relaxed">Cấu trúc hiện tại và liền kề trước đó phải đồng thuận bứt phá đỉnh confirmed (Bullish BOS). Zero Lookahead.</p>
+            </div>
+
+            <div class="p-3 rounded-xl bg-gray-900/80 border border-gray-800 space-y-1">
+              <div class="font-bold text-amber-400 flex items-center justify-between">
+                <span>2. Mốc 75% Hộp Gann Box</span>
+                <span class="text-[10px] bg-amber-500/20 px-1.5 py-0.5 rounded text-amber-300">Pullback</span>
+              </div>
+              <p class="text-gray-400 leading-relaxed">Giá bắt buộc phải điều chỉnh về vùng chiết khấu (&le; 75% biên độ swing), triệt tiêu rủi ro mua đuổi đỉnh.</p>
+            </div>
+
+            <div class="p-3 rounded-xl bg-gray-900/80 border border-gray-800 space-y-1">
+              <div class="font-bold text-blue-400 flex items-center justify-between">
+                <span>3. Cụm 3 Cây Nến Động Lượng</span>
+                <span class="text-[10px] bg-blue-500/20 px-1.5 py-0.5 rounded text-blue-300">Xung lực</span>
+              </div>
+              <p class="text-gray-400 leading-relaxed">Thân nến lớn hơn râu ở hai đầu (<span class="font-mono text-gray-300">Body > Upper & Lower Wick</span>). Đảm bảo kiểm soát dòng tiền.</p>
+            </div>
+
+            <div class="p-3 rounded-xl bg-gray-900/80 border border-gray-800 space-y-1">
+              <div class="font-bold text-purple-400 flex items-center justify-between">
+                <span>4. Fair Value Gap (FVG)</span>
+                <span class="text-[10px] bg-purple-500/20 px-1.5 py-0.5 rounded text-purple-300">Thanh khoản</span>
+              </div>
+              <p class="text-gray-400 leading-relaxed">Khoảng trống mất cân bằng giữa Nến 1 và Nến 3. Đặt lệnh chờ Limit mua ngay tại mép FVG.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Signals Table -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+          <div>
+            <h3 class="text-base font-bold text-white">Danh Sách Tín Hiệu Hợp Lưu Phát Hiện</h3>
+            <p class="text-xs text-gray-400" id="signals-count-label">Đang tải tín hiệu...</p>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-xs text-gray-400">Bộ lọc tối thiểu:</span>
+            <span class="px-2 py-0.5 rounded bg-gray-800 text-xs font-mono text-emerald-400 border border-gray-700">R:R &ge; 1.5</span>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="text-gray-400 bg-gray-900/80 border-b border-gray-800 uppercase text-[11px]">
+              <tr>
+                <th class="py-3 px-3">Ngày</th>
+                <th class="py-3 px-3">Loại</th>
+                <th class="py-3 px-3">Vùng Hợp Lưu [Low - High]</th>
+                <th class="py-3 px-3">Entry (Limit)</th>
+                <th class="py-3 px-3">Stop Loss</th>
+                <th class="py-3 px-3">Take Profit</th>
+                <th class="py-3 px-3 text-right">Tỷ Lệ R:R</th>
+                <th class="py-3 px-3 text-center">Mốc 75% Gann</th>
+                <th class="py-3 px-3 text-center">FVG Gap</th>
+              </tr>
+            </thead>
+            <tbody id="signals-table-body" class="divide-y divide-gray-800/60 text-gray-300">
+              <!-- Populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- TAB 2: BACKTESTING STUDIO -->
+    <!-- ======================================================== -->
+    <div id="tab-content-backtest" class="space-y-6 hidden">
+      
+      <!-- Backtest Configuration Card -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+          <div>
+            <h2 class="text-base font-bold text-white">Cấu Hình Kiểm Thử Chiến Lược (Backtest Settings)</h2>
+            <p class="text-xs text-gray-400">Áp dụng thuế bán 0.10%, phí môi giới 0.15%, trượt giá 0.05%, lô chẵn 100 CP và quy tắc SL-First.</p>
+          </div>
+          <button onclick="executeBacktest()" id="btn-run-backtest" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-gray-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition flex items-center space-x-2">
+            <span>🚀 Chạy Backtest Ngay</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
+          <!-- Symbols Multi-select -->
+          <div class="space-y-1.5 md:col-span-1">
+            <label class="font-semibold text-gray-300">Danh Mục Cổ Phiếu:</label>
+            <div id="backtest-symbols-container" class="p-2.5 bg-gray-900 border border-gray-700 rounded-xl h-28 overflow-y-auto custom-scrollbar space-y-1">
+              <!-- Checkboxes populated via JS -->
+            </div>
+          </div>
+
+          <!-- Capital & Size -->
+          <div class="space-y-3">
+            <div class="space-y-1">
+              <label class="font-semibold text-gray-300">Vốn Ban Đầu (VND):</label>
+              <input type="number" id="bt-capital" value="100000000" step="10000000" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-white font-mono focus:ring-1 focus:ring-emerald-500">
+            </div>
+            <div class="space-y-1">
+              <label class="font-semibold text-gray-300">Tỷ Trọng / Lệnh (% Vốn):</label>
+              <input type="number" id="bt-pos-size" value="0.20" step="0.05" min="0.05" max="1.0" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-white font-mono focus:ring-1 focus:ring-emerald-500">
+            </div>
+          </div>
+
+          <!-- Strategy Params -->
+          <div class="space-y-3">
+            <div class="space-y-1">
+              <label class="font-semibold text-gray-300">Bộ Lọc Tỷ Lệ R:R Tối Thiểu:</label>
+              <select id="bt-min-rr" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-white font-mono">
+                <option value="1.5" selected>&ge; 1.5</option>
+                <option value="2.0">&ge; 2.0</option>
+                <option value="2.5">&ge; 2.5</option>
+                <option value="3.0">&ge; 3.0</option>
+              </select>
+            </div>
+            <div class="space-y-1">
+              <label class="font-semibold text-gray-300">Điểm Vào Limit:</label>
+              <select id="bt-entry-mode" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-white font-mono">
+                <option value="zone_boundary" selected>Mép FVG (zone_boundary)</option>
+                <option value="zone_midpoint">Trung điểm FVG (zone_midpoint)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Candle Mode -->
+          <div class="space-y-3">
+            <div class="space-y-1">
+              <label class="font-semibold text-gray-300">Chế Độ Thân Nến Áp Đảo:</label>
+              <select id="bt-candle-mode" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-white font-mono">
+                <option value="middle_candle" selected>Nến giữa C2 (middle_candle)</option>
+                <option value="all_candles">Cả 3 nến (all_candles)</option>
+                <option value="cumulative">Tổng thân cụm nến (cumulative)</option>
+              </select>
+            </div>
+            <div class="space-y-1">
+              <label class="font-semibold text-gray-300">Độ Dài Swing (L, R):</label>
+              <div class="flex space-x-2">
+                <input type="number" id="bt-swing-left" value="3" class="w-1/2 bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-white font-mono text-center">
+                <input type="number" id="bt-swing-right" value="2" class="w-1/2 bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-white font-mono text-center">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI Scorecards -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        
+        <div class="glass-card rounded-2xl p-4 space-y-1 text-center">
+          <span class="text-xs font-medium text-gray-400">Tỷ Lệ Thắng (Win Rate)</span>
+          <div id="kpi-win-rate" class="text-xl font-bold font-mono text-emerald-400">--</div>
+          <span id="kpi-win-loss-count" class="text-[11px] text-gray-500">0 Thắng / 0 Thua</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-4 space-y-1 text-center">
+          <span class="text-xs font-medium text-gray-400">Hệ Số Lợi Nhuận</span>
+          <div id="kpi-profit-factor" class="text-xl font-bold font-mono text-emerald-400">--</div>
+          <span class="text-[11px] text-gray-500">Profit Factor</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-4 space-y-1 text-center">
+          <span class="text-xs font-medium text-gray-400">Lợi Nhuận Ròng (Net PnL)</span>
+          <div id="kpi-net-pnl" class="text-xl font-bold font-mono text-emerald-400">--</div>
+          <span id="kpi-roi" class="text-[11px] text-gray-500">ROI: 0.00%</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-4 space-y-1 text-center">
+          <span class="text-xs font-medium text-gray-400">Kỳ Vọng / Lệnh (EV)</span>
+          <div id="kpi-ev" class="text-xl font-bold font-mono text-emerald-400">--</div>
+          <span class="text-[11px] text-gray-500">Expected Value</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-4 space-y-1 text-center">
+          <span class="text-xs font-medium text-gray-400">Sụt Giảm Tối Đa</span>
+          <div id="kpi-max-dd" class="text-xl font-bold font-mono text-amber-400">--</div>
+          <span class="text-[11px] text-gray-500">Max Drawdown</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-4 space-y-1 text-center">
+          <span class="text-xs font-medium text-gray-400">Tổng Số Lệnh Khớp</span>
+          <div id="kpi-total-trades" class="text-xl font-bold font-mono text-white">--</div>
+          <span id="kpi-fees" class="text-[11px] text-gray-500">Thuế/Phí: 0 VND</span>
+        </div>
+
+      </div>
+
+      <!-- Equity Curve Chart -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+          <div>
+            <h3 class="text-base font-bold text-white">Đường Cong Tăng Trưởng Vốn (Equity Curve)</h3>
+            <p class="text-xs text-gray-400">Biến động giá trị tài sản ròng qua từng giao dịch thực tế</p>
+          </div>
+          <div id="backtest-verdict-badge" class="px-3 py-1 rounded-full text-xs font-bold font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            PROFITABLE
+          </div>
+        </div>
+        <div class="h-72 w-full">
+          <canvas id="equityChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Closed Trades Table -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+          <div>
+            <h3 class="text-base font-bold text-white">Nhật Ký Khớp Lệnh Chi Tiết (Closed Trades)</h3>
+            <p class="text-xs text-gray-400" id="trades-count-label">Danh sách các lệnh đã đóng vị thế</p>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="text-gray-400 bg-gray-900/80 border-b border-gray-800 uppercase text-[11px]">
+              <tr>
+                <th class="py-3 px-3">Mã</th>
+                <th class="py-3 px-3">Chiều</th>
+                <th class="py-3 px-3">Ngày Vào</th>
+                <th class="py-3 px-3">Giá Vào</th>
+                <th class="py-3 px-3">Ngày Đóng</th>
+                <th class="py-3 px-3">Giá Thoát</th>
+                <th class="py-3 px-3">Lý Do</th>
+                <th class="py-3 px-3 text-right">Khối Lượng</th>
+                <th class="py-3 px-3 text-right">Lãi/Lỗ Ròng</th>
+                <th class="py-3 px-3 text-right">Tỷ Suất (%)</th>
+                <th class="py-3 px-3 text-right">Thuế/Phí</th>
+              </tr>
+            </thead>
+            <tbody id="trades-table-body" class="divide-y divide-gray-800/60 text-gray-300">
+              <!-- Populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- TAB 3: SENSITIVITY GRID -->
+    <!-- ======================================================== -->
+    <div id="tab-content-sensitivity" class="space-y-6 hidden">
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+          <div>
+            <h2 class="text-base font-bold text-white">Ma Trận Độ Nhạy Tham Số (Parameter Sensitivity Grid)</h2>
+            <p class="text-xs text-gray-400">Kiểm định 24 tổ hợp cấu hình (Swing, Candle Mode, R:R Target, Entry Mode) để kiểm chứng giả thuyết "Win Rate 30%".</p>
+          </div>
+          <button onclick="loadSensitivityTab()" class="px-3.5 py-1.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-xs font-medium text-gray-300 border border-gray-700 transition">
+            🔄 Tải Lại
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="text-gray-400 bg-gray-900/80 border-b border-gray-800 uppercase text-[11px]">
+              <tr>
+                <th class="py-3 px-3">Cấu Hình Tham Số</th>
+                <th class="py-3 px-3 text-center">Số Lệnh</th>
+                <th class="py-3 px-3 text-center">Tỷ Lệ Thắng</th>
+                <th class="py-3 px-3 text-center">Profit Factor</th>
+                <th class="py-3 px-3 text-right">Lợi Nhuận Ròng (VND)</th>
+                <th class="py-3 px-3 text-center">Max Drawdown</th>
+                <th class="py-3 px-3 text-left">Đánh Giá (Verdict)</th>
+              </tr>
+            </thead>
+            <tbody id="sensitivity-table-body" class="divide-y divide-gray-800/60 text-gray-300">
+              <!-- Populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- TAB 4: DATA MANAGER -->
+    <!-- ======================================================== -->
+    <div id="tab-content-data" class="space-y-6 hidden">
+      
+      <!-- Ingest Form Card -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="border-b border-gray-800 pb-3">
+          <h2 class="text-base font-bold text-white">Tải Thêm Dữ Liệu Lịch Sử Từ Yahoo Finance</h2>
+          <p class="text-xs text-gray-400">Nhập danh sách mã cổ phiếu Việt Nam (HOSE, HNX, UPCoM), tự động chuẩn hóa hậu tố <span class="font-mono text-emerald-400">.VN</span> và kiểm định chất lượng OHLC.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3">
+          <input type="text" id="fetch-symbols-input" placeholder="Ví dụ: TCB, MBB, VIC, VPB" class="w-full sm:w-96 bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-white font-mono text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+          <button onclick="executeFetch()" id="btn-fetch" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-gray-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition flex items-center justify-center space-x-2">
+            <span>📥 Bắt Đầu Tải Dữ Liệu</span>
+          </button>
+        </div>
+        <p id="fetch-status-msg" class="text-xs text-gray-400"></p>
+      </div>
+
+      <!-- Current Symbols Table -->
+      <div class="glass-card rounded-2xl p-5 space-y-4">
+        <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+          <div>
+            <h3 class="text-base font-bold text-white">Danh Sách Mã Cổ Phiếu Đã Lưu Trong CSDL</h3>
+            <p class="text-xs text-gray-400" id="data-symbols-count">Đang tải...</p>
+          </div>
+          <button onclick="loadDataTab()" class="px-3.5 py-1.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-xs font-medium text-gray-300 border border-gray-700 transition">
+            🔄 Làm Mới
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="text-gray-400 bg-gray-900/80 border-b border-gray-800 uppercase text-[11px]">
+              <tr>
+                <th class="py-3 px-3">Mã CP</th>
+                <th class="py-3 px-3">Tên Doanh Nghiệp</th>
+                <th class="py-3 px-3">Sàn</th>
+                <th class="py-3 px-3 text-right">Số Phiên GD</th>
+                <th class="py-3 px-3 text-center">Từ Ngày</th>
+                <th class="py-3 px-3 text-center">Đến Ngày</th>
+                <th class="py-3 px-3 text-center">Hành Động</th>
+              </tr>
+            </thead>
+            <tbody id="data-symbols-table-body" class="divide-y divide-gray-800/60 text-gray-300">
+              <!-- Populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800/80 py-4 text-center text-xs text-gray-500">
+    Hệ thống Nghiên cứu & Định lượng Chứng khoán Việt Nam • Chiến lược John Lucas Pruni • Chạy trên nền FastAPI & Oracle / SQLite Mock
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <!-- ======================================================== -->
+  <script>
+    let priceChartInstance = null;
+    let equityChartInstance = null;
+    let availableSymbols = [];
+
+    // --- TAB SWITCHER ---
+    function switchTab(tabId) {
+      const tabs = ['signals', 'backtest', 'sensitivity', 'data'];
+      tabs.forEach(t => {
+        document.getElementById(`tab-content-${t}`).classList.add('hidden');
+        const btn = document.getElementById(`tab-btn-${t}`);
+        btn.classList.remove('bg-gray-800', 'text-white', 'shadow-sm');
+        btn.classList.add('text-gray-400');
+      });
+
+      document.getElementById(`tab-content-${tabId}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+      activeBtn.classList.add('bg-gray-800', 'text-white', 'shadow-sm');
+      activeBtn.classList.remove('text-gray-400');
+
+      if (tabId === 'signals') loadSignalsTab();
+      if (tabId === 'backtest') loadBacktestTabInitial();
+      if (tabId === 'sensitivity') loadSensitivityTab();
+      if (tabId === 'data') loadDataTab();
+    }
+
+    // --- INITIALIZATION ---
+    window.addEventListener('DOMContentLoaded', async () => {
+      await fetchSummary();
+      await loadSignalsTab();
+    });
+
+    async function fetchSummary() {
+      try {
+        const res = await fetch('/api/summary');
+        const data = await res.json();
+        availableSymbols = data.available_symbols || [];
+        document.getElementById('db-badge').innerText = `Database: ${data.mock_db ? 'SQLite Mock' : 'Oracle DB'}`;
+        document.getElementById('symbols-badge').innerText = `Mã: ${data.symbols_count} / Bản ghi: ${Number(data.database.total_price_records).toLocaleString()}`;
+        
+        // Populate select box
+        const select = document.getElementById('signals-symbol-select');
+        select.innerHTML = '';
+        availableSymbols.forEach(sym => {
+          const opt = document.createElement('option');
+          opt.value = sym;
+          opt.innerText = sym;
+          select.appendChild(opt);
+        });
+
+        // Populate backtest checkboxes
+        const container = document.getElementById('backtest-symbols-container');
+        container.innerHTML = '';
+        availableSymbols.forEach((sym, idx) => {
+          const div = document.createElement('div');
+          div.className = 'flex items-center space-x-2 text-xs';
+          div.innerHTML = `
+            <input type="checkbox" id="bt-sym-${sym}" value="${sym}" ${idx < 6 ? 'checked' : ''} class="rounded bg-gray-800 border-gray-700 text-emerald-500 focus:ring-0">
+            <label for="bt-sym-${sym}" class="font-mono text-gray-300 cursor-pointer">${sym}</label>
+          `;
+          container.appendChild(div);
+        });
+
+      } catch (e) {
+        console.error("Error fetching summary:", e);
+      }
+    }
+
+    // --- TAB 1: SIGNALS & CHART ---
+    async function loadSignalsTab() {
+      const select = document.getElementById('signals-symbol-select');
+      const symbol = select.value || (availableSymbols[0] || 'HPG');
+      document.getElementById('chart-symbol-badge').innerText = symbol;
+
+      try {
+        // 1. Fetch History for Chart
+        const histRes = await fetch(`/api/history/${symbol}?limit=300`);
+        const histData = await histRes.json();
+        renderPriceChart(symbol, histData.bars || []);
+
+        // 2. Fetch Confluence Signals
+        const sigRes = await fetch(`/api/signals/${symbol}?min_rr=1.5`);
+        const sigData = await sigRes.json();
+        renderSignalsTable(sigData.signals || []);
+      } catch (e) {
+        console.error("Error loading signals tab:", e);
+      }
+    }
+
+    function renderPriceChart(symbol, bars) {
+      if (!bars || bars.length === 0) return;
+
+      const labels = bars.map(b => b.time);
+      const closes = bars.map(b => b.close);
+      const volumes = bars.map(b => b.volume);
+      const latest = bars[bars.length - 1];
+
+      document.getElementById('chart-latest-price').innerHTML = `
+        <div class="text-base font-bold font-mono text-emerald-400">${Number(latest.close).toLocaleString()} VND</div>
+        <div class="text-[11px] text-gray-400">Phiên: ${latest.time} • KL: ${Number(latest.volume).toLocaleString()}</div>
+      `;
+
+      const ctx = document.getElementById('priceChart').getContext('2d');
+      if (priceChartInstance) {
+        priceChartInstance.destroy();
+      }
+
+      priceChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: `Giá đóng cửa ${symbol}`,
+              data: closes,
+              borderColor: '#10b981',
+              backgroundColor: 'rgba(16, 185, 129, 0.08)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.1,
+              pointRadius: 0,
+              yAxisID: 'y'
+            },
+            {
+              label: 'Khối lượng',
+              data: volumes,
+              type: 'bar',
+              backgroundColor: 'rgba(55, 65, 81, 0.5)',
+              yAxisID: 'y1',
+              barThickness: 2
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(255, 255, 255, 0.04)' },
+              ticks: { color: '#6b7280', maxTicksLimit: 8, font: { family: 'JetBrains Mono', size: 10 } }
+            },
+            y: {
+              position: 'right',
+              grid: { color: 'rgba(255, 255, 255, 0.04)' },
+              ticks: { color: '#10b981', font: { family: 'JetBrains Mono', size: 10 } }
+            },
+            y1: {
+              position: 'left',
+              display: false,
+              grid: { display: false }
+            }
+          }
+        }
+      });
+    }
+
+    function renderSignalsTable(signals) {
+      const tbody = document.getElementById('signals-table-body');
+      tbody.innerHTML = '';
+      document.getElementById('signals-count-label').innerText = `Tìm thấy ${signals.length} tín hiệu hợp lưu thỏa mãn điều kiện`;
+
+      if (signals.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="9" class="text-center py-8 text-gray-500">Chưa phát hiện tín hiệu hợp lưu nào cho mã này.</td></tr>`;
+        return;
+      }
+
+      signals.slice().reverse().forEach(s => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-gray-800/40 transition';
+        const isBuy = s.signal_type === 'BUY';
+        tr.innerHTML = `
+          <td class="py-3 px-3 font-semibold text-white">${s.trade_date}</td>
+          <td class="py-3 px-3">
+            <span class="px-2 py-0.5 rounded text-[11px] font-bold ${isBuy ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-rose-500/20 text-rose-400 border border-rose-500/30'}">
+              ${s.signal_type}
+            </span>
+          </td>
+          <td class="py-3 px-3 text-gray-300">[${Number(s.confluence_low).toLocaleString()} - ${Number(s.confluence_high).toLocaleString()}]</td>
+          <td class="py-3 px-3 font-bold text-emerald-400">${Number(s.limit_price).toLocaleString()}</td>
+          <td class="py-3 px-3 text-rose-400">${Number(s.stop_loss).toLocaleString()}</td>
+          <td class="py-3 px-3 text-blue-400">${Number(s.take_profit).toLocaleString()}</td>
+          <td class="py-3 px-3 text-right font-bold text-amber-400 font-mono">${s.risk_reward.toFixed(2)}</td>
+          <td class="py-3 px-3 text-center text-gray-400">${Number(s.gann_75_level).toLocaleString()}</td>
+          <td class="py-3 px-3 text-center text-purple-400">+${Number(s.fvg_size).toLocaleString()}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // --- TAB 2: BACKTEST STUDIO ---
+    function loadBacktestTabInitial() {
+      // If not yet run, trigger initial backtest
+      if (!equityChartInstance) {
+        executeBacktest();
+      }
+    }
+
+    async function executeBacktest() {
+      const btn = document.getElementById('btn-run-backtest');
+      btn.innerText = '⏳ Đang Chạy...';
+      btn.disabled = true;
+
+      // Collect checked symbols
+      const checkboxes = document.querySelectorAll('#backtest-symbols-container input[type="checkbox"]:checked');
+      const symbols = Array.from(checkboxes).map(c => c.value);
+      if (symbols.length === 0) {
+        alert("Vui lòng chọn ít nhất 1 mã cổ phiếu.");
+        btn.innerText = '🚀 Chạy Backtest Ngay';
+        btn.disabled = false;
+        return;
+      }
+
+      const payload = {
+        symbols: symbols,
+        capital: parseFloat(document.getElementById('bt-capital').value) || 100000000,
+        position_size: parseFloat(document.getElementById('bt-pos-size').value) || 0.20,
+        min_rr: parseFloat(document.getElementById('bt-min-rr').value) || 1.5,
+        entry_mode: document.getElementById('bt-entry-mode').value,
+        candle_mode: document.getElementById('bt-candle-mode').value,
+        swing_left: parseInt(document.getElementById('bt-swing-left').value) || 3,
+        swing_right: parseInt(document.getElementById('bt-swing-right').value) || 2
+      };
+
+      try {
+        const res = await fetch('/api/backtest', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        renderBacktestResults(data);
+      } catch (e) {
+        console.error("Backtest failed:", e);
+        alert("Lỗi thực thi backtest: " + e);
+      } finally {
+        btn.innerText = '🚀 Chạy Backtest Ngay';
+        btn.disabled = false;
+      }
+    }
+
+    function renderBacktestResults(data) {
+      const m = data.metrics;
+
+      // KPIs
+      document.getElementById('kpi-win-rate').innerText = `${m.win_rate_pct.toFixed(1)}%`;
+      document.getElementById('kpi-win-loss-count').innerText = `${m.win_count} Thắng / ${m.loss_count} Thua`;
+      document.getElementById('kpi-profit-factor').innerText = m.profit_factor.toFixed(2);
+      
+      const pnlEl = document.getElementById('kpi-net-pnl');
+      pnlEl.innerText = `${m.net_pnl >= 0 ? '+' : ''}${Math.round(m.net_pnl).toLocaleString()} VND`;
+      pnlEl.className = `text-xl font-bold font-mono ${m.net_pnl >= 0 ? 'text-emerald-400' : 'text-rose-400'}`;
+      document.getElementById('kpi-roi').innerText = `ROI: ${m.roi_pct.toFixed(2)}%`;
+
+      document.getElementById('kpi-ev').innerText = `${Math.round(m.expected_value_per_trade).toLocaleString()} VND`;
+      document.getElementById('kpi-max-dd').innerText = `${m.max_drawdown_pct.toFixed(2)}%`;
+      document.getElementById('kpi-total-trades').innerText = m.total_trades;
+      document.getElementById('kpi-fees').innerText = `Thuế/Phí: ${Math.round(m.total_fees_and_taxes || 0).toLocaleString()} VND`;
+
+      document.getElementById('backtest-verdict-badge').innerText = m.evaluation_verdict || 'PROFITABLE';
+
+      // Render Equity Curve
+      renderEquityChart(data.equity_curve || []);
+
+      // Render Trades Table
+      renderTradesTable(data.trades || []);
+    }
+
+    function renderEquityChart(curve) {
+      const labels = curve.map(c => c.date);
+      const equities = curve.map(c => c.equity);
+
+      const ctx = document.getElementById('equityChart').getContext('2d');
+      if (equityChartInstance) {
+        equityChartInstance.destroy();
+      }
+
+      equityChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Đường cong vốn (VND)',
+            data: equities,
+            borderColor: '#34d399',
+            backgroundColor: 'rgba(52, 211, 153, 0.08)',
+            borderWidth: 2.5,
+            fill: true,
+            tension: 0.15,
+            pointRadius: 3,
+            pointBackgroundColor: '#34d399'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: {
+              grid: { color: 'rgba(255, 255, 255, 0.04)' },
+              ticks: { color: '#6b7280', font: { family: 'JetBrains Mono', size: 10 } }
+            },
+            y: {
+              position: 'right',
+              grid: { color: 'rgba(255, 255, 255, 0.04)' },
+              ticks: {
+                color: '#34d399',
+                font: { family: 'JetBrains Mono', size: 10 },
+                callback: function(v) { return Number(v).toLocaleString() + ' đ'; }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function renderTradesTable(trades) {
+      const tbody = document.getElementById('trades-table-body');
+      tbody.innerHTML = '';
+      document.getElementById('trades-count-label').innerText = `Tổng số ${trades.length} giao dịch đã hoàn thành`;
+
+      if (trades.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="11" class="text-center py-8 text-gray-500">Chưa có giao dịch nào được thực hiện.</td></tr>`;
+        return;
+      }
+
+      trades.forEach(t => {
+        const isWin = t.net_pnl > 0;
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-gray-800/40 transition';
+        tr.innerHTML = `
+          <td class="py-3 px-3 font-bold text-white font-mono">${t.symbol}</td>
+          <td class="py-3 px-3">
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${t.direction === 'BUY' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-rose-500/20 text-rose-400'}">
+              ${t.direction}
+            </span>
+          </td>
+          <td class="py-3 px-3 text-gray-400">${t.entry_date}</td>
+          <td class="py-3 px-3 text-gray-200">${Number(t.entry_price).toLocaleString()}</td>
+          <td class="py-3 px-3 text-gray-400">${t.exit_date}</td>
+          <td class="py-3 px-3 text-gray-200">${Number(t.exit_price).toLocaleString()}</td>
+          <td class="py-3 px-3">
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-semibold ${t.exit_reason === 'TAKE_PROFIT' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'}">
+              ${t.exit_reason}
+            </span>
+          </td>
+          <td class="py-3 px-3 text-right text-gray-300">${Number(t.quantity).toLocaleString()}</td>
+          <td class="py-3 px-3 text-right font-bold ${isWin ? 'text-emerald-400' : 'text-rose-400'}">
+            ${isWin ? '+' : ''}${Math.round(t.net_pnl).toLocaleString()}
+          </td>
+          <td class="py-3 px-3 text-right font-bold ${isWin ? 'text-emerald-400' : 'text-rose-400'}">
+            ${isWin ? '+' : ''}${t.return_pct.toFixed(2)}%
+          </td>
+          <td class="py-3 px-3 text-right text-gray-400">${Math.round(t.fees_paid).toLocaleString()}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // --- TAB 3: SENSITIVITY GRID ---
+    async function loadSensitivityTab() {
+      const tbody = document.getElementById('sensitivity-table-body');
+      tbody.innerHTML = `<tr><td colspan="7" class="text-center py-6 text-gray-400">Đang tải ma trận tham số...</td></tr>`;
+
+      try {
+        const res = await fetch('/api/sensitivity');
+        const data = await res.json();
+        tbody.innerHTML = '';
+        if (!data.items || data.items.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="7" class="text-center py-6 text-gray-500">Chưa có dữ liệu độ nhạy. Hãy chạy "python main.py scan-params" để tạo dữ liệu.</td></tr>`;
+          return;
+        }
+
+        data.items.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-gray-800/40 transition';
+          const isProfitable = row.net_pnl > 0;
+          tr.innerHTML = `
+            <td class="py-2.5 px-3 font-semibold text-gray-200">${row.parameters}</td>
+            <td class="py-2.5 px-3 text-center text-gray-400">${row.total_trades}</td>
+            <td class="py-2.5 px-3 text-center font-bold ${row.win_rate_pct >= 40 ? 'text-emerald-400' : 'text-amber-400'}">${Number(row.win_rate_pct).toFixed(1)}%</td>
+            <td class="py-2.5 px-3 text-center font-bold ${row.profit_factor >= 1.5 ? 'text-emerald-400' : 'text-rose-400'}">${Number(row.profit_factor).toFixed(2)}</td>
+            <td class="py-2.5 px-3 text-right font-bold ${isProfitable ? 'text-emerald-400' : 'text-rose-400'}">
+              ${isProfitable ? '+' : ''}${Number(row.net_pnl).toLocaleString()}
+            </td>
+            <td class="py-2.5 px-3 text-center text-gray-400">${Number(row.max_drawdown_pct).toFixed(2)}%</td>
+            <td class="py-2.5 px-3 text-left">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${isProfitable ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'}">
+                ${row.verdict || (isProfitable ? 'PROFITABLE' : 'UNPROFITABLE')}
+              </span>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } catch (e) {
+        console.error("Error loading sensitivity:", e);
+      }
+    }
+
+    // --- TAB 4: DATA MANAGER ---
+    async function loadDataTab() {
+      const tbody = document.getElementById('data-symbols-table-body');
+      tbody.innerHTML = `<tr><td colspan="7" class="text-center py-6 text-gray-400">Đang tải danh mục cổ phiếu...</td></tr>`;
+
+      try {
+        const res = await fetch('/api/symbols');
+        const symbols = await res.json();
+        document.getElementById('data-symbols-count').innerText = `Tổng cộng: ${symbols.length} mã đã lưu trữ`;
+        tbody.innerHTML = '';
+
+        symbols.forEach(s => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-gray-800/40 transition';
+          tr.innerHTML = `
+            <td class="py-3 px-3 font-bold text-emerald-400">${s.symbol}</td>
+            <td class="py-3 px-3 text-gray-300">${s.company_name}</td>
+            <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-gray-800 text-[11px] text-gray-400 font-mono">${s.exchange}</span></td>
+            <td class="py-3 px-3 text-right text-gray-200">${Number(s.bars_count).toLocaleString()}</td>
+            <td class="py-3 px-3 text-center text-gray-400">${s.start_date}</td>
+            <td class="py-3 px-3 text-center text-gray-400">${s.end_date}</td>
+            <td class="py-3 px-3 text-center">
+              <button onclick="viewSymbolInSignals('${s.symbol}')" class="px-2.5 py-1 rounded bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-emerald-400 text-xs transition">
+                Xem Tín Hiệu
+              </button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } catch (e) {
+        console.error("Error loading data tab:", e);
+      }
+    }
+
+    function viewSymbolInSignals(symbol) {
+      const select = document.getElementById('signals-symbol-select');
+      select.value = symbol;
+      switchTab('signals');
+    }
+
+    async function executeFetch() {
+      const input = document.getElementById('fetch-symbols-input');
+      const symbols = input.value.trim();
+      if (!symbols) {
+        alert("Vui lòng nhập ít nhất 1 mã cổ phiếu (ví dụ: TCB, MBB, VIC).");
+        return;
+      }
+
+      const btn = document.getElementById('btn-fetch');
+      const msg = document.getElementById('fetch-status-msg');
+      btn.innerText = '⏳ Đang Tải Dữ Liệu...';
+      btn.disabled = true;
+      msg.innerText = 'Đang kết nối Yahoo Finance, tải và kiểm định chất lượng OHLC...';
+
+      try {
+        const res = await fetch('/api/fetch', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ symbols: symbols })
+        });
+        const data = await res.json();
+        msg.className = 'text-xs text-emerald-400';
+        msg.innerText = `✅ Tải thành công! Batch ID: ${data.batch_id}. Đã cập nhật database.`;
+        input.value = '';
+        await fetchSummary();
+        await loadDataTab();
+      } catch (e) {
+        msg.className = 'text-xs text-rose-400';
+        msg.innerText = `❌ Lỗi khi tải dữ liệu: ${e}`;
+      } finally {
+        btn.innerText = '📥 Bắt Đầu Tải Dữ Liệu';
+        btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>

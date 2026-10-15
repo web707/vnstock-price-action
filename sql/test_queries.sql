@@ -1,0 +1,81 @@
+-- ============================================================================
+-- TRUY VẤN KIỂM TRA DỮ LIỆU VÀ PHỤC VỤ BACKTESTING TRÊN ORACLE DATABASE
+-- ============================================================================
+
+-- 1. Báo cáo tổng quan số lượng dữ liệu
+SELECT 
+    (SELECT COUNT(*) FROM STOCK_SYMBOLS) AS TOTAL_SYMBOLS,
+    (SELECT COUNT(*) FROM STOCK_PRICES) AS TOTAL_PRICE_RECORDS,
+    (SELECT COUNT(DISTINCT SYMBOL) FROM STOCK_PRICES) AS SYMBOLS_WITH_DATA,
+    (SELECT MIN(TRADE_DATE) FROM STOCK_PRICES) AS EARLIEST_DATE,
+    (SELECT MAX(TRADE_DATE) FROM STOCK_PRICES) AS LATEST_DATE
+FROM DUAL;
+
+-- 2. Thống kê theo từng sàn giao dịch
+SELECT 
+    s.EXCHANGE,
+    COUNT(DISTINCT s.SYMBOL) AS TOTAL_SYMBOLS,
+    COUNT(DISTINCT p.SYMBOL) AS SYMBOLS_WITH_DATA,
+    COUNT(p.TRADE_DATE) AS TOTAL_RECORDS,
+    MIN(p.TRADE_DATE) AS MIN_DATE,
+    MAX(p.TRADE_DATE) AS MAX_DATE
+FROM STOCK_SYMBOLS s
+LEFT JOIN STOCK_PRICES p ON s.SYMBOL = p.SYMBOL
+GROUP BY s.EXCHANGE
+ORDER BY s.EXCHANGE;
+
+-- 3. Lấy chuỗi giá lịch sử của một mã cổ phiếu (phục vụ Single Stock Backtesting)
+SELECT 
+    SYMBOL,
+    TO_CHAR(TRADE_DATE, 'YYYY-MM-DD') AS TRADE_DATE,
+    OPEN_PRICE,
+    HIGH_PRICE,
+    LOW_PRICE,
+    CLOSE_PRICE,
+    ADJ_CLOSE,
+    VOLUME,
+    QUALITY_STATUS
+FROM STOCK_PRICES
+WHERE SYMBOL = 'HPG'
+  AND TRADE_DATE BETWEEN TO_DATE('2020-01-01', 'YYYY-MM-DD') AND TO_DATE('2026-12-31', 'YYYY-MM-DD')
+ORDER BY TRADE_DATE ASC;
+
+-- 4. Lấy dữ liệu toàn bộ cổ phiếu tại một ngày giao dịch cụ thể (phục vụ Cross-sectional Portfolio Screening)
+SELECT 
+    p.SYMBOL,
+    s.EXCHANGE,
+    p.OPEN_PRICE,
+    p.HIGH_PRICE,
+    p.LOW_PRICE,
+    p.CLOSE_PRICE,
+    p.ADJ_CLOSE,
+    p.VOLUME
+FROM STOCK_PRICES p
+JOIN STOCK_SYMBOLS s ON p.SYMBOL = s.SYMBOL
+WHERE p.TRADE_DATE = TO_DATE('2026-10-15', 'YYYY-MM-DD')
+ORDER BY p.VOLUME DESC;
+
+-- 5. Kiểm tra tính toàn vẹn (Không có bản ghi nào bị Low > High hoặc giá âm)
+SELECT COUNT(*) AS INVALID_RECORDS
+FROM STOCK_PRICES
+WHERE LOW_PRICE > HIGH_PRICE 
+   OR OPEN_PRICE <= 0 
+   OR CLOSE_PRICE <= 0 
+   OR VOLUME < 0;
+
+-- 6. Xem nhật ký các đợt import gần nhất
+SELECT 
+    BATCH_ID,
+    SYMBOL,
+    TASK_TYPE,
+    STATUS,
+    RECORDS_FETCHED,
+    RECORDS_INSERTED,
+    RECORDS_UPDATED,
+    RECORDS_REJECTED,
+    START_TIME,
+    END_TIME,
+    ERROR_MESSAGE
+FROM DATA_IMPORT_LOGS
+ORDER BY START_TIME DESC
+FETCH FIRST 20 ROWS ONLY;
