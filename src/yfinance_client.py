@@ -38,6 +38,7 @@ class YFinanceClient:
         period: str = "max",
         start: Optional[str] = None,
         end: Optional[str] = None,
+        interval: str = "1d",
         auto_adjust: bool = False
     ) -> Tuple[Optional[pd.DataFrame], Optional[str]]:
         """
@@ -51,13 +52,17 @@ class YFinanceClient:
         clean_ticker = ticker.strip().upper()
         last_error = None
 
+        # Normalize period for intraday intervals if max was requested
+        if interval in ("1m", "2m", "5m", "15m", "30m", "60m", "90m", "1h") and period == "max":
+            period = "60d"
+
         for attempt in range(1, self.max_retries + 1):
             try:
                 self._sleep_with_jitter()
                 yf_ticker = yf.Ticker(clean_ticker)
 
                 # Fetch history
-                kwargs: Dict[str, Any] = {"auto_adjust": auto_adjust}
+                kwargs: Dict[str, Any] = {"auto_adjust": auto_adjust, "interval": interval}
                 if start or end:
                     if start:
                         kwargs["start"] = start
@@ -132,3 +137,17 @@ class YFinanceClient:
         clean_ticker = ticker.strip().upper()
         df, err = self.fetch_historical(clean_ticker, period="5d")
         return df is not None and not df.empty
+
+    def fetch_intraday(
+        self,
+        symbol: str,
+        interval: str = "15m",
+        period: str = "60d"
+    ) -> Tuple[Optional[pd.DataFrame], Optional[str]]:
+        """
+        Fetch intraday candles (e.g. 15m) for a Vietnam stock symbol (e.g. HPG -> HPG.VN).
+        """
+        clean_sym = symbol.strip().upper()
+        ticker = f"{clean_sym}.VN" if not clean_sym.endswith(".VN") else clean_sym
+        return self.fetch_historical(ticker=ticker, period=period, interval=interval)
+

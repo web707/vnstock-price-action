@@ -108,20 +108,40 @@ def get_symbols():
 
 
 @app.get("/api/history/{symbol}")
-def get_history(symbol: str, limit: int = 1000):
-    """Return historical OHLCV bars formatted for charts."""
-    repo = get_repo()
+def get_history(symbol: str, timeframe: str = "15m", source: str = "api", limit: int = 1000):
+    """Return historical OHLCV bars formatted for charts, supporting live 15m API."""
     sym = symbol.upper().strip()
-    df = repo.query_historical_prices(sym)
+    
+    if source == "api" or timeframe != "1d":
+        yf_client = YFinanceClient(request_delay=0.1)
+        period = "60d" if timeframe in ("1m", "5m", "15m", "30m", "60m", "1h") else "max"
+        raw_df, err = yf_client.fetch_intraday(sym, interval=timeframe, period=period)
+        if raw_df is not None and not raw_df.empty:
+            df = raw_df.reset_index()
+            dt_col = "Datetime" if "Datetime" in df.columns else ("Date" if "Date" in df.columns else df.columns[0])
+            df["TRADE_DATE"] = df[dt_col]
+            df["OPEN_PRICE"] = df["Open"]
+            df["HIGH_PRICE"] = df["High"]
+            df["LOW_PRICE"] = df["Low"]
+            df["CLOSE_PRICE"] = df["Close"]
+            df["VOLUME"] = df["Volume"]
+        else:
+            repo = get_repo()
+            df = repo.query_historical_prices(sym)
+    else:
+        repo = get_repo()
+        df = repo.query_historical_prices(sym)
+
     if df.empty:
         raise HTTPException(status_code=404, detail=f"No data found for symbol {sym}")
 
     if len(df) > limit:
         df = df.iloc[-limit:]
 
+    is_intraday = timeframe != "1d"
     records = []
     for _, row in df.iterrows():
-        t_date = str(row["TRADE_DATE"])[:10]
+        t_date = str(row["TRADE_DATE"])[:16].replace("T", " ") if is_intraday else str(row["TRADE_DATE"])[:10]
         records.append({
             "time": t_date,
             "open": float(row["OPEN_PRICE"]),
@@ -132,6 +152,8 @@ def get_history(symbol: str, limit: int = 1000):
         })
     return {
         "symbol": sym,
+        "timeframe": timeframe,
+        "source": "api" if (source == "api" or timeframe != "1d") else "db",
         "count": len(records),
         "bars": records
     }
@@ -192,15 +214,36 @@ def get_signals(
 @app.get("/api/swings/{symbol}")
 def get_swings(
     symbol: str,
+    timeframe: str = "15m",
+    source: str = "api",
     mult: float = 2.0,
     swing_left: int = 3,
     swing_right: int = 3,
     limit: int = 100
 ):
     """Detect and return swing points adhering strictly to the 'Phát hiện điểm Swing' specification."""
-    repo = get_repo()
     sym = symbol.upper().strip()
-    df_raw = repo.query_historical_prices(sym)
+
+    if source == "api" or timeframe != "1d":
+        yf_client = YFinanceClient(request_delay=0.1)
+        period = "60d" if timeframe in ("1m", "5m", "15m", "30m", "60m", "1h") else "max"
+        raw_df, err = yf_client.fetch_intraday(sym, interval=timeframe, period=period)
+        if raw_df is not None and not raw_df.empty:
+            df_raw = raw_df.reset_index()
+            dt_col = "Datetime" if "Datetime" in df_raw.columns else ("Date" if "Date" in df_raw.columns else df_raw.columns[0])
+            df_raw["TRADE_DATE"] = df_raw[dt_col]
+            df_raw["OPEN_PRICE"] = df_raw["Open"]
+            df_raw["HIGH_PRICE"] = df_raw["High"]
+            df_raw["LOW_PRICE"] = df_raw["Low"]
+            df_raw["CLOSE_PRICE"] = df_raw["Close"]
+            df_raw["VOLUME"] = df_raw["Volume"]
+        else:
+            repo = get_repo()
+            df_raw = repo.query_historical_prices(sym)
+    else:
+        repo = get_repo()
+        df_raw = repo.query_historical_prices(sym)
+
     if df_raw.empty:
         raise HTTPException(status_code=404, detail=f"No data found for symbol {sym}")
 
@@ -221,17 +264,18 @@ def get_swings(
 
     records = []
     prev_price = None
+    date_len = 16 if timeframe != "1d" else 10
     for _, s in all_swings[-limit:]:
         pct_change = ((s.price - prev_price) / prev_price * 100.0) if prev_price is not None else None
         prev_price = s.price
         records.append({
             "index": s.index,
-            "trade_date": str(s.trade_date)[:10],
+            "trade_date": str(s.trade_date)[:date_len].replace("T", " "),
             "price": float(s.price),
             "point_type": s.point_type,
             "structure_type": s.structure_type,
             "confirmed_at_index": s.confirmed_at_index,
-            "confirmed_date": str(s.confirmed_date)[:10] if s.confirmed_date else None,
+            "confirmed_date": str(s.confirmed_date)[:date_len].replace("T", " ") if s.confirmed_date else None,
             "confirmation_delay": s.confirmed_at_index - s.index,
             "atr": float(s.atr_at_candidate) if s.atr_at_candidate else None,
             "reversal_threshold": float(s.reversal_threshold) if s.reversal_threshold else None,
@@ -241,6 +285,8 @@ def get_swings(
 
     return {
         "symbol": sym,
+        "timeframe": timeframe,
+        "source": "api" if (source == "api" or timeframe != "1d") else "db",
         "total_swings": len(all_swings),
         "swing_highs_count": len(shs),
         "swing_lows_count": len(sls),
@@ -248,6 +294,7 @@ def get_swings(
         "reversal_mult": mult,
         "swings": records
     }
+
 
 
 
