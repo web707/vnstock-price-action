@@ -626,3 +626,417 @@ class MarketStructureTracker:
             "active_swing_high": active_sh[-1].price if active_sh else None,
             "active_swing_low": active_sl[-1].price if active_sl else None
         }
+
+
+# ==============================================================================
+# LAYER 2: MARKET STRUCTURE BUILDER (CHỨC NĂNG KIỂM THỬ THEO NGÀY)
+# ==============================================================================
+
+def to_comparable_timestamp(dt_val: Any) -> Optional[pd.Timestamp]:
+    """
+    Converts any datetime, date, string or Timestamp into a tz-naive Timestamp
+    to allow consistent, robust comparisons across heterogeneous datasets.
+    """
+    if dt_val is None:
+        return None
+    try:
+        ts = pd.to_datetime(dt_val)
+        if getattr(ts, "tzinfo", None) is not None:
+            ts = ts.tz_localize(None)
+        return ts
+    except Exception:
+        return None
+
+
+def parse_test_cutoff(
+    test_date: Optional[str] = None,
+    test_datetime: Optional[str] = None
+) -> Tuple[Optional[pd.Timestamp], Optional[str]]:
+    """
+    Parses test_date or test_datetime with strict format and boundary validation (Section 3 & 4).
+    
+    Rules:
+    - If neither test_date nor test_datetime is provided: returns (None, None) -> full historical evaluation.
+    - If test_datetime is provided:
+        Accepts: YYYY-MM-DD HH:MM:SS or YYYY-MM-DD HH:MM (or ISO 'T').
+        Must be a valid calendar date and valid 24h clock time.
+        Raises ValueError with clear message if invalid.
+        Cutoff is set to the exact specified datetime.
+    - If only test_date is provided:
+        Accepts: YYYY-MM-DD.
+        Must be a valid calendar date.
+        Raises ValueError with clear message if invalid.
+        Default cutoff is set to 23:59:59 of that date (end of trading day).
+    """
+    from datetime import datetime
+
+    if test_datetime:
+        s = str(test_datetime).strip().replace("T", " ")
+        parsed_dt = None
+        for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M"):
+            try:
+                parsed_dt = datetime.strptime(s, fmt)
+                break
+            except ValueError:
+                pass
+
+        if parsed_dt is None:
+            raise ValueError(
+                f"Thời điểm kiểm thử test_datetime không hợp lệ: {test_datetime!r}. "
+                f"Định dạng yêu cầu: YYYY-MM-DD HH:MM[:SS]"
+            )
+        ts = pd.Timestamp(parsed_dt)
+        return ts, s
+
+    elif test_date:
+        s = str(test_date).strip()
+        try:
+            d = datetime.strptime(s, "%Y-%m-%d")
+        except ValueError as e:
+            raise ValueError(
+                f"Ngày kiểm thử test_date không hợp lệ: {test_date!r}. "
+                f"Định dạng yêu cầu: YYYY-MM-DD (chi tiết: {e})"
+            )
+        dt = datetime(d.year, d.month, d.day, 23, 59, 59)
+        ts = pd.Timestamp(dt)
+        return ts, f"{s} 23:59:59"
+
+    return None, None
+
+
+@dataclass
+class MarketStructure:
+    structure_id: str
+    direction: str  # 'UP', 'DOWN', 'UNCLEAR'
+    status: str     # 'CONFIRMED', 'FORMING', 'BROKEN', 'UNCLEAR'
+    formed_at_time: Any
+    confirmed_at_time: Optional[Any]
+    broken_at_time: Optional[Any]
+    anchor_swing: SwingPoint
+    broken_swing: Optional[SwingPoint]
+    range_low: float
+    range_high: float
+    break_price: Optional[float]
+
+
+@dataclass
+class MarketStructureReport:
+    symbol: str
+    timeframe: str
+    test_date: Optional[str]
+    test_datetime: Optional[str]
+    cutoff_time: Optional[str]
+    total_input_swings: int
+    used_swings_count: int
+    excluded_swings_count: int
+    used_swings: List[Dict[str, Any]]
+    excluded_swings: List[Dict[str, Any]]
+    structures: List[Dict[str, Any]]
+    last_two_structures: List[Dict[str, Any]]
+    current_structure: Optional[Dict[str, Any]]
+    active_trading_range: Dict[str, Optional[float]]
+    has_two_structures: bool
+    trend: str  # 'UP', 'DOWN', 'NEUTRAL'
+    is_long_candidate: bool
+    reason_code: str
+    rule_version: str
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert report to JSON-serializable dictionary."""
+        return {
+            "symbol": self.symbol,
+            "timeframe": self.timeframe,
+            "test_date": self.test_date,
+            "test_datetime": self.test_datetime,
+            "cutoff_time": self.cutoff_time,
+            "total_input_swings": self.total_input_swings,
+            "used_swings_count": self.used_swings_count,
+            "excluded_swings_count": self.excluded_swings_count,
+            "used_swings": self.used_swings,
+            "excluded_swings": self.excluded_swings,
+            "structures": self.structures,
+            "last_two_structures": self.last_two_structures,
+            "current_structure": self.current_structure,
+            "active_trading_range": self.active_trading_range,
+            "has_two_structures": self.has_two_structures,
+            "trend": self.trend,
+            "is_long_candidate": self.is_long_candidate,
+            "reason_code": self.reason_code,
+            "rule_version": self.rule_version
+        }
+
+
+class MarketStructureBuilder:
+    """
+    Layer 2: Market Structure Builder.
+    Consumes Layer 1 Swings and builds market structures up to an arbitrary cutoff date/datetime
+    strictly without future lookahead bias (Sections 1-7).
+    """
+
+    def __init__(
+        self,
+        tracker: Optional[MarketStructureTracker] = None,
+        rule_version: str = "v2.0-pruni-15m"
+    ):
+        self.tracker = tracker or MarketStructureTracker(method="zigzag")
+        self.rule_version = rule_version
+
+    def build_structure(
+        self,
+        df: pd.DataFrame,
+        symbol: str = "HPG",
+        timeframe: str = "15m",
+        test_date: Optional[str] = None,
+        test_datetime: Optional[str] = None,
+        precomputed_swings: Optional[Tuple[List[SwingPoint], List[SwingPoint]]] = None
+    ) -> MarketStructureReport:
+        """
+        Builds and evaluates market structure strictly up to test_date / test_datetime.
+        Read-only, non-destructive, and deterministic.
+        """
+        # 1. Validate & Parse Cutoff
+        cutoff_ts, cutoff_str = parse_test_cutoff(test_date=test_date, test_datetime=test_datetime)
+
+        # 2. Clean OHLCV Data
+        df_clean = validate_and_clean_data(df)
+        if df_clean.empty:
+            return MarketStructureReport(
+                symbol=symbol,
+                timeframe=timeframe,
+                test_date=test_date,
+                test_datetime=test_datetime,
+                cutoff_time=cutoff_str,
+                total_input_swings=0,
+                used_swings_count=0,
+                excluded_swings_count=0,
+                used_swings=[],
+                excluded_swings=[],
+                structures=[],
+                last_two_structures=[],
+                current_structure=None,
+                active_trading_range={"range_low": None, "range_high": None},
+                has_two_structures=False,
+                trend="NEUTRAL",
+                is_long_candidate=False,
+                reason_code="INSUFFICIENT_DATA",
+                rule_version=self.rule_version
+            )
+
+        date_col = "TRADE_DATE" if "TRADE_DATE" in df_clean.columns else df_clean.columns[0]
+        ts_series = df_clean[date_col].apply(to_comparable_timestamp)
+
+        # 3. Filter price bars strictly up to cutoff (zero lookahead!)
+        if cutoff_ts is not None:
+            mask = ts_series <= cutoff_ts
+            df_cutoff = df_clean[mask].copy().reset_index(drop=True)
+            if df_cutoff.empty or len(df_cutoff) < 5:
+                return MarketStructureReport(
+                    symbol=symbol,
+                    timeframe=timeframe,
+                    test_date=test_date,
+                    test_datetime=test_datetime,
+                    cutoff_time=cutoff_str,
+                    total_input_swings=0,
+                    used_swings_count=0,
+                    excluded_swings_count=0,
+                    used_swings=[],
+                    excluded_swings=[],
+                    structures=[],
+                    last_two_structures=[],
+                    current_structure=None,
+                    active_trading_range={"range_low": None, "range_high": None},
+                    has_two_structures=False,
+                    trend="NEUTRAL",
+                    is_long_candidate=False,
+                    reason_code="INSUFFICIENT_STRUCTURE",
+                    rule_version=self.rule_version
+                )
+        else:
+            df_cutoff = df_clean.copy()
+            cutoff_str = None
+
+        # 4. Detect or Receive Swings from Layer 1
+        if precomputed_swings is not None:
+            shs, sls = precomputed_swings
+        else:
+            shs, sls = self.tracker.detect_swings(df_clean)
+
+        all_swings = shs + sls
+        all_swings.sort(key=lambda s: s.index)
+
+        # 5. Apply Strict Cutoff Rules to Swings (Section 4)
+        used_swings: List[SwingPoint] = []
+        excluded_swings_info: List[Dict[str, Any]] = []
+
+        for s in all_swings:
+            s_conf_ts = to_comparable_timestamp(s.confirmed_date)
+            s_ext_ts = to_comparable_timestamp(s.trade_date)
+
+            if cutoff_ts is None or (s_conf_ts is not None and s_conf_ts <= cutoff_ts):
+                # Valid swing: confirmed at or before cutoff
+                # (Note: historical swings with s_ext_ts < test_date are retained!)
+                used_swings.append(s)
+            else:
+                # Excluded: confirmed after cutoff, even if extreme happened before cutoff!
+                excluded_swings_info.append({
+                    "swing_id": f"SW_{s.index}",
+                    "swing_type": s.point_type,
+                    "extreme_price": float(s.price),
+                    "extreme_time": str(s.trade_date)[:19].replace("T", " "),
+                    "confirmed_at": str(s.confirmed_date)[:19].replace("T", " ") if s.confirmed_date else None,
+                    "exclusion_reason": "CONFIRMED_AFTER_CUTOFF"
+                })
+
+        # Format used swings for debug
+        used_swings_info: List[Dict[str, Any]] = []
+        for s in used_swings:
+            used_swings_info.append({
+                "swing_id": f"SW_{s.index}",
+                "swing_type": s.point_type,
+                "extreme_price": float(s.price),
+                "extreme_time": str(s.trade_date)[:19].replace("T", " "),
+                "confirmed_at": str(s.confirmed_date)[:19].replace("T", " ") if s.confirmed_date else None,
+                "confirmation_delay": int(s.confirmed_at_index - s.index),
+                "structure_label": s.structure_type or s.point_type,
+                "atr": float(s.atr_at_candidate) if s.atr_at_candidate else None,
+                "reversal_threshold": float(s.reversal_threshold) if s.reversal_threshold else None,
+                "volume_ratio": float(s.volume_ratio) if s.volume_ratio else None
+            })
+
+        if not used_swings:
+            return MarketStructureReport(
+                symbol=symbol,
+                timeframe=timeframe,
+                test_date=test_date,
+                test_datetime=test_datetime,
+                cutoff_time=cutoff_str,
+                total_input_swings=len(all_swings),
+                used_swings_count=0,
+                excluded_swings_count=len(excluded_swings_info),
+                used_swings=[],
+                excluded_swings=excluded_swings_info,
+                structures=[],
+                last_two_structures=[],
+                current_structure=None,
+                active_trading_range={"range_low": None, "range_high": None},
+                has_two_structures=False,
+                trend="NEUTRAL",
+                is_long_candidate=False,
+                reason_code="NO_SWINGS_AVAILABLE",
+                rule_version=self.rule_version
+            )
+
+        # 6. Build Structures & Structure Breaks using only used_swings and df_cutoff
+        used_sh = [s for s in used_swings if s.point_type == "HIGH"]
+        used_sl = [s for s in used_swings if s.point_type == "LOW"]
+
+        raw_breaks = self.tracker.compute_all_structure_breaks(df_cutoff, used_sh, used_sl)
+
+        l_col = "LOW_PRICE" if "LOW_PRICE" in df_cutoff.columns else "Low"
+        h_col = "HIGH_PRICE" if "HIGH_PRICE" in df_cutoff.columns else "High"
+
+        structures_info: List[Dict[str, Any]] = []
+        for idx, b in enumerate(raw_breaks, 1):
+            direction = "UP" if b.direction == "BULLISH" else "DOWN"
+            status = "CONFIRMED"
+            broken_at = None
+
+            # Check invalidation: has price violated the range before cutoff?
+            sub_after_break = df_cutoff.iloc[b.break_index:]
+            if direction == "UP":
+                invalid_bars = sub_after_break[sub_after_break[l_col] < b.range_low]
+                if not invalid_bars.empty:
+                    status = "BROKEN"
+                    broken_at = str(invalid_bars.iloc[0][date_col])[:19].replace("T", " ")
+            else:
+                invalid_bars = sub_after_break[sub_after_break[h_col] > b.range_high]
+                if not invalid_bars.empty:
+                    status = "BROKEN"
+                    broken_at = str(invalid_bars.iloc[0][date_col])[:19].replace("T", " ")
+
+            structures_info.append({
+                "structure_id": f"STRUCT_{idx:03d}",
+                "direction": direction,
+                "status": status,
+                "formed_at_time": str(b.anchor_swing.trade_date)[:19].replace("T", " "),
+                "confirmed_at_time": str(b.break_date)[:19].replace("T", " "),
+                "broken_at_time": broken_at,
+                "anchor_price": float(b.anchor_swing.price),
+                "broken_price": float(b.broken_swing.price),
+                "break_price": float(b.break_price),
+                "range_low": float(b.range_low),
+                "range_high": float(b.range_high)
+            })
+
+        # 7. Evaluate Two Structures & Long Candidate (Section 5)
+        if len(structures_info) < 2:
+            current_s = structures_info[-1] if structures_info else None
+            return MarketStructureReport(
+                symbol=symbol,
+                timeframe=timeframe,
+                test_date=test_date,
+                test_datetime=test_datetime,
+                cutoff_time=cutoff_str,
+                total_input_swings=len(all_swings),
+                used_swings_count=len(used_swings),
+                excluded_swings_count=len(excluded_swings_info),
+                used_swings=used_swings_info,
+                excluded_swings=excluded_swings_info,
+                structures=structures_info,
+                last_two_structures=structures_info,
+                current_structure=current_s,
+                active_trading_range={
+                    "range_low": current_s["range_low"] if current_s else None,
+                    "range_high": current_s["range_high"] if current_s else None
+                },
+                has_two_structures=False,
+                trend=current_s["direction"] if current_s else "NEUTRAL",
+                is_long_candidate=False,
+                reason_code="INSUFFICIENT_STRUCTURE",
+                rule_version=self.rule_version
+            )
+
+        last_1 = structures_info[-1]
+        last_2 = structures_info[-2]
+        last_two = [last_2, last_1]
+        has_two = (last_1["direction"] == last_2["direction"])
+        trend = last_1["direction"] if has_two else "NEUTRAL"
+        r_low = min(last_1["range_low"], last_2["range_low"])
+        r_high = max(last_1["range_high"], last_2["range_high"])
+
+        if has_two and last_1["direction"] == "UP":
+            if last_1["status"] != "BROKEN":
+                is_long_candidate = True
+                reason_code = "TWO_UP_STRUCTURES_CONFIRMED"
+            else:
+                is_long_candidate = False
+                reason_code = "STRUCTURE_BROKEN"
+        elif last_1["direction"] == "DOWN":
+            is_long_candidate = False
+            reason_code = "DOWN_TREND"
+        else:
+            is_long_candidate = False
+            reason_code = "MIXED_STRUCTURES"
+
+        return MarketStructureReport(
+            symbol=symbol,
+            timeframe=timeframe,
+            test_date=test_date,
+            test_datetime=test_datetime,
+            cutoff_time=cutoff_str,
+            total_input_swings=len(all_swings),
+            used_swings_count=len(used_swings),
+            excluded_swings_count=len(excluded_swings_info),
+            used_swings=used_swings_info,
+            excluded_swings=excluded_swings_info,
+            structures=structures_info,
+            last_two_structures=last_two,
+            current_structure=last_1,
+            active_trading_range={"range_low": r_low, "range_high": r_high},
+            has_two_structures=has_two,
+            trend=trend,
+            is_long_candidate=is_long_candidate,
+            reason_code=reason_code,
+            rule_version=self.rule_version
+        )
+

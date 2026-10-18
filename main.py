@@ -378,13 +378,133 @@ def cmd_web(args):
     uvicorn.run(app, host=host, port=port, log_level="warning")
 
 
+def cmd_layer2(args):
+    """
+    Execute Layer 2: Market Structure Builder with optional test date / datetime.
+    """
+    import json
+    from src.strategy.market_structure import MarketStructureBuilder, MarketStructureTracker, validate_and_clean_data
+
+    symbol = getattr(args, "symbol", getattr(args, "symbols", "HPG"))
+    if isinstance(symbol, str) and "," in symbol:
+        symbol = symbol.split(",")[0].strip()
+    test_date = getattr(args, "date", None)
+    test_datetime = getattr(args, "datetime", None)
+    timeframe = getattr(args, "timeframe", "15m")
+    source = getattr(args, "source", "api")
+    as_json = getattr(args, "json", False)
+
+    clean_sym = symbol.strip().upper()
+    if source == "api" or timeframe != "1d":
+        yf_client = YFinanceClient(request_delay=0.1)
+        period = "60d" if timeframe in ("1m", "5m", "15m", "30m", "60m", "1h") else "max"
+        raw_df, err = yf_client.fetch_intraday(clean_sym, interval=timeframe, period=period)
+        if raw_df is not None and not raw_df.empty:
+            df = raw_df.reset_index()
+            dt_col = "Datetime" if "Datetime" in df.columns else ("Date" if "Date" in df.columns else df.columns[0])
+            df["TRADE_DATE"] = df[dt_col]
+            df["OPEN_PRICE"] = df["Open"]
+            df["HIGH_PRICE"] = df["High"]
+            df["LOW_PRICE"] = df["Low"]
+            df["CLOSE_PRICE"] = df["Close"]
+            df["VOLUME"] = df["Volume"]
+        else:
+            repo = get_repository(force_mock=True)
+            df = repo.query_historical_prices(clean_sym)
+    else:
+        repo = get_repository(force_mock=True)
+        df = repo.query_historical_prices(clean_sym)
+
+    if df.empty:
+        logger.error(f"Không có dữ liệu cho mã {clean_sym}")
+        sys.exit(1)
+
+    builder = MarketStructureBuilder()
+    report = builder.build_structure(
+        df=df,
+        symbol=clean_sym,
+        timeframe=timeframe,
+        test_date=test_date,
+        test_datetime=test_datetime
+    )
+
+    if as_json:
+        print(json.dumps(report.to_dict(), indent=2, ensure_ascii=False))
+        return
+
+    print("\n" + "=" * 115)
+    print("      LAYER 2 — MARKET STRUCTURE BUILDER (KIỂM THỬ CẤU TRÚC THEO NGÀY)")
+    print(f"      Mã: {report.symbol} | Khung: {report.timeframe} | Rule Version: {report.rule_version}")
+    print(f"      Thời điểm Cutoff: {report.cutoff_time or 'Toàn bộ lịch sử (No Cutoff)'}")
+    print("=" * 115)
+    print(f" >> Tổng số Swing phát hiện (Layer 1): {report.total_input_swings}")
+    print(f" >> Swings hợp lệ (Confirmed <= Cutoff): {report.used_swings_count}")
+    print(f" >> Swings bị loại (Confirmed > Cutoff): {report.excluded_swings_count}")
+    print(f" >> Cấu trúc đã hình thành: {len(report.structures)}")
+    print(f" >> Trạng thái 2 Cấu trúc (Two Structures): {'ĐẠT (CÙNG HƯỚNG)' if report.has_two_structures else 'CHƯA ĐẠT / KHÔNG ĐỦ'}")
+    print(f" >> Xu hướng cấu trúc: {report.trend}")
+    print(f" >> Ứng viên Mua (is_long_candidate): {'CÓ (LONG CANDIDATE)' if report.is_long_candidate else 'KHÔNG (REJECTED)'}")
+    print(f" >> Mã lý do (reason_code): {report.reason_code}")
+    if report.active_trading_range["range_low"] and report.active_trading_range["range_high"]:
+        print(f" >> Khung dao động hiện tại: [{report.active_trading_range['range_low']:,.0f} - {report.active_trading_range['range_high']:,.0f}] đ")
+
+    # Table of recent used swings
+    print("\n" + "-" * 115)
+    print(" DANH SÁCH SWINGS ĐƯỢC SỬ DỤNG TRƯỚC THỜI ĐIỂM CUTOFF (LAYER 1 -> LAYER 2):")
+    print("-" * 115)
+    print(f" {'ID':<8} | {'LOẠI':<6} | {'NHÃN':<4} | {'GIÁ (VND)':<11} | {'CỰC TRỊ (EXTREME)':<19} | {'XÁC NHẬN (CONFIRMED)':<19} | {'TRỄ':<5}")
+    print("-" * 115)
+    for s in report.used_swings[-12:]:
+        print(f" {s['swing_id']:<8} | {s['swing_type']:<6} | {s['structure_label']:<4} | {s['extreme_price']:>10,.0f}đ | {s['extreme_time']:<19} | {s['confirmed_at']:<19} | {s['confirmation_delay']:>3} b")
+
+    # Table of excluded swings if any
+    if report.excluded_swings:
+        print("\n" + "-" * 115)
+        print(" SWINGS BỊ LOẠI KHỎI PHẠM VI KIỂM THỬ (CHỐNG LOOKAHEAD BIAS):")
+        print("-" * 115)
+        print(f" {'ID':<8} | {'LOẠI':<6} | {'GIÁ (VND)':<11} | {'CỰC TRỊ':<19} | {'XÁC NHẬN':<19} | {'LÝ DO LOẠI BỎ':<25}")
+        print("-" * 115)
+        for s in report.excluded_swings[:6]:
+            print(f" {s['swing_id']:<8} | {s['swing_type']:<6} | {s['extreme_price']:>10,.0f}đ | {s['extreme_time']:<19} | {s.get('confirmed_at') or 'Chưa xác nhận':<19} | {s['exclusion_reason']:<25}")
+
+    # Table of structures formed
+    if report.structures:
+        print("\n" + "-" * 115)
+        print(" DANH SÁCH CẤU TRÚC THỊ TRƯỜNG ĐÃ HÌNH THÀNH (BOS & RANGES):")
+        print("-" * 115)
+        print(f" {'ID':<10} | {'HƯỚNG':<6} | {'TRẠNG THÁI':<11} | {'XÁC NHẬN':<19} | {'GIÁ PHÁ VỠ':<11} | {'KHUNG BIÊN ĐỘ':<25}")
+        print("-" * 115)
+        for st in report.structures[-8:]:
+            print(f" {st['structure_id']:<10} | {st['direction']:<6} | {st['status']:<11} | {st['confirmed_at_time']:<19} | {st['break_price']:>10,.0f}đ | [{st['range_low']:,.0f} - {st['range_high']:,.0f}] đ")
+
+    # 2 confirmed structures
+    print("\n" + "-" * 115)
+    print(" 2 CẤU TRÚC CONFIRMED GẦN NHẤT:")
+    print("-" * 115)
+    for st in report.last_two_structures:
+        print(f"  * {st['structure_id']}: Hướng {st['direction']} | Trạng thái: {st['status']} | Ngày xác nhận: {st['confirmed_at_time']} | Biên độ: [{st['range_low']:,.0f} - {st['range_high']:,.0f}] đ")
+    print("=" * 115 + "\n")
+
+
 def main():
+    # If user ran `python main.py --layer 2 ...` without an explicit sub-command, auto-insert 'layer2'
+    if "--layer" in sys.argv and not any(arg in sys.argv for arg in (
+        "layer2", "init-db", "symbols", "historical", "fetch", "update", "sync",
+        "retry-failed", "verify", "report", "signals", "backtest", "scan-params", "web"
+    )):
+        idx = sys.argv.index("--layer")
+        if idx + 1 < len(sys.argv) and sys.argv[idx + 1] == "2":
+            sys.argv.insert(1, "layer2")
+
     common_parser = argparse.ArgumentParser(add_help=False)
     common_parser.add_argument("--mock-db", action="store_true", default=argparse.SUPPRESS, help="Use local SQLite mock storage for testing")
     common_parser.add_argument("--csv-path", type=str, default=argparse.SUPPRESS, help="Custom symbols CSV file path")
     common_parser.add_argument("--symbols", type=str, default=argparse.SUPPRESS, help="Comma-separated symbols (e.g. HPG,VNM,SSI)")
     common_parser.add_argument("--exchange", type=str, default=argparse.SUPPRESS, help="Filter by exchange (HOSE,HNX,UPCoM)")
     common_parser.add_argument("--limit", type=int, default=argparse.SUPPRESS, help="Limit number of symbols to process")
+    common_parser.add_argument("--layer", type=int, default=None, help="Layer selector (e.g. 2)")
+    common_parser.add_argument("--date", type=str, default=None, help="Test date (YYYY-MM-DD)")
+    common_parser.add_argument("--datetime", type=str, default=None, help="Test datetime (YYYY-MM-DD HH:MM[:SS])")
 
     parser = argparse.ArgumentParser(
         description="Vietnam Stock Market Data Collection & Oracle Storage Pipeline",
@@ -392,6 +512,13 @@ def main():
     )
 
     subparsers = parser.add_subparsers(dest="command", required=True, help="Sub-commands")
+
+    # layer2
+    l2_parser = subparsers.add_parser("layer2", parents=[common_parser], help="Layer 2: Market Structure Builder test runner")
+    l2_parser.add_argument("--symbol", type=str, default="HPG", help="Mã cổ phiếu (vd: HPG, SSI, VNM)")
+    l2_parser.add_argument("--timeframe", "-t", type=str, default="15m", help="Khung thời gian (vd: 15m, 1h, 1d)")
+    l2_parser.add_argument("--source", type=str, default="api", help="Nguồn dữ liệu: api hoặc db")
+    l2_parser.add_argument("--json", action="store_true", help="Xuất kết quả định dạng JSON")
 
     # init-db
     subparsers.add_parser("init-db", parents=[common_parser], help="Initialize Oracle database schema")
@@ -458,7 +585,9 @@ def main():
     parsed = parser.parse_args()
 
     try:
-        if parsed.command == "init-db":
+        if parsed.command == "layer2":
+            cmd_layer2(parsed)
+        elif parsed.command == "init-db":
             cmd_init_db(parsed)
         elif parsed.command == "symbols":
             cmd_symbols(parsed)
@@ -480,6 +609,7 @@ def main():
             cmd_scan_params(parsed)
         elif parsed.command == "web":
             cmd_web(parsed)
+
     except OracleConnectionError as e:
         logger.error(f"Oracle Database Error: {e}")
         logger.info("TIP: To test without an active Oracle server, run with the '--mock-db' flag.")

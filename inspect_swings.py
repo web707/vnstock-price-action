@@ -150,21 +150,120 @@ def inspect_stock_swings(
     print("=" * 128 + "\n")
 
 
+def inspect_layer2_structure(
+    symbol: str = "HPG",
+    timeframe: str = "15m",
+    source: str = "api",
+    test_date: str = None,
+    test_datetime: str = None,
+    as_json: bool = False
+):
+    import json
+    from src.strategy.market_structure import MarketStructureBuilder
+
+    df_raw = load_price_data(symbol, timeframe=timeframe, source=source)
+    if df_raw.empty:
+        print(f"Không có dữ liệu cho mã {symbol}")
+        return
+
+    builder = MarketStructureBuilder()
+    report = builder.build_structure(
+        df=df_raw,
+        symbol=symbol,
+        timeframe=timeframe,
+        test_date=test_date,
+        test_datetime=test_datetime
+    )
+
+    if as_json:
+        print(json.dumps(report.to_dict(), indent=2, ensure_ascii=False))
+        return
+
+    print("\n" + "=" * 120)
+    print("      LAYER 2 — MARKET STRUCTURE BUILDER (KIỂM THỬ CẤU TRÚC THEO NGÀY)")
+    print(f"      Mã: {report.symbol} | Khung: {report.timeframe} | Rule Version: {report.rule_version}")
+    print(f"      Thời điểm Cutoff: {report.cutoff_time or 'Toàn bộ lịch sử (No Cutoff)'}")
+    print("=" * 120)
+    print(f" >> Tổng số Swing phát hiện (Layer 1): {report.total_input_swings}")
+    print(f" >> Swings hợp lệ (Confirmed <= Cutoff): {report.used_swings_count}")
+    print(f" >> Swings bị loại (Confirmed > Cutoff): {report.excluded_swings_count}")
+    print(f" >> Cấu trúc đã hình thành: {len(report.structures)}")
+    print(f" >> Trạng thái 2 Cấu trúc (Two Structures): {'ĐẠT (CÙNG HƯỚNG)' if report.has_two_structures else 'CHƯA ĐẠT / KHÔNG ĐỦ'}")
+    print(f" >> Xu hướng cấu trúc: {report.trend}")
+    print(f" >> Ứng viên Mua (is_long_candidate): {'CÓ (LONG CANDIDATE)' if report.is_long_candidate else 'KHÔNG (REJECTED)'}")
+    print(f" >> Mã lý do (reason_code): {report.reason_code}")
+    if report.active_trading_range["range_low"] and report.active_trading_range["range_high"]:
+        print(f" >> Khung dao động hiện tại: [{report.active_trading_range['range_low']:,.0f} - {report.active_trading_range['range_high']:,.0f}] đ")
+
+    # Table of recent used swings
+    print("\n" + "-" * 120)
+    print(" DANH SÁCH SWINGS ĐƯỢC SỬ DỤNG TRƯỚC THỜI ĐIỂM CUTOFF (LAYER 1 -> LAYER 2):")
+    print("-" * 120)
+    print(f" {'ID':<8} | {'LOẠI':<6} | {'NHÃN':<4} | {'GIÁ (VND)':<11} | {'CỰC TRỊ (EXTREME)':<19} | {'XÁC NHẬN (CONFIRMED)':<19} | {'TRỄ':<5}")
+    print("-" * 120)
+    for s in report.used_swings[-12:]:
+        print(f" {s['swing_id']:<8} | {s['swing_type']:<6} | {s['structure_label']:<4} | {s['extreme_price']:>10,.0f}đ | {s['extreme_time']:<19} | {s['confirmed_at']:<19} | {s['confirmation_delay']:>3} b")
+
+    # Table of excluded swings if any
+    if report.excluded_swings:
+        print("\n" + "-" * 120)
+        print(" SWINGS BỊ LOẠI KHỎI PHẠM VI KIỂM THỬ (CHỐNG LOOKAHEAD BIAS):")
+        print("-" * 120)
+        print(f" {'ID':<8} | {'LOẠI':<6} | {'GIÁ (VND)':<11} | {'CỰC TRỊ':<19} | {'XÁC NHẬN':<19} | {'LÝ DO LOẠI BỎ':<25}")
+        print("-" * 120)
+        for s in report.excluded_swings[:6]:
+            print(f" {s['swing_id']:<8} | {s['swing_type']:<6} | {s['extreme_price']:>10,.0f}đ | {s['extreme_time']:<19} | {s.get('confirmed_at') or 'Chưa xác nhận':<19} | {s['exclusion_reason']:<25}")
+
+    # Table of structures formed
+    if report.structures:
+        print("\n" + "-" * 120)
+        print(" DANH SÁCH CẤU TRÚC THỊ TRƯỜNG ĐÃ HÌNH THÀNH (BOS & RANGES):")
+        print("-" * 120)
+        print(f" {'ID':<10} | {'HƯỚNG':<6} | {'TRẠNG THÁI':<11} | {'XÁC NHẬN':<19} | {'GIÁ PHÁ VỠ':<11} | {'KHUNG BIÊN ĐỘ':<25}")
+        print("-" * 120)
+        for st in report.structures[-8:]:
+            print(f" {st['structure_id']:<10} | {st['direction']:<6} | {st['status']:<11} | {st['confirmed_at_time']:<19} | {st['break_price']:>10,.0f}đ | [{st['range_low']:,.0f} - {st['range_high']:,.0f}] đ")
+
+    # 2 confirmed structures
+    print("\n" + "-" * 120)
+    print(" 2 CẤU TRÚC CONFIRMED GẦN NHẤT:")
+    print("-" * 120)
+    for st in report.last_two_structures:
+        print(f"  * {st['structure_id']}: Hướng {st['direction']} | Trạng thái: {st['status']} | Ngày xác nhận: {st['confirmed_at_time']} | Biên độ: [{st['range_low']:,.0f} - {st['range_high']:,.0f}] đ")
+    print("=" * 120 + "\n")
+
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Inspect Swing Points with Wilder ATR ZigZag on Live API Data")
+    parser = argparse.ArgumentParser(description="Inspect Swing Points & Layer 2 Market Structure on Live API Data")
     parser.add_argument("symbol", nargs="?", default="HPG", help="Mã cổ phiếu (vd: HPG, FPT, SSI, VNM)")
+    parser.add_argument("--layer", type=int, default=1, help="Layer phân tích: 1 (Swing Detection) hoặc 2 (Market Structure Builder)")
+    parser.add_argument("--date", default=None, help="Ngày kiểm thử cho Layer 2 (YYYY-MM-DD)")
+    parser.add_argument("--datetime", default=None, help="Thời điểm kiểm thử cho Layer 2 (YYYY-MM-DD HH:MM[:SS])")
     parser.add_argument("--timeframe", "-t", default="15m", help="Khung thời gian (vd: 15m, 1h, 1d)")
     parser.add_argument("--source", "-s", default="api", help="Nguồn dữ liệu: api (live) hoặc db (cục bộ)")
     parser.add_argument("--recent", "-n", type=int, default=20, help="Số swing hiển thị gần nhất")
     parser.add_argument("--mult", "-m", type=float, default=2.0, help="Hệ số nhân ATR đảo chiều (vd: 1.5, 2.0, 2.5)")
     parser.add_argument("--month", default=None, help="Lọc theo tháng (vd: 2026-09)")
+    parser.add_argument("--json", action="store_true", help="Xuất kết quả JSON")
     args = parser.parse_args()
 
-    inspect_stock_swings(
-        symbol=args.symbol,
-        timeframe=args.timeframe,
-        source=args.source,
-        recent_n=args.recent,
-        mult=args.mult,
-        filter_month=args.month
-    )
+    # If --date or --datetime or --layer 2 is passed, run Layer 2 Market Structure Builder
+    if args.layer == 2 or args.date is not None or args.datetime is not None:
+        inspect_layer2_structure(
+            symbol=args.symbol,
+            timeframe=args.timeframe,
+            source=args.source,
+            test_date=args.date,
+            test_datetime=args.datetime,
+            as_json=args.json
+        )
+    else:
+        inspect_stock_swings(
+            symbol=args.symbol,
+            timeframe=args.timeframe,
+            source=args.source,
+            recent_n=args.recent,
+            mult=args.mult,
+            filter_month=args.month
+        )
+

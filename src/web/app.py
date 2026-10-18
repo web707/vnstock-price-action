@@ -296,6 +296,67 @@ def get_swings(
     }
 
 
+@app.get("/api/layer2/structure/{symbol}")
+def get_layer2_structure(
+    symbol: str,
+    date: Optional[str] = Query(None, description="Test date in YYYY-MM-DD"),
+    datetime: Optional[str] = Query(None, description="Test datetime in YYYY-MM-DD HH:MM[:SS]"),
+    timeframe: str = "15m",
+    source: str = "api",
+    mult: float = 2.0,
+    swing_left: int = 3,
+    swing_right: int = 3
+):
+    """
+    Layer 2: Market Structure Builder endpoint.
+    Builds market structures with optional cutoff date/datetime (Zero Lookahead Bias).
+    """
+    sym = symbol.upper().strip()
+    if source == "api" or timeframe != "1d":
+        yf_client = YFinanceClient(request_delay=0.1)
+        period = "60d" if timeframe in ("1m", "5m", "15m", "30m", "60m", "1h") else "max"
+        raw_df, err = yf_client.fetch_intraday(sym, interval=timeframe, period=period)
+        if raw_df is not None and not raw_df.empty:
+            df_raw = raw_df.reset_index()
+            dt_col = "Datetime" if "Datetime" in df_raw.columns else ("Date" if "Date" in df_raw.columns else df_raw.columns[0])
+            df_raw["TRADE_DATE"] = df_raw[dt_col]
+            df_raw["OPEN_PRICE"] = df_raw["Open"]
+            df_raw["HIGH_PRICE"] = df_raw["High"]
+            df_raw["LOW_PRICE"] = df_raw["Low"]
+            df_raw["CLOSE_PRICE"] = df_raw["Close"]
+            df_raw["VOLUME"] = df_raw["Volume"]
+        else:
+            repo = get_repo()
+            df_raw = repo.query_historical_prices(sym)
+    else:
+        repo = get_repo()
+        df_raw = repo.query_historical_prices(sym)
+
+    if df_raw.empty:
+        raise HTTPException(status_code=404, detail=f"No data found for symbol {sym}")
+
+    from src.strategy.market_structure import MarketStructureTracker, MarketStructureBuilder
+    tracker = MarketStructureTracker(
+        swing_left=swing_left,
+        swing_right=swing_right,
+        reversal_mult=mult,
+        method="zigzag"
+    )
+    builder = MarketStructureBuilder(tracker=tracker)
+    try:
+        report = builder.build_structure(
+            df=df_raw,
+            symbol=sym,
+            timeframe=timeframe,
+            test_date=date,
+            test_datetime=datetime
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error building market structure: {str(e)}")
+
+    return report.to_dict()
 
 
 def to_native_types(obj):
