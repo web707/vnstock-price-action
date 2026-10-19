@@ -265,3 +265,77 @@ Hệ thống cung cấp sẵn hai file DDL Oracle chuẩn mực:
 - [sql/strategy_schema.sql](file:///c:/Users/ADMIN/Downloads/assets/sql/strategy_schema.sql): Các bảng lưu vết đợt chạy backtest (`BACKTEST_RUNS`), tín hiệu hợp lưu (`STRATEGY_SIGNALS`), sổ lệnh (`BACKTEST_ORDERS`), nhật ký khớp lệnh (`BACKTEST_TRADES`), và chỉ số hiệu suất (`BACKTEST_METRICS`).
 
 Khi kết nối với Oracle Database thật, hệ thống tự động khởi tạo và thực thi DDL theo cơ chế Idempotent không gây gián đoạn hay mất dữ liệu.
+
+---
+
+## 8. KIẾN TRÚC MODULAR TÁCH BIỆT: LAYER 1 & LAYER 2
+
+Hệ thống được thiết kế theo kiến trúc module hoàn toàn độc lập, cho phép tái sử dụng linh hoạt:
+
+```
+assets/
+├── swing_detector/             # LAYER 1: Chỉ phát hiện Đỉnh/Đáy (Swing Point Detection)
+│   ├── detector.py             # Hàm chính: detect_swings(ohlcv_15m, config) -> List[Swing]
+│   └── atr.py                  # Wilder smoothing ATR(14) & làm sạch nến OHLCV
+├── structure_builder/          # LAYER 2: Dựng Cấu trúc Thị trường (Market Structure Builder)
+│   ├── builder.py              # MarketStructureBuilder (Bước A: Gán nhãn, Bước B: Phân đoạn Bruni)
+│   ├── rules.py                # Quy tắc phân loại Bruni nháp (draft-0.1-bruni-unverified)
+│   └── __main__.py             # Chạy độc lập: python -m structure_builder --swings swings.csv
+├── common/                     # Kiểu dữ liệu dùng chung & I/O
+│   ├── models.py               # Swing, MarketStructure
+│   ├── io.py                   # save_swings(swings, path), load_swings(path) (CSV/JSON)
+│   └── table_formatter.py      # Format Bảng 1 (11 cột) & Bảng 2 (5 cột)
+├── legacy/                     # Lưu trữ code cũ nguyên bản làm mốc so sánh
+└── run_pipeline.py             # Pipeline phối hợp: Layer 1 -> Lưu Swings -> Layer 2 -> In Bảng
+```
+
+### 8.1. Cách tái sử dụng Layer 1 (`swing_detector`)
+Layer 1 chỉ phát hiện đỉnh/đáy, **không import Layer 2, không tự gán nhãn HH/HL/LH/LL**:
+```python
+import pandas as pd
+from swing_detector import detect_swings, SwingDetectorConfig, save_swings
+
+# 1. Đọc dữ liệu nến 15 phút
+df_15m = pd.read_csv("data/hpg_15m_sample.csv")
+
+# 2. Phát hiện đỉnh/đáy
+config = SwingDetectorConfig(swing_left=3, swing_right=3, reversal_mult=2.0, timeframe="15m")
+swings = detect_swings(df_15m, config=config)
+
+# 3. Lưu ra file CSV hoặc JSON để layer khác sử dụng mà không cần chạy lại Layer 1
+save_swings(swings, "data/swings_output.csv")
+```
+
+### 8.2. Cách tái sử dụng Layer 2 (`structure_builder`)
+Layer 2 chỉ nhận danh sách swings, **không đọc nến, không import Layer 1**:
+```python
+from structure_builder import MarketStructureBuilder
+
+# 1. Khởi tạo Builder
+builder = MarketStructureBuilder(bear_after_up_is_unclear=True)
+
+# 2. Đọc trực tiếp từ file swings đã lưu
+labelled_swings, structures = builder.build_from_file("data/swings_output.csv")
+
+# 3. Lấy 2 cấu trúc CONFIRMED liền kề gần nhất (không bỏ qua cấu trúc ở giữa)
+status, two_structs = builder.get_last_two_confirmed(structures)
+if status == "OK":
+    print(f"Cấu trúc 1: {two_structs[0].structure_id} | Cấu trúc 2: {two_structs[1].structure_id}")
+```
+
+### 8.3. Thực thi trực tiếp từ Command Line (CLI)
+
+```bash
+# 1. Chạy trọn vẹn pipeline Layer 1 -> Lưu swings -> Layer 2:
+python run_pipeline.py --symbol HPG --csv data/hpg_15m_sample.csv --last 20
+
+# 2. Chạy Layer 2 trực tiếp từ file swings độc lập:
+python -m structure_builder --swings data/swings_output.csv --last 20
+
+# 3. Chạy Layer 2 với chế độ chi tiết (verbose: trạng thái, mã lý do, rule_version):
+python -m structure_builder --swings data/swings_output.csv --last 20 --verbose
+
+# 4. Chạy bộ kiểm thử tự động toàn diện (11 test case bắt buộc):
+pytest tests/test_modular_architecture.py -v
+```
+
