@@ -339,3 +339,13 @@ python -m structure_builder --swings data/swings_output.csv --last 20 --verbose
 pytest tests/test_modular_architecture.py -v
 ```
 
+
+### Bảo vệ nguồn nến 15 phút (source audit)
+
+Các CLI legacy `python main.py layer2 --symbol HPG --timeframe 15m --source api` và
+`python inspect_swings.py --symbol HPG --timeframe 15m --source api` **không fallback**
+sang SQLite nến ngày nếu Yahoo Finance lỗi. `--source db` chỉ được phép khi
+`--timeframe 1d`. Dữ liệu gắn nhãn 15m có bước thời gian trung vị ngoài 14–16 phút
+sẽ bị từ chối; đây là kiểm tra dữ liệu đầu vào, không phải ngưỡng phát hiện swing.
+Pipeline module `python run_pipeline.py --csv data/hpg_15m_sample.csv` dùng CSV 15m,
+không truy cập API. Xem `SOURCE_AUDIT_REPORT.md` để biết giới hạn và giả định.

@@ -394,26 +394,30 @@ def cmd_layer2(args):
     source = getattr(args, "source", "api")
     as_json = getattr(args, "json", False)
 
+    from src.candle_timeframe import require_15m_candles
     clean_sym = symbol.strip().upper()
-    if source == "api" or timeframe != "1d":
+    if source not in ("api", "db"):
+        raise ValueError(f"Nguồn dữ liệu không hợp lệ: {source} (chọn api hoặc db)")
+    if source == "db" and timeframe != "1d":
+        raise ValueError(f"DB SQLite chỉ chứa nến ngày (1d); không được dùng --source db với {timeframe}")
+    if source == "api":
         yf_client = YFinanceClient(request_delay=0.1)
         period = "60d" if timeframe in ("1m", "5m", "15m", "30m", "60m", "1h") else "max"
         raw_df, err = yf_client.fetch_intraday(clean_sym, interval=timeframe, period=period)
-        if raw_df is not None and not raw_df.empty:
-            df = raw_df.reset_index()
-            dt_col = "Datetime" if "Datetime" in df.columns else ("Date" if "Date" in df.columns else df.columns[0])
-            df["TRADE_DATE"] = df[dt_col]
-            df["OPEN_PRICE"] = df["Open"]
-            df["HIGH_PRICE"] = df["High"]
-            df["LOW_PRICE"] = df["Low"]
-            df["CLOSE_PRICE"] = df["Close"]
-            df["VOLUME"] = df["Volume"]
-        else:
-            repo = get_repository(force_mock=True)
-            df = repo.query_historical_prices(clean_sym)
+        if raw_df is None or raw_df.empty:
+            raise RuntimeError(f"API không tải được nến {timeframe} cho {clean_sym}: {err or 'empty response'}; không fallback sang DB 1d")
+        df = raw_df.reset_index()
+        dt_col = "Datetime" if "Datetime" in df.columns else ("Date" if "Date" in df.columns else df.columns[0])
+        df["TRADE_DATE"] = df[dt_col]
+        df["OPEN_PRICE"] = df["Open"]
+        df["HIGH_PRICE"] = df["High"]
+        df["LOW_PRICE"] = df["Low"]
+        df["CLOSE_PRICE"] = df["Close"]
+        df["VOLUME"] = df["Volume"]
     else:
         repo = get_repository(force_mock=True)
         df = repo.query_historical_prices(clean_sym)
+    require_15m_candles(df, timeframe)
 
     if df.empty:
         logger.error(f"Không có dữ liệu cho mã {clean_sym}")
@@ -517,7 +521,7 @@ def main():
     l2_parser = subparsers.add_parser("layer2", parents=[common_parser], help="Layer 2: Market Structure Builder test runner")
     l2_parser.add_argument("--symbol", type=str, default="HPG", help="Mã cổ phiếu (vd: HPG, SSI, VNM)")
     l2_parser.add_argument("--timeframe", "-t", type=str, default="15m", help="Khung thời gian (vd: 15m, 1h, 1d)")
-    l2_parser.add_argument("--source", type=str, default="api", help="Nguồn dữ liệu: api hoặc db")
+    l2_parser.add_argument("--source", type=str, choices=("api", "db"), default="api", help="Nguồn dữ liệu: api (15m) hoặc db (chỉ 1d)")
     l2_parser.add_argument("--json", action="store_true", help="Xuất kết quả định dạng JSON")
 
     # init-db

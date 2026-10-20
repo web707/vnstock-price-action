@@ -18,27 +18,33 @@ if sys.platform == "win32":
 
 def load_price_data(symbol: str, timeframe: str = "15m", source: str = "api") -> pd.DataFrame:
     """
-    Fetch price data directly from live API (Yahoo Finance 15m) or fallback to local database.
+    Fetch live API data; use the daily DB only when explicitly requested as 1d.
     """
+    from src.candle_timeframe import require_15m_candles
     clean_sym = symbol.strip().upper()
-    if source == "api" or timeframe != "1d":
-        yf_client = YFinanceClient(request_delay=0.1)
-        period = "60d" if timeframe in ("1m", "5m", "15m", "30m", "60m", "1h") else "max"
-        raw_df, err = yf_client.fetch_intraday(clean_sym, interval=timeframe, period=period)
-        if raw_df is not None and not raw_df.empty:
-            df = raw_df.reset_index()
-            dt_col = "Datetime" if "Datetime" in df.columns else ("Date" if "Date" in df.columns else df.columns[0])
-            df["TRADE_DATE"] = df[dt_col]
-            df["OPEN_PRICE"] = df["Open"]
-            df["HIGH_PRICE"] = df["High"]
-            df["LOW_PRICE"] = df["Low"]
-            df["CLOSE_PRICE"] = df["Close"]
-            df["VOLUME"] = df["Volume"]
-            return df
-        print(f">> [Cảnh báo API] Không lấy được dữ liệu qua API: {err}. Chuyển sang database cục bộ...")
+    if source not in ("api", "db"):
+        raise ValueError(f"Nguồn dữ liệu không hợp lệ: {source}")
+    if source == "db":
+        if timeframe != "1d":
+            raise ValueError(f"DB SQLite chỉ có nến ngày (1d), không thể cung cấp {timeframe}")
+        repo = get_repository(force_mock=True)
+        return repo.query_historical_prices(clean_sym)
 
-    repo = get_repository(force_mock=True)
-    return repo.query_historical_prices(clean_sym)
+    yf_client = YFinanceClient(request_delay=0.1)
+    period = "60d" if timeframe in ("1m", "5m", "15m", "30m", "60m", "1h") else "max"
+    raw_df, err = yf_client.fetch_intraday(clean_sym, interval=timeframe, period=period)
+    if raw_df is None or raw_df.empty:
+        raise RuntimeError(f"API không tải được nến {timeframe} cho {clean_sym}: {err or 'empty response'}; không fallback sang DB 1d")
+    df = raw_df.reset_index()
+    dt_col = "Datetime" if "Datetime" in df.columns else ("Date" if "Date" in df.columns else df.columns[0])
+    df["TRADE_DATE"] = df[dt_col]
+    df["OPEN_PRICE"] = df["Open"]
+    df["HIGH_PRICE"] = df["High"]
+    df["LOW_PRICE"] = df["Low"]
+    df["CLOSE_PRICE"] = df["Close"]
+    df["VOLUME"] = df["Volume"]
+    require_15m_candles(df, timeframe)
+    return df
 
 
 def inspect_stock_swings(
@@ -240,7 +246,7 @@ if __name__ == "__main__":
     parser.add_argument("--date", default=None, help="Ngày kiểm thử cho Layer 2 (YYYY-MM-DD)")
     parser.add_argument("--datetime", default=None, help="Thời điểm kiểm thử cho Layer 2 (YYYY-MM-DD HH:MM[:SS])")
     parser.add_argument("--timeframe", "-t", default="15m", help="Khung thời gian (vd: 15m, 1h, 1d)")
-    parser.add_argument("--source", "-s", default="api", help="Nguồn dữ liệu: api (live) hoặc db (cục bộ)")
+    parser.add_argument("--source", "-s", choices=("api", "db"), default="api", help="Nguồn dữ liệu: api (15m) hoặc db (chỉ 1d)")
     parser.add_argument("--recent", "-n", type=int, default=20, help="Số swing hiển thị gần nhất")
     parser.add_argument("--mult", "-m", type=float, default=2.0, help="Hệ số nhân ATR đảo chiều (vd: 1.5, 2.0, 2.5)")
     parser.add_argument("--month", default=None, help="Lọc theo tháng (vd: 2026-09)")

@@ -394,4 +394,9 @@ def test_case_11_regression_vs_legacy_15m(hpg_15m_candles):
         assert np.isclose(leg_s.price, new_s.extreme_price), f"Mismatch at #{idx}: price {leg_s.price} vs {new_s.extreme_price}"
         assert leg_s.index == new_s.index, f"Mismatch at #{idx}: index {leg_s.index} vs {new_s.index}"
         assert leg_s.confirmed_at_index == new_s.confirmed_at_index, f"Mismatch at #{idx}: conf_index {leg_s.confirmed_at_index} vs {new_s.confirmed_at_index}"
-        assert str(leg_s.trade_date)[:19].replace("T", " ") == str(new_s.extreme_time)[:19], f"Mismatch at #{idx}: time {leg_s.trade_date} vs {new_s.extreme_time}"
+        legacy_time = pd.Timestamp(leg_s.trade_date)
+        # Legacy clean_data converts +07 source timestamps to UTC-naive numpy datetimes.
+        if legacy_time.tzinfo is None:
+            legacy_time = legacy_time.tz_localize("UTC")
+        legacy_time = legacy_time.tz_convert("Asia/Ho_Chi_Minh").tz_localize(None)
+        assert legacy_time == pd.Timestamp(new_s.extreme_time), f"Mismatch at #{idx}: time {legacy_time} vs {new_s.extreme_time}"

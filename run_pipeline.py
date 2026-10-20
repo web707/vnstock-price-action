@@ -15,7 +15,6 @@ if sys.platform == "win32":
 from swing_detector import detect_swings, SwingDetectorConfig, save_swings
 from structure_builder import MarketStructureBuilder
 from common.table_formatter import format_swings_table, format_structures_table
-from src.yfinance_client import YFinanceClient
 
 
 def load_candles(symbol: str, csv_path: str = None, timeframe: str = "15m") -> pd.DataFrame:
@@ -27,6 +26,7 @@ def load_candles(symbol: str, csv_path: str = None, timeframe: str = "15m") -> p
         df = pd.read_csv(p)
         return df
 
+    from src.yfinance_client import YFinanceClient
     # Fetch live 15m from Yahoo Finance
     yf_client = YFinanceClient(request_delay=0.1)
     period = "60d" if timeframe in ("1m", "5m", "15m", "30m", "60m", "1h") else "max"

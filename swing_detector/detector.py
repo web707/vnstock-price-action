@@ -16,7 +16,7 @@ from swing_detector.atr import compute_wilder_atr, validate_and_clean_data
 @dataclass
 class SwingDetectorConfig:
     """Configuration parameters for Layer 1 Swing Detection."""
-    swing_left: int = 3
+    swing_left: int = 3  # Legacy compatibility only; not used by ZigZag detection.
     swing_right: int = 3
     reversal_mult: float = 2.0
     min_reversal_pct: float = 0.005
@@ -43,6 +43,15 @@ def detect_swings(
 
     df = validate_and_clean_data(ohlcv_15m)
     n = len(df)
+    # Validate the actual cadence, without changing swing detection parameters.
+    d_col = next((c for c in ["TRADE_DATE", "trade_date", "Datetime", "datetime", "Date", "date"] if c in df.columns), None)
+    times = pd.to_datetime(df[d_col]) if d_col else (df.index if isinstance(df.index, pd.DatetimeIndex) else None)
+    if config.timeframe == "15m" and times is not None and len(times) >= 2:
+        deltas = pd.Series(times).diff().dropna().dt.total_seconds().div(60)
+        # Trading sessions contain overnight/weekend gaps, hence median rather than maximum.
+        actual = float(deltas.median())
+        if not (14 <= actual <= 16):
+            raise ValueError(f"Expected timeframe 15m; actual median candle spacing is {actual:g} minutes")
     if n == 0:
         return []
 
@@ -54,7 +63,11 @@ def detect_swings(
     highs = df[h_col].values.astype(float)
     lows = df[l_col].values.astype(float)
     volumes = df[v_col].values.astype(float) if v_col else np.ones(n, dtype=float)
-    dates = df[d_col].values if d_col else df.index.values
+    raw_dates = pd.to_datetime(df[d_col]) if d_col else pd.to_datetime(df.index)
+    # Convert timezone-aware timestamps to Vietnam wall time before removing tz.
+    if getattr(raw_dates.dt if isinstance(raw_dates, pd.Series) else raw_dates, "tz", None) is not None:
+        raw_dates = raw_dates.dt.tz_convert("Asia/Ho_Chi_Minh").dt.tz_localize(None) if isinstance(raw_dates, pd.Series) else raw_dates.tz_convert("Asia/Ho_Chi_Minh").tz_localize(None)
+    dates = np.asarray(raw_dates)
 
     # 1. Compute Wilder ATR(14)
     atr = compute_wilder_atr(df, period=config.atr_period)
@@ -228,8 +241,8 @@ def _create_swing(
 ) -> Swing:
     """Helper to build a clean Swing object (Layer 1)."""
     pct = ((price - prev_swing.extreme_price) / prev_swing.extreme_price * 100.0) if prev_swing else None
-    ext_time_str = str(dates[index])[:19].replace("T", " ")
-    conf_time_str = str(dates[conf_idx])[:19].replace("T", " ")
+    ext_time_str = pd.Timestamp(dates[index]).strftime("%Y-%m-%d %H:%M:%S")
+    conf_time_str = pd.Timestamp(dates[conf_idx]).strftime("%Y-%m-%d %H:%M:%S")
 
     return Swing(
         swing_id=stt,
