@@ -23,6 +23,7 @@ from src.data_validator import DataValidator
 from src.data_normalizer import DataNormalizer
 from src.config import settings
 from src.import_logger import logger
+from src.web.market_data import load_market_data
 
 
 app = FastAPI(
@@ -31,13 +32,13 @@ app = FastAPI(
     version="2.0.0"
 )
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+from src.web.auth import router as auth_router, guard
+app.middleware('http')(guard)
+app.include_router(auth_router)
+
+@app.get('/login', response_class=HTMLResponse)
+def login_page():
+    return (Path(__file__).parent / 'templates' / 'login.html').read_text(encoding='utf-8')
 
 # Global repository instance
 FORCE_MOCK = True  # Default to mock SQLite unless overridden
@@ -109,31 +110,11 @@ def get_symbols():
 
 @app.get("/api/history/{symbol}")
 def get_history(symbol: str, timeframe: str = "15m", source: str = "api", limit: int = 1000):
-    """Return historical OHLCV bars formatted for charts, supporting live 15m API."""
-    sym = symbol.upper().strip()
-    
-    if source == "api" or timeframe != "1d":
-        yf_client = YFinanceClient(request_delay=0.1)
-        period = "60d" if timeframe in ("1m", "5m", "15m", "30m", "60m", "1h") else "max"
-        raw_df, err = yf_client.fetch_intraday(sym, interval=timeframe, period=period)
-        if raw_df is not None and not raw_df.empty:
-            df = raw_df.reset_index()
-            dt_col = "Datetime" if "Datetime" in df.columns else ("Date" if "Date" in df.columns else df.columns[0])
-            df["TRADE_DATE"] = df[dt_col]
-            df["OPEN_PRICE"] = df["Open"]
-            df["HIGH_PRICE"] = df["High"]
-            df["LOW_PRICE"] = df["Low"]
-            df["CLOSE_PRICE"] = df["Close"]
-            df["VOLUME"] = df["Volume"]
-        else:
-            repo = get_repo()
-            df = repo.query_historical_prices(sym)
-    else:
-        repo = get_repo()
-        df = repo.query_historical_prices(sym)
-
-    if df.empty:
-        raise HTTPException(status_code=404, detail=f"No data found for symbol {sym}")
+    """Return validated candles; no source/timeframe fallback."""
+    if not 1 <= limit <= 10000:
+        raise HTTPException(422, detail="limit must be between 1 and 10000")
+    df, metadata = load_market_data(symbol, timeframe, source, get_repo, YFinanceClient)
+    sym = metadata['symbol']
 
     if len(df) > limit:
         df = df.iloc[-limit:]
@@ -153,7 +134,8 @@ def get_history(symbol: str, timeframe: str = "15m", source: str = "api", limit:
     return {
         "symbol": sym,
         "timeframe": timeframe,
-        "source": "api" if (source == "api" or timeframe != "1d") else "db",
+        "source": source,
+        "metadata": metadata,
         "count": len(records),
         "bars": records
     }
@@ -168,11 +150,8 @@ def get_signals(
     min_rr: float = 1.5
 ):
     """Detect and return Price Action Confluence Signals for a specific symbol."""
-    repo = get_repo()
-    sym = symbol.upper().strip()
-    df = repo.query_historical_prices(sym)
-    if df.empty:
-        raise HTTPException(status_code=404, detail=f"No data found for symbol {sym}")
+    df, metadata = load_market_data(symbol, '1d', 'db', get_repo, YFinanceClient)
+    sym = metadata['symbol']
 
     strat = JohnLucasPruniStrategy(
         swing_left=swing_left,
@@ -206,6 +185,9 @@ def get_signals(
 
     return {
         "symbol": sym,
+        "timeframe": "1d",
+        "source": "db",
+        "metadata": metadata,
         "total_signals": len(results),
         "signals": results
     }
@@ -222,30 +204,11 @@ def get_swings(
     limit: int = 100
 ):
     """Detect and return swing points adhering strictly to the 'Phát hiện điểm Swing' specification."""
-    sym = symbol.upper().strip()
+    df_raw, metadata = load_market_data(symbol, timeframe, source, get_repo, YFinanceClient)
+    sym = metadata['symbol']
 
-    if source == "api" or timeframe != "1d":
-        yf_client = YFinanceClient(request_delay=0.1)
-        period = "60d" if timeframe in ("1m", "5m", "15m", "30m", "60m", "1h") else "max"
-        raw_df, err = yf_client.fetch_intraday(sym, interval=timeframe, period=period)
-        if raw_df is not None and not raw_df.empty:
-            df_raw = raw_df.reset_index()
-            dt_col = "Datetime" if "Datetime" in df_raw.columns else ("Date" if "Date" in df_raw.columns else df_raw.columns[0])
-            df_raw["TRADE_DATE"] = df_raw[dt_col]
-            df_raw["OPEN_PRICE"] = df_raw["Open"]
-            df_raw["HIGH_PRICE"] = df_raw["High"]
-            df_raw["LOW_PRICE"] = df_raw["Low"]
-            df_raw["CLOSE_PRICE"] = df_raw["Close"]
-            df_raw["VOLUME"] = df_raw["Volume"]
-        else:
-            repo = get_repo()
-            df_raw = repo.query_historical_prices(sym)
-    else:
-        repo = get_repo()
-        df_raw = repo.query_historical_prices(sym)
-
-    if df_raw.empty:
-        raise HTTPException(status_code=404, detail=f"No data found for symbol {sym}")
+    if not 1 <= limit <= 10000 or swing_left < 1 or swing_right < 1 or mult <= 0:
+        raise HTTPException(422, detail="Invalid swing parameters")
 
     from src.strategy.market_structure import MarketStructureTracker, validate_and_clean_data
     df = validate_and_clean_data(df_raw)
@@ -286,7 +249,8 @@ def get_swings(
     return {
         "symbol": sym,
         "timeframe": timeframe,
-        "source": "api" if (source == "api" or timeframe != "1d") else "db",
+        "source": source,
+        "metadata": metadata,
         "total_swings": len(all_swings),
         "swing_highs_count": len(shs),
         "swing_lows_count": len(sls),
@@ -311,29 +275,8 @@ def get_layer2_structure(
     Layer 2: Market Structure Builder endpoint.
     Builds market structures with optional cutoff date/datetime (Zero Lookahead Bias).
     """
-    sym = symbol.upper().strip()
-    if source == "api" or timeframe != "1d":
-        yf_client = YFinanceClient(request_delay=0.1)
-        period = "60d" if timeframe in ("1m", "5m", "15m", "30m", "60m", "1h") else "max"
-        raw_df, err = yf_client.fetch_intraday(sym, interval=timeframe, period=period)
-        if raw_df is not None and not raw_df.empty:
-            df_raw = raw_df.reset_index()
-            dt_col = "Datetime" if "Datetime" in df_raw.columns else ("Date" if "Date" in df_raw.columns else df_raw.columns[0])
-            df_raw["TRADE_DATE"] = df_raw[dt_col]
-            df_raw["OPEN_PRICE"] = df_raw["Open"]
-            df_raw["HIGH_PRICE"] = df_raw["High"]
-            df_raw["LOW_PRICE"] = df_raw["Low"]
-            df_raw["CLOSE_PRICE"] = df_raw["Close"]
-            df_raw["VOLUME"] = df_raw["Volume"]
-        else:
-            repo = get_repo()
-            df_raw = repo.query_historical_prices(sym)
-    else:
-        repo = get_repo()
-        df_raw = repo.query_historical_prices(sym)
-
-    if df_raw.empty:
-        raise HTTPException(status_code=404, detail=f"No data found for symbol {sym}")
+    df_raw, metadata = load_market_data(symbol, timeframe, source, get_repo, YFinanceClient)
+    sym = metadata['symbol']
 
     from src.strategy.market_structure import MarketStructureTracker, MarketStructureBuilder
     tracker = MarketStructureTracker(
@@ -356,7 +299,10 @@ def get_layer2_structure(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error building market structure: {str(e)}")
 
-    return report.to_dict()
+    result = report.to_dict()
+    result['metadata'] = metadata
+    result['metadata']['requested_cutoff'] = datetime or date
+    return result
 
 
 def to_native_types(obj):
@@ -473,32 +419,29 @@ def fetch_symbols_api(req: FetchRequest):
         raise HTTPException(status_code=400, detail="Chưa nhập mã cổ phiếu.")
 
     repo = get_repo()
-    mgr = SymbolManager(seed_file=settings.vietnam_stocks_csv)
-    mgr.load_from_csv(settings.vietnam_stocks_csv)
+    mgr = SymbolManager(seed_file=settings.default_symbols_file)
+    mgr.load_from_csv(settings.default_symbols_file)
 
     client = YFinanceClient(request_delay=0.3)
-    validator = DataValidator()
-    normalizer = DataNormalizer()
-    importer = HistoricalImporter(repo, client, validator, normalizer, mgr)
+    importer = HistoricalImporter(repository=repo, yf_client=client)
 
-    # Build targets
-    targets = []
-    for sym in raw_symbols:
-        targets.append({
-            "symbol": sym,
-            "yahoo_ticker": f"{sym}.VN",
-            "company_name": sym,
-            "exchange": "HOSE",
-            "security_type": "EQUITY",
-            "status": "ACTIVE",
-            "source": "MANUAL_WEB"
-        })
+    # Reuse known exchange metadata; never label an unknown symbol as HOSE.
+    targets = mgr.parse_symbol_inputs(list(dict.fromkeys(raw_symbols)))
+    known = set(mgr.symbols_df['symbol'])
+    for target in targets:
+        if target['symbol'] not in known:
+            target['exchange'] = 'UNKNOWN'
 
-    batch_id = importer.import_symbols(targets, resume=False)
+    reporter = importer.import_symbols(targets, resume=False)
+    summary = reporter.generate_summary()
     updated_symbols = repo.get_symbols_summary()
 
     return {
-        "batch_id": batch_id,
-        "fetched_count": len(targets),
+        "batch_id": reporter.batch_id,
+        "status": "ok" if summary['successful_symbols'] == len(targets) else "incomplete",
+        "requested_count": len(targets),
+        "fetched_count": summary['successful_symbols'] + summary['partial_symbols'],
+        "summary": summary,
+        "results": reporter.symbol_stats,
         "available_symbols": [s["symbol"] for s in updated_symbols]
     }

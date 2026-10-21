@@ -305,11 +305,11 @@ def test_case_10_zero_lookahead_verification(hpg_sample_data):
 # --------------------------------------------------------------------------
 # Integration Test: Web API Endpoint GET /api/layer2/structure/{symbol}
 # --------------------------------------------------------------------------
-def test_web_api_layer2_endpoint():
-    client = TestClient(app)
+def test_web_api_layer2_endpoint(signed_client):
+    client = signed_client
 
     # 1. Valid date
-    resp = client.get("/api/layer2/structure/HPG?date=2026-09-15&source=db")
+    resp = client.get("/api/layer2/structure/HPG?date=2026-09-15&source=db&timeframe=1d")
     assert resp.status_code == 200
     data = resp.json()
     assert data["symbol"] == "HPG"
@@ -317,6 +317,6 @@ def test_web_api_layer2_endpoint():
     assert "used_swings" in data
 
     # 2. Invalid date format
-    resp_invalid = client.get("/api/layer2/structure/HPG?date=2026-99-99&source=db")
+    resp_invalid = client.get("/api/layer2/structure/HPG?date=2026-99-99&source=db&timeframe=1d")
     assert resp_invalid.status_code == 400
     assert "không hợp lệ" in resp_invalid.json()["detail"]

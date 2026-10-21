@@ -69,7 +69,7 @@
 
   <!-- Top Navigation Header -->
   <header class="border-b border-gray-800 bg-gray-900/90 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-4 flex flex-wrap gap-4 items-center justify-between">
       <div class="flex items-center space-x-3">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20">
           <svg class="w-6 h-6 text-gray-950 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,7 +81,7 @@
             <h1 class="text-lg font-bold tracking-tight text-white">VNStock Price Action</h1>
             <span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">John Lucas Pruni</span>
           </div>
-          <p class="text-xs text-gray-400">Phương pháp "2 Cấu trúc & 3 Cây nến" • Oracle Database</p>
+          <p class="text-xs text-gray-400">Phương pháp "2 Cấu trúc & 3 Cây nến" • QTA</p>
         </div>
       </div>
 
@@ -108,12 +108,25 @@
           <span id="db-badge">Database: SQLite Mock</span>
         </span>
         <span id="symbols-badge" class="text-gray-400 bg-gray-800/80 px-2.5 py-1 rounded-full border border-gray-700/50">
-          Mã: 6 / Bản ghi: 24,029
+          Đang đọc dữ liệu…
         </span>
       </div>
     </div>
   </header>
 
+  <section style="max-width:1280px;width:100%;margin:auto;padding:14px 24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <span id="account-label">Đang xác thực…</span>
+    <button onclick="document.getElementById('account-panel').hidden = !document.getElementById('account-panel').hidden" style="color:#5ee0b5">Thiết lập tài khoản</button>
+    <button id="logout-button" style="margin-left:auto;color:#fca5a5">Đăng xuất</button>
+    <div id="account-panel" hidden style="width:100%;background:#111827;padding:20px;border-radius:12px">
+      <form id="preferences-form" style="display:flex;gap:12px;flex-wrap:wrap;align-items:end">
+        <label>Tên hiển thị<input id="pref-name" required maxlength="60" style="display:block;color:white;background:#243044;padding:8px;border-radius:6px"></label>
+        <label>Mã mặc định<input id="pref-symbol" required pattern="[A-Z0-9]{1,10}" maxlength="10" style="display:block;color:white;background:#243044;padding:8px;border-radius:6px"></label>
+        <button style="padding:8px 20px;background:#155e4b;border-radius:6px">Lưu thiết lập</button>
+      </form><p id="account-message" role="status"></p>
+      <section id="admin-panel" hidden><h3 style="margin-top:20px">Quản lý tài khoản</h3><button type="button" id="load-users">Tải danh sách tài khoản</button><div id="admin-users"></div></section>
+    </div>
+  </section>
   <!-- Main Content Area -->
   <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
 
@@ -545,9 +558,68 @@
       if (tabId === 'data') loadDataTab();
     }
 
+    let currentAccount = null;
+    const originalFetch = window.fetch.bind(window);
+    window.fetch = async (url, options = {}) => {
+      const target = new URL(typeof url === 'string' ? url : url.url, location.href);
+      if (target.origin === location.origin && target.pathname.startsWith('/api/')) {
+        const headers = new Headers(options.headers || {});
+        if (currentAccount) headers.set('X-CSRF-Token', currentAccount.csrf);
+        options = {...options, headers};
+      }
+      const response = await originalFetch(url, options);
+      if (target.origin === location.origin && response.status === 401) location.assign('/login');
+      return response;
+    };
+    async function initializeAccount() {
+      try {
+        currentAccount = await checkedJson('/api/auth/me');
+        document.getElementById('account-label').textContent = currentAccount.display_name + ' · ' + currentAccount.role;
+        document.getElementById('pref-name').value = currentAccount.display_name;
+        document.getElementById('pref-symbol').value = currentAccount.default_symbol;
+        document.getElementById('admin-panel').hidden = currentAccount.role !== 'admin';
+        document.getElementById('btn-fetch').disabled = currentAccount.role !== 'admin';
+        if (currentAccount.role !== 'admin') document.getElementById('fetch-status-msg').textContent = 'Chỉ admin được tải dữ liệu vào database chung.';
+        return true;
+      } catch (e) { document.getElementById('account-label').textContent = e.message; return false; }
+    }
+    document.getElementById('logout-button').onclick = async () => {
+      const r = await fetch('/api/auth/logout', {method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
+      if(r.ok) location.assign('/login');
+    };
+    document.getElementById('preferences-form').onsubmit = async e => {
+      e.preventDefault(); const msg=document.getElementById('account-message');
+      try {
+        const r=await fetch('/api/account/preferences',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({display_name:document.getElementById('pref-name').value,default_symbol:document.getElementById('pref-symbol').value.toUpperCase()})});
+        if(!r.ok) throw Error('Không lưu được thiết lập. Kiểm tra tên và mã cổ phiếu.');
+        await initializeAccount(); msg.textContent='Đã lưu. Mã mặc định áp dụng khi mở lại trang.';
+      } catch(e) { msg.textContent=e.message; }
+    };
+    document.getElementById('load-users').onclick = async () => {
+      const box=document.getElementById('admin-users'); box.replaceChildren();
+      try {
+        const users=await checkedJson('/api/admin/users');
+        users.forEach(user=>{
+          const row=document.createElement('div'); row.style.padding='8px 0';
+          const label=document.createElement('span'); label.textContent=user.username+' · '+user.role+' '; row.append(label);
+          if(user.id!==currentAccount.id) {
+            const button=document.createElement('button');button.textContent=user.role==='admin'?'Chuyển thành user':'Cấp quyền admin';
+            button.onclick=async()=>{
+              if(!confirm('Đổi quyền tài khoản '+user.username+'?'))return;
+              const r=await fetch('/api/admin/users/'+user.id+'/role',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({role:user.role==='admin'?'user':'admin'})});
+              if(r.ok) document.getElementById('load-users').click(); else document.getElementById('account-message').textContent='Không đổi được quyền.';
+            };row.append(button);
+          } box.append(row);
+        });
+      } catch(e) {box.textContent=e.message;}
+    };
+
     // --- INITIALIZATION ---
     window.addEventListener('DOMContentLoaded', async () => {
+      if (!await initializeAccount()) return;
       await fetchSummary();
+      const pref = currentAccount.default_symbol;
+      if (availableSymbols.includes(pref)) document.getElementById('signals-symbol-select').value = pref;
       await loadSignalsTab();
     });
 
@@ -588,23 +660,51 @@
     }
 
     // --- TAB 1: SIGNALS & CHART ---
+    const dataStatus = document.createElement('p');
+    dataStatus.id = 'market-data-status';
+    dataStatus.className = 'text-xs text-amber-300 px-4 py-2';
+    dataStatus.setAttribute('role', 'status');
+    document.getElementById('priceChart').parentElement.before(dataStatus);
+
+    let signalsRequestId = 0;
+    async function checkedJson(url) {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (!response.ok) {
+        const detail = data.detail;
+        throw new Error(typeof detail === 'string' ? detail : (detail?.message || 'Không đọc được dữ liệu'));
+      }
+      return data;
+    }
+
     async function loadSignalsTab() {
+      const requestId = ++signalsRequestId;
       const select = document.getElementById('signals-symbol-select');
       const symbol = select.value || (availableSymbols[0] || 'HPG');
-      document.getElementById('chart-symbol-badge').innerText = symbol;
-
+      document.getElementById('chart-symbol-badge').innerText = symbol + ' · 1D';
+      const status = document.getElementById('market-data-status');
+      status.textContent = 'Đang kiểm tra dữ liệu ngày...';
+      if (priceChartInstance) { priceChartInstance.destroy(); priceChartInstance = null; }
+      document.getElementById('chart-latest-price').textContent = '';
+      renderSignalsTable([]);
       try {
-        // 1. Fetch History for Chart
-        const histRes = await fetch(`/api/history/${symbol}?limit=300`);
-        const histData = await histRes.json();
-        renderPriceChart(symbol, histData.bars || []);
-
-        // 2. Fetch Confluence Signals
-        const sigRes = await fetch(`/api/signals/${symbol}?min_rr=1.5`);
-        const sigData = await sigRes.json();
-        renderSignalsTable(sigData.signals || []);
+        // The existing strategy uses daily DB candles, so its chart must use the same source/timeframe.
+        const [histData, sigData] = await Promise.all([
+          checkedJson(`/api/history/${encodeURIComponent(symbol)}?timeframe=1d&source=db&limit=300`),
+          checkedJson(`/api/signals/${encodeURIComponent(symbol)}?min_rr=1.5`)
+        ]);
+        if (requestId !== signalsRequestId) return;
+        renderPriceChart(symbol, histData.bars);
+        renderSignalsTable(sigData.signals);
+        const m = histData.metadata;
+        status.textContent = `Nguồn: ${m.provider} · Khung: ${m.timeframe} · Giá đóng cửa chưa điều chỉnh (CLOSE_PRICE) · Nến cuối: ${m.data_as_of} · Đọc lúc: ${m.fetched_at} · ${m.warnings.join(' ')} Tín hiệu được tính trên toàn bộ lịch sử ngày trong DB.`;
+        status.className = m.freshness === 'potentially_stale'
+          ? 'text-xs text-red-400 px-4 py-2 font-semibold'
+          : 'text-xs text-amber-300 px-4 py-2';
       } catch (e) {
-        console.error("Error loading signals tab:", e);
+        if (requestId !== signalsRequestId) return;
+        status.textContent = `DATA ERROR: ${e.message}`;
+        document.getElementById('signals-table-body').textContent = 'Không thể tính tín hiệu vì dữ liệu chưa hợp lệ.';
       }
     }
 
@@ -632,7 +732,7 @@
           labels: labels,
           datasets: [
             {
-              label: `Giá đóng cửa ${symbol}`,
+              label: `Giá đóng cửa chưa điều chỉnh ${symbol}`,
               data: closes,
               borderColor: '#10b981',
               backgroundColor: 'rgba(16, 185, 129, 0.08)',
@@ -982,8 +1082,9 @@
           body: JSON.stringify({ symbols: symbols })
         });
         const data = await res.json();
-        msg.className = 'text-xs text-emerald-400';
-        msg.innerText = `✅ Tải thành công! Batch ID: ${data.batch_id}. Đã cập nhật database.`;
+        if (!res.ok) throw new Error(typeof data.detail === 'string' ? data.detail : (data.detail?.message || 'Tải dữ liệu thất bại'));
+        msg.className = 'text-xs text-amber-300';
+        msg.innerText = `Batch ${data.batch_id}: thành công ${data.summary.successful_symbols}, một phần ${data.summary.partial_symbols}, không có dữ liệu ${data.summary.no_data_symbols}, lỗi ${data.summary.failed_symbols}.`;
         input.value = '';
         await fetchSummary();
         await loadDataTab();

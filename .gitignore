@@ -24,3 +24,6 @@ data/state/*.json
 .vscode/
 .idea/
 *.swp
+
+# Private account/session database
+data/state/qta_accounts.db*
