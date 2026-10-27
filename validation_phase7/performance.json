@@ -1,0 +1,48 @@
+{
+  "scan_cold_seconds": 21.83045512399997,
+  "scan_warm_seconds": 0.0031534769999552736,
+  "rows": 407,
+  "breadth50": {
+    "percent": 39.39393939393939,
+    "denominator": 330
+  },
+  "breadth200": {
+    "percent": 16.97530864197531,
+    "denominator": 324
+  },
+  "as_of": "2026-10-21",
+  "models": [
+    {
+      "status": "CHUA_CO_BANG_CHUNG_HIEU_QUA",
+      "oos_samples": 16,
+      "oos_brier": 0.2860258758876584,
+      "prediction": null,
+      "model_frozen_at": "2017-01-11",
+      "abstention_reason": "Model qu\u00e1 c\u0169 (>252 phi\u00ean t\u1eeb validation) ho\u1eb7c d\u1eef li\u1ec7u m\u1edbi kh\u00f4ng \u0111\u1ea1t nh\u00e3n/volume; kh\u00f4ng xu\u1ea5t x\u00e1c su\u1ea5t hi\u1ec7n t\u1ea1i.",
+      "symbol": "HPG"
+    },
+    {
+      "status": "CHUA_CO_BANG_CHUNG_HIEU_QUA",
+      "oos_samples": 16,
+      "oos_brier": 0.270665907090863,
+      "prediction": null,
+      "model_frozen_at": "2017-01-13",
+      "abstention_reason": "Model qu\u00e1 c\u0169 (>252 phi\u00ean t\u1eeb validation) ho\u1eb7c d\u1eef li\u1ec7u m\u1edbi kh\u00f4ng \u0111\u1ea1t nh\u00e3n/volume; kh\u00f4ng xu\u1ea5t x\u00e1c su\u1ea5t hi\u1ec7n t\u1ea1i.",
+      "symbol": "FPT"
+    },
+    {
+      "status": "INSUFFICIENT_DATA",
+      "oos_samples": 0,
+      "oos_brier": null,
+      "prediction": null,
+      "model_frozen_at": null,
+      "abstention_reason": null,
+      "symbol": "AAV"
+    }
+  ],
+  "portfolio": {
+    "mode": "APPROXIMATE_RESEARCH",
+    "seconds": 0.19709273400007987,
+    "trades": 134
+  }
+}

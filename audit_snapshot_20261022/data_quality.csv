@@ -1,0 +1,1580 @@
+﻿symbol,exchange,bars,status,last_date,invalid_ohlcv,invalid_dates,duplicate_dates,future_dates,zero_volume,unverified_rows,warning_rows,adj_close_missing,large_moves,elapsed_weekdays,sources,quality_labels,price_basis,reasons
+A32,UPCoM,1840,REVIEW,2026-10-19,0,0,0,0,833,1840,0,0,2,2.0,vnstock_vci,"{""UNVERIFIED_ADJ_CLOSE"": 1840}",unknown,Phiên volume bằng 0: 833; Dòng mang nhãn chưa xác minh: 1840; Biến động close trên 20% cần đối chiếu: 2; Có thể cũ; ngày thường chưa trừ lễ
+AAA,HOSE,3066,REVIEW,2026-10-21,0,0,0,0,190,0,190,0,0,0.0,yfinance,"{""VALID"": 2876, ""WARNING_ZERO_VOLUME"": 190}",unknown,Phiên volume bằng 0: 190; Dòng có cảnh báo nguồn: 190
+AAH,UPCoM,688,REVIEW,2026-10-20,0,0,0,0,0,688,0,0,0,1.0,vnstock_vci,"{""UNVERIFIED_ADJ_CLOSE"": 688}",unknown,Dòng mang nhãn chưa xác minh: 688
+AAM,HOSE,4292,REVIEW,2026-10-20,0,0,0,0,441,0,441,0,0,1.0,yfinance,"{""VALID"": 3851, ""WARNING_ZERO_VOLUME"": 441}",unknown,Phiên volume bằng 0: 441; Dòng có cảnh báo nguồn: 441
+AAS,UPCoM,1558,REVIEW,2026-10-20,0,0,0,0,0,1558,0,0,1,1.0,vnstock_vci,"{""UNVERIFIED_ADJ_CLOSE"": 1558}",unknown,Dòng mang nhãn chưa xác minh: 1558; Biến động close trên 20% cần đối chiếu: 1
+AAT,HOSE,1446,REVIEW,2026-10-21,0,0,0,0,94,0,94,0,0,0.0,yfinance,"{""VALID"": 1352, ""WARNING_ZERO_VOLUME"": 94}",unknown,Phiên volume bằng 0: 94; Dòng có cảnh báo nguồn: 94
+AAV,HNX,1987,REVIEW,2026-10-20,0,0,0,0,0,1987,0,0,0,1.0,vnstock_vci,"{""UNVERIFIED_ADJ_CLOSE"": 1987}",unknown,Dòng mang nhãn chưa xác minh: 1987
+ABB,UPCoM,1447,REVIEW,2026-10-20,0,0,0,0,0,1447,0,0,0,1.0,vnstock_vci,"{""UNVERIFIED_ADJ_CLOSE"": 1447}",unknown,Dòng mang nhãn chưa xác minh: 1447
+ABC,UPCoM,1986,REVIEW,2026-10-20,0,0,0,0,208,1986,0,0,0,1.0,vnstock_vci,"{""UNVERIFIED_ADJ_CLOSE"": 1986}",unknown,Phiên volume bằng 0: 208; Dòng mang nhãn chưa xác minh: 1986
+ABI,UPCoM,1988,REVIEW,2026-10-20,0,0,0,0,42,1988,0,0,0,1.0,vnstock_vci,"{""UNVERIFIED_ADJ_CLOSE"": 1988}",unknown,Phiên volume bằng 0: 42; Dòng mang nhãn chưa xác minh: 1988
+ABR,HOSE,1201,REVIEW,2026-10-21,0,0,0,0,272,0,272,0,0,0.0,yfinance,"{""VALID"": 929, ""WARNING_ZERO_VOLUME"": 272}",unknown,Phiên volume bằng 0: 272; Dòng có cảnh báo nguồn: 272
+ABS,HOSE,1610,REVIEW,2026-10-21,0,0,0,0,98,0,98,0,0,0.0,yfinance,"{""VALID"": 1512, ""WARNING_ZERO_VOLUME"": 98}",unknown,Phiên volume bằng 0: 98; Dòng có cảnh báo nguồn: 98
+ABT,HOSE,4298,REVIEW,2026-10-21,0,0,0,0,864,0,864,0,0,0.0,yfinance,"{""VALID"": 3434, ""WARNING_ZERO_VOLUME"": 864}",unknown,Phiên volume bằng 0: 864; Dòng có cảnh báo nguồn: 864
+ABW,UPCoM,847,REVIEW,2026-10-20,0,0,0,0,0,847,0,0,0,1.0,vnstock_vci,"{""UNVERIFIED_ADJ_CLOSE"": 847}",unknown,Dòng mang nhãn chưa xác minh: 847
+ACB,HOSE,1529,REVIEW,2026-10-21,0,0,0,0,108,0,108,0,0,0.0,yfinance,"{""VALID"": 1421, ""WARNING_ZERO_VOLUME"": 108}",unknown,Phiên volume bằng 0: 108; Dòng có cảnh báo nguồn: 108
+ACC,HOSE,3954,REVIEW,2026-10-21,0,0,0,0,441,0,441,0,0,0.0,yfinance,"{""VALID"": 3513, ""WARNING_ZERO_VOLUME"": 441}",unknown,Phiên volume bằng 0: 441; Dòng có cảnh báo nguồn: 441
+ACE,UPCoM,1923,REVIEW,2026-10-19,0,0,0,0,502,1923,0,0,1,2.0,vnstock_vci,"{""UNVERIFIED_ADJ_CLOSE"": 1923}",unknown,Phiên volume bằng 0: 502; Dòng mang nhãn chưa xác minh: 1923; Biến động close trên 20% cần đối chiếu: 1; Có thể cũ; ngày thường chưa trừ lễ
+ACG,HOSE,1043,REVIEW,2026-10-20,0,0,0,0,76,0,76,0,0,1.0,yfinance,"{""VALID"": 967, ""WARNING_ZERO_VOLUME"": 76}",unknown,Phiên volume bằng 0: 76; Dòng có cảnh báo nguồn: 76
+ACL,HOSE,4289,REVIEW,2026-10-21,0,0,0,0,438,0,438,0,1,0.0,yfinance,"{""VALID"": 3851, ""WARNING_ZERO_VOLUME"": 438}",unknown,Phiên volume bằng 0: 438; Dòng có cảnh báo nguồn: 438; Biến động close trên 20% cần đối chiếu: 1
+ACM,UPCoM,1546,REVIEW,2026-10-16,0,0,0,0,555,1546,0,0,40,3.0,vnstock_vci,"{""UNVERIFIED_ADJ_CLOSE"": 1546}",unknown,Phiên volume bằng 0: 555; Dòng mang nhãn chưa xác minh: 1546; Biến động close trên 20% cần đối chiếu: 40; Có thể cũ; ngày thường chưa trừ lễ
+ACS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ACV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ADC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ADG,HOSE,1466,REVIEW,2026-10-21,0,0,0,0,159,0,159,0,0,0.0,yfinance,"{""VALID"": 1307, ""WARNING_ZERO_VOLUME"": 159}",unknown,Phiên volume bằng 0: 159; Dòng có cảnh báo nguồn: 159
+ADP,HOSE,836,REVIEW,2026-10-21,0,0,0,0,102,0,102,0,0,0.0,yfinance,"{""VALID"": 734, ""WARNING_ZERO_VOLUME"": 102}",unknown,Phiên volume bằng 0: 102; Dòng có cảnh báo nguồn: 102
+ADS,HOSE,2667,REVIEW,2026-10-21,0,0,0,0,160,0,160,0,0,0.0,yfinance,"{""VALID"": 2507, ""WARNING_ZERO_VOLUME"": 160}",unknown,Phiên volume bằng 0: 160; Dòng có cảnh báo nguồn: 160
+AFX,UPCoM,215,CHECKS_PASSED_NOT_VERIFIED,2026-10-21,0,0,0,0,0,0,0,0,0,0.0,yfinance,"{""VALID"": 215}",unknown,
+AG1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AGF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AGG,HOSE,1768,REVIEW,2026-10-21,0,0,0,0,119,0,119,0,0,0.0,yfinance,"{""VALID"": 1649, ""WARNING_ZERO_VOLUME"": 119}",unknown,Phiên volume bằng 0: 119; Dòng có cảnh báo nguồn: 119
+AGM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AGP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AGR,HOSE,4298,REVIEW,2026-10-21,0,0,0,0,236,0,236,0,0,0.0,yfinance,"{""VALID"": 4062, ""WARNING_ZERO_VOLUME"": 236}",unknown,Phiên volume bằng 0: 236; Dòng có cảnh báo nguồn: 236
+AGX,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AIC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AIG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ALT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ALV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AMC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AMD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AME,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AMP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AMS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AMV,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ANT,UPCoM,186,CHECKS_PASSED_NOT_VERIFIED,2026-10-21,0,0,0,0,0,0,0,0,0,0.0,yfinance,"{""VALID"": 186}",unknown,
+ANV,HOSE,4289,REVIEW,2026-10-21,0,0,0,0,327,0,327,0,1,0.0,yfinance,"{""VALID"": 3962, ""WARNING_ZERO_VOLUME"": 327}",unknown,Phiên volume bằng 0: 327; Dòng có cảnh báo nguồn: 327; Biến động close trên 20% cần đối chiếu: 1
+APC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+APF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+APG,HOSE,3068,REVIEW,2026-10-21,0,0,0,0,243,0,243,0,1,0.0,yfinance,"{""VALID"": 2825, ""WARNING_ZERO_VOLUME"": 243}",unknown,Phiên volume bằng 0: 243; Dòng có cảnh báo nguồn: 243; Biến động close trên 20% cần đối chiếu: 1
+APH,HOSE,1617,REVIEW,2026-10-21,0,0,0,0,98,0,98,0,0,0.0,yfinance,"{""VALID"": 1519, ""WARNING_ZERO_VOLUME"": 98}",unknown,Phiên volume bằng 0: 98; Dòng có cảnh báo nguồn: 98
+API,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+APL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+APP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+APS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+APT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ARM,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ART,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ASA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ASG,HOSE,1576,REVIEW,2026-10-21,0,0,0,0,382,0,382,0,0,0.0,yfinance,"{""VALID"": 1194, ""WARNING_ZERO_VOLUME"": 382}",unknown,Phiên volume bằng 0: 382; Dòng có cảnh báo nguồn: 382
+ASM,HOSE,4295,REVIEW,2026-10-21,0,0,0,0,237,0,237,0,1,0.0,yfinance,"{""VALID"": 4058, ""WARNING_ZERO_VOLUME"": 237}",unknown,Phiên volume bằng 0: 237; Dòng có cảnh báo nguồn: 237; Biến động close trên 20% cần đối chiếu: 1
+ASP,HOSE,4291,REVIEW,2026-10-21,0,0,0,0,253,0,253,0,0,0.0,yfinance,"{""VALID"": 4038, ""WARNING_ZERO_VOLUME"": 253}",unknown,Phiên volume bằng 0: 253; Dòng có cảnh báo nguồn: 253
+AST,HOSE,2290,REVIEW,2026-10-21,0,0,0,0,167,0,167,0,0,0.0,yfinance,"{""VALID"": 2123, ""WARNING_ZERO_VOLUME"": 167}",unknown,Phiên volume bằng 0: 167; Dòng có cảnh báo nguồn: 167
+ATA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ATB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ATG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ATS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AVC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AVF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+AVG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BAB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BAF,HOSE,1274,REVIEW,2026-10-21,0,0,0,0,70,0,70,0,0,0.0,yfinance,"{""VALID"": 1204, ""WARNING_ZERO_VOLUME"": 70}",unknown,Phiên volume bằng 0: 70; Dòng có cảnh báo nguồn: 70
+BAL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BAX,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BBC,HOSE,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BBH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BBM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BBS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BBT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BCA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BCB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BCC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BCE,HOSE,4206,REVIEW,2026-10-21,0,0,0,0,257,0,257,0,0,0.0,yfinance,"{""VALID"": 3949, ""WARNING_ZERO_VOLUME"": 257}",unknown,Phiên volume bằng 0: 257; Dòng có cảnh báo nguồn: 257
+BCF,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BCG,HOSE,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BCM,HOSE,1453,REVIEW,2026-10-21,0,0,0,0,89,0,89,0,0,0.0,yfinance,"{""VALID"": 1364, ""WARNING_ZERO_VOLUME"": 89}",unknown,Phiên volume bằng 0: 89; Dòng có cảnh báo nguồn: 89
+BCP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BCR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BCV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BDG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BDT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BDW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BED,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BEL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BFC,HOSE,2848,REVIEW,2026-10-21,0,0,0,0,155,0,155,0,0,0.0,yfinance,"{""VALID"": 2693, ""WARNING_ZERO_VOLUME"": 155}",unknown,Phiên volume bằng 0: 155; Dòng có cảnh báo nguồn: 155
+BGE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BGW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BHA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BHC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BHG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BHH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BHI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BHK,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BHN,HOSE,2522,REVIEW,2026-10-20,0,0,0,0,255,0,255,0,0,1.0,yfinance,"{""VALID"": 2267, ""WARNING_ZERO_VOLUME"": 255}",unknown,Phiên volume bằng 0: 255; Dòng có cảnh báo nguồn: 255
+BHP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BIC,HOSE,3674,REVIEW,2026-10-21,0,0,0,0,242,0,242,0,0,0.0,yfinance,"{""VALID"": 3432, ""WARNING_ZERO_VOLUME"": 242}",unknown,Phiên volume bằng 0: 242; Dòng có cảnh báo nguồn: 242
+BID,HOSE,3272,REVIEW,2026-10-21,0,0,0,0,188,0,188,0,0,0.0,yfinance,"{""VALID"": 3084, ""WARNING_ZERO_VOLUME"": 188}",unknown,Phiên volume bằng 0: 188; Dòng có cảnh báo nguồn: 188
+BIG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BII,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BIO,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BKC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BKG,HOSE,1505,REVIEW,2026-10-21,0,0,0,0,100,0,100,0,0,0.0,yfinance,"{""VALID"": 1405, ""WARNING_ZERO_VOLUME"": 100}",unknown,Phiên volume bằng 0: 100; Dòng có cảnh báo nguồn: 100
+BLF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BLI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BLN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BLT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BMC,HOSE,3736,REVIEW,2026-10-21,0,0,0,0,200,0,200,0,0,0.0,yfinance,"{""VALID"": 3536, ""WARNING_ZERO_VOLUME"": 200}",unknown,Phiên volume bằng 0: 200; Dòng có cảnh báo nguồn: 200
+BMD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BMF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BMG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BMI,HOSE,4293,REVIEW,2026-10-21,0,0,0,0,241,0,241,0,0,0.0,yfinance,"{""VALID"": 4052, ""WARNING_ZERO_VOLUME"": 241}",unknown,Phiên volume bằng 0: 241; Dòng có cảnh báo nguồn: 241
+BMJ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BMK,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BMP,HOSE,3740,REVIEW,2026-10-21,0,0,0,0,198,0,198,0,0,0.0,yfinance,"{""VALID"": 3542, ""WARNING_ZERO_VOLUME"": 198}",unknown,Phiên volume bằng 0: 198; Dòng có cảnh báo nguồn: 198
+BMS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BMV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BNA,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BNW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BOT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BPC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BQB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BRC,HOSE,3825,REVIEW,2026-10-21,0,0,0,0,922,0,922,0,0,0.0,yfinance,"{""VALID"": 2903, ""WARNING_ZERO_VOLUME"": 922}",unknown,Phiên volume bằng 0: 922; Dòng có cảnh báo nguồn: 922
+BRR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BRS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BSA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BSC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BSD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BSG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BSH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BSI,HOSE,3933,REVIEW,2026-10-21,0,0,0,0,296,0,296,0,1,0.0,yfinance,"{""VALID"": 3637, ""WARNING_ZERO_VOLUME"": 296}",unknown,Phiên volume bằng 0: 296; Dòng có cảnh báo nguồn: 296; Biến động close trên 20% cần đối chiếu: 1
+BSL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BSP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BSQ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BSR,HOSE,459,REVIEW,2026-10-21,0,0,0,0,25,0,25,0,0,0.0,yfinance,"{""VALID"": 434, ""WARNING_ZERO_VOLUME"": 25}",unknown,Phiên volume bằng 0: 25; Dòng có cảnh báo nguồn: 25
+BT1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BT6,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BTB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BTD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BTG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BTH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BTN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BTP,HOSE,4285,REVIEW,2026-10-21,0,0,0,0,263,0,263,0,0,0.0,yfinance,"{""VALID"": 4022, ""WARNING_ZERO_VOLUME"": 263}",unknown,Phiên volume bằng 0: 263; Dòng có cảnh báo nguồn: 263
+BTS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BTT,HOSE,4255,REVIEW,2026-10-20,0,0,0,0,1735,0,1735,0,2,1.0,yfinance,"{""VALID"": 2520, ""WARNING_ZERO_VOLUME"": 1735}",unknown,Phiên volume bằng 0: 1735; Dòng có cảnh báo nguồn: 1735; Biến động close trên 20% cần đối chiếu: 2
+BTU,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BTV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BTW,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BVB,UPCoM,67,REVIEW,2026-10-21,0,0,0,0,4,0,4,0,0,0.0,yfinance,"{""VALID"": 63, ""WARNING_ZERO_VOLUME"": 4}",unknown,Phiên volume bằng 0: 4; Dòng có cảnh báo nguồn: 4
+BVG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BVH,HOSE,4284,REVIEW,2026-10-21,0,0,0,0,229,0,229,0,0,0.0,yfinance,"{""VALID"": 4055, ""WARNING_ZERO_VOLUME"": 229}",unknown,Phiên volume bằng 0: 229; Dòng có cảnh báo nguồn: 229
+BVL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BVN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BVS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BWA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BWE,HOSE,2402,REVIEW,2026-10-21,0,0,0,0,150,0,150,0,0,0.0,yfinance,"{""VALID"": 2252, ""WARNING_ZERO_VOLUME"": 150}",unknown,Phiên volume bằng 0: 150; Dòng có cảnh báo nguồn: 150
+BWS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+BXH,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+C12,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+C21,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+C22,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+C32,HOSE,3567,REVIEW,2026-10-20,0,0,0,0,244,0,244,0,0,1.0,yfinance,"{""VALID"": 3323, ""WARNING_ZERO_VOLUME"": 244}",unknown,Phiên volume bằng 0: 244; Dòng có cảnh báo nguồn: 244
+C47,HOSE,4015,REVIEW,2026-10-21,0,0,0,0,395,0,395,0,1,0.0,yfinance,"{""VALID"": 3620, ""WARNING_ZERO_VOLUME"": 395}",unknown,Phiên volume bằng 0: 395; Dòng có cảnh báo nguồn: 395; Biến động close trên 20% cần đối chiếu: 1
+C4G,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+C69,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+C92,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CAD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CAG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CAN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CAP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CAR,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CAT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CBI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CBS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CC1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CCA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CCC,HOSE,374,REVIEW,2026-10-21,0,0,0,0,295,0,295,0,1,0.0,yfinance,"{""WARNING_ZERO_VOLUME"": 295, ""VALID"": 79}",unknown,Phiên volume bằng 0: 295; Dòng có cảnh báo nguồn: 295; Biến động close trên 20% cần đối chiếu: 1
+CCI,HOSE,4272,REVIEW,2026-10-20,0,0,0,0,1088,0,1088,0,0,1.0,yfinance,"{""VALID"": 3184, ""WARNING_ZERO_VOLUME"": 1088}",unknown,Phiên volume bằng 0: 1088; Dòng có cảnh báo nguồn: 1088
+CCL,HOSE,4033,REVIEW,2026-10-21,0,0,0,0,254,0,254,0,0,0.0,yfinance,"{""VALID"": 3779, ""WARNING_ZERO_VOLUME"": 254}",unknown,Phiên volume bằng 0: 254; Dòng có cảnh báo nguồn: 254
+CCM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CCP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CCR,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CCT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CCV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CDC,HOSE,4149,REVIEW,2026-10-21,0,0,0,0,404,0,405,0,2,0.0,yfinance,"{""VALID"": 3744, ""WARNING_ZERO_VOLUME"": 404, ""WARNING_PRICE_SPIKE"": 1}",unknown,Phiên volume bằng 0: 404; Dòng có cảnh báo nguồn: 405; Biến động close trên 20% cần đối chiếu: 2
+CDG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CDH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CDN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CDO,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CDP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CDR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CEN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CEO,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CET,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CFM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CFV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CGV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CH5,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CHC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CHP,HOSE,2611,REVIEW,2026-10-21,0,0,0,0,171,0,171,0,0,0.0,yfinance,"{""VALID"": 2440, ""WARNING_ZERO_VOLUME"": 171}",unknown,Phiên volume bằng 0: 171; Dòng có cảnh báo nguồn: 171
+CHS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CI5,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CIA,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CID,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CIG,HOSE,3929,REVIEW,2026-10-21,0,0,0,0,405,0,405,0,3,0.0,yfinance,"{""VALID"": 3524, ""WARNING_ZERO_VOLUME"": 405}",unknown,Phiên volume bằng 0: 405; Dòng có cảnh báo nguồn: 405; Biến động close trên 20% cần đối chiếu: 3
+CII,HOSE,3741,REVIEW,2026-10-21,0,0,0,0,206,0,206,0,0,0.0,yfinance,"{""VALID"": 3535, ""WARNING_ZERO_VOLUME"": 206}",unknown,Phiên volume bằng 0: 206; Dòng có cảnh báo nguồn: 206
+CIP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CJC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CK8,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CKA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CKD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CKG,HOSE,1706,REVIEW,2026-10-21,0,0,0,0,108,0,108,0,0,0.0,yfinance,"{""VALID"": 1598, ""WARNING_ZERO_VOLUME"": 108}",unknown,Phiên volume bằng 0: 108; Dòng có cảnh báo nguồn: 108
+CKV,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CLC,HOSE,4290,REVIEW,2026-10-21,0,0,0,0,514,0,514,0,1,0.0,yfinance,"{""VALID"": 3776, ""WARNING_ZERO_VOLUME"": 514}",unknown,Phiên volume bằng 0: 514; Dòng có cảnh báo nguồn: 514; Biến động close trên 20% cần đối chiếu: 1
+CLG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CLH,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CLL,HOSE,3143,REVIEW,2026-10-21,0,0,0,0,445,0,445,0,0,0.0,yfinance,"{""VALID"": 2698, ""WARNING_ZERO_VOLUME"": 445}",unknown,Phiên volume bằng 0: 445; Dòng có cảnh báo nguồn: 445
+CLM,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CLW,HOSE,4074,REVIEW,2026-10-20,0,0,0,0,1865,0,1865,0,1,1.0,yfinance,"{""VALID"": 2209, ""WARNING_ZERO_VOLUME"": 1865}",unknown,Phiên volume bằng 0: 1865; Dòng có cảnh báo nguồn: 1865; Biến động close trên 20% cần đối chiếu: 1
+CLX,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMG,HOSE,4294,REVIEW,2026-10-21,0,0,0,0,256,0,256,0,0,0.0,yfinance,"{""VALID"": 4038, ""WARNING_ZERO_VOLUME"": 256}",unknown,Phiên volume bằng 0: 256; Dòng có cảnh báo nguồn: 256
+CMI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMK,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMV,HOSE,4220,REVIEW,2026-10-20,0,0,0,0,1693,0,1693,0,1,1.0,yfinance,"{""VALID"": 2527, ""WARNING_ZERO_VOLUME"": 1693}",unknown,Phiên volume bằng 0: 1693; Dòng có cảnh báo nguồn: 1693; Biến động close trên 20% cần đối chiếu: 1
+CMW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CMX,HOSE,4099,REVIEW,2026-10-21,0,0,0,0,317,0,317,0,2,0.0,yfinance,"{""VALID"": 3782, ""WARNING_ZERO_VOLUME"": 317}",unknown,Phiên volume bằng 0: 317; Dòng có cảnh báo nguồn: 317; Biến động close trên 20% cần đối chiếu: 2
+CNA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CNC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CNG,HOSE,3822,REVIEW,2026-10-21,0,0,0,0,212,0,212,0,0,0.0,yfinance,"{""VALID"": 3610, ""WARNING_ZERO_VOLUME"": 212}",unknown,Phiên volume bằng 0: 212; Dòng có cảnh báo nguồn: 212
+CNN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CNT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+COM,HOSE,4312,REVIEW,2026-10-21,0,0,0,0,1733,0,1733,0,1,0.0,yfinance,"{""VALID"": 2579, ""WARNING_ZERO_VOLUME"": 1733}",unknown,Phiên volume bằng 0: 1733; Dòng có cảnh báo nguồn: 1733; Biến động close trên 20% cần đối chiếu: 1
+CPA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CPC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CPH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CPI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CQN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CQT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CRC,HOSE,2120,REVIEW,2026-10-21,0,0,0,0,137,0,137,0,0,0.0,yfinance,"{""VALID"": 1983, ""WARNING_ZERO_VOLUME"": 137}",unknown,Phiên volume bằng 0: 137; Dòng có cảnh báo nguồn: 137
+CRE,HOSE,2107,REVIEW,2026-10-21,0,0,0,0,135,0,135,0,1,0.0,yfinance,"{""VALID"": 1972, ""WARNING_ZERO_VOLUME"": 135}",unknown,Phiên volume bằng 0: 135; Dòng có cảnh báo nguồn: 135; Biến động close trên 20% cần đối chiếu: 1
+CSC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CSI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CSM,HOSE,4283,REVIEW,2026-10-21,0,0,0,0,239,0,239,0,1,0.0,yfinance,"{""VALID"": 4044, ""WARNING_ZERO_VOLUME"": 239}",unknown,Phiên volume bằng 0: 239; Dòng có cảnh báo nguồn: 239; Biến động close trên 20% cần đối chiếu: 1
+CST,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CSV,HOSE,2993,REVIEW,2026-10-21,0,0,0,0,167,0,167,0,1,0.0,yfinance,"{""VALID"": 2826, ""WARNING_ZERO_VOLUME"": 167}",unknown,Phiên volume bằng 0: 167; Dòng có cảnh báo nguồn: 167; Biến động close trên 20% cần đối chiếu: 1
+CT3,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CT6,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CTA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CTB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CTD,HOSE,4308,REVIEW,2026-10-21,0,0,0,0,295,0,295,0,1,0.0,yfinance,"{""VALID"": 4013, ""WARNING_ZERO_VOLUME"": 295}",unknown,Phiên volume bằng 0: 295; Dòng có cảnh báo nguồn: 295; Biến động close trên 20% cần đối chiếu: 1
+CTF,HOSE,2438,REVIEW,2026-10-21,0,0,0,0,178,0,178,0,0,0.0,yfinance,"{""VALID"": 2260, ""WARNING_ZERO_VOLUME"": 178}",unknown,Phiên volume bằng 0: 178; Dòng có cảnh báo nguồn: 178
+CTG,HOSE,4309,REVIEW,2026-10-21,0,0,0,0,239,0,239,0,0,0.0,yfinance,"{""VALID"": 4070, ""WARNING_ZERO_VOLUME"": 239}",unknown,Phiên volume bằng 0: 239; Dòng có cảnh báo nguồn: 239
+CTI,HOSE,4289,REVIEW,2026-10-21,0,0,0,0,305,0,305,0,0,0.0,yfinance,"{""VALID"": 3984, ""WARNING_ZERO_VOLUME"": 305}",unknown,Phiên volume bằng 0: 305; Dòng có cảnh báo nguồn: 305
+CTN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CTP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CTR,HOSE,1216,REVIEW,2026-10-21,0,0,0,0,63,0,63,0,0,0.0,yfinance,"{""VALID"": 1153, ""WARNING_ZERO_VOLUME"": 63}",unknown,Phiên volume bằng 0: 63; Dòng có cảnh báo nguồn: 63
+CTS,HOSE,3076,REVIEW,2026-10-21,0,0,0,0,196,0,196,0,2,0.0,yfinance,"{""VALID"": 2880, ""WARNING_ZERO_VOLUME"": 196}",unknown,Phiên volume bằng 0: 196; Dòng có cảnh báo nguồn: 196; Biến động close trên 20% cần đối chiếu: 2
+CTT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CTW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CTX,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CVN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CVT,HOSE,2348,REVIEW,2026-10-20,0,0,0,0,632,0,632,0,0,1.0,yfinance,"{""VALID"": 1716, ""WARNING_ZERO_VOLUME"": 632}",unknown,Phiên volume bằng 0: 632; Dòng có cảnh báo nguồn: 632
+CX8,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+CYC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+D11,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+D2D,HOSE,4294,REVIEW,2026-10-21,0,0,0,0,407,0,407,0,1,0.0,yfinance,"{""VALID"": 3887, ""WARNING_ZERO_VOLUME"": 407}",unknown,Phiên volume bằng 0: 407; Dòng có cảnh báo nguồn: 407; Biến động close trên 20% cần đối chiếu: 1
+DAC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DAD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DAE,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DAG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DAH,HOSE,2596,REVIEW,2026-10-21,0,0,0,0,154,0,154,0,1,0.0,yfinance,"{""VALID"": 2442, ""WARNING_ZERO_VOLUME"": 154}",unknown,Phiên volume bằng 0: 154; Dòng có cảnh báo nguồn: 154; Biến động close trên 20% cần đối chiếu: 1
+DAN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DAS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DAT,HOSE,2828,REVIEW,2026-10-20,0,0,0,0,1025,0,1025,0,0,1.0,yfinance,"{""VALID"": 1803, ""WARNING_ZERO_VOLUME"": 1025}",unknown,Phiên volume bằng 0: 1025; Dòng có cảnh báo nguồn: 1025
+DBC,HOSE,1881,REVIEW,2026-10-21,0,0,0,0,124,0,124,0,0,0.0,yfinance,"{""VALID"": 1757, ""WARNING_ZERO_VOLUME"": 124}",unknown,Phiên volume bằng 0: 124; Dòng có cảnh báo nguồn: 124
+DBD,HOSE,2165,REVIEW,2026-10-21,0,0,0,0,138,0,138,0,1,0.0,yfinance,"{""VALID"": 2027, ""WARNING_ZERO_VOLUME"": 138}",unknown,Phiên volume bằng 0: 138; Dòng có cảnh báo nguồn: 138; Biến động close trên 20% cần đối chiếu: 1
+DBM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DBT,HOSE,1559,REVIEW,2026-10-20,0,0,0,0,158,0,158,0,0,1.0,yfinance,"{""VALID"": 1401, ""WARNING_ZERO_VOLUME"": 158}",unknown,Phiên volume bằng 0: 158; Dòng có cảnh báo nguồn: 158
+DC1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DC2,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DC4,HOSE,1463,REVIEW,2026-10-21,0,0,0,0,100,0,100,0,0,0.0,yfinance,"{""VALID"": 1363, ""WARNING_ZERO_VOLUME"": 100}",unknown,Phiên volume bằng 0: 100; Dòng có cảnh báo nguồn: 100
+DCF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DCG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DCH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DCL,HOSE,4283,REVIEW,2026-10-21,0,0,0,0,350,0,350,0,0,0.0,yfinance,"{""VALID"": 3933, ""WARNING_ZERO_VOLUME"": 350}",unknown,Phiên volume bằng 0: 350; Dòng có cảnh báo nguồn: 350
+DCM,HOSE,2984,REVIEW,2026-10-21,0,0,0,0,160,0,160,0,0,0.0,yfinance,"{""VALID"": 2824, ""WARNING_ZERO_VOLUME"": 160}",unknown,Phiên volume bằng 0: 160; Dòng có cảnh báo nguồn: 160
+DCR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DCS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DCT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DDB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DDG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DDH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DDM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DDN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DDV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DFC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DFF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DGC,HOSE,1617,REVIEW,2026-10-21,0,0,0,0,100,0,100,0,0,0.0,yfinance,"{""VALID"": 1517, ""WARNING_ZERO_VOLUME"": 100}",unknown,Phiên volume bằng 0: 100; Dòng có cảnh báo nguồn: 100
+DGT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DGW,HOSE,2897,REVIEW,2026-10-21,0,0,0,0,163,0,163,0,3,0.0,yfinance,"{""VALID"": 2734, ""WARNING_ZERO_VOLUME"": 163}",unknown,Phiên volume bằng 0: 163; Dòng có cảnh báo nguồn: 163; Biến động close trên 20% cần đối chiếu: 3
+DHA,HOSE,4291,REVIEW,2026-10-21,0,0,0,0,238,0,238,0,2,0.0,yfinance,"{""VALID"": 4053, ""WARNING_ZERO_VOLUME"": 238}",unknown,Phiên volume bằng 0: 238; Dòng có cảnh báo nguồn: 238; Biến động close trên 20% cần đối chiếu: 2
+DHB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DHC,HOSE,4293,REVIEW,2026-10-21,0,0,0,0,358,0,358,0,0,0.0,yfinance,"{""VALID"": 3935, ""WARNING_ZERO_VOLUME"": 358}",unknown,Phiên volume bằng 0: 358; Dòng có cảnh báo nguồn: 358
+DHD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DHG,HOSE,4287,REVIEW,2026-10-21,0,0,0,0,233,0,233,0,0,0.0,yfinance,"{""VALID"": 4054, ""WARNING_ZERO_VOLUME"": 233}",unknown,Phiên volume bằng 0: 233; Dòng có cảnh báo nguồn: 233
+DHM,HOSE,3656,REVIEW,2026-10-20,0,0,0,0,245,0,245,0,1,1.0,yfinance,"{""VALID"": 3411, ""WARNING_ZERO_VOLUME"": 245}",unknown,Phiên volume bằng 0: 245; Dòng có cảnh báo nguồn: 245; Biến động close trên 20% cần đối chiếu: 1
+DHN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DHP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DHT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DIC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DID,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DIG,HOSE,4292,REVIEW,2026-10-21,0,0,0,0,240,0,240,0,0,0.0,yfinance,"{""VALID"": 4052, ""WARNING_ZERO_VOLUME"": 240}",unknown,Phiên volume bằng 0: 240; Dòng có cảnh báo nguồn: 240
+DIH,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DKC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DKG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DKW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DL1,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DLD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DLG,HOSE,4196,REVIEW,2026-10-21,0,0,0,0,229,0,229,0,0,0.0,yfinance,"{""VALID"": 3967, ""WARNING_ZERO_VOLUME"": 229}",unknown,Phiên volume bằng 0: 229; Dòng có cảnh báo nguồn: 229
+DLR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DLT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DM7,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DMC,HOSE,3732,REVIEW,2026-10-20,0,0,0,0,375,0,375,0,0,1.0,yfinance,"{""VALID"": 3357, ""WARNING_ZERO_VOLUME"": 375}",unknown,Phiên volume bằng 0: 375; Dòng có cảnh báo nguồn: 375
+DMN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DMS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DNA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DNC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DND,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DNE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DNH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DNL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DNM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DNN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DNP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DNT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DNW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DOC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DOP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DP1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DP2,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DP3,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DPC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DPG,HOSE,2183,REVIEW,2026-10-21,0,0,0,0,137,0,137,0,1,0.0,yfinance,"{""VALID"": 2046, ""WARNING_ZERO_VOLUME"": 137}",unknown,Phiên volume bằng 0: 137; Dòng có cảnh báo nguồn: 137; Biến động close trên 20% cần đối chiếu: 1
+DPH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DPM,HOSE,4290,REVIEW,2026-10-21,0,0,0,0,240,0,240,0,0,0.0,yfinance,"{""VALID"": 4050, ""WARNING_ZERO_VOLUME"": 240}",unknown,Phiên volume bằng 0: 240; Dòng có cảnh báo nguồn: 240
+DPP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DPR,HOSE,3737,REVIEW,2026-10-21,0,0,0,0,233,0,233,0,0,0.0,yfinance,"{""VALID"": 3504, ""WARNING_ZERO_VOLUME"": 233}",unknown,Phiên volume bằng 0: 233; Dòng có cảnh báo nguồn: 233
+DPS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DQC,HOSE,4282,REVIEW,2026-10-20,0,0,0,0,236,0,236,0,0,1.0,yfinance,"{""VALID"": 4046, ""WARNING_ZERO_VOLUME"": 236}",unknown,Phiên volume bằng 0: 236; Dòng có cảnh báo nguồn: 236
+DRC,HOSE,4296,REVIEW,2026-10-21,0,0,0,0,239,0,239,0,1,0.0,yfinance,"{""VALID"": 4057, ""WARNING_ZERO_VOLUME"": 239}",unknown,Phiên volume bằng 0: 239; Dòng có cảnh báo nguồn: 239; Biến động close trên 20% cần đối chiếu: 1
+DRG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DRH,HOSE,4176,REVIEW,2026-10-20,0,0,0,0,406,0,406,0,0,1.0,yfinance,"{""VALID"": 3770, ""WARNING_ZERO_VOLUME"": 406}",unknown,Phiên volume bằng 0: 406; Dòng có cảnh báo nguồn: 406
+DRI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DRL,HOSE,3751,REVIEW,2026-10-21,0,0,0,0,847,0,847,0,0,0.0,yfinance,"{""VALID"": 2904, ""WARNING_ZERO_VOLUME"": 847}",unknown,Phiên volume bằng 0: 847; Dòng có cảnh báo nguồn: 847
+DS3,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DSC,HOSE,519,REVIEW,2026-10-21,0,0,0,0,26,0,26,0,0,0.0,yfinance,"{""VALID"": 493, ""WARNING_ZERO_VOLUME"": 26}",unknown,Phiên volume bằng 0: 26; Dòng có cảnh báo nguồn: 26
+DSD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DSE,HOSE,599,REVIEW,2026-10-21,0,0,0,0,26,0,26,0,0,0.0,yfinance,"{""VALID"": 573, ""WARNING_ZERO_VOLUME"": 26}",unknown,Phiên volume bằng 0: 26; Dòng có cảnh báo nguồn: 26
+DSG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DSH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DSN,HOSE,4122,REVIEW,2026-10-21,0,0,0,0,265,0,265,0,0,0.0,yfinance,"{""VALID"": 3857, ""WARNING_ZERO_VOLUME"": 265}",unknown,Phiên volume bằng 0: 265; Dòng có cảnh báo nguồn: 265
+DSP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DST,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DTA,HOSE,4204,REVIEW,2026-10-21,0,0,0,0,462,0,462,0,0,0.0,yfinance,"{""VALID"": 3742, ""WARNING_ZERO_VOLUME"": 462}",unknown,Phiên volume bằng 0: 462; Dòng có cảnh báo nguồn: 462
+DTC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DTD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DTE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DTG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DTH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DTI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DTK,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DTL,HOSE,4229,REVIEW,2026-10-20,0,0,0,0,955,0,955,0,1,1.0,yfinance,"{""VALID"": 3274, ""WARNING_ZERO_VOLUME"": 955}",unknown,Phiên volume bằng 0: 955; Dòng có cảnh báo nguồn: 955; Biến động close trên 20% cần đối chiếu: 1
+DTP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DTT,HOSE,4317,REVIEW,2026-10-21,0,0,0,0,2285,0,2285,0,0,0.0,yfinance,"{""WARNING_ZERO_VOLUME"": 2285, ""VALID"": 2032}",unknown,Phiên volume bằng 0: 2285; Dòng có cảnh báo nguồn: 2285
+DUS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DVC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DVG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DVM,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DVN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DVP,HOSE,4292,REVIEW,2026-10-21,0,0,0,0,332,0,332,0,0,0.0,yfinance,"{""VALID"": 3960, ""WARNING_ZERO_VOLUME"": 332}",unknown,Phiên volume bằng 0: 332; Dòng có cảnh báo nguồn: 332
+DVT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DVW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DWC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DWS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DXG,HOSE,4292,REVIEW,2026-10-21,0,0,0,0,241,0,241,0,1,0.0,yfinance,"{""VALID"": 4051, ""WARNING_ZERO_VOLUME"": 241}",unknown,Phiên volume bằng 0: 241; Dòng có cảnh báo nguồn: 241; Biến động close trên 20% cần đối chiếu: 1
+DXL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DXP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+DXS,HOSE,1328,REVIEW,2026-10-21,0,0,0,0,75,0,75,0,0,0.0,yfinance,"{""VALID"": 1253, ""WARNING_ZERO_VOLUME"": 75}",unknown,Phiên volume bằng 0: 75; Dòng có cảnh báo nguồn: 75
+DXV,HOSE,4295,REVIEW,2026-10-21,0,0,0,0,619,0,619,0,1,0.0,yfinance,"{""VALID"": 3676, ""WARNING_ZERO_VOLUME"": 619}",unknown,Phiên volume bằng 0: 619; Dòng có cảnh báo nguồn: 619; Biến động close trên 20% cần đối chiếu: 1
+DZM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+E12,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+E29,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+EBS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ECI,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ECO,UPCoM,14,REVIEW,2026-10-21,0,0,0,0,4,0,4,0,0,0.0,yfinance,"{""VALID"": 10, ""WARNING_ZERO_VOLUME"": 4}",unknown,Phiên volume bằng 0: 4; Dòng có cảnh báo nguồn: 4
+EFI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+EIB,HOSE,4297,REVIEW,2026-10-21,0,0,0,0,234,0,234,0,0,0.0,yfinance,"{""VALID"": 4063, ""WARNING_ZERO_VOLUME"": 234}",unknown,Phiên volume bằng 0: 234; Dòng có cảnh báo nguồn: 234
+EIC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+EID,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+EIN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ELC,HOSE,4131,REVIEW,2026-10-21,0,0,0,0,331,0,331,0,2,0.0,yfinance,"{""VALID"": 3800, ""WARNING_ZERO_VOLUME"": 331}",unknown,Phiên volume bằng 0: 331; Dòng có cảnh báo nguồn: 331; Biến động close trên 20% cần đối chiếu: 2
+EME,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+EMG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+EMS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+EPC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+EVE,HOSE,4085,REVIEW,2026-10-21,0,0,0,0,422,0,422,0,0,0.0,yfinance,"{""VALID"": 3663, ""WARNING_ZERO_VOLUME"": 422}",unknown,Phiên volume bằng 0: 422; Dòng có cảnh báo nguồn: 422
+EVF,HOSE,1237,REVIEW,2026-10-21,0,0,0,0,62,0,62,0,0,0.0,yfinance,"{""VALID"": 1175, ""WARNING_ZERO_VOLUME"": 62}",unknown,Phiên volume bằng 0: 62; Dòng có cảnh báo nguồn: 62
+EVG,HOSE,2441,REVIEW,2026-10-21,0,0,0,0,159,0,159,0,1,0.0,yfinance,"{""VALID"": 2282, ""WARNING_ZERO_VOLUME"": 159}",unknown,Phiên volume bằng 0: 159; Dòng có cảnh báo nguồn: 159; Biến động close trên 20% cần đối chiếu: 1
+EVS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+F88,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FBA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FBC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FCC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FCM,HOSE,3441,REVIEW,2026-10-21,0,0,0,0,195,0,195,0,0,0.0,yfinance,"{""VALID"": 3246, ""WARNING_ZERO_VOLUME"": 195}",unknown,Phiên volume bằng 0: 195; Dòng có cảnh báo nguồn: 195
+FCN,HOSE,3654,REVIEW,2026-10-21,0,0,0,0,200,0,200,0,0,0.0,yfinance,"{""VALID"": 3454, ""WARNING_ZERO_VOLUME"": 200}",unknown,Phiên volume bằng 0: 200; Dòng có cảnh báo nguồn: 200
+FCS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FDC,HOSE,4289,REVIEW,2026-10-20,0,0,0,0,1305,0,1305,0,1,1.0,yfinance,"{""VALID"": 2984, ""WARNING_ZERO_VOLUME"": 1305}",unknown,Phiên volume bằng 0: 1305; Dòng có cảnh báo nguồn: 1305; Biến động close trên 20% cần đối chiếu: 1
+FGL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FHN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FHS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FIC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FID,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FIR,HOSE,2085,REVIEW,2026-10-21,0,0,0,0,142,0,142,0,0,0.0,yfinance,"{""VALID"": 1943, ""WARNING_ZERO_VOLUME"": 142}",unknown,Phiên volume bằng 0: 142; Dòng có cảnh báo nguồn: 142
+FIT,HOSE,2883,REVIEW,2026-10-21,0,0,0,0,158,0,158,0,0,0.0,yfinance,"{""VALID"": 2725, ""WARNING_ZERO_VOLUME"": 158}",unknown,Phiên volume bằng 0: 158; Dòng có cảnh báo nguồn: 158
+FLC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FMC,HOSE,4282,REVIEW,2026-10-21,0,0,0,0,261,0,261,0,1,0.0,yfinance,"{""VALID"": 4021, ""WARNING_ZERO_VOLUME"": 261}",unknown,Phiên volume bằng 0: 261; Dòng có cảnh báo nguồn: 261; Biến động close trên 20% cần đối chiếu: 1
+FOC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FOX,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FPT,HOSE,4295,REVIEW,2026-10-21,0,0,0,0,244,0,244,0,1,0.0,yfinance,"{""VALID"": 4051, ""WARNING_ZERO_VOLUME"": 244}",unknown,Phiên volume bằng 0: 244; Dòng có cảnh báo nguồn: 244; Biến động close trên 20% cần đối chiếu: 1
+FRC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FRM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FRT,HOSE,2210,REVIEW,2026-10-21,0,0,0,0,146,0,146,0,0,0.0,yfinance,"{""VALID"": 2064, ""WARNING_ZERO_VOLUME"": 146}",unknown,Phiên volume bằng 0: 146; Dòng có cảnh báo nguồn: 146
+FSO,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FT1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FTI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FTM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+FTS,HOSE,2536,REVIEW,2026-10-21,0,0,0,0,163,0,163,0,0,0.0,yfinance,"{""VALID"": 2373, ""WARNING_ZERO_VOLUME"": 163}",unknown,Phiên volume bằng 0: 163; Dòng có cảnh báo nguồn: 163
+G20,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+G36,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GAB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GAS,HOSE,3716,REVIEW,2026-10-21,0,0,0,0,205,0,205,0,0,0.0,yfinance,"{""VALID"": 3511, ""WARNING_ZERO_VOLUME"": 205}",unknown,Phiên volume bằng 0: 205; Dòng có cảnh báo nguồn: 205
+GCB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GCF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GDA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GDT,HOSE,4298,REVIEW,2026-10-21,0,0,0,0,412,0,412,0,0,0.0,yfinance,"{""VALID"": 3886, ""WARNING_ZERO_VOLUME"": 412}",unknown,Phiên volume bằng 0: 412; Dòng có cảnh báo nguồn: 412
+GDW,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GEE,HOSE,571,REVIEW,2026-10-21,0,0,0,0,29,0,29,0,0,0.0,yfinance,"{""VALID"": 542, ""WARNING_ZERO_VOLUME"": 29}",unknown,Phiên volume bằng 0: 29; Dòng có cảnh báo nguồn: 29
+GEG,HOSE,1845,REVIEW,2026-10-21,0,0,0,0,122,0,122,0,0,0.0,yfinance,"{""VALID"": 1723, ""WARNING_ZERO_VOLUME"": 122}",unknown,Phiên volume bằng 0: 122; Dòng có cảnh báo nguồn: 122
+GER,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GEX,HOSE,2275,REVIEW,2026-10-21,0,0,0,0,153,0,153,0,0,0.0,yfinance,"{""VALID"": 2122, ""WARNING_ZERO_VOLUME"": 153}",unknown,Phiên volume bằng 0: 153; Dòng có cảnh báo nguồn: 153
+GGG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GH3,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GHC,UPCoM,189,REVIEW,2026-10-21,0,0,0,0,13,0,13,0,0,0.0,yfinance,"{""VALID"": 176, ""WARNING_ZERO_VOLUME"": 13}",unknown,Phiên volume bằng 0: 13; Dòng có cảnh báo nguồn: 13
+GIC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GIL,HOSE,4285,REVIEW,2026-10-21,0,0,0,0,346,0,346,0,2,0.0,yfinance,"{""VALID"": 3939, ""WARNING_ZERO_VOLUME"": 346}",unknown,Phiên volume bằng 0: 346; Dòng có cảnh báo nguồn: 346; Biến động close trên 20% cần đối chiếu: 2
+GKM,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GLC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GLT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GLW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GMA,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GMC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GMD,HOSE,3742,REVIEW,2026-10-21,0,0,0,0,208,0,208,0,1,0.0,yfinance,"{""VALID"": 3534, ""WARNING_ZERO_VOLUME"": 208}",unknown,Phiên volume bằng 0: 208; Dòng có cảnh báo nguồn: 208; Biến động close trên 20% cần đối chiếu: 1
+GMH,HOSE,1236,REVIEW,2026-10-20,0,0,0,0,182,0,182,0,0,1.0,yfinance,"{""VALID"": 1054, ""WARNING_ZERO_VOLUME"": 182}",unknown,Phiên volume bằng 0: 182; Dòng có cảnh báo nguồn: 182
+GMX,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GND,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GPC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GSM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GSP,HOSE,3765,REVIEW,2026-10-21,0,0,0,0,237,0,237,0,0,0.0,yfinance,"{""VALID"": 3528, ""WARNING_ZERO_VOLUME"": 237}",unknown,Phiên volume bằng 0: 237; Dòng có cảnh báo nguồn: 237
+GTA,HOSE,4296,REVIEW,2026-10-20,0,0,0,0,840,0,840,0,1,1.0,yfinance,"{""VALID"": 3456, ""WARNING_ZERO_VOLUME"": 840}",unknown,Phiên volume bằng 0: 840; Dòng có cảnh báo nguồn: 840; Biến động close trên 20% cần đối chiếu: 1
+GTD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GTS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GTT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+GVR,HOSE,1713,REVIEW,2026-10-21,0,0,0,0,109,0,109,0,0,0.0,yfinance,"{""VALID"": 1604, ""WARNING_ZERO_VOLUME"": 109}",unknown,Phiên volume bằng 0: 109; Dòng có cảnh báo nguồn: 109
+GVT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+H11,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HAC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HAD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HAF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HAG,HOSE,4283,REVIEW,2026-10-21,0,0,0,0,233,0,233,0,1,0.0,yfinance,"{""VALID"": 4050, ""WARNING_ZERO_VOLUME"": 233}",unknown,Phiên volume bằng 0: 233; Dòng có cảnh báo nguồn: 233; Biến động close trên 20% cần đối chiếu: 1
+HAH,HOSE,3007,REVIEW,2026-10-21,0,0,0,0,170,0,170,0,0,0.0,yfinance,"{""VALID"": 2837, ""WARNING_ZERO_VOLUME"": 170}",unknown,Phiên volume bằng 0: 170; Dòng có cảnh báo nguồn: 170
+HAI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HAM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HAN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HAP,HOSE,4297,REVIEW,2026-10-21,0,0,0,0,278,0,278,0,0,0.0,yfinance,"{""VALID"": 4019, ""WARNING_ZERO_VOLUME"": 278}",unknown,Phiên volume bằng 0: 278; Dòng có cảnh báo nguồn: 278
+HAR,HOSE,3527,REVIEW,2026-10-21,0,0,0,0,196,0,196,0,0,0.0,yfinance,"{""VALID"": 3331, ""WARNING_ZERO_VOLUME"": 196}",unknown,Phiên volume bằng 0: 196; Dòng có cảnh báo nguồn: 196
+HAS,HOSE,4288,REVIEW,2026-10-21,0,0,0,0,918,0,918,0,0,0.0,yfinance,"{""VALID"": 3370, ""WARNING_ZERO_VOLUME"": 918}",unknown,Phiên volume bằng 0: 918; Dòng có cảnh báo nguồn: 918
+HAT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HAV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HAX,HOSE,4300,REVIEW,2026-10-21,0,0,0,0,466,0,466,0,1,0.0,yfinance,"{""VALID"": 3834, ""WARNING_ZERO_VOLUME"": 466}",unknown,Phiên volume bằng 0: 466; Dòng có cảnh báo nguồn: 466; Biến động close trên 20% cần đối chiếu: 1
+HBC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HBD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HBH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HBS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HC1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HC3,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HCC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HCD,HOSE,2674,REVIEW,2026-10-21,0,0,0,0,163,0,163,0,0,0.0,yfinance,"{""VALID"": 2511, ""WARNING_ZERO_VOLUME"": 163}",unknown,Phiên volume bằng 0: 163; Dòng có cảnh báo nguồn: 163
+HCI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HCM,HOSE,4281,REVIEW,2026-10-21,0,0,0,0,234,0,234,0,2,0.0,yfinance,"{""VALID"": 4047, ""WARNING_ZERO_VOLUME"": 234}",unknown,Phiên volume bằng 0: 234; Dòng có cảnh báo nguồn: 234; Biến động close trên 20% cần đối chiếu: 2
+HCT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HD2,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HD6,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HD8,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HDA,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HDB,HOSE,2290,REVIEW,2026-10-21,0,0,0,0,157,0,157,0,1,0.0,yfinance,"{""VALID"": 2133, ""WARNING_ZERO_VOLUME"": 157}",unknown,Phiên volume bằng 0: 157; Dòng có cảnh báo nguồn: 157; Biến động close trên 20% cần đối chiếu: 1
+HDC,HOSE,4307,REVIEW,2026-10-21,0,0,0,0,302,0,302,0,1,0.0,yfinance,"{""VALID"": 4005, ""WARNING_ZERO_VOLUME"": 302}",unknown,Phiên volume bằng 0: 302; Dòng có cảnh báo nguồn: 302; Biến động close trên 20% cần đối chiếu: 1
+HDG,HOSE,4291,REVIEW,2026-10-21,0,0,0,0,285,0,285,0,1,0.0,yfinance,"{""VALID"": 4006, ""WARNING_ZERO_VOLUME"": 285}",unknown,Phiên volume bằng 0: 285; Dòng có cảnh báo nguồn: 285; Biến động close trên 20% cần đối chiếu: 1
+HDM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HDO,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HDP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HDW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HEC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HEJ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HEP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HES,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HEV,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HFB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HFC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HFX,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HGM,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HGT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HHC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HHG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HHN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HHP,HOSE,1470,REVIEW,2026-10-21,0,0,0,0,100,0,100,0,0,0.0,yfinance,"{""VALID"": 1370, ""WARNING_ZERO_VOLUME"": 100}",unknown,Phiên volume bằng 0: 100; Dòng có cảnh báo nguồn: 100
+HHS,HOSE,3766,REVIEW,2026-10-21,0,0,0,0,233,0,233,0,1,0.0,yfinance,"{""VALID"": 3533, ""WARNING_ZERO_VOLUME"": 233}",unknown,Phiên volume bằng 0: 233; Dòng có cảnh báo nguồn: 233; Biến động close trên 20% cần đối chiếu: 1
+HHV,HOSE,1240,REVIEW,2026-10-21,0,0,0,0,69,0,69,0,0,0.0,yfinance,"{""VALID"": 1171, ""WARNING_ZERO_VOLUME"": 69}",unknown,Phiên volume bằng 0: 69; Dòng có cảnh báo nguồn: 69
+HID,HOSE,2659,REVIEW,2026-10-21,0,0,0,0,157,0,157,0,0,0.0,yfinance,"{""VALID"": 2502, ""WARNING_ZERO_VOLUME"": 157}",unknown,Phiên volume bằng 0: 157; Dòng có cảnh báo nguồn: 157
+HII,HOSE,2421,REVIEW,2026-10-21,0,0,0,0,154,0,154,0,0,0.0,yfinance,"{""VALID"": 2267, ""WARNING_ZERO_VOLUME"": 154}",unknown,Phiên volume bằng 0: 154; Dòng có cảnh báo nguồn: 154
+HIO,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HJC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HJS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HKB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HKT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HLA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HLB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HLC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HLD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HLO,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HLS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HLT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HLY,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HMC,HOSE,4295,REVIEW,2026-10-20,0,0,0,0,295,0,295,0,2,1.0,yfinance,"{""VALID"": 4000, ""WARNING_ZERO_VOLUME"": 295}",unknown,Phiên volume bằng 0: 295; Dòng có cảnh báo nguồn: 295; Biến động close trên 20% cần đối chiếu: 2
+HMD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HMG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HMH,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HMR,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HMS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HNA,HOSE,715,REVIEW,2026-10-21,0,0,0,0,140,0,140,0,0,0.0,yfinance,"{""VALID"": 575, ""WARNING_ZERO_VOLUME"": 140}",unknown,Phiên volume bằng 0: 140; Dòng có cảnh báo nguồn: 140
+HNB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HND,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HNF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HNG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HNI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HNM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HNP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HNR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HOM,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HOT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HPB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HPD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HPG,HOSE,4297,REVIEW,2026-10-21,0,0,0,0,241,0,241,0,1,0.0,yfinance,"{""VALID"": 4056, ""WARNING_ZERO_VOLUME"": 241}",unknown,Phiên volume bằng 0: 241; Dòng có cảnh báo nguồn: 241; Biến động close trên 20% cần đối chiếu: 1
+HPH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HPI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HPM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HPP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HPT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HPW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HPX,HOSE,2140,REVIEW,2026-10-21,0,0,0,0,266,0,266,0,0,0.0,yfinance,"{""VALID"": 1874, ""WARNING_ZERO_VOLUME"": 266}",unknown,Phiên volume bằng 0: 266; Dòng có cảnh báo nguồn: 266
+HQC,HOSE,4113,REVIEW,2026-10-21,0,0,0,0,224,0,224,0,1,0.0,yfinance,"{""VALID"": 3889, ""WARNING_ZERO_VOLUME"": 224}",unknown,Phiên volume bằng 0: 224; Dòng có cảnh báo nguồn: 224; Biến động close trên 20% cần đối chiếu: 1
+HRB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HRC,HOSE,4301,REVIEW,2026-10-20,0,0,0,0,1329,0,1329,0,4,1.0,yfinance,"{""VALID"": 2972, ""WARNING_ZERO_VOLUME"": 1329}",unknown,Phiên volume bằng 0: 1329; Dòng có cảnh báo nguồn: 1329; Biến động close trên 20% cần đối chiếu: 4
+HSA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HSG,HOSE,4287,REVIEW,2026-10-21,0,0,0,0,242,0,242,0,0,0.0,yfinance,"{""VALID"": 4045, ""WARNING_ZERO_VOLUME"": 242}",unknown,Phiên volume bằng 0: 242; Dòng có cảnh báo nguồn: 242
+HSI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HSL,HOSE,2191,REVIEW,2026-10-21,0,0,0,0,140,0,140,0,1,0.0,yfinance,"{""VALID"": 2051, ""WARNING_ZERO_VOLUME"": 140}",unknown,Phiên volume bằng 0: 140; Dòng có cảnh báo nguồn: 140; Biến động close trên 20% cần đối chiếu: 1
+HSM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HSP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HSV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HT1,HOSE,4280,REVIEW,2026-10-21,0,0,0,0,236,0,237,0,0,0.0,yfinance,"{""VALID"": 4043, ""WARNING_ZERO_VOLUME"": 236, ""WARNING_PRICE_SPIKE"": 1}",unknown,Phiên volume bằng 0: 236; Dòng có cảnh báo nguồn: 237
+HTC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HTE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HTG,HOSE,770,REVIEW,2026-10-21,0,0,0,0,44,0,44,0,0,0.0,yfinance,"{""VALID"": 726, ""WARNING_ZERO_VOLUME"": 44}",unknown,Phiên volume bằng 0: 44; Dòng có cảnh báo nguồn: 44
+HTI,HOSE,4075,REVIEW,2026-10-21,0,0,0,0,316,0,316,0,0,0.0,yfinance,"{""VALID"": 3759, ""WARNING_ZERO_VOLUME"": 316}",unknown,Phiên volume bằng 0: 316; Dòng có cảnh báo nguồn: 316
+HTL,HOSE,4077,REVIEW,2026-10-20,0,0,0,0,1176,0,1176,0,1,1.0,yfinance,"{""VALID"": 2901, ""WARNING_ZERO_VOLUME"": 1176}",unknown,Phiên volume bằng 0: 1176; Dòng có cảnh báo nguồn: 1176; Biến động close trên 20% cần đối chiếu: 1
+HTM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HTN,HOSE,2068,REVIEW,2026-10-21,0,0,0,0,145,0,145,0,0,0.0,yfinance,"{""VALID"": 1923, ""WARNING_ZERO_VOLUME"": 145}",unknown,Phiên volume bằng 0: 145; Dòng có cảnh báo nguồn: 145
+HTP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HTT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HTV,HOSE,4297,REVIEW,2026-10-20,0,0,0,0,862,0,862,0,0,1.0,yfinance,"{""VALID"": 3435, ""WARNING_ZERO_VOLUME"": 862}",unknown,Phiên volume bằng 0: 862; Dòng có cảnh báo nguồn: 862
+HU1,HOSE,3861,REVIEW,2026-10-21,0,0,0,0,1232,0,1232,0,1,0.0,yfinance,"{""VALID"": 2629, ""WARNING_ZERO_VOLUME"": 1232}",unknown,Phiên volume bằng 0: 1232; Dòng có cảnh báo nguồn: 1232; Biến động close trên 20% cần đối chiếu: 1
+HU3,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HU4,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HU6,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HUB,HOSE,1992,REVIEW,2026-10-21,0,0,0,0,168,0,168,0,0,0.0,yfinance,"{""VALID"": 1824, ""WARNING_ZERO_VOLUME"": 168}",unknown,Phiên volume bằng 0: 168; Dòng có cảnh báo nguồn: 168
+HUG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HUT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HVA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HVG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HVH,HOSE,2054,REVIEW,2026-10-21,0,0,0,0,144,0,144,0,0,0.0,yfinance,"{""VALID"": 1910, ""WARNING_ZERO_VOLUME"": 144}",unknown,Phiên volume bằng 0: 144; Dòng có cảnh báo nguồn: 144
+HVN,HOSE,1933,REVIEW,2026-10-21,0,0,0,0,124,0,124,0,1,0.0,yfinance,"{""VALID"": 1809, ""WARNING_ZERO_VOLUME"": 124}",unknown,Phiên volume bằng 0: 124; Dòng có cảnh báo nguồn: 124; Biến động close trên 20% cần đối chiếu: 1
+HVT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HVX,HOSE,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+HWS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IBC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IBD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ICC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ICF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ICG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ICI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ICN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ICT,HOSE,1756,REVIEW,2026-10-21,0,0,0,0,129,0,129,0,0,0.0,yfinance,"{""VALID"": 1627, ""WARNING_ZERO_VOLUME"": 129}",unknown,Phiên volume bằng 0: 129; Dòng có cảnh báo nguồn: 129
+IDC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IDI,HOSE,3934,REVIEW,2026-10-21,0,0,0,0,214,0,214,0,0,0.0,yfinance,"{""VALID"": 3720, ""WARNING_ZERO_VOLUME"": 214}",unknown,Phiên volume bằng 0: 214; Dòng có cảnh báo nguồn: 214
+IDJ,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IDP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IDV,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IFS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IHK,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IJC,HOSE,4244,REVIEW,2026-10-21,0,0,0,0,398,0,398,0,2,0.0,yfinance,"{""VALID"": 3846, ""WARNING_ZERO_VOLUME"": 398}",unknown,Phiên volume bằng 0: 398; Dòng có cảnh báo nguồn: 398; Biến động close trên 20% cần đối chiếu: 2
+ILA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ILB,HOSE,1927,REVIEW,2026-10-21,0,0,0,0,202,0,202,0,0,0.0,yfinance,"{""VALID"": 1725, ""WARNING_ZERO_VOLUME"": 202}",unknown,Phiên volume bằng 0: 202; Dòng có cảnh báo nguồn: 202
+ILC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ILS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IME,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IMP,HOSE,4288,REVIEW,2026-10-21,0,0,0,0,314,0,314,0,1,0.0,yfinance,"{""VALID"": 3974, ""WARNING_ZERO_VOLUME"": 314}",unknown,Phiên volume bằng 0: 314; Dòng có cảnh báo nguồn: 314; Biến động close trên 20% cần đối chiếu: 1
+IN4,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+INC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ING,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+INN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IPA,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IRC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ISG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ISH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IST,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ITA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ITC,HOSE,4296,REVIEW,2026-10-21,0,0,0,0,306,0,306,0,1,0.0,yfinance,"{""VALID"": 3990, ""WARNING_ZERO_VOLUME"": 306}",unknown,Phiên volume bằng 0: 306; Dòng có cảnh báo nguồn: 306; Biến động close trên 20% cần đối chiếu: 1
+ITD,HOSE,3822,REVIEW,2026-10-21,0,0,0,0,221,0,221,0,0,0.0,yfinance,"{""VALID"": 3601, ""WARNING_ZERO_VOLUME"": 221}",unknown,Phiên volume bằng 0: 221; Dòng có cảnh báo nguồn: 221
+ITQ,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ITS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+IVS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+JOS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+JVC,HOSE,3939,REVIEW,2026-10-21,0,0,0,0,215,0,215,0,0,0.0,yfinance,"{""VALID"": 3724, ""WARNING_ZERO_VOLUME"": 215}",unknown,Phiên volume bằng 0: 215; Dòng có cảnh báo nguồn: 215
+KBC,HOSE,4277,REVIEW,2026-10-21,0,0,0,0,236,0,236,0,2,0.0,yfinance,"{""VALID"": 4041, ""WARNING_ZERO_VOLUME"": 236}",unknown,Phiên volume bằng 0: 236; Dòng có cảnh báo nguồn: 236; Biến động close trên 20% cần đối chiếu: 2
+KCB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KDC,HOSE,3736,REVIEW,2026-10-21,0,0,0,0,204,0,204,0,1,0.0,yfinance,"{""VALID"": 3532, ""WARNING_ZERO_VOLUME"": 204}",unknown,Phiên volume bằng 0: 204; Dòng có cảnh báo nguồn: 204; Biến động close trên 20% cần đối chiếu: 1
+KDH,HOSE,4294,REVIEW,2026-10-21,0,0,0,0,245,0,245,0,0,0.0,yfinance,"{""VALID"": 4049, ""WARNING_ZERO_VOLUME"": 245}",unknown,Phiên volume bằng 0: 245; Dòng có cảnh báo nguồn: 245
+KDM,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KGM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KHD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KHG,HOSE,1328,REVIEW,2026-10-21,0,0,0,0,75,0,75,0,0,0.0,yfinance,"{""VALID"": 1253, ""WARNING_ZERO_VOLUME"": 75}",unknown,Phiên volume bằng 0: 75; Dòng có cảnh báo nguồn: 75
+KHL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KHP,HOSE,4294,REVIEW,2026-10-21,0,0,0,0,278,0,278,0,1,0.0,yfinance,"{""VALID"": 4016, ""WARNING_ZERO_VOLUME"": 278}",unknown,Phiên volume bằng 0: 278; Dòng có cảnh báo nguồn: 278; Biến động close trên 20% cần đối chiếu: 1
+KHS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KHW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KIP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KKC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KLB,UPCoM,200,REVIEW,2026-10-21,0,0,0,0,12,0,12,0,0,0.0,yfinance,"{""VALID"": 188, ""WARNING_ZERO_VOLUME"": 12}",unknown,Phiên volume bằng 0: 12; Dòng có cảnh báo nguồn: 12
+KLF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KMR,HOSE,4286,REVIEW,2026-10-21,0,0,0,0,236,0,236,0,0,0.0,yfinance,"{""VALID"": 4050, ""WARNING_ZERO_VOLUME"": 236}",unknown,Phiên volume bằng 0: 236; Dòng có cảnh báo nguồn: 236
+KMT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KOS,HOSE,1879,REVIEW,2026-10-21,0,0,0,0,124,0,124,0,0,0.0,yfinance,"{""VALID"": 1755, ""WARNING_ZERO_VOLUME"": 124}",unknown,Phiên volume bằng 0: 124; Dòng có cảnh báo nguồn: 124
+KPF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KSB,HOSE,4290,REVIEW,2026-10-21,0,0,0,0,353,0,353,0,1,0.0,yfinance,"{""VALID"": 3937, ""WARNING_ZERO_VOLUME"": 353}",unknown,Phiên volume bằng 0: 353; Dòng có cảnh báo nguồn: 353; Biến động close trên 20% cần đối chiếu: 1
+KSD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KSF,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KSH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KSQ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KST,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KSV,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KTC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KTL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KTS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KTT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KVC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+KWA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+L10,HOSE,4293,REVIEW,2026-10-21,0,0,0,0,1471,0,1471,0,0,0.0,yfinance,"{""VALID"": 2822, ""WARNING_ZERO_VOLUME"": 1471}",unknown,Phiên volume bằng 0: 1471; Dòng có cảnh báo nguồn: 1471
+L12,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+L14,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+L18,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+L35,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+L40,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+L43,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+L44,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+L45,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+L61,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+L62,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+L63,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LAF,HOSE,4288,REVIEW,2026-10-21,0,0,0,0,792,0,792,0,1,0.0,yfinance,"{""VALID"": 3496, ""WARNING_ZERO_VOLUME"": 792}",unknown,Phiên volume bằng 0: 792; Dòng có cảnh báo nguồn: 792; Biến động close trên 20% cần đối chiếu: 1
+LAI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LAS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LAW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LBE,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LBM,HOSE,4300,REVIEW,2026-10-21,0,0,0,0,379,0,379,0,1,0.0,yfinance,"{""VALID"": 3921, ""WARNING_ZERO_VOLUME"": 379}",unknown,Phiên volume bằng 0: 379; Dòng có cảnh báo nguồn: 379; Biến động close trên 20% cần đối chiếu: 1
+LCC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LCD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LCG,HOSE,4300,REVIEW,2026-10-21,0,0,0,0,248,0,248,0,1,0.0,yfinance,"{""VALID"": 4052, ""WARNING_ZERO_VOLUME"": 248}",unknown,Phiên volume bằng 0: 248; Dòng có cảnh báo nguồn: 248; Biến động close trên 20% cần đối chiếu: 1
+LCM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LCS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LDG,HOSE,2889,REVIEW,2026-10-21,0,0,0,0,162,0,162,0,0,0.0,yfinance,"{""VALID"": 2727, ""WARNING_ZERO_VOLUME"": 162}",unknown,Phiên volume bằng 0: 162; Dòng có cảnh báo nguồn: 162
+LDP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LDW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LEC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LG9,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LGC,HOSE,4293,REVIEW,2026-10-20,0,0,0,0,1615,0,1615,0,4,1.0,yfinance,"{""VALID"": 2678, ""WARNING_ZERO_VOLUME"": 1615}",unknown,Phiên volume bằng 0: 1615; Dòng có cảnh báo nguồn: 1615; Biến động close trên 20% cần đối chiếu: 4
+LGL,HOSE,4289,REVIEW,2026-10-21,0,0,0,0,253,0,253,0,1,0.0,yfinance,"{""VALID"": 4036, ""WARNING_ZERO_VOLUME"": 253}",unknown,Phiên volume bằng 0: 253; Dòng có cảnh báo nguồn: 253; Biến động close trên 20% cần đối chiếu: 1
+LHC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LHG,HOSE,4279,REVIEW,2026-10-21,0,0,0,0,457,0,457,0,0,0.0,yfinance,"{""VALID"": 3822, ""WARNING_ZERO_VOLUME"": 457}",unknown,Phiên volume bằng 0: 457; Dòng có cảnh báo nguồn: 457
+LIC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LIG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LIX,HOSE,4286,REVIEW,2026-10-21,0,0,0,0,402,0,402,0,3,0.0,yfinance,"{""VALID"": 3884, ""WARNING_ZERO_VOLUME"": 402}",unknown,Phiên volume bằng 0: 402; Dòng có cảnh báo nguồn: 402; Biến động close trên 20% cần đối chiếu: 3
+LKW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LLM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LM3,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LM7,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LM8,HOSE,4099,REVIEW,2026-10-20,0,0,0,0,1063,0,1063,0,0,1.0,yfinance,"{""VALID"": 3036, ""WARNING_ZERO_VOLUME"": 1063}",unknown,Phiên volume bằng 0: 1063; Dòng có cảnh báo nguồn: 1063
+LMC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LMH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LMI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LNC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LO5,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LPB,HOSE,1543,REVIEW,2026-10-21,0,0,0,0,102,0,102,0,0,0.0,yfinance,"{""VALID"": 1441, ""WARNING_ZERO_VOLUME"": 102}",unknown,Phiên volume bằng 0: 102; Dòng có cảnh báo nguồn: 102
+LPT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LQN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LSG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LSS,HOSE,4293,REVIEW,2026-10-21,0,0,0,0,248,0,248,0,0,0.0,yfinance,"{""VALID"": 4045, ""WARNING_ZERO_VOLUME"": 248}",unknown,Phiên volume bằng 0: 248; Dòng có cảnh báo nguồn: 248
+LTC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LTG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+LUT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+M10,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MA1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MAC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MAS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MBB,HOSE,3859,REVIEW,2026-10-21,0,0,0,0,223,0,223,0,0,0.0,yfinance,"{""VALID"": 3636, ""WARNING_ZERO_VOLUME"": 223}",unknown,Phiên volume bằng 0: 223; Dòng có cảnh báo nguồn: 223
+MBG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MBN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MBS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MBT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MCC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MCF,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MCG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MCH,UPCoM,214,REVIEW,2026-10-21,0,0,0,0,14,0,14,0,0,0.0,yfinance,"{""VALID"": 200, ""WARNING_ZERO_VOLUME"": 14}",unknown,Phiên volume bằng 0: 14; Dòng có cảnh báo nguồn: 14
+MCM,HOSE,603,REVIEW,2026-10-21,0,0,0,0,26,0,26,0,0,0.0,yfinance,"{""VALID"": 577, ""WARNING_ZERO_VOLUME"": 26}",unknown,Phiên volume bằng 0: 26; Dòng có cảnh báo nguồn: 26
+MCO,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MCP,HOSE,4318,REVIEW,2026-10-21,0,0,0,0,1093,0,1093,0,0,0.0,yfinance,"{""VALID"": 3225, ""WARNING_ZERO_VOLUME"": 1093}",unknown,Phiên volume bằng 0: 1093; Dòng có cảnh báo nguồn: 1093
+MDA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MDC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MDF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MDG,HOSE,4060,REVIEW,2026-10-21,0,0,0,0,1106,0,1106,0,0,0.0,yfinance,"{""VALID"": 2954, ""WARNING_ZERO_VOLUME"": 1106}",unknown,Phiên volume bằng 0: 1106; Dòng có cảnh báo nguồn: 1106
+MEC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MED,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MEF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MEL,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MES,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MFS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MGC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MGG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MGR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MH3,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MHC,HOSE,4293,REVIEW,2026-10-20,0,0,0,0,288,0,288,0,1,1.0,yfinance,"{""VALID"": 4005, ""WARNING_ZERO_VOLUME"": 288}",unknown,Phiên volume bằng 0: 288; Dòng có cảnh báo nguồn: 288; Biến động close trên 20% cần đối chiếu: 1
+MHL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MIC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MIE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MIG,HOSE,1500,REVIEW,2026-10-21,0,0,0,0,108,0,109,0,0,0.0,yfinance,"{""VALID"": 1391, ""WARNING_ZERO_VOLUME"": 108, ""WARNING_PRICE_SPIKE"": 1}",unknown,Phiên volume bằng 0: 108; Dòng có cảnh báo nguồn: 109
+MIM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MKP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MKV,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MLC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MLS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MML,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MNB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MND,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MPC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MPT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MPY,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MQB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MQN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MRF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MSB,HOSE,1521,REVIEW,2026-10-21,0,0,0,0,110,0,110,0,0,0.0,yfinance,"{""VALID"": 1411, ""WARNING_ZERO_VOLUME"": 110}",unknown,Phiên volume bằng 0: 110; Dòng có cảnh báo nguồn: 110
+MSH,HOSE,2047,REVIEW,2026-10-21,0,0,0,0,142,0,142,0,1,0.0,yfinance,"{""VALID"": 1905, ""WARNING_ZERO_VOLUME"": 142}",unknown,Phiên volume bằng 0: 142; Dòng có cảnh báo nguồn: 142; Biến động close trên 20% cần đối chiếu: 1
+MSN,HOSE,4284,REVIEW,2026-10-21,0,0,0,0,241,0,241,0,0,0.0,yfinance,"{""VALID"": 4043, ""WARNING_ZERO_VOLUME"": 241}",unknown,Phiên volume bằng 0: 241; Dòng có cảnh báo nguồn: 241
+MSR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MST,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MTA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MTB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MTG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MTH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MTL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MTP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MTS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MTV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MTX,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MVB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MVC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MVN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+MWG,HOSE,3142,REVIEW,2026-10-21,0,0,0,0,180,0,180,0,1,0.0,yfinance,"{""VALID"": 2962, ""WARNING_ZERO_VOLUME"": 180}",unknown,Phiên volume bằng 0: 180; Dòng có cảnh báo nguồn: 180; Biến động close trên 20% cần đối chiếu: 1
+MZG,UPCoM,80,REVIEW,2026-10-21,0,0,0,0,4,0,4,0,0,0.0,yfinance,"{""VALID"": 76, ""WARNING_ZERO_VOLUME"": 4}",unknown,Phiên volume bằng 0: 4; Dòng có cảnh báo nguồn: 4
+NAB,HOSE,684,REVIEW,2026-10-21,0,0,0,0,34,0,34,0,0,0.0,yfinance,"{""VALID"": 650, ""WARNING_ZERO_VOLUME"": 34}",unknown,Phiên volume bằng 0: 34; Dòng có cảnh báo nguồn: 34
+NAC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NAF,HOSE,2857,REVIEW,2026-10-21,0,0,0,0,169,0,169,0,0,0.0,yfinance,"{""VALID"": 2688, ""WARNING_ZERO_VOLUME"": 169}",unknown,Phiên volume bằng 0: 169; Dòng có cảnh báo nguồn: 169
+NAG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NAP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NAS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NAU,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NAV,HOSE,4301,REVIEW,2026-10-20,0,0,0,0,1013,0,1013,0,1,1.0,yfinance,"{""VALID"": 3288, ""WARNING_ZERO_VOLUME"": 1013}",unknown,Phiên volume bằng 0: 1013; Dòng có cảnh báo nguồn: 1013; Biến động close trên 20% cần đối chiếu: 1
+NAW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NBB,HOSE,4283,REVIEW,2026-10-21,0,0,0,0,376,0,376,0,1,0.0,yfinance,"{""VALID"": 3907, ""WARNING_ZERO_VOLUME"": 376}",unknown,Phiên volume bằng 0: 376; Dòng có cảnh báo nguồn: 376; Biến động close trên 20% cần đối chiếu: 1
+NBC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NBE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NBP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NBT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NBW,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NCG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NCS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NCT,HOSE,3042,REVIEW,2026-10-21,0,0,0,0,176,0,176,0,0,0.0,yfinance,"{""VALID"": 2866, ""WARNING_ZERO_VOLUME"": 176}",unknown,Phiên volume bằng 0: 176; Dòng có cảnh báo nguồn: 176
+ND2,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NDC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NDF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NDN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NDP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NDT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NDW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NDX,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NED,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NET,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NFC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NGC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NHA,HOSE,1500,REVIEW,2026-10-21,0,0,0,0,109,0,109,0,0,0.0,yfinance,"{""VALID"": 1391, ""WARNING_ZERO_VOLUME"": 109}",unknown,Phiên volume bằng 0: 109; Dòng có cảnh báo nguồn: 109
+NHC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NHH,HOSE,1779,REVIEW,2026-10-21,0,0,0,0,118,0,118,0,0,0.0,yfinance,"{""VALID"": 1661, ""WARNING_ZERO_VOLUME"": 118}",unknown,Phiên volume bằng 0: 118; Dòng có cảnh báo nguồn: 118
+NHP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NHT,HOSE,1282,REVIEW,2026-10-21,0,0,0,0,203,0,203,0,1,0.0,yfinance,"{""VALID"": 1079, ""WARNING_ZERO_VOLUME"": 203}",unknown,Phiên volume bằng 0: 203; Dòng có cảnh báo nguồn: 203; Biến động close trên 20% cần đối chiếu: 1
+NHV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NJC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NKG,HOSE,4060,REVIEW,2026-10-21,0,0,0,0,237,0,237,0,0,0.0,yfinance,"{""VALID"": 3823, ""WARNING_ZERO_VOLUME"": 237}",unknown,Phiên volume bằng 0: 237; Dòng có cảnh báo nguồn: 237
+NLG,HOSE,3478,REVIEW,2026-10-21,0,0,0,0,218,0,218,0,0,0.0,yfinance,"{""VALID"": 3260, ""WARNING_ZERO_VOLUME"": 218}",unknown,Phiên volume bằng 0: 218; Dòng có cảnh báo nguồn: 218
+NLS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NNC,HOSE,4198,REVIEW,2026-10-21,0,0,0,0,306,0,306,0,0,0.0,yfinance,"{""VALID"": 3892, ""WARNING_ZERO_VOLUME"": 306}",unknown,Phiên volume bằng 0: 306; Dòng có cảnh báo nguồn: 306
+NNT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NO1,HOSE,980,REVIEW,2026-10-21,0,0,0,0,72,0,72,0,0,0.0,yfinance,"{""VALID"": 908, ""WARNING_ZERO_VOLUME"": 72}",unknown,Phiên volume bằng 0: 72; Dòng có cảnh báo nguồn: 72
+NOS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NQB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NQN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NRC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NS2,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NSC,HOSE,4297,REVIEW,2026-10-20,0,0,0,0,611,0,611,0,0,1.0,yfinance,"{""VALID"": 3686, ""WARNING_ZERO_VOLUME"": 611}",unknown,Phiên volume bằng 0: 611; Dòng có cảnh báo nguồn: 611
+NSG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NSH,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NSL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NSS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NST,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NT2,HOSE,2931,REVIEW,2026-10-21,0,0,0,0,166,0,166,0,0,0.0,yfinance,"{""VALID"": 2765, ""WARNING_ZERO_VOLUME"": 166}",unknown,Phiên volume bằng 0: 166; Dòng có cảnh báo nguồn: 166
+NTB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NTC,UPCoM,256,REVIEW,2026-10-21,0,0,0,0,14,0,14,0,0,0.0,yfinance,"{""VALID"": 242, ""WARNING_ZERO_VOLUME"": 14}",unknown,Phiên volume bằng 0: 14; Dòng có cảnh báo nguồn: 14
+NTF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NTH,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NTL,HOSE,4290,REVIEW,2026-10-21,0,0,0,0,241,0,241,0,2,0.0,yfinance,"{""VALID"": 4049, ""WARNING_ZERO_VOLUME"": 241}",unknown,Phiên volume bằng 0: 241; Dòng có cảnh báo nguồn: 241; Biến động close trên 20% cần đối chiếu: 2
+NTP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NTT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NTW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NUE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NVB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NVL,HOSE,2547,REVIEW,2026-10-21,0,0,0,0,169,0,169,0,0,0.0,yfinance,"{""VALID"": 2378, ""WARNING_ZERO_VOLUME"": 169}",unknown,Phiên volume bằng 0: 169; Dòng có cảnh báo nguồn: 169
+NVP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NVT,HOSE,4231,REVIEW,2026-10-20,0,0,0,0,400,0,400,0,0,1.0,yfinance,"{""VALID"": 3831, ""WARNING_ZERO_VOLUME"": 400}",unknown,Phiên volume bằng 0: 400; Dòng có cảnh báo nguồn: 400
+NWT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+NXT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+OCB,HOSE,1494,REVIEW,2026-10-21,0,0,0,0,109,0,109,0,0,0.0,yfinance,"{""VALID"": 1385, ""WARNING_ZERO_VOLUME"": 109}",unknown,Phiên volume bằng 0: 109; Dòng có cảnh báo nguồn: 109
+OCH,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ODE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+OGC,HOSE,4231,REVIEW,2026-10-21,0,0,0,0,238,0,238,0,0,0.0,yfinance,"{""VALID"": 3993, ""WARNING_ZERO_VOLUME"": 238}",unknown,Phiên volume bằng 0: 238; Dòng có cảnh báo nguồn: 238
+OIL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ONE,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ONW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+OPC,HOSE,4308,REVIEW,2026-10-20,0,0,0,0,551,0,551,0,0,1.0,yfinance,"{""VALID"": 3757, ""WARNING_ZERO_VOLUME"": 551}",unknown,Phiên volume bằng 0: 551; Dòng có cảnh báo nguồn: 551
+ORS,HOSE,1284,REVIEW,2026-10-21,0,0,0,0,63,0,63,0,0,0.0,yfinance,"{""VALID"": 1221, ""WARNING_ZERO_VOLUME"": 63}",unknown,Phiên volume bằng 0: 63; Dòng có cảnh báo nguồn: 63
+PAC,HOSE,4297,REVIEW,2026-10-21,0,0,0,0,319,0,319,0,0,0.0,yfinance,"{""VALID"": 3978, ""WARNING_ZERO_VOLUME"": 319}",unknown,Phiên volume bằng 0: 319; Dòng có cảnh báo nguồn: 319
+PAI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PAN,HOSE,3679,REVIEW,2026-10-21,0,0,0,0,329,0,329,0,0,0.0,yfinance,"{""VALID"": 3350, ""WARNING_ZERO_VOLUME"": 329}",unknown,Phiên volume bằng 0: 329; Dòng có cảnh báo nguồn: 329
+PAP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PAS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PAT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PBC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PBP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PBT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PC1,HOSE,2577,REVIEW,2026-10-21,0,0,0,0,171,0,171,0,0,0.0,yfinance,"{""VALID"": 2406, ""WARNING_ZERO_VOLUME"": 171}",unknown,Phiên volume bằng 0: 171; Dòng có cảnh báo nguồn: 171
+PCC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PCE,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PCF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PCG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PCH,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PCM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PCT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PDB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PDC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PDN,HOSE,3852,REVIEW,2026-10-20,0,0,0,0,977,0,977,0,1,1.0,yfinance,"{""VALID"": 2875, ""WARNING_ZERO_VOLUME"": 977}",unknown,Phiên volume bằng 0: 977; Dòng có cảnh báo nguồn: 977; Biến động close trên 20% cần đối chiếu: 1
+PDR,HOSE,4177,REVIEW,2026-10-21,0,0,0,0,384,0,384,0,0,0.0,yfinance,"{""VALID"": 3793, ""WARNING_ZERO_VOLUME"": 384}",unknown,Phiên volume bằng 0: 384; Dòng có cảnh báo nguồn: 384
+PDV,UPCoM,238,REVIEW,2026-10-21,0,0,0,0,14,0,14,0,0,0.0,yfinance,"{""VALID"": 224, ""WARNING_ZERO_VOLUME"": 14}",unknown,Phiên volume bằng 0: 14; Dòng có cảnh báo nguồn: 14
+PEC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PEG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PEN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PEQ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PET,HOSE,4292,REVIEW,2026-10-21,0,0,0,0,250,0,250,0,0,0.0,yfinance,"{""VALID"": 4042, ""WARNING_ZERO_VOLUME"": 250}",unknown,Phiên volume bằng 0: 250; Dòng có cảnh báo nguồn: 250
+PFL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PGB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PGC,HOSE,4284,REVIEW,2026-10-21,0,0,0,0,252,0,252,0,0,0.0,yfinance,"{""VALID"": 4032, ""WARNING_ZERO_VOLUME"": 252}",unknown,Phiên volume bằng 0: 252; Dòng có cảnh báo nguồn: 252
+PGD,HOSE,4280,REVIEW,2026-10-21,0,0,0,0,404,0,404,0,1,0.0,yfinance,"{""VALID"": 3876, ""WARNING_ZERO_VOLUME"": 404}",unknown,Phiên volume bằng 0: 404; Dòng có cảnh báo nguồn: 404; Biến động close trên 20% cần đối chiếu: 1
+PGI,HOSE,3919,REVIEW,2026-10-20,0,0,0,0,681,0,681,0,0,1.0,yfinance,"{""VALID"": 3238, ""WARNING_ZERO_VOLUME"": 681}",unknown,Phiên volume bằng 0: 681; Dòng có cảnh báo nguồn: 681
+PGN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PGS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PGT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PGV,HOSE,1225,REVIEW,2026-10-21,0,0,0,0,68,0,68,0,0,0.0,yfinance,"{""VALID"": 1157, ""WARNING_ZERO_VOLUME"": 68}",unknown,Phiên volume bằng 0: 68; Dòng có cảnh báo nguồn: 68
+PHC,HOSE,2087,REVIEW,2026-10-21,0,0,0,0,144,0,144,0,0,0.0,yfinance,"{""VALID"": 1943, ""WARNING_ZERO_VOLUME"": 144}",unknown,Phiên volume bằng 0: 144; Dòng có cảnh báo nguồn: 144
+PHH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PHN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PHP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PHR,HOSE,4294,REVIEW,2026-10-21,0,0,0,0,277,0,277,0,0,0.0,yfinance,"{""VALID"": 4017, ""WARNING_ZERO_VOLUME"": 277}",unknown,Phiên volume bằng 0: 277; Dòng có cảnh báo nguồn: 277
+PHS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PIA,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PIC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PID,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PIS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PIT,HOSE,4293,REVIEW,2026-10-21,0,0,0,0,739,0,739,0,0,0.0,yfinance,"{""VALID"": 3554, ""WARNING_ZERO_VOLUME"": 739}",unknown,Phiên volume bằng 0: 739; Dòng có cảnh báo nguồn: 739
+PIV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PJC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PJS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PJT,HOSE,4302,REVIEW,2026-10-21,0,0,0,0,670,0,670,0,0,0.0,yfinance,"{""VALID"": 3632, ""WARNING_ZERO_VOLUME"": 670}",unknown,Phiên volume bằng 0: 670; Dòng có cảnh báo nguồn: 670
+PLA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PLC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PLE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PLO,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PLP,HOSE,2379,REVIEW,2026-10-21,0,0,0,0,169,0,169,0,0,0.0,yfinance,"{""VALID"": 2210, ""WARNING_ZERO_VOLUME"": 169}",unknown,Phiên volume bằng 0: 169; Dòng có cảnh báo nguồn: 169
+PLX,HOSE,2463,REVIEW,2026-10-21,0,0,0,0,165,0,165,0,0,0.0,yfinance,"{""VALID"": 2298, ""WARNING_ZERO_VOLUME"": 165}",unknown,Phiên volume bằng 0: 165; Dòng có cảnh báo nguồn: 165
+PMB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PMC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PMG,HOSE,2271,REVIEW,2026-10-21,0,0,0,0,552,0,552,0,0,0.0,yfinance,"{""VALID"": 1719, ""WARNING_ZERO_VOLUME"": 552}",unknown,Phiên volume bằng 0: 552; Dòng có cảnh báo nguồn: 552
+PMJ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PMP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PMS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PMT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PMW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PNC,HOSE,4289,REVIEW,2026-10-20,0,0,0,0,1383,0,1383,0,1,1.0,yfinance,"{""VALID"": 2906, ""WARNING_ZERO_VOLUME"": 1383}",unknown,Phiên volume bằng 0: 1383; Dòng có cảnh báo nguồn: 1383; Biến động close trên 20% cần đối chiếu: 1
+PND,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PNG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PNJ,HOSE,4293,REVIEW,2026-10-21,0,0,0,0,268,0,268,0,1,0.0,yfinance,"{""VALID"": 4025, ""WARNING_ZERO_VOLUME"": 268}",unknown,Phiên volume bằng 0: 268; Dòng có cảnh báo nguồn: 268; Biến động close trên 20% cần đối chiếu: 1
+PNP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PNT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+POB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+POM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+POS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+POT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+POV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+POW,HOSE,2023,REVIEW,2026-10-21,0,0,0,0,153,0,153,0,0,0.0,yfinance,"{""VALID"": 1870, ""WARNING_ZERO_VOLUME"": 153}",unknown,Phiên volume bằng 0: 153; Dòng có cảnh báo nguồn: 153
+PPC,HOSE,3733,REVIEW,2026-10-21,0,0,0,0,218,0,218,0,0,0.0,yfinance,"{""VALID"": 3515, ""WARNING_ZERO_VOLUME"": 218}",unknown,Phiên volume bằng 0: 218; Dòng có cảnh báo nguồn: 218
+PPE,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PPH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PPI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PPP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PPS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PPT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PPY,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PQN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PRC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PRE,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PRO,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PRT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PSB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PSC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PSD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PSE,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PSG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PSH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PSI,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PSL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PSN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PSP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PSW,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTB,HOSE,3925,REVIEW,2026-10-21,0,0,0,0,264,0,264,0,0,0.0,yfinance,"{""VALID"": 3661, ""WARNING_ZERO_VOLUME"": 264}",unknown,Phiên volume bằng 0: 264; Dòng có cảnh báo nguồn: 264
+PTC,HOSE,4301,REVIEW,2026-10-21,0,0,0,0,658,0,658,0,0,0.0,yfinance,"{""VALID"": 3643, ""WARNING_ZERO_VOLUME"": 658}",unknown,Phiên volume bằng 0: 658; Dòng có cảnh báo nguồn: 658
+PTD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTI,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTL,HOSE,4136,REVIEW,2026-10-21,0,0,0,0,241,0,241,0,0,0.0,yfinance,"{""VALID"": 3895, ""WARNING_ZERO_VOLUME"": 241}",unknown,Phiên volume bằng 0: 241; Dòng có cảnh báo nguồn: 241
+PTM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTO,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PTX,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PV2,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVD,HOSE,3740,REVIEW,2026-10-21,0,0,0,0,229,0,229,0,0,0.0,yfinance,"{""VALID"": 3511, ""WARNING_ZERO_VOLUME"": 229}",unknown,Phiên volume bằng 0: 229; Dòng có cảnh báo nguồn: 229
+PVE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVI,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVO,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVP,HOSE,973,REVIEW,2026-10-21,0,0,0,0,48,0,48,0,0,0.0,yfinance,"{""VALID"": 925, ""WARNING_ZERO_VOLUME"": 48}",unknown,Phiên volume bằng 0: 48; Dòng có cảnh báo nguồn: 48
+PVR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVT,HOSE,4289,REVIEW,2026-10-21,0,0,0,0,259,0,259,0,1,0.0,yfinance,"{""VALID"": 4030, ""WARNING_ZERO_VOLUME"": 259}",unknown,Phiên volume bằng 0: 259; Dòng có cảnh báo nguồn: 259; Biến động close trên 20% cần đối chiếu: 1
+PVV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVX,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PVY,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PWA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PWS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PX1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PXA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PXC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PXI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PXL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PXM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PXS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+PXT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QBS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QCC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QCG,HOSE,4165,REVIEW,2026-10-21,0,0,0,0,248,0,248,0,0,0.0,yfinance,"{""VALID"": 3917, ""WARNING_ZERO_VOLUME"": 248}",unknown,Phiên volume bằng 0: 248; Dòng có cảnh báo nguồn: 248
+QHD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QHW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QNC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QNP,HOSE,710,REVIEW,2026-10-20,0,0,0,0,121,0,121,0,0,1.0,yfinance,"{""VALID"": 589, ""WARNING_ZERO_VOLUME"": 121}",unknown,Phiên volume bằng 0: 121; Dòng có cảnh báo nguồn: 121
+QNS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QNT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QNU,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QNW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QPH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QSP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QST,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QTC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+QTP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+RAL,HOSE,4288,REVIEW,2026-10-21,0,0,0,0,319,0,319,0,0,0.0,yfinance,"{""VALID"": 3969, ""WARNING_ZERO_VOLUME"": 319}",unknown,Phiên volume bằng 0: 319; Dòng có cảnh báo nguồn: 319
+RAT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+RBC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+RCC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+RCD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+RCL,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+RDP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+REE,HOSE,4291,REVIEW,2026-10-21,0,0,0,0,260,0,260,0,1,0.0,yfinance,"{""VALID"": 4031, ""WARNING_ZERO_VOLUME"": 260}",unknown,Phiên volume bằng 0: 260; Dòng có cảnh báo nguồn: 260; Biến động close trên 20% cần đối chiếu: 1
+RIC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+RTB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+RYG,HOSE,419,REVIEW,2026-10-21,0,0,0,0,27,0,27,0,0,0.0,yfinance,"{""VALID"": 392, ""WARNING_ZERO_VOLUME"": 27}",unknown,Phiên volume bằng 0: 27; Dòng có cảnh báo nguồn: 27
+S12,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+S27,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+S4A,HOSE,2694,REVIEW,2026-10-20,0,0,0,0,895,0,895,0,0,1.0,yfinance,"{""VALID"": 1799, ""WARNING_ZERO_VOLUME"": 895}",unknown,Phiên volume bằng 0: 895; Dòng có cảnh báo nguồn: 895
+S55,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+S72,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+S74,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+S96,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+S99,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SAB,HOSE,2554,REVIEW,2026-10-21,0,0,0,0,169,0,169,0,0,0.0,yfinance,"{""VALID"": 2385, ""WARNING_ZERO_VOLUME"": 169}",unknown,Phiên volume bằng 0: 169; Dòng có cảnh báo nguồn: 169
+SAC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SAF,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SAL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SAM,HOSE,3742,REVIEW,2026-10-21,0,0,0,0,228,0,228,0,0,0.0,yfinance,"{""VALID"": 3514, ""WARNING_ZERO_VOLUME"": 228}",unknown,Phiên volume bằng 0: 228; Dòng có cảnh báo nguồn: 228
+SAP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SAS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SAV,HOSE,4304,REVIEW,2026-10-20,0,0,0,0,533,0,534,0,0,1.0,yfinance,"{""VALID"": 3770, ""WARNING_ZERO_VOLUME"": 533, ""WARNING_PRICE_SPIKE"": 1}",unknown,Phiên volume bằng 0: 533; Dòng có cảnh báo nguồn: 534
+SB1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SBA,HOSE,4227,REVIEW,2026-10-20,0,0,0,0,285,0,285,0,0,1.0,yfinance,"{""VALID"": 3942, ""WARNING_ZERO_VOLUME"": 285}",unknown,Phiên volume bằng 0: 285; Dòng có cảnh báo nguồn: 285
+SBB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SBD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SBG,HOSE,754,REVIEW,2026-10-21,0,0,0,0,42,0,42,0,0,0.0,yfinance,"{""VALID"": 712, ""WARNING_ZERO_VOLUME"": 42}",unknown,Phiên volume bằng 0: 42; Dòng có cảnh báo nguồn: 42
+SBH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SBL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SBM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SBR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SBS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SBT,HOSE,4295,REVIEW,2026-10-21,0,0,0,0,259,0,259,0,0,0.0,yfinance,"{""VALID"": 4036, ""WARNING_ZERO_VOLUME"": 259}",unknown,Phiên volume bằng 0: 259; Dòng có cảnh báo nguồn: 259
+SBV,HOSE,2457,REVIEW,2026-10-21,0,0,0,0,282,0,282,0,0,0.0,yfinance,"{""VALID"": 2175, ""WARNING_ZERO_VOLUME"": 282}",unknown,Phiên volume bằng 0: 282; Dòng có cảnh báo nguồn: 282
+SC5,HOSE,4290,REVIEW,2026-10-20,0,0,0,0,975,0,975,0,1,1.0,yfinance,"{""VALID"": 3315, ""WARNING_ZERO_VOLUME"": 975}",unknown,Phiên volume bằng 0: 975; Dòng có cảnh báo nguồn: 975; Biến động close trên 20% cần đối chiếu: 1
+SCC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SCD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SCG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SCI,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SCJ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SCL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SCO,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SCR,HOSE,3068,REVIEW,2026-10-21,0,0,0,0,247,0,247,0,2,0.0,yfinance,"{""VALID"": 2821, ""WARNING_ZERO_VOLUME"": 247}",unknown,Phiên volume bằng 0: 247; Dòng có cảnh báo nguồn: 247; Biến động close trên 20% cần đối chiếu: 2
+SCS,HOSE,2131,REVIEW,2026-10-21,0,0,0,0,148,0,148,0,0,0.0,yfinance,"{""VALID"": 1983, ""WARNING_ZERO_VOLUME"": 148}",unknown,Phiên volume bằng 0: 148; Dòng có cảnh báo nguồn: 148
+SD1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SD2,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SD3,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SD4,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SD5,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SD6,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SD7,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SD8,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SD9,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDA,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDK,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDU,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SDY,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SEA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SEB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SED,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SEP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SFC,HOSE,4294,REVIEW,2026-10-20,0,0,0,0,1746,0,1746,0,0,1.0,yfinance,"{""VALID"": 2548, ""WARNING_ZERO_VOLUME"": 1746}",unknown,Phiên volume bằng 0: 1746; Dòng có cảnh báo nguồn: 1746
+SFG,HOSE,3069,REVIEW,2026-10-20,0,0,0,0,281,0,281,0,0,1.0,yfinance,"{""VALID"": 2788, ""WARNING_ZERO_VOLUME"": 281}",unknown,Phiên volume bằng 0: 281; Dòng có cảnh báo nguồn: 281
+SFI,HOSE,4290,REVIEW,2026-10-20,0,0,0,0,407,0,407,0,1,1.0,yfinance,"{""VALID"": 3883, ""WARNING_ZERO_VOLUME"": 407}",unknown,Phiên volume bằng 0: 407; Dòng có cảnh báo nguồn: 407; Biến động close trên 20% cần đối chiếu: 1
+SFN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SGB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SGC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SGD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SGH,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SGI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SGN,HOSE,2132,REVIEW,2026-10-21,0,0,0,0,167,0,167,0,0,0.0,yfinance,"{""VALID"": 1965, ""WARNING_ZERO_VOLUME"": 167}",unknown,Phiên volume bằng 0: 167; Dòng có cảnh báo nguồn: 167
+SGP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SGR,HOSE,2284,REVIEW,2026-10-21,0,0,0,0,322,0,322,0,1,0.0,yfinance,"{""VALID"": 1962, ""WARNING_ZERO_VOLUME"": 322}",unknown,Phiên volume bằng 0: 322; Dòng có cảnh báo nguồn: 322; Biến động close trên 20% cần đối chiếu: 1
+SGS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SGT,HOSE,4298,REVIEW,2026-10-21,0,0,0,0,619,0,619,0,1,0.0,yfinance,"{""VALID"": 3679, ""WARNING_ZERO_VOLUME"": 619}",unknown,Phiên volume bằng 0: 619; Dòng có cảnh báo nguồn: 619; Biến động close trên 20% cần đối chiếu: 1
+SHA,HOSE,3075,REVIEW,2026-10-20,0,0,0,0,313,0,313,0,1,1.0,yfinance,"{""VALID"": 2762, ""WARNING_ZERO_VOLUME"": 313}",unknown,Phiên volume bằng 0: 313; Dòng có cảnh báo nguồn: 313; Biến động close trên 20% cần đối chiếu: 1
+SHB,HOSE,3080,REVIEW,2026-10-21,0,0,0,0,480,0,480,0,2,0.0,yfinance,"{""VALID"": 2600, ""WARNING_ZERO_VOLUME"": 480}",unknown,Phiên volume bằng 0: 480; Dòng có cảnh báo nguồn: 480; Biến động close trên 20% cần đối chiếu: 2
+SHC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SHE,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SHG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SHI,HOSE,4284,REVIEW,2026-10-21,0,0,0,0,267,0,267,0,0,0.0,yfinance,"{""VALID"": 4017, ""WARNING_ZERO_VOLUME"": 267}",unknown,Phiên volume bằng 0: 267; Dòng có cảnh báo nguồn: 267
+SHN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SHP,HOSE,3140,REVIEW,2026-10-21,0,0,0,0,362,0,362,0,0,0.0,yfinance,"{""VALID"": 2778, ""WARNING_ZERO_VOLUME"": 362}",unknown,Phiên volume bằng 0: 362; Dòng có cảnh báo nguồn: 362
+SHS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SID,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SIG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SII,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SIP,HOSE,1328,REVIEW,2026-10-21,0,0,0,0,74,0,74,0,0,0.0,yfinance,"{""VALID"": 1254, ""WARNING_ZERO_VOLUME"": 74}",unknown,Phiên volume bằng 0: 74; Dòng có cảnh báo nguồn: 74
+SIV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SJ1,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SJC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SJD,HOSE,4291,REVIEW,2026-10-21,0,0,0,0,265,0,265,0,0,0.0,yfinance,"{""VALID"": 4026, ""WARNING_ZERO_VOLUME"": 265}",unknown,Phiên volume bằng 0: 265; Dòng có cảnh báo nguồn: 265
+SJE,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SJF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SJG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SJM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SJS,HOSE,3743,REVIEW,2026-10-21,0,0,0,0,233,0,233,0,0,0.0,yfinance,"{""VALID"": 3510, ""WARNING_ZERO_VOLUME"": 233}",unknown,Phiên volume bằng 0: 233; Dòng có cảnh báo nguồn: 233
+SKG,HOSE,3144,REVIEW,2026-10-21,0,0,0,0,192,0,192,0,0,0.0,yfinance,"{""VALID"": 2952, ""WARNING_ZERO_VOLUME"": 192}",unknown,Phiên volume bằng 0: 192; Dòng có cảnh báo nguồn: 192
+SKH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SKN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SKV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SLD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SLS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SMA,HOSE,4123,REVIEW,2026-10-20,0,0,0,0,883,0,883,0,6,1.0,yfinance,"{""VALID"": 3240, ""WARNING_ZERO_VOLUME"": 883}",unknown,Phiên volume bằng 0: 883; Dòng có cảnh báo nguồn: 883; Biến động close trên 20% cần đối chiếu: 6
+SMB,HOSE,2130,REVIEW,2026-10-21,0,0,0,0,163,0,163,0,0,0.0,yfinance,"{""VALID"": 1967, ""WARNING_ZERO_VOLUME"": 163}",unknown,Phiên volume bằng 0: 163; Dòng có cảnh báo nguồn: 163
+SMC,HOSE,4288,REVIEW,2026-10-21,0,0,0,0,274,0,274,0,0,0.0,yfinance,"{""VALID"": 4014, ""WARNING_ZERO_VOLUME"": 274}",unknown,Phiên volume bằng 0: 274; Dòng có cảnh báo nguồn: 274
+SMN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SMT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SNC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SNZ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SP2,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SPB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SPC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SPD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SPH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SPI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SPM,HOSE,4221,REVIEW,2026-10-20,0,0,0,0,1077,0,1077,0,0,1.0,yfinance,"{""VALID"": 3144, ""WARNING_ZERO_VOLUME"": 1077}",unknown,Phiên volume bằng 0: 1077; Dòng có cảnh báo nguồn: 1077
+SPV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SQC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SRA,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SRB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SRC,HOSE,4294,REVIEW,2026-10-20,0,0,0,0,513,0,513,0,1,1.0,yfinance,"{""VALID"": 3781, ""WARNING_ZERO_VOLUME"": 513}",unknown,Phiên volume bằng 0: 513; Dòng có cảnh báo nguồn: 513; Biến động close trên 20% cần đối chiếu: 1
+SRF,HOSE,4300,REVIEW,2026-10-21,0,0,0,0,524,0,524,0,0,0.0,yfinance,"{""VALID"": 3776, ""WARNING_ZERO_VOLUME"": 524}",unknown,Phiên volume bằng 0: 524; Dòng có cảnh báo nguồn: 524
+SSB,HOSE,1455,REVIEW,2026-10-21,0,0,0,0,101,0,101,0,0,0.0,yfinance,"{""VALID"": 1354, ""WARNING_ZERO_VOLUME"": 101}",unknown,Phiên volume bằng 0: 101; Dòng có cảnh báo nguồn: 101
+SSC,HOSE,4298,REVIEW,2026-10-20,0,0,0,0,1281,0,1281,0,0,1.0,yfinance,"{""VALID"": 3017, ""WARNING_ZERO_VOLUME"": 1281}",unknown,Phiên volume bằng 0: 1281; Dòng có cảnh báo nguồn: 1281
+SSF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SSG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SSH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SSI,HOSE,4289,REVIEW,2026-10-21,0,0,0,0,260,0,260,0,1,0.0,yfinance,"{""VALID"": 4029, ""WARNING_ZERO_VOLUME"": 260}",unknown,Phiên volume bằng 0: 260; Dòng có cảnh báo nguồn: 260; Biến động close trên 20% cần đối chiếu: 1
+SSM,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SSN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+ST8,HOSE,4286,REVIEW,2026-10-21,0,0,0,0,554,0,554,0,2,0.0,yfinance,"{""VALID"": 3732, ""WARNING_ZERO_VOLUME"": 554}",unknown,Phiên volume bằng 0: 554; Dòng có cảnh báo nguồn: 554; Biến động close trên 20% cần đối chiếu: 2
+STB,HOSE,4282,REVIEW,2026-10-21,0,0,0,0,251,0,251,0,0,0.0,yfinance,"{""VALID"": 4031, ""WARNING_ZERO_VOLUME"": 251}",unknown,Phiên volume bằng 0: 251; Dòng có cảnh báo nguồn: 251
+STC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+STG,HOSE,4305,REVIEW,2026-10-20,0,0,0,0,1252,0,1252,0,1,1.0,yfinance,"{""VALID"": 3053, ""WARNING_ZERO_VOLUME"": 1252}",unknown,Phiên volume bằng 0: 1252; Dòng có cảnh báo nguồn: 1252; Biến động close trên 20% cần đối chiếu: 1
+STH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+STK,HOSE,2865,REVIEW,2026-10-20,0,0,0,0,206,0,206,0,0,1.0,yfinance,"{""VALID"": 2659, ""WARNING_ZERO_VOLUME"": 206}",unknown,Phiên volume bằng 0: 206; Dòng có cảnh báo nguồn: 206
+STL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+STP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+STS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+STT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+STW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SVC,HOSE,4299,REVIEW,2026-10-20,0,0,0,0,718,0,718,0,2,1.0,yfinance,"{""VALID"": 3581, ""WARNING_ZERO_VOLUME"": 718}",unknown,Phiên volume bằng 0: 718; Dòng có cảnh báo nguồn: 718; Biến động close trên 20% cần đối chiếu: 2
+SVD,HOSE,1482,REVIEW,2026-10-20,0,0,0,0,107,0,107,0,0,1.0,yfinance,"{""VALID"": 1375, ""WARNING_ZERO_VOLUME"": 107}",unknown,Phiên volume bằng 0: 107; Dòng có cảnh báo nguồn: 107
+SVG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SVH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SVI,HOSE,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SVN,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SVT,HOSE,3892,REVIEW,2026-10-20,0,0,0,0,1300,0,1300,0,3,1.0,yfinance,"{""VALID"": 2592, ""WARNING_ZERO_VOLUME"": 1300}",unknown,Phiên volume bằng 0: 1300; Dòng có cảnh báo nguồn: 1300; Biến động close trên 20% cần đối chiếu: 3
+SWC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SZB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SZC,HOSE,2013,REVIEW,2026-10-21,0,0,0,0,147,0,147,0,0,0.0,yfinance,"{""VALID"": 1866, ""WARNING_ZERO_VOLUME"": 147}",unknown,Phiên volume bằng 0: 147; Dòng có cảnh báo nguồn: 147
+SZE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SZG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+SZL,HOSE,4296,REVIEW,2026-10-21,0,0,0,0,369,0,369,0,1,0.0,yfinance,"{""VALID"": 3927, ""WARNING_ZERO_VOLUME"": 369}",unknown,Phiên volume bằng 0: 369; Dòng có cảnh báo nguồn: 369; Biến động close trên 20% cần đối chiếu: 1
+TA6,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TA9,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TAB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TAL,HOSE,311,REVIEW,2026-10-21,0,0,0,0,16,0,16,0,0,0.0,yfinance,"{""VALID"": 295, ""WARNING_ZERO_VOLUME"": 16}",unknown,Phiên volume bằng 0: 16; Dòng có cảnh báo nguồn: 16
+TAN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TAR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TAW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TB8,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TBC,HOSE,4284,REVIEW,2026-10-20,0,0,0,0,691,0,691,0,0,1.0,yfinance,"{""VALID"": 3593, ""WARNING_ZERO_VOLUME"": 691}",unknown,Phiên volume bằng 0: 691; Dòng có cảnh báo nguồn: 691
+TBD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TBH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TBR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TBW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TBX,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TCB,HOSE,2174,REVIEW,2026-10-21,0,0,0,0,151,0,151,0,1,0.0,yfinance,"{""VALID"": 2023, ""WARNING_ZERO_VOLUME"": 151}",unknown,Phiên volume bằng 0: 151; Dòng có cảnh báo nguồn: 151; Biến động close trên 20% cần đối chiếu: 1
+TCD,HOSE,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TCH,HOSE,2606,REVIEW,2026-10-21,0,0,0,0,181,0,181,0,0,0.0,yfinance,"{""VALID"": 2425, ""WARNING_ZERO_VOLUME"": 181}",unknown,Phiên volume bằng 0: 181; Dòng có cảnh báo nguồn: 181
+TCI,HOSE,707,REVIEW,2026-10-21,0,0,0,0,35,0,35,0,0,0.0,yfinance,"{""VALID"": 672, ""WARNING_ZERO_VOLUME"": 35}",unknown,Phiên volume bằng 0: 35; Dòng có cảnh báo nguồn: 35
+TCJ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TCK,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TCL,HOSE,4287,REVIEW,2026-10-21,0,0,0,0,315,0,315,0,2,0.0,yfinance,"{""VALID"": 3972, ""WARNING_ZERO_VOLUME"": 315}",unknown,Phiên volume bằng 0: 315; Dòng có cảnh báo nguồn: 315; Biến động close trên 20% cần đối chiếu: 2
+TCM,HOSE,4288,REVIEW,2026-10-21,0,0,0,0,256,0,256,0,1,0.0,yfinance,"{""VALID"": 4032, ""WARNING_ZERO_VOLUME"": 256}",unknown,Phiên volume bằng 0: 256; Dòng có cảnh báo nguồn: 256; Biến động close trên 20% cần đối chiếu: 1
+TCO,HOSE,3673,REVIEW,2026-10-21,0,0,0,0,916,0,916,0,1,0.0,yfinance,"{""VALID"": 2757, ""WARNING_ZERO_VOLUME"": 916}",unknown,Phiên volume bằng 0: 916; Dòng có cảnh báo nguồn: 916; Biến động close trên 20% cần đối chiếu: 1
+TCR,HOSE,4299,REVIEW,2026-10-21,0,0,0,0,568,0,568,0,1,0.0,yfinance,"{""VALID"": 3731, ""WARNING_ZERO_VOLUME"": 568}",unknown,Phiên volume bằng 0: 568; Dòng có cảnh báo nguồn: 568; Biến động close trên 20% cần đối chiếu: 1
+TCT,HOSE,3067,REVIEW,2026-10-21,0,0,0,0,271,0,271,0,1,0.0,yfinance,"{""VALID"": 2796, ""WARNING_ZERO_VOLUME"": 271}",unknown,Phiên volume bằng 0: 271; Dòng có cảnh báo nguồn: 271; Biến động close trên 20% cần đối chiếu: 1
+TCW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TD6,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TDB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TDC,HOSE,4235,REVIEW,2026-10-21,0,0,0,0,247,0,247,0,0,0.0,yfinance,"{""VALID"": 3988, ""WARNING_ZERO_VOLUME"": 247}",unknown,Phiên volume bằng 0: 247; Dòng có cảnh báo nguồn: 247
+TDF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TDG,HOSE,2426,REVIEW,2026-10-21,0,0,0,0,167,0,167,0,0,0.0,yfinance,"{""VALID"": 2259, ""WARNING_ZERO_VOLUME"": 167}",unknown,Phiên volume bằng 0: 167; Dòng có cảnh báo nguồn: 167
+TDH,HOSE,4289,REVIEW,2026-10-21,0,0,0,0,247,0,247,0,1,0.0,yfinance,"{""VALID"": 4042, ""WARNING_ZERO_VOLUME"": 247}",unknown,Phiên volume bằng 0: 247; Dòng có cảnh báo nguồn: 247; Biến động close trên 20% cần đối chiếu: 1
+TDM,HOSE,2072,REVIEW,2026-10-20,0,0,0,0,184,0,184,0,0,1.0,yfinance,"{""VALID"": 1888, ""WARNING_ZERO_VOLUME"": 184}",unknown,Phiên volume bằng 0: 184; Dòng có cảnh báo nguồn: 184
+TDP,HOSE,1573,REVIEW,2026-10-21,0,0,0,0,121,0,121,0,0,0.0,yfinance,"{""VALID"": 1452, ""WARNING_ZERO_VOLUME"": 121}",unknown,Phiên volume bằng 0: 121; Dòng có cảnh báo nguồn: 121
+TDS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TDT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TDW,HOSE,4122,REVIEW,2026-10-20,0,0,0,0,1857,0,1857,0,0,1.0,yfinance,"{""VALID"": 2265, ""WARNING_ZERO_VOLUME"": 1857}",unknown,Phiên volume bằng 0: 1857; Dòng có cảnh báo nguồn: 1857
+TED,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TEG,HOSE,2794,REVIEW,2026-10-21,0,0,0,0,255,0,255,0,1,0.0,yfinance,"{""VALID"": 2539, ""WARNING_ZERO_VOLUME"": 255}",unknown,Phiên volume bằng 0: 255; Dòng có cảnh báo nguồn: 255; Biến động close trên 20% cần đối chiếu: 1
+TEL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TET,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TFC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TGG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TGP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TH1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+THB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+THD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+THG,HOSE,3932,REVIEW,2026-10-21,0,0,0,0,300,0,300,0,0,0.0,yfinance,"{""VALID"": 3632, ""WARNING_ZERO_VOLUME"": 300}",unknown,Phiên volume bằng 0: 300; Dòng có cảnh báo nguồn: 300
+THM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+THN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+THP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+THS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+THT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+THU,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+THW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TID,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TIE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TIG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TIN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TIP,HOSE,2682,REVIEW,2026-10-21,0,0,0,0,262,0,262,0,0,0.0,yfinance,"{""VALID"": 2420, ""WARNING_ZERO_VOLUME"": 262}",unknown,Phiên volume bằng 0: 262; Dòng có cảnh báo nguồn: 262
+TIS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TIX,HOSE,4309,REVIEW,2026-10-20,0,0,0,0,1738,0,1738,0,0,1.0,yfinance,"{""VALID"": 2571, ""WARNING_ZERO_VOLUME"": 1738}",unknown,Phiên volume bằng 0: 1738; Dòng có cảnh báo nguồn: 1738
+TJC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TKA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TKC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TKG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TKU,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TL4,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TLD,HOSE,2311,REVIEW,2026-10-21,0,0,0,0,173,0,173,0,0,0.0,yfinance,"{""VALID"": 2138, ""WARNING_ZERO_VOLUME"": 173}",unknown,Phiên volume bằng 0: 173; Dòng có cảnh báo nguồn: 173
+TLG,HOSE,4288,REVIEW,2026-10-21,0,0,0,0,401,0,401,0,0,0.0,yfinance,"{""VALID"": 3887, ""WARNING_ZERO_VOLUME"": 401}",unknown,Phiên volume bằng 0: 401; Dòng có cảnh báo nguồn: 401
+TLH,HOSE,4272,REVIEW,2026-10-21,0,0,0,0,247,0,247,0,0,0.0,yfinance,"{""VALID"": 4025, ""WARNING_ZERO_VOLUME"": 247}",unknown,Phiên volume bằng 0: 247; Dòng có cảnh báo nguồn: 247
+TLI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TLP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TLT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TMB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TMC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TMG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TMP,HOSE,4296,REVIEW,2026-10-20,0,0,0,0,820,0,820,0,0,1.0,yfinance,"{""VALID"": 3476, ""WARNING_ZERO_VOLUME"": 820}",unknown,Phiên volume bằng 0: 820; Dòng có cảnh báo nguồn: 820
+TMS,HOSE,4313,REVIEW,2026-10-21,0,0,0,0,683,0,683,0,1,0.0,yfinance,"{""VALID"": 3630, ""WARNING_ZERO_VOLUME"": 683}",unknown,Phiên volume bằng 0: 683; Dòng có cảnh báo nguồn: 683; Biến động close trên 20% cần đối chiếu: 1
+TMT,HOSE,4286,REVIEW,2026-10-21,0,0,0,0,300,0,300,0,2,0.0,yfinance,"{""VALID"": 3986, ""WARNING_ZERO_VOLUME"": 300}",unknown,Phiên volume bằng 0: 300; Dòng có cảnh báo nguồn: 300; Biến động close trên 20% cần đối chiếu: 2
+TMW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TMX,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TN1,HOSE,1926,REVIEW,2026-10-21,0,0,0,0,185,0,185,0,0,0.0,yfinance,"{""VALID"": 1741, ""WARNING_ZERO_VOLUME"": 185}",unknown,Phiên volume bằng 0: 185; Dòng có cảnh báo nguồn: 185
+TNA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TNB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TNC,HOSE,4289,REVIEW,2026-10-20,0,0,0,0,1106,0,1106,0,1,1.0,yfinance,"{""VALID"": 3183, ""WARNING_ZERO_VOLUME"": 1106}",unknown,Phiên volume bằng 0: 1106; Dòng có cảnh báo nguồn: 1106; Biến động close trên 20% cần đối chiếu: 1
+TNG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TNH,HOSE,1510,REVIEW,2026-10-21,0,0,0,0,106,0,106,0,0,0.0,yfinance,"{""VALID"": 1404, ""WARNING_ZERO_VOLUME"": 106}",unknown,Phiên volume bằng 0: 106; Dòng có cảnh báo nguồn: 106
+TNI,HOSE,2440,REVIEW,2026-10-21,0,0,0,0,168,0,168,0,0,0.0,yfinance,"{""VALID"": 2272, ""WARNING_ZERO_VOLUME"": 168}",unknown,Phiên volume bằng 0: 168; Dòng có cảnh báo nguồn: 168
+TNM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TNP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TNS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TNT,HOSE,4228,REVIEW,2026-10-21,0,0,0,0,255,0,255,0,0,0.0,yfinance,"{""VALID"": 3973, ""WARNING_ZERO_VOLUME"": 255}",unknown,Phiên volume bằng 0: 255; Dòng có cảnh báo nguồn: 255
+TNV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TNW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TOP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TOS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TOT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TOW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TPB,HOSE,2213,REVIEW,2026-10-21,0,0,0,0,162,0,162,0,0,0.0,yfinance,"{""VALID"": 2051, ""WARNING_ZERO_VOLUME"": 162}",unknown,Phiên volume bằng 0: 162; Dòng có cảnh báo nguồn: 162
+TPC,HOSE,4298,REVIEW,2026-10-20,0,0,0,0,936,0,936,0,0,1.0,yfinance,"{""VALID"": 3362, ""WARNING_ZERO_VOLUME"": 936}",unknown,Phiên volume bằng 0: 936; Dòng có cảnh báo nguồn: 936
+TPP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TPS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TQN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TQW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TR1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TRA,HOSE,4300,REVIEW,2026-10-21,0,0,0,0,457,0,457,0,0,0.0,yfinance,"{""VALID"": 3843, ""WARNING_ZERO_VOLUME"": 457}",unknown,Phiên volume bằng 0: 457; Dòng có cảnh báo nguồn: 457
+TRC,HOSE,4293,REVIEW,2026-10-21,0,0,0,0,432,0,432,0,0,0.0,yfinance,"{""VALID"": 3861, ""WARNING_ZERO_VOLUME"": 432}",unknown,Phiên volume bằng 0: 432; Dòng có cảnh báo nguồn: 432
+TRS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TRT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TRV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TS3,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TS4,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TSA,UPCoM,206,REVIEW,2026-10-21,0,0,0,0,12,0,12,0,0,0.0,yfinance,"{""VALID"": 194, ""WARNING_ZERO_VOLUME"": 12}",unknown,Phiên volume bằng 0: 12; Dòng có cảnh báo nguồn: 12
+TSB,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TSC,HOSE,4282,REVIEW,2026-10-21,0,0,0,0,252,0,252,0,0,0.0,yfinance,"{""VALID"": 4030, ""WARNING_ZERO_VOLUME"": 252}",unknown,Phiên volume bằng 0: 252; Dòng có cảnh báo nguồn: 252
+TSD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TSG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TSJ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TST,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TT6,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TTA,HOSE,1588,REVIEW,2026-10-21,0,0,0,0,103,0,103,0,0,0.0,yfinance,"{""VALID"": 1485, ""WARNING_ZERO_VOLUME"": 103}",unknown,Phiên volume bằng 0: 103; Dòng có cảnh báo nguồn: 103
+TTB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TTC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TTD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TTE,HOSE,2042,REVIEW,2026-10-20,0,0,0,0,1405,0,1405,0,0,1.0,yfinance,"{""WARNING_ZERO_VOLUME"": 1405, ""VALID"": 637}",unknown,Phiên volume bằng 0: 1405; Dòng có cảnh báo nguồn: 1405
+TTF,HOSE,4285,REVIEW,2026-10-21,0,0,0,0,249,0,249,0,1,0.0,yfinance,"{""VALID"": 4036, ""WARNING_ZERO_VOLUME"": 249}",unknown,Phiên volume bằng 0: 249; Dòng có cảnh báo nguồn: 249; Biến động close trên 20% cần đối chiếu: 1
+TTG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TTH,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TTL,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TTN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TTS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TTT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TTZ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TUG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TV1,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TV2,HOSE,1912,REVIEW,2026-10-21,0,0,0,0,136,0,136,0,1,0.0,yfinance,"{""VALID"": 1776, ""WARNING_ZERO_VOLUME"": 136}",unknown,Phiên volume bằng 0: 136; Dòng có cảnh báo nguồn: 136; Biến động close trên 20% cần đối chiếu: 1
+TV3,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TV4,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TV6,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TVA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TVB,HOSE,2159,REVIEW,2026-10-21,0,0,0,0,235,0,235,0,1,0.0,yfinance,"{""VALID"": 1924, ""WARNING_ZERO_VOLUME"": 235}",unknown,Phiên volume bằng 0: 235; Dòng có cảnh báo nguồn: 235; Biến động close trên 20% cần đối chiếu: 1
+TVC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TVD,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TVG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TVH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TVM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TVN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TVS,HOSE,3046,REVIEW,2026-10-21,0,0,0,0,257,0,257,0,0,0.0,yfinance,"{""VALID"": 2789, ""WARNING_ZERO_VOLUME"": 257}",unknown,Phiên volume bằng 0: 257; Dòng có cảnh báo nguồn: 257
+TVT,HOSE,2403,REVIEW,2026-10-20,0,0,0,0,342,0,342,0,1,1.0,yfinance,"{""VALID"": 2061, ""WARNING_ZERO_VOLUME"": 342}",unknown,Phiên volume bằng 0: 342; Dòng có cảnh báo nguồn: 342; Biến động close trên 20% cần đối chiếu: 1
+TW3,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TXM,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+TYA,HOSE,4285,REVIEW,2026-10-20,0,0,0,0,312,0,312,0,1,1.0,yfinance,"{""VALID"": 3973, ""WARNING_ZERO_VOLUME"": 312}",unknown,Phiên volume bằng 0: 312; Dòng có cảnh báo nguồn: 312; Biến động close trên 20% cần đối chiếu: 1
+UCT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+UDC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+UDJ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+UDL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+UEM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+UIC,HOSE,4286,REVIEW,2026-10-20,0,0,0,0,514,0,514,0,0,1.0,yfinance,"{""VALID"": 3772, ""WARNING_ZERO_VOLUME"": 514}",unknown,Phiên volume bằng 0: 514; Dòng có cảnh báo nguồn: 514
+UMC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+UNI,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+UPC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+UPH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+USC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+USD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+UXC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+V12,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+V15,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+V21,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VAB,HOSE,1,CHECKS_PASSED_NOT_VERIFIED,2026-10-21,0,0,0,0,0,0,0,0,0,0.0,yfinance,"{""VALID"": 1}",unknown,
+VAF,HOSE,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VAV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VBB,UPCoM,72,REVIEW,2026-10-21,0,0,0,0,4,0,4,0,0,0.0,yfinance,"{""VALID"": 68, ""WARNING_ZERO_VOLUME"": 4}",unknown,Phiên volume bằng 0: 4; Dòng có cảnh báo nguồn: 4
+VBC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VBG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VBH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VC1,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VC2,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VC3,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VC5,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VC6,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VC7,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VC9,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VCA,HOSE,1453,REVIEW,2026-10-20,0,0,0,0,212,0,212,0,0,1.0,yfinance,"{""VALID"": 1241, ""WARNING_ZERO_VOLUME"": 212}",unknown,Phiên volume bằng 0: 212; Dòng có cảnh báo nguồn: 212
+VCB,HOSE,4286,REVIEW,2026-10-21,0,0,0,0,250,0,250,0,1,0.0,yfinance,"{""VALID"": 4036, ""WARNING_ZERO_VOLUME"": 250}",unknown,Phiên volume bằng 0: 250; Dòng có cảnh báo nguồn: 250; Biến động close trên 20% cần đối chiếu: 1
+VCC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VCE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VCF,HOSE,4045,REVIEW,2026-10-21,0,0,0,0,945,0,945,0,1,0.0,yfinance,"{""VALID"": 3100, ""WARNING_ZERO_VOLUME"": 945}",unknown,Phiên volume bằng 0: 945; Dòng có cảnh báo nguồn: 945; Biến động close trên 20% cần đối chiếu: 1
+VCG,HOSE,1516,REVIEW,2026-10-21,0,0,0,0,109,0,111,0,0,0.0,yfinance,"{""VALID"": 1405, ""WARNING_ZERO_VOLUME"": 109, ""WARNING_PRICE_SPIKE"": 2}",unknown,Phiên volume bằng 0: 109; Dòng có cảnh báo nguồn: 111
+VCI,HOSE,2419,REVIEW,2026-10-21,0,0,0,0,173,0,173,0,0,0.0,yfinance,"{""VALID"": 2246, ""WARNING_ZERO_VOLUME"": 173}",unknown,Phiên volume bằng 0: 173; Dòng có cảnh báo nguồn: 173
+VCM,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VCP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VCR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VCS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VCT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VCW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VCX,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VDB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VDG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VDL,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VDN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VDP,HOSE,2383,REVIEW,2026-10-21,0,0,0,0,550,0,550,0,3,0.0,yfinance,"{""VALID"": 1833, ""WARNING_ZERO_VOLUME"": 550}",unknown,Phiên volume bằng 0: 550; Dòng có cảnh báo nguồn: 550; Biến động close trên 20% cần đối chiếu: 3
+VDS,HOSE,2402,REVIEW,2026-10-21,0,0,0,0,224,0,224,0,1,0.0,yfinance,"{""VALID"": 2178, ""WARNING_ZERO_VOLUME"": 224}",unknown,Phiên volume bằng 0: 224; Dòng có cảnh báo nguồn: 224; Biến động close trên 20% cần đối chiếu: 1
+VDT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VE1,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VE2,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VE3,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VE4,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VE8,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VE9,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VEA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VEC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VEF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VES,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VET,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VFC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VFG,HOSE,4294,REVIEW,2026-10-21,0,0,0,0,810,0,810,0,0,0.0,yfinance,"{""VALID"": 3484, ""WARNING_ZERO_VOLUME"": 810}",unknown,Phiên volume bằng 0: 810; Dòng có cảnh báo nguồn: 810
+VFR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VFS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VGC,HOSE,1917,REVIEW,2026-10-21,0,0,0,0,136,0,136,0,0,0.0,yfinance,"{""VALID"": 1781, ""WARNING_ZERO_VOLUME"": 136}",unknown,Phiên volume bằng 0: 136; Dòng có cảnh báo nguồn: 136
+VGG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VGI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VGL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VGP,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VGR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VGS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VGT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VGV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VHC,HOSE,4281,REVIEW,2026-10-21,0,0,0,0,394,0,394,0,0,0.0,yfinance,"{""VALID"": 3887, ""WARNING_ZERO_VOLUME"": 394}",unknown,Phiên volume bằng 0: 394; Dòng có cảnh báo nguồn: 394
+VHD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VHE,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VHF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VHG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VHH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VHL,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VHM,HOSE,2195,REVIEW,2026-10-21,0,0,0,0,161,0,161,0,0,0.0,yfinance,"{""VALID"": 2034, ""WARNING_ZERO_VOLUME"": 161}",unknown,Phiên volume bằng 0: 161; Dòng có cảnh báo nguồn: 161
+VIB,HOSE,1552,REVIEW,2026-10-21,0,0,0,0,106,0,106,0,1,0.0,yfinance,"{""VALID"": 1446, ""WARNING_ZERO_VOLUME"": 106}",unknown,Phiên volume bằng 0: 106; Dòng có cảnh báo nguồn: 106; Biến động close trên 20% cần đối chiếu: 1
+VIC,HOSE,3745,REVIEW,2026-10-21,0,0,0,0,225,0,225,0,1,0.0,yfinance,"{""VALID"": 3520, ""WARNING_ZERO_VOLUME"": 225}",unknown,Phiên volume bằng 0: 225; Dòng có cảnh báo nguồn: 225; Biến động close trên 20% cần đối chiếu: 1
+VID,HOSE,4291,REVIEW,2026-10-20,0,0,0,0,405,0,405,0,2,1.0,yfinance,"{""VALID"": 3886, ""WARNING_ZERO_VOLUME"": 405}",unknown,Phiên volume bằng 0: 405; Dòng có cảnh báo nguồn: 405; Biến động close trên 20% cần đối chiếu: 2
+VIE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VIF,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VIG,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VIH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VIM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VIN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VIP,HOSE,3731,REVIEW,2026-10-21,0,0,0,0,217,0,217,0,1,0.0,yfinance,"{""VALID"": 3514, ""WARNING_ZERO_VOLUME"": 217}",unknown,Phiên volume bằng 0: 217; Dòng có cảnh báo nguồn: 217; Biến động close trên 20% cần đối chiếu: 1
+VIR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VIT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VIW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VIX,HOSE,1508,REVIEW,2026-10-21,0,0,0,0,106,0,106,0,0,0.0,yfinance,"{""VALID"": 1402, ""WARNING_ZERO_VOLUME"": 106}",unknown,Phiên volume bằng 0: 106; Dòng có cảnh báo nguồn: 106
+VJC,HOSE,2510,REVIEW,2026-10-21,0,0,0,0,179,0,179,0,0,0.0,yfinance,"{""VALID"": 2331, ""WARNING_ZERO_VOLUME"": 179}",unknown,Phiên volume bằng 0: 179; Dòng có cảnh báo nguồn: 179
+VKC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VKP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VLA,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VLB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VLC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VLF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VLG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VLP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VLW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VMA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VMC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VMD,HOSE,4132,REVIEW,2026-10-21,0,0,0,0,788,0,788,0,0,0.0,yfinance,"{""VALID"": 3344, ""WARNING_ZERO_VOLUME"": 788}",unknown,Phiên volume bằng 0: 788; Dòng có cảnh báo nguồn: 788
+VMG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VMK,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VMS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VMT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VND,HOSE,2384,REVIEW,2026-10-21,0,0,0,0,260,0,260,0,2,0.0,yfinance,"{""VALID"": 2124, ""WARNING_ZERO_VOLUME"": 260}",unknown,Phiên volume bằng 0: 260; Dòng có cảnh báo nguồn: 260; Biến động close trên 20% cần đối chiếu: 2
+VNE,HOSE,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNF,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNG,HOSE,4308,REVIEW,2026-10-21,0,0,0,0,596,0,596,0,0,0.0,yfinance,"{""VALID"": 3712, ""WARNING_ZERO_VOLUME"": 596}",unknown,Phiên volume bằng 0: 596; Dòng có cảnh báo nguồn: 596
+VNH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNL,HOSE,4298,REVIEW,2026-10-21,0,0,0,0,922,0,922,0,0,0.0,yfinance,"{""VALID"": 3376, ""WARNING_ZERO_VOLUME"": 922}",unknown,Phiên volume bằng 0: 922; Dòng có cảnh báo nguồn: 922
+VNM,HOSE,3744,REVIEW,2026-10-21,0,0,0,0,220,0,220,0,0,0.0,yfinance,"{""VALID"": 3524, ""WARNING_ZERO_VOLUME"": 220}",unknown,Phiên volume bằng 0: 220; Dòng có cảnh báo nguồn: 220
+VNP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNR,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNS,HOSE,4290,REVIEW,2026-10-21,0,0,0,0,347,0,347,0,3,0.0,yfinance,"{""VALID"": 3943, ""WARNING_ZERO_VOLUME"": 347}",unknown,Phiên volume bằng 0: 347; Dòng có cảnh báo nguồn: 347; Biến động close trên 20% cần đối chiếu: 3
+VNT,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNX,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNY,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VNZ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VOC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VOS,HOSE,4146,REVIEW,2026-10-21,0,0,0,0,251,0,251,0,0,0.0,yfinance,"{""VALID"": 3895, ""WARNING_ZERO_VOLUME"": 251}",unknown,Phiên volume bằng 0: 251; Dòng có cảnh báo nguồn: 251
+VPA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VPB,HOSE,2390,REVIEW,2026-10-21,0,0,0,0,178,0,178,0,0,0.0,yfinance,"{""VALID"": 2212, ""WARNING_ZERO_VOLUME"": 178}",unknown,Phiên volume bằng 0: 178; Dòng có cảnh báo nguồn: 178
+VPC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VPD,HOSE,2271,REVIEW,2026-10-21,0,0,0,0,166,0,166,0,0,0.0,yfinance,"{""VALID"": 2105, ""WARNING_ZERO_VOLUME"": 166}",unknown,Phiên volume bằng 0: 166; Dòng có cảnh báo nguồn: 166
+VPG,HOSE,2271,REVIEW,2026-10-21,0,0,0,0,162,0,162,0,0,0.0,yfinance,"{""VALID"": 2109, ""WARNING_ZERO_VOLUME"": 162}",unknown,Phiên volume bằng 0: 162; Dòng có cảnh báo nguồn: 162
+VPH,HOSE,4287,REVIEW,2026-10-21,0,0,0,0,247,0,247,0,0,0.0,yfinance,"{""VALID"": 4040, ""WARNING_ZERO_VOLUME"": 247}",unknown,Phiên volume bằng 0: 247; Dòng có cảnh báo nguồn: 247
+VPI,HOSE,2164,REVIEW,2026-10-21,0,0,0,0,159,0,159,0,0,0.0,yfinance,"{""VALID"": 2005, ""WARNING_ZERO_VOLUME"": 159}",unknown,Phiên volume bằng 0: 159; Dòng có cảnh báo nguồn: 159
+VPL,HOSE,157,REVIEW,2026-10-21,0,0,0,0,7,0,7,0,0,0.0,yfinance,"{""VALID"": 150, ""WARNING_ZERO_VOLUME"": 7}",unknown,Phiên volume bằng 0: 7; Dòng có cảnh báo nguồn: 7
+VPR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VPS,HOSE,2887,REVIEW,2026-10-21,0,0,0,0,599,0,599,0,0,0.0,yfinance,"{""VALID"": 2288, ""WARNING_ZERO_VOLUME"": 599}",unknown,Phiên volume bằng 0: 599; Dòng có cảnh báo nguồn: 599
+VPW,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VQC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VRC,HOSE,4178,REVIEW,2026-10-21,0,0,0,0,328,0,328,0,0,0.0,yfinance,"{""VALID"": 3850, ""WARNING_ZERO_VOLUME"": 328}",unknown,Phiên volume bằng 0: 328; Dòng có cảnh báo nguồn: 328
+VRE,HOSE,2324,REVIEW,2026-10-21,0,0,0,0,168,0,168,0,0,0.0,yfinance,"{""VALID"": 2156, ""WARNING_ZERO_VOLUME"": 168}",unknown,Phiên volume bằng 0: 168; Dòng có cảnh báo nguồn: 168
+VRG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VSA,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VSC,HOSE,3741,REVIEW,2026-10-21,0,0,0,0,217,0,217,0,0,0.0,yfinance,"{""VALID"": 3524, ""WARNING_ZERO_VOLUME"": 217}",unknown,Phiên volume bằng 0: 217; Dòng có cảnh báo nguồn: 217
+VSE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VSF,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VSG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VSH,HOSE,3738,REVIEW,2026-10-21,0,0,0,0,234,0,234,0,0,0.0,yfinance,"{""VALID"": 3504, ""WARNING_ZERO_VOLUME"": 234}",unknown,Phiên volume bằng 0: 234; Dòng có cảnh báo nguồn: 234
+VSI,HOSE,4082,REVIEW,2026-10-20,0,0,0,0,930,0,930,0,0,1.0,yfinance,"{""VALID"": 3152, ""WARNING_ZERO_VOLUME"": 930}",unknown,Phiên volume bằng 0: 930; Dòng có cảnh báo nguồn: 930
+VSM,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VSN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VST,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTB,HOSE,4293,REVIEW,2026-10-21,0,0,0,0,471,0,471,0,0,0.0,yfinance,"{""VALID"": 3822, ""WARNING_ZERO_VOLUME"": 471}",unknown,Phiên volume bằng 0: 471; Dòng có cảnh báo nguồn: 471
+VTC,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTE,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTG,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTH,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTI,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTJ,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTK,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTL,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTM,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTO,HOSE,4288,REVIEW,2026-10-21,0,0,0,0,249,0,249,0,0,0.0,yfinance,"{""VALID"": 4039, ""WARNING_ZERO_VOLUME"": 249}",unknown,Phiên volume bằng 0: 249; Dòng có cảnh báo nguồn: 249
+VTP,HOSE,682,REVIEW,2026-10-21,0,0,0,0,34,0,34,0,0,0.0,yfinance,"{""VALID"": 648, ""WARNING_ZERO_VOLUME"": 34}",unknown,Phiên volume bằng 0: 34; Dòng có cảnh báo nguồn: 34
+VTQ,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTR,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTV,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTX,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VTZ,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VUA,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VVN,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VVS,UPCoM,219,REVIEW,2026-10-21,0,0,0,0,15,0,15,0,1,0.0,yfinance,"{""VALID"": 204, ""WARNING_ZERO_VOLUME"": 15}",unknown,Phiên volume bằng 0: 15; Dòng có cảnh báo nguồn: 15; Biến động close trên 20% cần đối chiếu: 1
+VW3,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VWS,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VXB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VXP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+VXT,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+WCS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+WSB,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+WSS,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+WTC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+X20,HNX,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+X26,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+X77,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+XDH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+XHC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+XLV,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+XMC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+XMD,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+XMP,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+XPH,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+YBC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá
+YBM,HOSE,2127,REVIEW,2026-10-21,0,0,0,0,290,0,290,0,0,0.0,yfinance,"{""VALID"": 1837, ""WARNING_ZERO_VOLUME"": 290}",unknown,Phiên volume bằng 0: 290; Dòng có cảnh báo nguồn: 290
+YEG,HOSE,2167,REVIEW,2026-10-21,0,0,0,0,157,0,157,0,1,0.0,yfinance,"{""VALID"": 2010, ""WARNING_ZERO_VOLUME"": 157}",unknown,Phiên volume bằng 0: 157; Dòng có cảnh báo nguồn: 157; Biến động close trên 20% cần đối chiếu: 1
+YTC,UPCoM,0,NO_DATA,,0,0,0,0,0,0,0,0,0,,,{},unknown,Không có dữ liệu giá

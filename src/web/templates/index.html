@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VNStock Price Action Dashboard - John Lucas Pruni</title>
+  <title>QuantumTrade · Research Workspace</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Chart.js -->
@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <script>
-    tailwind.config = {
+    if (window.tailwind) tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
@@ -63,6 +63,43 @@
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
+
+    header>div{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;padding:18px 24px;margin:auto}header>div>div:first-child{display:flex;gap:12px;align-items:center}header svg{width:24px;height:24px}header h1{margin:0;font-size:21px}header nav{display:flex}header button{background:transparent}header p{margin:5px 0;font-size:12px;color:#9baec2}
+    .q-evidence-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}.q-evidence-fields input,.q-evidence-fields select{display:block;width:100%;margin-top:7px}.q-guide{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 24px}.q-guide span{color:#9fb5c9;border-bottom:2px solid #294f4c;padding:8px 14px;font-size:12px}.q-evidence-table td:first-child{white-space:nowrap}
+    :root{--q-bg:#09111b;--q-card:#101c2a;--q-line:#263547;--q-muted:#9baec2;--q-accent:#65dfc5}
+    *{box-sizing:border-box}body{margin:0;background:var(--q-bg);color:#e6eef7;font-family:Inter,'Segoe UI',sans-serif}
+    .hidden{display:none!important}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:wait;opacity:.45}
+    button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--q-accent);outline-offset:3px}
+    header{background:#0b1522!important;border-bottom:1px solid var(--q-line)!important;position:relative!important}
+    header>div{max-width:1480px!important}header nav{flex-wrap:wrap;gap:5px;background:transparent!important}
+    .tab-btn{border:0;padding:10px 14px!important;border-radius:8px!important;color:var(--q-muted)}
+    .tab-btn[aria-selected=true]{background:#183e3c!important;color:#86f1d5!important}
+    main{max-width:1480px!important;margin:auto;padding:24px;width:100%}table{border-collapse:collapse}th{text-align:left}
+    .q-hero{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:24px}
+    .q-kicker{color:var(--q-accent);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+    .q-hero h2{font-size:32px;letter-spacing:-1px;margin:7px 0}.q-sub{color:var(--q-muted);font-size:13px;line-height:1.7}
+    .q-chip{font-size:11px;border:1px solid #36514f;background:#132e2d;color:#a1eddb;padding:8px 12px;border-radius:25px;white-space:nowrap}
+    .q-layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:20px;align-items:start}
+    .q-panel{border:1px solid var(--q-line);border-radius:16px;background:var(--q-card);padding:22px;min-width:0;margin-bottom:20px}
+    .q-panel h3{font-size:17px;font-weight:650;margin:0 0 8px}.q-panel h4{margin:0 0 10px}
+    .q-panel label{display:block;font-size:12px;color:var(--q-muted);margin:12px 0 5px}
+    .q-panel input,.q-panel select{background:#0a1421;color:#edf4fc;border:1px solid #34465b;border-radius:8px;padding:11px;max-width:100%}
+    .q-input{width:100%}.q-controls{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:15px 0}
+    .q-btn{border:1px solid #3a5164;border-radius:8px;padding:10px 15px;background:#192b3b;color:#e7f1fa;font-size:13px}
+    .q-primary{background:var(--q-accent);color:#072920;border-color:var(--q-accent);font-weight:650}
+    .q-result{display:block;text-align:left;width:100%;border:1px solid transparent;border-bottom-color:var(--q-line);border-radius:8px;padding:12px 8px;background:transparent;color:#dce9f5}
+    .q-result:hover{background:#1a3042;border-color:#3a596d}.q-result strong{font-size:15px;color:#93efdb}.q-result small{display:block;font-size:11px;color:var(--q-muted);margin-top:5px;line-height:1.5}
+    #catalog-results{max-height:550px;overflow:auto}.q-count{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}.q-count span{font-size:11px;border:1px solid var(--q-line);border-radius:6px;padding:8px;color:#bcd0e2}
+    .q-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0}.q-metric{padding:16px;border:1px solid var(--q-line);border-radius:10px;background:#0c1724}
+    .q-metric small{display:block;color:var(--q-muted);font-size:11px;margin-bottom:8px}.q-metric strong{font-size:22px;letter-spacing:-.5px}.q-metric em{display:block;font-size:10px;color:var(--q-muted);font-style:normal;margin-top:6px}
+    .q-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.q-heading strong{font-size:26px}
+    .q-two{display:grid;grid-template-columns:1fr 1fr;gap:20px}.q-alert{background:#332a1d;border:1px solid #675338;border-radius:9px;color:#ecd09d;padding:12px;font-size:12px;line-height:1.7;margin:12px 0}
+    .q-rule{display:flex;justify-content:space-between;gap:10px;font-size:12px;line-height:1.7;padding:10px 0;border-bottom:1px solid var(--q-line)}.q-rule[data-met=true]{color:#81e1c6}
+    .q-spark{width:100%;height:120px;display:block;margin:12px 0;color:#65dfc5}.q-table-wrap{overflow:auto;max-height:500px}.q-panel table{width:100%;font-size:12px}.q-panel th{padding:12px;color:#90a9bf;font-weight:500;background:#132334;position:sticky;top:0}.q-panel td{padding:12px;border-bottom:1px solid var(--q-line);vertical-align:top}
+    .q-panel tbody tr:hover{background:#142638}.q-note{color:#9ab0c7;font-size:12px;line-height:1.6}#scan-status{min-height:24px;font-size:12px;color:#9cddcf}
+    #risk-fields{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}#risk-fields input{width:100%}.q-empty{padding:24px;text-align:center;color:#93a9bd;font-size:13px}
+    @media(max-width:1100px){.q-layout{grid-template-columns:270px minmax(0,1fr)}.q-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}#risk-fields{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:760px){main{padding:14px!important}.q-layout,.q-two{grid-template-columns:1fr}.q-hero{align-items:start}.q-hero h2{font-size:26px}.q-chip{display:none}.q-panel{padding:16px}.q-metric strong{font-size:19px}#catalog-results{max-height:270px}#risk-fields{grid-template-columns:repeat(2,minmax(0,1fr))}header nav{overflow:auto}.q-hero{margin-top:10px}}
   </style>
 </head>
 <body class="min-h-screen flex flex-col custom-scrollbar">
@@ -78,26 +115,28 @@
         </div>
         <div>
           <div class="flex items-center space-x-2">
-            <h1 class="text-lg font-bold tracking-tight text-white">VNStock Price Action</h1>
-            <span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">John Lucas Pruni</span>
+            <h1 class="text-lg font-bold tracking-tight text-white">QuantumTrade</h1>
+            <span class="px-2 py-0.5 text-xs font-semibold rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">RESEARCH / 06</span>
           </div>
-          <p class="text-xs text-gray-400">Phương pháp "2 Cấu trúc & 3 Cây nến" • QTA</p>
+          <p class="text-xs text-gray-400">Dữ liệu rõ nguồn. Quyết định có cơ sở.</p>
         </div>
       </div>
 
       <!-- Navigation Tabs -->
       <nav class="flex space-x-1 sm:space-x-2 bg-gray-950/60 p-1.5 rounded-xl border border-gray-800/80">
         <button onclick="switchTab('signals')" id="tab-btn-signals" class="tab-btn px-3 py-1.5 rounded-lg text-sm font-medium transition-all text-white bg-gray-800 shadow-sm flex items-center space-x-2">
-          <span>📈 Tín Hiệu Hợp Lưu</span>
+          <span>Cấu trúc giá</span>
         </button>
         <button onclick="switchTab('backtest')" id="tab-btn-backtest" class="tab-btn px-3 py-1.5 rounded-lg text-sm font-medium transition-all text-gray-400 hover:text-white flex items-center space-x-2">
-          <span>🧪 Backtesting Studio</span>
+          <span>Kiểm thử chiến lược</span>
         </button>
         <button onclick="switchTab('sensitivity')" id="tab-btn-sensitivity" class="tab-btn px-3 py-1.5 rounded-lg text-sm font-medium transition-all text-gray-400 hover:text-white flex items-center space-x-2">
-          <span>🎯 Độ Nhạy Tham Số</span>
+          <span>Tham số</span>
         </button>
+        <button onclick="switchTab('research')" id="tab-btn-research" aria-selected="true" class="tab-btn px-3 py-1.5 rounded-lg text-sm text-gray-400">Tổng quan nghiên cứu</button>
+        <button onclick="switchTab('evidence')" id="tab-btn-evidence" class="tab-btn">Kiểm chứng tín hiệu</button>
         <button onclick="switchTab('data')" id="tab-btn-data" class="tab-btn px-3 py-1.5 rounded-lg text-sm font-medium transition-all text-gray-400 hover:text-white flex items-center space-x-2">
-          <span>📥 Quản Lý Dữ Liệu</span>
+          <span>Dữ liệu</span>
         </button>
       </nav>
 
@@ -133,7 +172,7 @@
     <!-- ======================================================== -->
     <!-- TAB 1: SIGNALS & CHARTS -->
     <!-- ======================================================== -->
-    <div id="tab-content-signals" class="space-y-6">
+    <div id="tab-content-signals" class="space-y-6 hidden">
       
       <!-- Top Action Bar -->
       <div class="glass-card rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4">
@@ -470,7 +509,66 @@
     <!-- ======================================================== -->
     <!-- TAB 4: DATA MANAGER -->
     <!-- ======================================================== -->
+
+    <div id="tab-content-research">
+      <div class="q-hero"><div><div class="q-kicker">QuantumTrade / Research workspace</div><h2>Hiểu dữ liệu. Đọc tín hiệu.</h2><p class="q-sub">Tìm doanh nghiệp, xem bằng chứng kỹ thuật và lập kế hoạch rủi ro.</p></div><span class="q-chip">SQLITE · NẾN NGÀY ĐÃ ĐÓNG</span></div>
+      <div class="q-guide"><span>01 · Tìm doanh nghiệp</span><span>02 · Đọc bằng chứng</span><span>03 · Kiểm chứng lịch sử</span><span>04 · Lập kế hoạch vốn</span></div><div class="q-layout">
+        <aside class="q-panel"><h3>Khám phá cổ phiếu</h3><p class="q-sub">Tìm mã hoặc tên có/không dấu.</p>
+          <label for="catalog-query">Mã / tên doanh nghiệp</label><input id="catalog-query" class="q-input" placeholder="HPG, hòa phát, fpt…" autocomplete="off">
+          <div class="q-controls"><select id="catalog-exchange" aria-label="Sàn"><option value="">Tất cả sàn</option><option>HOSE</option><option>HNX</option><option>UPCOM</option></select><label><input id="catalog-data" type="checkbox"> Chỉ mã có giá</label></div>
+          <div id="catalog-count" class="q-count"></div><p id="catalog-status" class="q-note" role="status"></p><div id="catalog-results"></div>
+          <p class="q-note">Danh mục trong DB, chưa xác nhận danh sách niêm yết hiện tại.</p>
+        </aside>
+        <section class="q-panel"><div class="q-heading"><h3>Hồ sơ kỹ thuật</h3><span class="q-kicker">Evidence first</span></div>
+          <div class="q-controls"><label for="research-symbol">Mã</label><input id="research-symbol" value="HPG" maxlength="20" style="width:110px"><button onclick="runResearch()" class="q-btn q-primary">Phân tích</button></div>
+          <div id="research-result" aria-live="polite"><p class="q-empty">Chọn một mã để xem phân tích.</p></div>
+        </section>
+      </div>
+      <section class="q-panel"><div class="q-heading"><div><div class="q-kicker">Market scanner</div><h3 style="margin-top:8px">Bộ lọc & danh sách nghiên cứu</h3></div><button onclick="exportResearchCSV()" class="q-btn">Xuất CSV</button></div>
+        <p class="q-sub">Xếp hạng theo quy tắc kỹ thuật. Không phải xác suất tăng giá; đọc cảnh báo trước khi sử dụng.</p>
+        <label for="scan-symbols">Danh sách mã, phân cách bằng dấu phẩy</label><input id="scan-symbols" class="q-input" value="HPG,FPT,VCB,TCB,MBB">
+        <div class="q-controls"><label>Volume TB20 tối thiểu <input id="scan-volume" type="number" min="0" value="100000" style="width:130px"></label>
+          <label>Xu hướng <select id="scan-trend"><option value="">Tất cả</option><option value="UPTREND">Xu hướng tăng</option><option value="MIXED">Chưa đồng thuận</option><option value="DOWNTREND">Xu hướng giảm</option></select></label>
+          <label><input id="scan-fresh" type="checkbox"> Loại dữ liệu có thể cũ</label>
+          <label><input id="scan-full" type="checkbox"> Đủ 200 phiên để so điểm</label>
+        </div>
+        <div class="q-controls"><button id="scan-start" onclick="runResearchScan(false)" class="q-btn q-primary">Quét danh sách</button><button id="scan-all" onclick="runResearchScan(true)" class="q-btn">Quét các mã có giá</button><button onclick="scanCancelled=true" class="q-btn">Dừng sau lô hiện tại</button></div>
+        <p id="scan-status" role="status"></p><div class="q-table-wrap"><table><thead><tr><th>Mã</th><th>Điểm /100</th><th>Xu hướng</th><th>Trạng thái</th><th>Phiên cuối</th><th>Volume TB20</th><th>Lưu ý</th></tr></thead><tbody id="scan-results"></tbody></table></div>
+      </section>
+      <section class="q-panel"><div class="q-kicker">Position planner</div><h3 style="margin-top:8px">Lập kế hoạch vốn & rủi ro</h3>
+        <p class="q-sub">Lệnh mua giả định. Nhập giá bằng đồng/cổ phiếu: 21 nghìn đồng nhập 21000. Phí có thể sửa; stop không bảo đảm khớp.</p>
+        <div id="risk-fields"></div><div class="q-controls"><button onclick="runPositionSize()" class="q-btn q-primary">Tính khối lượng</button></div><div id="risk-result" aria-live="polite"></div>
+      </section>
+      <p class="q-note">Đây là phân tích thuật toán, không phải lời khuyên đầu tư.</p>
+    </div>
+
+    <div id="tab-content-evidence" class="hidden">
+      <div class="q-hero"><div><div class="q-kicker">Signal evidence / Historical research</div><h2>Tín hiệu có tạo khác biệt?</h2><p class="q-sub">Đo kết quả sau chi phí trên các cửa sổ không chồng lấn. Không coi điểm kỹ thuật là xác suất thắng.</p></div><span class="q-chip">QUY TẮC CỐ ĐỊNH · TỐI ĐA 4 GIAI ĐOẠN</span></div>
+      <div class="q-panel"><h3>Thiết lập phép so sánh</h3><p class="q-note">Tính tín hiệu tại cuối phiên, giả định mua open bản ghi kế tiếp và bán close sau kỳ giữ. Baseline dùng mọi cửa sổ đủ điều kiện; bộ điểm chọn một tập con. Đây chưa phải mô phỏng giao dịch thực tế.</p>
+        <form id="evidence-form"><div class="q-evidence-fields">
+          <label>Mã<input id="ev-symbol" value="HPG" maxlength="20" required></label>
+          <label>Kỳ giữ (nến ngày)<select id="ev-horizon"><option>5</option><option selected>10</option><option>20</option></select></label>
+          <label>Điểm tối thiểu<input id="ev-threshold" type="number" min="0" max="100" step="1" value="70" required></label>
+          <label>Volume TB20 tối thiểu<input id="ev-volume" type="number" min="0" value="100000" required></label>
+          <label>Phí mỗi chiều (%)<input id="ev-fee" type="number" min="0" max="5" step="0.01" value="0.15" required></label>
+          <label>Thuế bán giả định (%)<input id="ev-tax" type="number" min="0" max="5" step="0.01" value="0.1" required></label>
+          <label>Trượt giá mỗi chiều (%)<input id="ev-slip" type="number" min="0" max="5" step="0.01" value="0.1" required></label>
+        </div><div class="q-controls"><button id="ev-run" type="submit" class="q-btn q-primary">Đánh giá lịch sử</button><button type="button" onclick="exportEvidence()" class="q-btn">Xuất quan sát CSV</button></div></form>
+        <p id="ev-status" class="q-note" role="status">Chưa thực hiện phép so sánh.</p>
+      </div>
+      <div id="ev-results" aria-live="polite"><div class="q-panel q-empty">Chọn mã và bấm Đánh giá lịch sử để xem số mẫu, lợi suất sau phí và độ ổn định theo giai đoạn.</div></div>
+      <div class="q-alert">Thay đổi tham số nhiều lần sau khi xem kết quả dễ gây overfitting. Chưa đối chiếu độc lập giá và điều chỉnh quyền; kết quả lịch sử không bảo đảm tương lai.</div>
+    </div>
     <div id="tab-content-data" class="space-y-6 hidden">
+      <section class="glass-card rounded-2xl p-5 space-y-3">
+        <h2 class="text-lg font-bold">Chất lượng dữ liệu toàn danh mục</h2>
+        <p class="text-sm text-gray-400">Kết quả kiểm tra nội bộ; chưa xác minh giá với nguồn độc lập.</p>
+        <button onclick="loadQualityReport()" class="px-4 py-2 rounded bg-emerald-800">Đọc báo cáo chất lượng</button>
+        <p id="quality-status" role="status" class="text-sm text-amber-300">Chưa đọc báo cáo.</p>
+        <label class="text-sm">Lọc mã <input id="quality-filter" oninput="renderQualityRows()" class="bg-gray-900 border rounded px-2 py-1" placeholder="HPG"></label>
+        <div class="overflow-auto" style="max-height:420px"><table class="w-full text-xs text-left"><thead><tr><th>Mã</th><th>Trạng thái</th><th>Số nến</th><th>Phiên cuối</th><th>Vấn đề cần kiểm tra</th></tr></thead><tbody id="quality-rows"></tbody></table></div>
+      </section>
+
       
       <!-- Ingest Form Card -->
       <div class="glass-card rounded-2xl p-5 space-y-4">
@@ -539,7 +637,7 @@
 
     // --- TAB SWITCHER ---
     function switchTab(tabId) {
-      const tabs = ['signals', 'backtest', 'sensitivity', 'data'];
+      const tabs = ['signals', 'backtest', 'sensitivity', 'data', 'research', 'evidence'];
       tabs.forEach(t => {
         document.getElementById(`tab-content-${t}`).classList.add('hidden');
         const btn = document.getElementById(`tab-btn-${t}`);
@@ -552,6 +650,7 @@
       activeBtn.classList.add('bg-gray-800', 'text-white', 'shadow-sm');
       activeBtn.classList.remove('text-gray-400');
 
+      document.querySelectorAll('.tab-btn').forEach(b=>b.setAttribute('aria-selected',String(b.id==='tab-btn-'+tabId)));
       if (tabId === 'signals') loadSignalsTab();
       if (tabId === 'backtest') loadBacktestTabInitial();
       if (tabId === 'sensitivity') loadSensitivityTab();
@@ -620,7 +719,9 @@
       await fetchSummary();
       const pref = currentAccount.default_symbol;
       if (availableSymbols.includes(pref)) document.getElementById('signals-symbol-select').value = pref;
-      await loadSignalsTab();
+      document.getElementById('research-symbol').value=pref||'HPG';
+      switchTab('research');
+      await Promise.allSettled([searchCatalog(),runResearch()]);
     });
 
     async function fetchSummary() {
@@ -628,7 +729,7 @@
         const res = await fetch('/api/summary');
         const data = await res.json();
         availableSymbols = data.available_symbols || [];
-        document.getElementById('db-badge').innerText = `Database: ${data.mock_db ? 'SQLite Mock' : 'Oracle DB'}`;
+        document.getElementById('db-badge').innerText = `Database: ${data.mock_db ? 'SQLite / ' + (data.database_file || '') : 'Oracle DB'}`;
         document.getElementById('symbols-badge').innerText = `Mã: ${data.symbols_count} / Bản ghi: ${Number(data.database.total_price_records).toLocaleString()}`;
         
         // Populate select box
@@ -667,8 +768,8 @@
     document.getElementById('priceChart').parentElement.before(dataStatus);
 
     let signalsRequestId = 0;
-    async function checkedJson(url) {
-      const response = await fetch(url);
+    async function checkedJson(url, options = {}) {
+      const response = await fetch(url, options);
       const data = await response.json();
       if (!response.ok) {
         const detail = data.detail;
@@ -1022,6 +1123,167 @@
     }
 
     // --- TAB 4: DATA MANAGER ---
+
+    function researchLine(parent,text,cls='') { const p=document.createElement('p');p.textContent=text;p.className=cls;parent.append(p); }
+    function researchTable(parent,headers,rows) {
+      const table=document.createElement('table');table.className='w-full text-left text-sm';
+      const head=table.createTHead().insertRow();headers.forEach(x=>{const th=document.createElement('th');th.textContent=x;head.append(th);});
+      const body=table.createTBody();rows.forEach(values=>{const row=body.insertRow();values.forEach(x=>{const cell=row.insertCell();cell.textContent=x??'Chưa đủ dữ liệu';cell.className='p-2 border-b border-gray-700';});});parent.append(table);
+    }
+    const rfmt=x=>x===null||x===undefined?'—':Number(x).toLocaleString('vi-VN',{maximumFractionDigits:4});
+    let researchRequestId=0;
+    async function runResearch() {
+      const requestId=++researchRequestId;
+      const root=document.getElementById('research-result');root.replaceChildren();researchLine(root,'Đang tính…');
+      try {
+        const r=await checkedJson('/api/research/'+encodeURIComponent(document.getElementById('research-symbol').value.trim()));if(requestId!==researchRequestId)return;root.replaceChildren();
+        renderResearch(r,root);
+
+      }catch(e){if(requestId!==researchRequestId)return;root.replaceChildren();researchLine(root,e.message,'text-rose-300');}
+    }
+    let scanCancelled=false,scanBusy=false,scanItems=[],scanTotal=0;
+    async function runResearchScan(all) {
+      if(scanBusy)return;
+      const minVolume=Number(document.getElementById('scan-volume').value);
+      if(!Number.isFinite(minVolume)||minVolume<0){document.getElementById('scan-status').textContent='Volume tối thiểu phải >= 0.';return;}
+      scanBusy=true;scanCancelled=false;document.getElementById('scan-start').disabled=true;document.getElementById('scan-all').disabled=true;
+      const status=document.getElementById('scan-status'),body=document.getElementById('scan-results');body.replaceChildren();let items=[];scanItems=[];
+      try {
+        let symbols=all?(await checkedJson('/api/symbols')).map(x=>x.symbol):document.getElementById('scan-symbols').value.toUpperCase().split(/[\s,;]+/).filter(Boolean);
+        symbols=[...new Set(symbols)];scanTotal=symbols.length;if(!symbols.length)throw new Error('Nhập ít nhất một mã.');
+        for(let i=0;i<symbols.length&&!scanCancelled;i+=30){
+          status.textContent=`Đang quét ${i}/${symbols.length} mã…`;
+          const r=await checkedJson('/api/research-scan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({symbols:symbols.slice(i,i+30)})});items.push(...r.items);scanItems=items;renderScanRows();
+        }
+        scanItems=items;renderScanRows();
+        status.textContent+=scanCancelled?' · Đã dừng':' · Hoàn tất';
+
+      }catch(e){status.textContent=e.message;}finally{scanBusy=false;document.getElementById('scan-start').disabled=false;document.getElementById('scan-all').disabled=false;}
+    }
+    const riskInputs=[['capital','Vốn (VND)',100000000],['entry','Giá mua (VND/CP)',21000],['stop','Stop (VND/CP)',19500],['target','Mục tiêu (VND/CP)',25000],['risk_pct','Rủi ro mỗi lệnh (%)',1],['max_position_pct','Tỷ trọng tối đa (%)',20],['fee_pct','Phí mỗi chiều (%)',0.15],['sell_tax_pct','Thuế bán giả định (%)',0.1],['slippage_pct','Trượt giá mỗi chiều (%)',0.1],['lot','Lô (1 hoặc 100)',100]];
+    riskInputs.forEach(([key,label,value])=>{const el=document.createElement('label');el.textContent=label;const input=document.createElement('input');input.id='risk-'+key;input.type='number';input.step='any';input.value=value;input.className='bg-gray-900 border rounded p-2 w-full';el.append(input);document.getElementById('risk-fields').append(el);});
+    async function runPositionSize(){
+      const root=document.getElementById('risk-result');root.replaceChildren();
+      try{const data=Object.fromEntries(riskInputs.map(([k])=>[k,Number(document.getElementById('risk-'+k).value)]));
+        const r=await checkedJson('/api/position-size',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+        researchTable(root,['Chỉ tiêu','Kết quả'],[['Số cổ phiếu',rfmt(r.shares)],['Chi phí mua giả định (VND)',rfmt(r.cost)],['Lỗ dự kiến tại stop (VND)',rfmt(r.planned_loss)],['Lãi dự kiến tại mục tiêu (VND)',rfmt(r.planned_profit)],['R:R sau chi phí',rfmt(r.net_rr)]]);
+        if(!r.shares)researchLine(root,'Vốn hoặc ngân sách rủi ro không đủ cho một lô.');if(r.net_rr<=0)researchLine(root,'Mục tiêu không bù được chi phí theo giả định đã nhập.','text-rose-300');researchLine(root,r.warning,'text-amber-300');
+      }catch(e){researchLine(root,e.message,'text-rose-300');}
+    }
+
+    const trendNames={UPTREND:'Xu hướng tăng',DOWNTREND:'Xu hướng giảm',MIXED:'Chưa đồng thuận'};
+    const stateNames={REVIEW:'Cần rà soát',UNVERIFIED:'Chưa xác minh',INSUFFICIENT_DATA:'Thiếu lịch sử',ERROR:'Lỗi dữ liệu',INVALID:'Dữ liệu lỗi'};
+    function qNode(tag,cls,text){const e=document.createElement(tag);e.className=cls||'';if(text!==undefined)e.textContent=text;return e;}
+    let searchId=0,searchTimer;
+    async function searchCatalog(){
+      const id=++searchId,status=document.getElementById('catalog-status'),root=document.getElementById('catalog-results');status.textContent='Đang tìm…';root.replaceChildren();
+      const params=new URLSearchParams({q:document.getElementById('catalog-query').value,exchange:document.getElementById('catalog-exchange').value,has_data:document.getElementById('catalog-data').checked,limit:30});
+      try{const r=await checkedJson('/api/catalog-search?'+params);if(id!==searchId)return;
+        document.getElementById('catalog-count').replaceChildren(qNode('span','',r.catalog_count+' mã trong DB'),qNode('span','',r.with_prices+' mã có giá'));
+        status.textContent=r.total?`Hiển thị ${r.items.length}/${r.total} kết quả`:'Không có kết quả. Thử mã hoặc tên ngắn hơn.';
+        r.items.forEach(x=>{const b=qNode('button','q-result');b.append(qNode('strong','',x.symbol+' · '+x.exchange),qNode('small','',x.company_name),qNode('small','',x.match_reason+' · '+(x.bars_count?x.bars_count+' nến · '+x.last_date:'Chưa có giá')));b.onclick=()=>{document.getElementById('research-symbol').value=x.symbol;runResearch();};root.append(b);});
+      }catch(e){if(id===searchId)status.textContent=e.message;}
+    }
+    document.getElementById('catalog-query').addEventListener('input',()=>{++searchId;clearTimeout(searchTimer);searchTimer=setTimeout(searchCatalog,220);});
+    ['catalog-exchange','catalog-data'].forEach(id=>document.getElementById(id).addEventListener('change',searchCatalog));
+    document.getElementById('research-symbol').addEventListener('keydown',e=>{if(e.key==='Enter')runResearch();});
+    function renderResearch(r,root){
+      const verify=qNode('button','q-btn q-primary','Kiểm chứng tín hiệu mã này');verify.onclick=()=>{document.getElementById('ev-symbol').value=r.symbol;switchTab('evidence');};root.append(verify);
+      const head=qNode('div','q-heading');head.append(qNode('strong','',r.symbol),qNode('span','q-chip',stateNames[r.status]||r.status));root.append(head);
+      root.append(qNode('p','q-sub',`Phiên ${r.data_as_of||'—'} · ${r.bars||0} nến · ${trendNames[r.trend]||'Chưa đánh giá'}`));
+      if(!r.indicators){root.append(qNode('p','q-alert',(r.reasons||[]).join(' · ')));return;}
+      const m=qNode('div','q-metrics');
+      [['Đồng thuận kỹ thuật',r.score+'/100','Không phải xác suất'],['Giá đóng cửa',rfmt(r.close),'Đơn vị nguồn chưa xác minh'],['RSI · 14',rfmt(r.indicators.rsi14),'50–70: vùng chấm điểm'],['Volume tương đối',rfmt(r.indicators.volume_ratio)+'×','So với 20 phiên trước']].forEach(([label,value,note])=>{const c=qNode('div','q-metric');c.append(qNode('small','',label),qNode('strong','',value),qNode('em','',note));m.append(c);});root.append(m);
+      if(r.available_score_max<100)root.append(qNode('p','q-alert','Chưa đủ MA200: chỉ có '+r.available_score_max+'/100 điểm có thể đánh giá. Bật bộ lọc đủ 200 phiên để so sánh đồng nhất.'));
+      if(r.price_history?.length>1){
+        const rows=r.price_history,prices=rows.map(x=>x.close),lo=Math.min(...prices),hi=Math.max(...prices),range=hi-lo||1;
+        const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 600 110');svg.setAttribute('role','img');svg.setAttribute('aria-label','Giá đóng cửa '+rows.length+' phiên gần nhất');svg.classList.add('q-spark');
+        const line=document.createElementNS(svg.namespaceURI,'polyline');line.setAttribute('points',prices.map((v,i)=>`${10+i*580/(prices.length-1)},${95-(v-lo)*80/range}`).join(' '));line.setAttribute('fill','none');line.setAttribute('stroke','currentColor');line.setAttribute('stroke-width','2');svg.append(line);root.append(svg);
+        root.append(qNode('p','q-note',`${rows[0].date} → ${rows.at(-1).date} · Giá đóng cửa ${rows.length} phiên · Min ${rfmt(lo)} / Max ${rfmt(hi)} · Đơn vị nguồn`));
+      }
+      const two=qNode('div','q-two'),rules=qNode('div'),details=qNode('div');rules.append(qNode('h4','','Bằng chứng kỹ thuật'));
+      r.reasons.forEach(x=>{const e=qNode('div','q-rule');e.dataset.met=x.met;e.append(qNode('span','',(x.met?'✓ ':'○ ')+x.rule),qNode('strong','',`+${x.points}`));rules.append(e);});
+      details.append(qNode('h4','','Mốc tham chiếu'));
+      researchTable(details,['Chỉ báo','Giá trị'],[['MA20',r.indicators.ma20],['MA50',r.indicators.ma50],['MA200',r.indicators.ma200],['ATR14',r.indicators.atr14],['MACD histogram',r.indicators.macd_hist],['Đỉnh 20 phiên trước',r.indicators.prior_high20],['Đáy 20 phiên trước',r.indicators.prior_low20]].map(([k,v])=>[k,rfmt(v)]));two.append(rules,details);root.append(two);
+      const warning=qNode('details','q-alert');warning.open=true;warning.append(qNode('summary','',`Lưu ý dữ liệu & rủi ro (${r.warnings.length})`));r.warnings.forEach(x=>warning.append(qNode('p','',x)));root.append(warning);
+      const scenarios=qNode('div','q-two');Object.entries(r.scenarios).forEach(([k,v])=>{const c=qNode('div');c.append(qNode('h4','',k==='bull'?'Kịch bản tích cực':'Kịch bản tiêu cực'),qNode('p','q-sub',v));scenarios.append(c);});root.append(scenarios);
+    }
+    function filteredScan(){
+      const volume=Math.max(0,Number(document.getElementById('scan-volume').value)||0),trend=document.getElementById('scan-trend').value;
+      return scanItems.filter(x=>{
+        if(x.score===null)return true;
+        return (x.indicators?.avg_volume20??0)>=volume&&(!trend||x.trend===trend)&&(!document.getElementById('scan-fresh').checked||x.metadata?.freshness!=='potentially_stale')&&(!document.getElementById('scan-full').checked||x.bars>=200);
+      }).sort((a,b)=>(b.score??-1)-(a.score??-1)||a.symbol.localeCompare(b.symbol));
+    }
+    function renderScanRows(){
+      const root=document.getElementById('scan-results');root.replaceChildren();const visible=filteredScan();
+      visible.forEach(x=>{const row=root.insertRow(),first=row.insertCell();const button=qNode('button','q-btn',x.symbol);button.onclick=()=>{document.getElementById('research-symbol').value=x.symbol;runResearch();document.getElementById('research-result').scrollIntoView({behavior:'smooth',block:'start'});};first.append(button);
+        const warning=x.error?(typeof x.error==='string'?x.error:JSON.stringify(x.error)):(x.warnings||x.reasons||[]).map(v=>typeof v==='string'?v:v.rule).join('; ');
+        [x.score??'—',trendNames[x.trend]||'—',stateNames[x.status]||x.status,x.data_as_of||'—',rfmt(x.indicators?.avg_volume20),warning].forEach(v=>row.insertCell().textContent=v);
+      });
+      if(!visible.length){const row=root.insertRow(),cell=row.insertCell();cell.colSpan=7;cell.textContent=scanItems.length?'Không có mã phù hợp bộ lọc.':'Chưa có kết quả. Chọn danh sách rồi bấm quét.';cell.className='q-empty';}
+      document.getElementById('scan-status').textContent=`Đã quét ${scanItems.length}/${scanTotal} · Hiển thị ${visible.length} · Mã lỗi/thiếu dữ liệu vẫn hiển thị riêng.`;
+    }
+    ['scan-volume','scan-trend','scan-fresh','scan-full'].forEach(id=>document.getElementById(id).addEventListener('change',renderScanRows));
+    function exportResearchCSV(){
+      const items=filteredScan();if(!items.length){document.getElementById('scan-status').textContent='Chưa có kết quả để xuất.';return;}
+      const escape=v=>'"'+String(v??'').replace(/^[=+@\-\t\r]/,"'$&").replaceAll('"','""')+'"';
+      const rows=[['symbol','score_not_probability','available_score_max','trend','status','data_as_of','avg_volume20','warnings'],...items.map(x=>[x.symbol,x.score,x.available_score_max,x.trend,x.status,x.data_as_of,x.indicators?.avg_volume20,JSON.stringify(x.warnings||x.error||x.reasons||[])])];
+      const url=URL.createObjectURL(new Blob(['\uFEFF'+rows.map(r=>r.map(escape).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='qta-research.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    }
+    renderScanRows();
+
+
+    let evidenceResult=null,evidenceBusy=false;
+    document.getElementById('evidence-form').addEventListener('submit',e=>{e.preventDefault();runEvidence();});
+    function percent(x){return x===null||x===undefined?'—':Number(x).toLocaleString('vi-VN',{maximumFractionDigits:2})+'%';}
+    async function runEvidence(){
+      if(evidenceBusy)return;evidenceBusy=true;evidenceResult=null;
+      const root=document.getElementById('ev-results'),status=document.getElementById('ev-status'),button=document.getElementById('ev-run');
+      root.replaceChildren();button.disabled=true;status.textContent='Đang tính chỉ báo và đánh giá các cửa sổ lịch sử…';
+      const args={symbol:document.getElementById('ev-symbol').value.trim(),horizon:Number(document.getElementById('ev-horizon').value),threshold:Number(document.getElementById('ev-threshold').value),min_volume:Number(document.getElementById('ev-volume').value),fee_pct:Number(document.getElementById('ev-fee').value),tax_pct:Number(document.getElementById('ev-tax').value),slippage_pct:Number(document.getElementById('ev-slip').value)};
+      try{const r=await checkedJson('/api/evidence',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(args)});evidenceResult=r;
+        status.textContent=`${r.symbol} · Dữ liệu đến ${r.as_of||r.metadata?.data_as_of||'—'} · ${r.bars} nến`;
+        if(r.status==='INSUFFICIENT_HISTORY'){root.append(qNode('div','q-alert',r.message));return;}
+        const states={TOO_FEW_SAMPLES:'Chưa đủ mẫu để nhận định',NO_OBSERVED_ADVANTAGE:'Chưa thấy lợi thế về lợi suất bình quân',POSITIVE_DESCRIPTIVE_DIFFERENCE:'Chênh lệch bình quân dương trong mẫu đã quan sát'};
+        const panel=qNode('section','q-panel');panel.append(qNode('h3','',states[r.status]),qNode('p','q-note','Kết quả mô tả lịch sử, không phải kết luận có ý nghĩa thống kê hay xác suất của lệnh tiếp theo. Ngưỡng 20 mẫu chỉ là cờ cảnh báo tối thiểu.'));
+        const cards=qNode('div','q-metrics');[['Cửa sổ được chọn',r.signal.count,'Baseline: '+r.baseline.count],['Lợi suất TB sau phí',percent(r.signal.mean_net_pct),'Mỗi cửa sổ được chọn'],['Chênh lệch với baseline',rfmt(r.difference_pp)+' điểm %','Khác mức tham gia thị trường'],['Tỷ lệ thắng lịch sử',percent(r.signal.win_rate_pct),'Không phải dự báo']].forEach(([k,v,n])=>{const c=qNode('div','q-metric');c.append(qNode('small','',k),qNode('strong','',v),qNode('em','',n));cards.append(c);});panel.append(cards);
+        researchTable(panel,['Chỉ tiêu','Bộ điểm','Mọi cửa sổ đủ điều kiện'],[['Số mẫu',r.signal.count,r.baseline.count],['Lợi suất TB ròng',percent(r.signal.mean_net_pct),percent(r.baseline.mean_net_pct)],['Trung vị lợi suất ròng',percent(r.signal.median_net_pct),percent(r.baseline.median_net_pct)],['Tỷ lệ thắng',percent(r.signal.win_rate_pct),percent(r.baseline.win_rate_pct)],['Khoảng Wilson 95%',r.signal.win_interval_pct?r.signal.win_interval_pct.map(percent).join(' – '):'—',r.baseline.win_interval_pct?r.baseline.win_interval_pct.map(percent).join(' – '):'—'],['Profit factor',rfmt(r.signal.profit_factor),rfmt(r.baseline.profit_factor)],['Cửa sổ kém nhất',percent(r.signal.worst_net_pct),percent(r.baseline.worst_net_pct)]]);
+        panel.append(qNode('p','q-note',`${r.scheduled_windows} cửa sổ theo lịch cố định · Loại tại thời điểm tín hiệu vì chất lượng/thanh khoản: ${r.excluded.signal_quality_or_liquidity} · Không có volume tại vào/ra: ${r.excluded.unavailable_execution_volume}. Profit factor “—” khi không có mẫu hoặc không có tổng lỗ.`));root.append(panel);
+        const periods=qNode('section','q-panel');periods.append(qNode('h3','','Độ ổn định theo thời gian'));researchTable(periods,['Giai đoạn','Ngày tín hiệu','Số mẫu chọn','TB ròng bộ điểm','TB ròng baseline'],r.periods.map(x=>[x.period,x.first_signal+' → '+x.last_signal,x.signal.count,percent(x.signal.mean_net_pct),percent(x.baseline.mean_net_pct)]));root.append(periods);
+        const obs=qNode('section','q-panel');obs.append(qNode('h3','','20 cửa sổ gần nhất'));const wrap=qNode('div','q-table-wrap');researchTable(wrap,['Tín hiệu','Vào / ra','Điểm','Được chọn','Lợi suất ròng'],r.observations.slice(-20).reverse().map(x=>[x.signal_date,x.entry_date+' → '+x.exit_date,x.score,x.selected?'Có':'Không',percent(x.net_return_pct)]));obs.append(wrap);root.append(obs);
+        const limits=qNode('details','q-alert');limits.open=true;limits.append(qNode('summary','','Phương pháp và giới hạn'));limits.append(qNode('p','',r.method));r.limitations.forEach(x=>limits.append(qNode('p','',x)));root.append(limits);
+      }catch(e){status.textContent=e.message;root.append(qNode('div','q-alert','Không tạo kết quả khi yêu cầu hoặc dữ liệu không hợp lệ.'));}finally{evidenceBusy=false;button.disabled=false;}
+    }
+    function exportEvidence(){
+      if(!evidenceResult?.observations?.length){document.getElementById('ev-status').textContent='Chưa có quan sát để xuất.';return;}
+      const r=evidenceResult,p=r.parameters;
+      const rows=[['symbol','signal_date','entry_date','exit_date','score','selected','gross_return_pct','net_return_pct','horizon','threshold','min_volume','fee_pct','tax_pct','slippage_pct'],...r.observations.map(x=>[r.symbol,x.signal_date,x.entry_date,x.exit_date,x.score,x.selected,x.gross_return_pct,x.net_return_pct,p.horizon,p.threshold,p.min_volume,p.fee_pct,p.tax_pct,p.slippage_pct])];
+      const quote=x=>'"'+String(x??'').replace(/^[=+@\-\t\r]/,"'$&").replaceAll('"','""')+'"';
+      const url=URL.createObjectURL(new Blob(['\uFEFF'+rows.map(row=>row.map(quote).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='qta-evidence-'+r.symbol+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    }
+
+    let qualityItems=[];
+    async function loadQualityReport() {
+      const label=document.getElementById('quality-status');label.textContent='Đang đọc…';qualityItems=[];renderQualityRows();
+      try {
+        const report=await checkedJson('/api/data-quality');qualityItems=report.items;
+        const c=report.status_counts;
+        label.textContent=`Báo cáo ngày ${report.as_of} · ${report.symbols_with_prices}/${report.universe_count} mã có giá · ${report.total_bars.toLocaleString()} nến · Chưa có dữ liệu: ${c.NO_DATA} · Lỗi: ${c.INVALID} · Cần rà soát: ${c.REVIEW} · Qua kiểm tra nội bộ: ${c.CHECKS_PASSED_NOT_VERIFIED}. Chưa chứng nhận giá đúng.`;
+        renderQualityRows();
+      } catch(e) {label.textContent=e.message;}
+    }
+    function renderQualityRows() {
+      const body=document.getElementById('quality-rows');body.replaceChildren();
+      const query=document.getElementById('quality-filter').value.trim().toUpperCase();
+      qualityItems.filter(r=>r.symbol.includes(query)).forEach(r=>{
+        const row=document.createElement('tr');
+        [r.symbol,r.status,r.bars,r.last_date||'—',r.reasons.join('; ')||'Cần đối chiếu nguồn độc lập'].forEach(value=>{
+          const cell=document.createElement('td');cell.textContent=value;cell.style.padding='8px';row.append(cell);
+        });body.append(row);
+      });
+    }
+
     async function loadDataTab() {
       const tbody = document.getElementById('data-symbols-table-body');
       tbody.innerHTML = `<tr><td colspan="7" class="text-center py-6 text-gray-400">Đang tải danh mục cổ phiếu...</td></tr>`;
@@ -1097,5 +1359,5 @@
       }
     }
   </script>
-</body>
+<a href="/phase7" style="position:fixed;bottom:18px;right:18px;background:#126659;color:white;padding:12px;z-index:9999;border-radius:8px">Mở QTA Phase 7</a></body>
 </html>

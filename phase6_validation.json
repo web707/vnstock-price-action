@@ -1,0 +1,153 @@
+{
+  "tests_passed": 99,
+  "historical_evaluation_smoke": [
+    {
+      "symbol": "HPG",
+      "status": "POSITIVE_DESCRIPTIVE_DIFFERENCE",
+      "bars": 4297,
+      "as_of": "2026-10-21",
+      "signal": {
+        "count": 64,
+        "mean_net_pct": 1.0571057027737187,
+        "median_net_pct": 2.0487979065318407,
+        "win_rate_pct": 62.5,
+        "win_interval_pct": [
+          50.25015331382642,
+          73.33419611189468
+        ],
+        "profit_factor": 1.4900757493783774,
+        "worst_net_pct": -13.697841071796024
+      },
+      "baseline": {
+        "count": 193,
+        "mean_net_pct": 0.01050898894516753,
+        "median_net_pct": 0.09429394276985192,
+        "win_rate_pct": 50.77720207253886,
+        "win_interval_pct": [
+          43.77784181819439,
+          57.74622626497503
+        ],
+        "profit_factor": 1.0041594904413873,
+        "worst_net_pct": -25.541875237728373
+      },
+      "difference_pp": 1.0465967138285512,
+      "scheduled_windows": 409,
+      "excluded": {
+        "signal_quality_or_liquidity": 195,
+        "unavailable_execution_volume": 21
+      }
+    },
+    {
+      "symbol": "FPT",
+      "status": "POSITIVE_DESCRIPTIVE_DIFFERENCE",
+      "bars": 4295,
+      "as_of": "2026-10-21",
+      "signal": {
+        "count": 74,
+        "mean_net_pct": 0.24026768660391534,
+        "median_net_pct": -0.22316856811167574,
+        "win_rate_pct": 44.5945945945946,
+        "win_interval_pct": [
+          33.81563858455105,
+          55.90708037292155
+        ],
+        "profit_factor": 1.14641678751022,
+        "worst_net_pct": -9.227588237283369
+      },
+      "baseline": {
+        "count": 201,
+        "mean_net_pct": -0.3195281831444828,
+        "median_net_pct": -0.5984030946586949,
+        "win_rate_pct": 44.776119402985074,
+        "win_interval_pct": [
+          38.06359404500363,
+          51.684582106715546
+        ],
+        "profit_factor": 0.838919315840116,
+        "worst_net_pct": -14.935168892522977
+      },
+      "difference_pp": 0.5597958697483981,
+      "scheduled_windows": 409,
+      "excluded": {
+        "signal_quality_or_liquidity": 194,
+        "unavailable_execution_volume": 14
+      }
+    },
+    {
+      "symbol": "AAV",
+      "status": "TOO_FEW_SAMPLES",
+      "bars": 1987,
+      "as_of": "2026-10-20",
+      "signal": {
+        "count": 0,
+        "mean_net_pct": null,
+        "median_net_pct": null,
+        "win_rate_pct": null,
+        "win_interval_pct": null,
+        "profit_factor": null,
+        "worst_net_pct": null
+      },
+      "baseline": {
+        "count": 0,
+        "mean_net_pct": null,
+        "median_net_pct": null,
+        "win_rate_pct": null,
+        "win_interval_pct": null,
+        "profit_factor": null,
+        "worst_net_pct": null
+      },
+      "difference_pp": null,
+      "scheduled_windows": 178,
+      "excluded": {
+        "signal_quality_or_liquidity": 178,
+        "unavailable_execution_volume": 0
+      }
+    },
+    {
+      "symbol": "ABB",
+      "status": "TOO_FEW_SAMPLES",
+      "bars": 1447,
+      "as_of": "2026-10-20",
+      "signal": {
+        "count": 0,
+        "mean_net_pct": null,
+        "median_net_pct": null,
+        "win_rate_pct": null,
+        "win_interval_pct": null,
+        "profit_factor": null,
+        "worst_net_pct": null
+      },
+      "baseline": {
+        "count": 0,
+        "mean_net_pct": null,
+        "median_net_pct": null,
+        "win_rate_pct": null,
+        "win_interval_pct": null,
+        "profit_factor": null,
+        "worst_net_pct": null
+      },
+      "difference_pp": null,
+      "scheduled_windows": 124,
+      "excluded": {
+        "signal_quality_or_liquidity": 124,
+        "unavailable_execution_volume": 0
+      }
+    }
+  ],
+  "dom_integration": {
+    "passed": true,
+    "checks": [
+      "authenticated research",
+      "profile-to-evidence navigation",
+      "HPG real API evaluation",
+      "uncertainty rendering",
+      "CSV download",
+      "zero qualifying samples",
+      "clear stale result on API failure"
+    ],
+    "js_errors": []
+  },
+  "browser_visual_tested": false,
+  "windows_launcher_tested": false,
+  "prediction_improvement_proven": false
+}

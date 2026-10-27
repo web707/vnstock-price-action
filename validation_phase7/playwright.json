@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "desktop": "1440x1000",
+  "mobile": "390x844",
+  "checks": [
+    "API authentication",
+    "market snapshot",
+    "filters and persistence",
+    "candlestick zoom",
+    "watchlist",
+    "walk-forward sensitivity",
+    "strict gate",
+    "approximate portfolio",
+    "journal",
+    "alerts poll",
+    "data health",
+    "compare",
+    "PDF download",
+    "theme",
+    "mobile overflow"
+  ],
+  "page_errors": []
+}

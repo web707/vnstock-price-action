@@ -1,0 +1,40 @@
+{
+  "symbols": 407,
+  "status_counts": {
+    "REVIEW": 403,
+    "UNVERIFIED": 2,
+    "INSUFFICIENT_DATA": 2
+  },
+  "errors": [],
+  "samples": [
+    {
+      "symbol": "AAV",
+      "score": 50,
+      "status": "REVIEW",
+      "trend": "MIXED",
+      "data_as_of": "2026-10-20"
+    },
+    {
+      "symbol": "ABB",
+      "score": 50,
+      "status": "REVIEW",
+      "trend": "MIXED",
+      "data_as_of": "2026-10-20"
+    },
+    {
+      "symbol": "FPT",
+      "score": 0,
+      "status": "REVIEW",
+      "trend": "DOWNTREND",
+      "data_as_of": "2026-10-21"
+    },
+    {
+      "symbol": "HPG",
+      "score": 50,
+      "status": "REVIEW",
+      "trend": "MIXED",
+      "data_as_of": "2026-10-21"
+    }
+  ],
+  "elapsed_seconds": 22.06
+}

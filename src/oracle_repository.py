@@ -555,7 +555,10 @@ class MockSqliteRepository:
     """
 
     def __init__(self, db_path: Optional[str] = None):
-        self.db_path = db_path or str(settings.state_dir / "vietnam_stocks_mock.db")
+        configured = db_path or os.getenv('QTA_PRICE_DB')
+        if not db_path and configured and not Path(configured).is_file():
+            raise FileNotFoundError('QTA_PRICE_DB không tồn tại; không tự tạo database rỗng.')
+        self.db_path = configured or str(settings.state_dir / "vietnam_stocks_mock.db")
         self.init_schema()
 
     def get_connection(self):

@@ -5,6 +5,7 @@ Provides interactive APIs for Charts, Signals, Backtesting, Sensitivity, and Dat
 
 from typing import List, Dict, Any, Optional
 import os
+import sqlite3
 from pathlib import Path
 import pandas as pd
 from fastapi import FastAPI, HTTPException, BackgroundTasks, Query
@@ -95,6 +96,7 @@ def get_summary():
     return {
         "status": "online",
         "mock_db": FORCE_MOCK,
+        "database_file": Path(repo.db_path).name if FORCE_MOCK else None,
         "database": db_summary,
         "symbols_count": len(symbols),
         "available_symbols": [s["symbol"] for s in symbols]
@@ -445,3 +447,112 @@ def fetch_symbols_api(req: FetchRequest):
         "results": reporter.symbol_stats,
         "available_symbols": [s["symbol"] for s in updated_symbols]
     }
+
+
+@app.get('/api/data-quality')
+def data_quality_report():
+    """Serve an explicitly generated audit, only when it matches the active SQLite file."""
+    import json
+    from src.data_quality import assert_report_matches
+    if not FORCE_MOCK:
+        raise HTTPException(409, 'Báo cáo này chỉ áp dụng cho SQLite.')
+    report_path = settings.reports_dir / 'data_quality.json'
+    if not report_path.exists():
+        raise HTTPException(404, 'Chưa có báo cáo. Chạy audit_quality.py với database đang dùng.')
+    report = json.loads(report_path.read_text(encoding='utf-8'))
+    repo = get_repo()
+    try:
+        assert_report_matches(report, repo.db_path)
+    except (ValueError, OSError) as exc:
+        raise HTTPException(409, str(exc))
+    return report
+
+# Research endpoints use closed daily database candles and never place orders.
+from src.research import analyze, size_position
+from src.discovery import read_catalog, rank_catalog, db_revision, research_cache
+from src.web.market_data import validate_request
+from pydantic import Field
+
+class ResearchScanRequest(BaseModel):
+    symbols: List[str] = Field(min_length=1, max_length=30)
+
+class PositionRequest(BaseModel):
+    capital: float = Field(gt=0, allow_inf_nan=False)
+    entry: float = Field(gt=0, allow_inf_nan=False)
+    stop: float = Field(gt=0, allow_inf_nan=False)
+    target: float = Field(gt=0, allow_inf_nan=False)
+    risk_pct: float = Field(default=1, gt=0, le=5)
+    max_position_pct: float = Field(default=20, gt=0, le=100)
+    fee_pct: float = Field(default=0.15, ge=0, le=5)
+    sell_tax_pct: float = Field(default=0.1, ge=0, le=5)
+    slippage_pct: float = Field(default=0.1, ge=0, le=5)
+    lot: int = 100
+
+@app.get('/api/research/{symbol}')
+def research_symbol(symbol: str):
+    symbol=validate_request(symbol,'1d','db')
+    repo=get_repo()
+    revision=db_revision(getattr(repo,'db_path',None)) if FORCE_MOCK else None
+    day=pd.Timestamp.now(tz='Asia/Ho_Chi_Minh').date().isoformat()
+    key=(revision,day,symbol) if revision is not None else None
+    cached=research_cache.get(key)
+    if cached is not None:
+        cached['cache_hit']=True
+        return cached
+    df,meta=load_market_data(symbol,'1d','db',lambda:repo,YFinanceClient)
+    result={'symbol':meta['symbol'],'metadata':meta,**analyze(df),'cache_hit':False}
+    result['calculated_at']=pd.Timestamp.now(tz='UTC').isoformat()
+    if revision==db_revision(getattr(repo,'db_path',None)):
+        research_cache.put(key,result)
+    return result
+
+@app.post('/api/research-scan')
+def research_scan(req: ResearchScanRequest):
+    items=[]
+    for symbol in dict.fromkeys(s.strip().upper() for s in req.symbols):
+        try:items.append(research_symbol(symbol))
+        except HTTPException as exc:
+            items.append({'symbol':symbol,'status':'ERROR','score':None,'error':exc.detail})
+    items.sort(key=lambda x:(x['score'] is None,-(x['score'] or 0),x['symbol']))
+    return {'items':items,'scope':'Chỉ các mã yêu cầu; không đại diện toàn thị trường.',
+            'warning':'Điểm quy tắc không phải xác suất. Phải đọc trạng thái chất lượng và ngày dữ liệu.'}
+
+@app.post('/api/position-size')
+def position_size(req: PositionRequest):
+    try:return size_position(**req.model_dump())
+    except ValueError as exc:raise HTTPException(422,str(exc))
+
+
+@app.get('/api/catalog-search')
+def catalog_search(q: str=Query(default='',max_length=100), exchange: str=Query(default='',pattern='^(|HOSE|HNX|UPCOM)$'), has_data: bool=False, limit: int=Query(default=20,ge=1,le=100)):
+    if not FORCE_MOCK:raise HTTPException(409,'Tìm kiếm toàn danh mục hiện hỗ trợ SQLite.')
+    try:items=read_catalog(get_repo().db_path)
+    except (OSError,ValueError,sqlite3.Error) as exc:raise HTTPException(503,'Không đọc được danh mục.') from exc
+    return {**rank_catalog(items,q,exchange,has_data,limit),
+            'catalog_count':len(items),'with_prices':sum(x['bars_count']>0 for x in items),
+            'scope':'Danh mục trong database; chưa đối chiếu danh sách niêm yết hiện tại.'}
+
+from src.evidence import evaluate
+from typing import Literal
+
+class EvidenceRequest(BaseModel):
+    symbol: str = Field(min_length=1,max_length=20)
+    horizon: Literal[5,10,20] = 10
+    threshold: int = Field(default=70,ge=0,le=100)
+    min_volume: float = Field(default=100000,ge=0,le=1e12,allow_inf_nan=False)
+    fee_pct: float = Field(default=.15,ge=0,le=5,allow_inf_nan=False)
+    tax_pct: float = Field(default=.1,ge=0,le=5,allow_inf_nan=False)
+    slippage_pct: float = Field(default=.1,ge=0,le=5,allow_inf_nan=False)
+
+@app.post('/api/evidence')
+def evaluate_evidence(req: EvidenceRequest):
+    df,meta=load_market_data(req.symbol,'1d','db',get_repo,YFinanceClient)
+    try:result=evaluate(df,**req.model_dump(exclude={'symbol'}))
+    except ValueError as exc:raise HTTPException(422,str(exc))
+    return {'symbol':meta['symbol'],'metadata':meta,**result}
+
+from src.phase7.api import router as phase7_router
+app.include_router(phase7_router)
+
+from src.phase8.api import router as phase8_router
+app.include_router(phase8_router)

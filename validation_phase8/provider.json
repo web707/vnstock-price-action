@@ -1,0 +1,6 @@
+{
+  "status": "PROVIDER_UNAVAILABLE",
+  "rows": 0,
+  "reason": "No module named 'vnstock'",
+  "action": "Cài vnstock v5 theo hướng dẫn chính thức; hoặc nhập CSV benchmarks từ nguồn được cấp quyền."
+}

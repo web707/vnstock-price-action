@@ -3,6 +3,7 @@ import re
 import numpy as np
 import pandas as pd
 from fastapi import HTTPException
+from src.data_quality import assess
 
 TIMEZONE = 'Asia/Ho_Chi_Minh'
 INTERVALS = {'1m': 1, '5m': 5, '15m': 15, '30m': 30, '60m': 60, '1h': 60, '1d': None}
@@ -65,6 +66,25 @@ def validate_frame(frame, timeframe):
     return df
 
 
+def exclude_forming_daily_bar(frame, timeframe, now=None):
+    """Do not allow an unfinished daily candle into chart-derived signals."""
+    if timeframe != '1d' or frame is None or frame.empty:
+        return frame, 0
+    local_now = now if now is not None else pd.Timestamp.now(tz=TIMEZONE)
+    local_now = pd.Timestamp(local_now)
+    if local_now.tzinfo is None:
+        local_now = local_now.tz_localize(TIMEZONE)
+    else:
+        local_now = local_now.tz_convert(TIMEZONE)
+    dates = pd.to_datetime(frame['TRADE_DATE'], errors='coerce')
+    if dates.dt.tz is None:
+        dates = dates.dt.tz_localize(TIMEZONE)
+    else:
+        dates = dates.dt.tz_convert(TIMEZONE)
+    safe = dates.dt.date < local_now.date()
+    return frame.loc[safe].copy(), int((~safe).sum())
+
+
 def load_market_data(symbol, timeframe, source, get_repo, client_factory):
     sym = validate_request(symbol, timeframe, source)
     fetched_at = pd.Timestamp.now(tz='UTC').isoformat()
@@ -85,6 +105,10 @@ def load_market_data(symbol, timeframe, source, get_repo, client_factory):
             frame = get_repo().query_historical_prices(sym)
         except Exception:
             fail('SOURCE_UNAVAILABLE', 'Không đọc được database.', 503)
+    # Refuse to feed today's in-progress daily candle into signals from any source.
+    frame, excluded_forming = exclude_forming_daily_bar(frame, timeframe)
+    if frame is None or frame.empty:
+        fail('NO_CLOSED_DATA', 'Chưa có nến ngày đã đóng để phân tích.', 404)
     df = validate_frame(frame, timeframe)
     # A stored candle is not proof of up-to-date data. Count weekdays strictly
     # AFTER its session date and BEFORE today; holidays may reduce the count.
@@ -95,8 +119,10 @@ def load_market_data(symbol, timeframe, source, get_repo, client_factory):
         local_now.date().isoformat()
     )) if latest_date < local_now.date() else 0
     stale = timeframe == '1d' and elapsed_weekdays >= 2
-    warnings = ['Chưa xác minh trạng thái đóng của nến cuối.',
+    warnings = ['Cơ sở điều chỉnh giá chưa được xác minh; không coi nhãn VALID là chứng nhận giá đúng.', 'Nến ngày hiện tại được loại khỏi dữ liệu phân tích.' if timeframe == '1d' else 'Chưa xác minh trạng thái đóng của nến cuối.',
                 'Timestamp không có timezone được hiểu là giờ Việt Nam.']
+    if excluded_forming:
+        warnings.insert(0, f'Đã loại {excluded_forming} nến ngày chưa đóng khỏi phân tích.')
     if stale:
         warnings.insert(0, f'Dữ liệu có thể đã cũ: ít nhất {elapsed_weekdays} ngày thường kể từ phiên cuối (chưa trừ ngày nghỉ lễ). Hãy đồng bộ và kiểm tra lại.')
     return df, {
@@ -106,8 +132,9 @@ def load_market_data(symbol, timeframe, source, get_repo, client_factory):
         'data_as_of': df['TRADE_DATE'].iloc[-1].isoformat(),
         'freshness': 'potentially_stale' if stale else 'unverified',
         'weekdays_since_last_bar': elapsed_weekdays,
-        'price_basis': 'unadjusted_close',
+        'price_basis': 'unknown',
+        'quality': assess(df, local_now.date().isoformat()),
         'realtime_verified': False,
-        'last_bar_closed': None,
+        'last_bar_closed': True if timeframe == '1d' else None,
         'warnings': warnings,
     }

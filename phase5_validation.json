@@ -1,0 +1,45 @@
+{
+  "cold_seconds": 0.20565569299992603,
+  "cached_seconds": 0.001184837000096195,
+  "same_indicators": true,
+  "catalog_count": 1579,
+  "with_prices": 407,
+  "search_hoa_phat": [
+    {
+      "symbol": "HPG",
+      "company_name": "CTCP Tập đoàn Hòa Phát",
+      "exchange": "HOSE",
+      "bars_count": 4297,
+      "last_date": "2026-10-21",
+      "match_reason": "Khớp tên doanh nghiệp"
+    },
+    {
+      "symbol": "HTP",
+      "company_name": "CTCP In Sách Giáo khoa Hòa Phát",
+      "exchange": "UPCoM",
+      "bars_count": 0,
+      "last_date": null,
+      "match_reason": "Khớp tên doanh nghiệp"
+    },
+    {
+      "symbol": "HPH",
+      "company_name": "CTCP Hóa Chất Hưng Phát Hà Bắc",
+      "exchange": "UPCoM",
+      "bars_count": 0,
+      "last_date": null,
+      "match_reason": "Khớp các từ tìm kiếm"
+    },
+    {
+      "symbol": "LAS",
+      "company_name": "CTCP Supe Phốt phát và Hóa chất Lâm Thao",
+      "exchange": "HNX",
+      "bars_count": 0,
+      "last_date": null,
+      "match_reason": "Khớp các từ tìm kiếm"
+    }
+  ],
+  "unique_tests_passed_across_runs": 91,
+  "dom_integration_passed": true,
+  "browser_visual_validation": false,
+  "chromium_download_failed": true
+}

@@ -1,0 +1,16 @@
+# Versions tested in Linux/Python 3.12; optional reproduction, not a full transitive lock.
+numpy==2.3.5
+pandas==2.2.3
+scipy==1.17.0
+scikit-learn==1.8.0
+fastapi==0.162.0
+starlette==1.10.0
+uvicorn==0.54.0
+httpx==0.28.1
+reportlab==4.4.9
+pytest==9.1.1
+playwright==1.51.0
+yfinance==1.7.0
+oracledb==26.0.1
+python-dotenv==1.2.4
+requests==2.34.2

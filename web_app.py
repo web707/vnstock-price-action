@@ -4,6 +4,8 @@ Starts FastAPI Uvicorn server on localhost and opens the web interface.
 """
 
 import sys
+import os
+from pathlib import Path
 import argparse
 import webbrowser
 import uvicorn
@@ -19,7 +21,15 @@ def main():
     parser.add_argument("--mock-db", action="store_true", default=True, help="Force mock SQLite database")
     parser.add_argument("--oracle-db", action="store_true", help="Connect to Oracle Database instead of Mock")
     parser.add_argument("--no-browser", action="store_true", help="Do not automatically open browser")
+    parser.add_argument('--price-db', help='Đường dẫn database giá SQLite đã có')
     args = parser.parse_args()
+    if args.price_db:
+        if args.oracle_db:
+            parser.error('--price-db không dùng cùng --oracle-db')
+        price_db = Path(args.price_db).resolve()
+        if not price_db.is_file():
+            parser.error('Không tìm thấy database giá. Kiểm tra đường dẫn --price-db.')
+        os.environ['QTA_PRICE_DB'] = str(price_db)
 
     # Configure repo mode
     if args.oracle_db:
@@ -38,7 +48,7 @@ def main():
 
     if not args.no_browser:
         try:
-            webbrowser.open(url)
+            webbrowser.open(url + "/phase8")
         except Exception:
             pass
 

@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "engine": "134.0.6998.35",
+  "desktop": "1440x1000",
+  "mobile": "390x844",
+  "page_errors": [],
+  "checks": [
+    "authentication",
+    "407-symbol scan",
+    "filter persistence",
+    "why dialog",
+    "pooled OOS",
+    "health",
+    "CSV download",
+    "strict execution blocked",
+    "theme",
+    "mobile overflow"
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "release": "Phase 7",
+  "date": "2026-10-26",
+  "environment": "Linux, Python 3.12; Chromium headless 134 / Playwright 1.51.0",
+  "tests": {
+    "full_suite_passed": 188,
+    "full_suite_seconds": 28.3,
+    "new_phase7_tests_passed": 17,
+    "warnings": [
+      "Starlette TestClient httpx deprecation",
+      "pandas mixed invalid date parsing test"
+    ],
+    "initial_missing_db_fixture_run": {
+      "passed": 174,
+      "failed": 4,
+      "errors": 7
+    },
+    "resolution": "Full suite rerun against disposable copy of bundled database, all passed. No production price DB writes."
+  },
+  "browser": {
+    "status": "passed",
+    "desktop": "1440x1000",
+    "mobile": "390x844",
+    "checks": [
+      "API authentication",
+      "market snapshot",
+      "filters and persistence",
+      "candlestick zoom",
+      "watchlist",
+      "walk-forward sensitivity",
+      "strict gate",
+      "approximate portfolio",
+      "journal",
+      "alerts poll",
+      "data health",
+      "compare",
+      "PDF download",
+      "theme",
+      "mobile overflow"
+    ],
+    "page_errors": []
+  },
+  "pdf": {
+    "symbol_export": "rendered and inspected",
+    "scan_export": "23 pages, generated and rendered; first/last layout inspected; final rounded first page inspected",
+    "csv_export": "symbol and full scan generated; formula-escape test passed",
+    "format_regression": "PDF Unicode/formula-escape test rerun passed after display-only rounding"
+  },
+  "database": {
+    "bytes": 198737920,
+    "sha256": "2aaa3f476377b76d3abb1cdffbe03ebfba0b134ef3ed1934407f6db500c14768",
+    "identical_to_phase6": true,
+    "integrity_check": "ok"
+  },
+  "measurements": {
+    "scan_cold_seconds": 21.83045512399997,
+    "scan_warm_seconds": 0.0031534769999552736,
+    "rows": 407,
+    "breadth50": {
+      "percent": 39.39393939393939,
+      "denominator": 330
+    },
+    "breadth200": {
+      "percent": 16.97530864197531,
+      "denominator": 324
+    },
+    "as_of": "2026-10-21",
+    "models": [
+      {
+        "status": "CHUA_CO_BANG_CHUNG_HIEU_QUA",
+        "oos_samples": 16,
+        "oos_brier": 0.2860258758876584,
+        "prediction": null,
+        "model_frozen_at": "2017-01-11",
+        "abstention_reason": "Model quá cũ (>252 phiên từ validation) hoặc dữ liệu mới không đạt nhãn/volume; không xuất xác suất hiện tại.",
+        "symbol": "HPG"
+      },
+      {
+        "status": "CHUA_CO_BANG_CHUNG_HIEU_QUA",
+        "oos_samples": 16,
+        "oos_brier": 0.270665907090863,
+        "prediction": null,
+        "model_frozen_at": "2017-01-13",
+        "abstention_reason": "Model quá cũ (>252 phiên từ validation) hoặc dữ liệu mới không đạt nhãn/volume; không xuất xác suất hiện tại.",
+        "symbol": "FPT"
+      },
+      {
+        "status": "INSUFFICIENT_DATA",
+        "oos_samples": 0,
+        "oos_brier": null,
+        "prediction": null,
+        "model_frozen_at": null,
+        "abstention_reason": null,
+        "symbol": "AAV"
+      }
+    ],
+    "portfolio": {
+      "mode": "APPROXIMATE_RESEARCH",
+      "seconds": 0.19709273400007987,
+      "trades": 134
+    }
+  },
+  "windows_batch_executed": false,
+  "live_provider_validated": false,
+  "prediction_improvement_proven": false,
+  "survivorship_bias_eliminated": false,
+  "cold_scan_target_met": false,
+  "dependencies": {
+    "pandas": "2.2.3",
+    "numpy": "2.3.5",
+    "fastapi": "0.162.0",
+    "scikit-learn": "1.8.0",
+    "reportlab": "4.4.9",
+    "yfinance": "1.7.0",
+    "pytest": "9.1.1",
+    "playwright": "1.51.0"
+  }
+}

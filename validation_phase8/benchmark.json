@@ -1,0 +1,28 @@
+{
+  "symbols": 407,
+  "phase7_seconds": 20.889349695999954,
+  "phase8_cold_application_cache_seconds": 2.8372788650000302,
+  "phase8_disk_cache_seconds": 2.193032013999982,
+  "phase8_computed": 407,
+  "max_indicator_error": {
+    "ma50": 7.275957614183426e-12,
+    "ma200": 1.4551915228366852e-11,
+    "rsi": 4.263256414560601e-14,
+    "adx": 1.4921397450962104e-13,
+    "atr": 4.547473508864641e-12
+  },
+  "score_differences": [
+    {
+      "symbol": "VSI",
+      "phase7": 50.0,
+      "phase8": 37.5,
+      "ad_flow": 0,
+      "phase7_ad_flow": 1.98435207659548e-14
+    }
+  ],
+  "limitations": [
+    "OS file cache not flushed; startup/migration/network not included.",
+    "Disk cached scan still reads and hashes histories; memory cache is faster.",
+    "Snapshot dataset in this ZIP only, not guaranteed on all PCs."
+  ]
+}

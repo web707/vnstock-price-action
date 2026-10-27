@@ -1,0 +1,191 @@
+{
+  "phase": 8,
+  "validation_date": "2026-10-27",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "fastapi": "0.162.0",
+      "starlette": "1.10.0",
+      "uvicorn": "0.54.0",
+      "httpx": "0.28.1",
+      "reportlab": "4.4.9",
+      "pytest": "9.1.1",
+      "playwright": "1.51.0",
+      "yfinance": "1.7.0",
+      "oracledb": "26.0.1",
+      "python-dotenv": "1.2.4",
+      "requests": "2.34.2"
+    }
+  },
+  "tests": {
+    "full_suite": 235,
+    "full_suite_failed": 0,
+    "full_suite_warnings": 2,
+    "full_suite_seconds": 30.5,
+    "phase8_after_last_research_change": 47,
+    "phase8_seconds": 2.52,
+    "browser": {
+      "status": "passed",
+      "engine": "134.0.6998.35",
+      "desktop": "1440x1000",
+      "mobile": "390x844",
+      "page_errors": [],
+      "checks": [
+        "authentication",
+        "407-symbol scan",
+        "filter persistence",
+        "why dialog",
+        "pooled OOS",
+        "health",
+        "CSV download",
+        "strict execution blocked",
+        "theme",
+        "mobile overflow"
+      ]
+    },
+    "windows_actual": false,
+    "batch_files": "reviewed CRLF and error paths, not executed on Windows"
+  },
+  "database": {
+    "source_sha256": "2aaa3f476377b76d3abb1cdffbe03ebfba0b134ef3ed1934407f6db500c14768",
+    "source_bytes": 198737920,
+    "before": {
+      "STOCK_PRICES": 1253257,
+      "STOCK_SYMBOLS": 1579,
+      "STOCK_EVENTS": 5323
+    },
+    "after": {
+      "STOCK_PRICES": 1253257,
+      "STOCK_SYMBOLS": 1579,
+      "STOCK_EVENTS": 5323
+    },
+    "backup": {
+      "STOCK_PRICES": 1253257,
+      "STOCK_SYMBOLS": 1579,
+      "STOCK_EVENTS": 5323
+    },
+    "integrity": "ok",
+    "idempotent": true,
+    "seconds": 3.4862766349999674,
+    "original_db_in_zip_unmigrated": true
+  },
+  "performance": {
+    "symbols": 407,
+    "phase7_seconds": 20.889349695999954,
+    "phase8_cold_application_cache_seconds": 2.8372788650000302,
+    "phase8_disk_cache_seconds": 2.193032013999982,
+    "phase8_computed": 407,
+    "max_indicator_error": {
+      "ma50": 7.275957614183426e-12,
+      "ma200": 1.4551915228366852e-11,
+      "rsi": 4.263256414560601e-14,
+      "adx": 1.4921397450962104e-13,
+      "atr": 4.547473508864641e-12
+    },
+    "score_differences": [
+      {
+        "symbol": "VSI",
+        "phase7": 50.0,
+        "phase8": 37.5,
+        "ad_flow": 0,
+        "phase7_ad_flow": 1.98435207659548e-14
+      }
+    ],
+    "limitations": [
+      "OS file cache not flushed; startup/migration/network not included.",
+      "Disk cached scan still reads and hashes histories; memory cache is faster.",
+      "Snapshot dataset in this ZIP only, not guaranteed on all PCs."
+    ]
+  },
+  "oos": {
+    "oos_samples": 873,
+    "oos_date_clusters": 154,
+    "selected": 181,
+    "evidence": "Chưa đủ bằng chứng",
+    "reasons": [
+      "Thiếu RAW/PIT/quyền/benchmark hoặc có volume khớp lệnh bằng 0",
+      "Benchmark/kiểm định chưa đủ cụm ngày",
+      "Giá legacy chưa xác nhận RAW/đơn vị/quyền",
+      "Universe lịch sử chưa đầy đủ; survivorship bias chưa lượng hóa",
+      "Thiếu VNINDEX ở các ngày nhãn",
+      "Có nhãn không thể giả định khớp lệnh do volume = 0",
+      "Thiếu chứng nhận độ phủ dữ liệu quyền"
+    ],
+    "brier": 0.26136959806792004,
+    "comparisons": {
+      "VNINDEX": {
+        "dates": 0,
+        "mean_difference": null,
+        "ci95": null,
+        "p_adjusted": null
+      },
+      "eligible_buy_hold": {
+        "dates": 48,
+        "mean_difference": -0.006156769945305389,
+        "ci95": [
+          -0.012216455063892698,
+          0.0001412019618832889
+        ],
+        "p_raw": 0.052947052947052944,
+        "p_adjusted": 0.21178821178821178,
+        "block_dates": 6,
+        "runs": 1000,
+        "warning": "CI mô tả, chưa điều chỉnh multiple testing; p Bonferroni 4 phép so sánh × cấu hình."
+      },
+      "MA50": {
+        "dates": 42,
+        "mean_difference": -0.011586596713198758,
+        "ci95": [
+          -0.022787107305492865,
+          -0.0003797045186162141
+        ],
+        "p_raw": 0.04495504495504495,
+        "p_adjusted": 0.1798201798201798,
+        "block_dates": 6,
+        "runs": 1000,
+        "warning": "CI mô tả, chưa điều chỉnh multiple testing; p Bonferroni 4 phép so sánh × cấu hình."
+      }
+    },
+    "permutation": {
+      "dates": 26,
+      "excess": -0.011366344514409949,
+      "p_raw": 0.12787212787212787,
+      "p_adjusted": 0.5114885114885115,
+      "runs": 1000,
+      "warning": "Hoán vị mã trong cùng ngày, giữ số tín hiệu; cần giả định exchangeability có điều kiện."
+    },
+    "model_frozen_at": "2025-09-12",
+    "model_age_sessions": 288,
+    "zero_execution_volume_rows": 98,
+    "configurations_or_dataset_trials": 1,
+    "dataset_digest": "2b79af36c0f5a6205451c4524e86e89199c47d34d7d4ccbb1a465266cd85b5fb"
+  },
+  "verified_live_benchmark_rows_added": 0,
+  "strict_real_data_execution": "BLOCKED_MISSING_RAW_CALENDAR_PIT_LIMITS_ACTIONS",
+  "execution_tests": "synthetic deterministic fixtures, not broker reconciliation",
+  "forecast_improvement_proven": false,
+  "survivorship_bias_eliminated": false,
+  "remaining": [
+    "Full point-in-time universe, official raw actions and index history unavailable",
+    "End-to-end model OOS orders through execution engine not implemented",
+    "Historical rulebook, rename position accounting and delisting recoveries incomplete",
+    "Incremental per-symbol recomputation, not suffix-only indicator states",
+    "RS against VN30/HNX separate UI not implemented",
+    "Windows actual setup/start not tested"
+  ],
+  "artifacts": [
+    "pytest_full.log",
+    "pytest_phase8_final.log",
+    "benchmark.json",
+    "oos.json",
+    "migration.json",
+    "browser.json",
+    "provider.json",
+    "provider_install.log"
+  ]
+}

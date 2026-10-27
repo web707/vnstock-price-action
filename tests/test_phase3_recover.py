@@ -25,3 +25,11 @@ def test_prior_day_closed():
     now=datetime(2026,10,21,10,tzinfo=ZoneInfo('Asia/Ho_Chi_Minh'))
     assert is_closed(date(2026,10,20),now)
     assert not is_closed(date(2026,10,21),now)
+
+
+def test_unverified_adjusted_close_is_null():
+    with sqlite3.connect(':memory:') as conn:
+        conn.execute('CREATE TABLE STOCK_PRICES(SYMBOL TEXT, TRADE_DATE TEXT, CLOSE_PRICE REAL)')
+        df=normalize_vnstock(pd.DataFrame([{'time':'2026-10-20','open':20,'high':22,'low':19,'close':21,'volume':10}]))
+        rows, _, _, _=inspect_symbol(conn,'AAV','HNX','VCI',df,datetime(2026,10,21,10,tzinfo=ZoneInfo('Asia/Ho_Chi_Minh')))
+        assert len(rows)==1 and rows[0][6] is None

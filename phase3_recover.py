@@ -60,9 +60,9 @@ def normalize_vnstock(df, price_multiplier=1000):
 
 def fetch_vnstock(symbol, start, end, source='VCI'):
     try:
-        from vnstock import Quote
+        from vnstock.api.quote import Quote
     except ImportError as ex:
-        raise RuntimeError('Install optional package: python -m pip install "vnstock>=4,<5"') from ex
+        raise RuntimeError('Install optional package: python -m pip install --extra-index-url https://vnstocks.com/api/simple "vnstock>=4,<5"') from ex
     return Quote(symbol=symbol, source=source).history(start=start, end=end, interval='d')
 
 
@@ -85,7 +85,7 @@ def inspect_symbol(conn, symbol, exchange, source, df, now, tolerance=0.03):
             if existing[date_str] > 0 and abs(float(r.close) / existing[date_str] - 1) > tolerance:
                 disagreements.append({'symbol':symbol,'date':date_str,'source':source,'existing_close':existing[date_str], 'provider_close':float(r.close),'reason':'CLOSE_DIFFERENCE_REVIEW_PRICE_BASIS'})
             continue
-        insert_rows.append((symbol,date_str,float(r.open),float(r.high),float(r.low),float(r.close),float(r.close),int(r.volume),'UNVERIFIED_ADJ_CLOSE',f'vnstock_{source.lower()}',now.isoformat()))
+        insert_rows.append((symbol,date_str,float(r.open),float(r.high),float(r.low),float(r.close),None,int(r.volume),'UNVERIFIED_ADJ_CLOSE',f'vnstock_{source.lower()}',now.isoformat()))
     return insert_rows, disagreements, overlaps, skipped_forming
 
 

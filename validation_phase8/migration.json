@@ -1,0 +1,23 @@
+{
+  "source_sha256": "2aaa3f476377b76d3abb1cdffbe03ebfba0b134ef3ed1934407f6db500c14768",
+  "source_bytes": 198737920,
+  "before": {
+    "STOCK_PRICES": 1253257,
+    "STOCK_SYMBOLS": 1579,
+    "STOCK_EVENTS": 5323
+  },
+  "after": {
+    "STOCK_PRICES": 1253257,
+    "STOCK_SYMBOLS": 1579,
+    "STOCK_EVENTS": 5323
+  },
+  "backup": {
+    "STOCK_PRICES": 1253257,
+    "STOCK_SYMBOLS": 1579,
+    "STOCK_EVENTS": 5323
+  },
+  "integrity": "ok",
+  "idempotent": true,
+  "seconds": 3.4862766349999674,
+  "original_db_in_zip_unmigrated": true
+}

@@ -106,7 +106,7 @@ async def guard(request, call_next):
             if not public and user and not hmac.compare_digest(request.headers.get('x-csrf-token',''), user['csrf']):
                 return JSONResponse({'detail':'CSRF token không hợp lệ.'},status_code=403)
     if not public and user is None:
-        if path == '/':
+        if path in ('/','/phase7','/phase8'):
             return RedirectResponse('/login',status_code=303)
         return JSONResponse({'detail':'Vui lòng đăng nhập.'},status_code=401)
     if user and (path.startswith('/api/admin/') or path == '/api/fetch') and user['role'] != 'admin':

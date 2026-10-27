@@ -1,3 +1,21 @@
+# QTA Phase 8
+
+Chạy SETUP_QTA.bat, sau đó START_QTA.bat. Giao diện mới /phase8; các chức năng cũ ở /phase7 và /. Đọc HUONG_DAN_PHASE8.md, PHASE8_CHANGELOG.md và PHASE8_VALIDATION.json. Database cũ giữ nguyên; lần chạy đầu backup rồi migration. Chưa chứng minh lợi thế dự báo ngoài mẫu.
+
+# QTA Phase 7
+
+Bắt đầu với `HUONG_DAN_PHASE7.md`. Giải nén toàn bộ rồi chạy `SETUP_QTA.bat`; mở `/phase7`. Giao diện và API Phase 6 vẫn ở `/`. Chưa có bằng chứng dự báo chính xác hơn; xem `PHASE7_VALIDATION.json`.
+
+---
+
+# QTA Phase 6 — Bản mới nhất
+
+Đọc `HUONG_DAN_PHASE6.md`. Lần đầu chạy `SETUP_QTA.bat`, lần sau chạy `START_QTA.bat`. Gói FULL đã kèm database giá.
+
+# Bản nâng cấp QTA Phase 5
+
+Đọc `HUONG_DAN_PHASE5.md` để chạy bản mới và xem chức năng, kiểm chứng, giới hạn. Database giá đã có sẵn trong gói FULL.
+
 # HỆ THỐNG THU THẬP DỮ LIỆU & BACKTESTING CHỨNG KHOÁN VIỆT NAM (ORACLE DATABASE)
 ## CHIẾN LƯỢC PRICE ACTION JOHN LUCAS PRUNI ("2 CẤU TRÚC VÀ 3 CÂY NẾN")
 
