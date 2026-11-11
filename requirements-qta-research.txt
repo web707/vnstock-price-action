@@ -1,0 +1,6 @@
+# Reproduction environment for the Layer 1?3 research pipeline and VN30 collector.
+numpy==2.3.5
+pandas==2.2.3
+yfinance==1.8.0
+tzdata==2026.6
+pytest>=8,<10

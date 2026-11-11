@@ -1,0 +1,87 @@
+[
+  {
+    "id": "D01",
+    "proposed_value": "B: SHARED_ENDPOINT; no reused legs; gaps allowed",
+    "status": "APPROVED",
+    "owner_decision": "B",
+    "applied": true
+  },
+  {
+    "id": "D02",
+    "proposed_value": "A: STRICT HH+HL / LH+LL; additional owner decision: reject confirmation if Close already violates protected level at availability",
+    "status": "APPROVED",
+    "owner_decision": "A + retain pre-broken as UNCLEAR; never CONFIRMED",
+    "applied": true,
+    "review_when": "D05 resolved, before Phase 5"
+  },
+  {
+    "id": "D03",
+    "proposed_value": "A: 4 swings / 3 legs",
+    "status": "APPROVED",
+    "owner_decision": "A",
+    "applied": true
+  },
+  {
+    "id": "D04",
+    "proposed_value": {
+      "atr_multiplier": 3.0,
+      "mandatory": false
+    },
+    "status": "APPROVED_DIAGNOSTIC_ONLY",
+    "owner_decision": "3 ATR amplitude annotation only, not a required gate",
+    "applied": true
+  },
+  {
+    "id": "D05",
+    "proposed_value": {
+      "min_tick_tolerance": 1.0,
+      "equal_price_pct": 0.0001
+    },
+    "status": "DEFERRED",
+    "owner_decision": "Resolve before Phase 5; retain current tolerance for this comparison",
+    "applied": true,
+    "review": "D05_PRICE_UNIT_REVIEW.md"
+  },
+  {
+    "id": "D06",
+    "proposed_value": "A: latest correction pivot, fixed level",
+    "status": "APPROVED",
+    "owner_decision": "A",
+    "applied": true
+  },
+  {
+    "id": "D07",
+    "proposed_value": "A: one CLOSE strictly beyond protected level",
+    "status": "APPROVED",
+    "owner_decision": "A",
+    "applied": true
+  },
+  {
+    "id": "D08",
+    "proposed_value": "last two ever-confirmed, separate active mode (future only)",
+    "status": "OPEN_NOT_IMPLEMENTED",
+    "owner_decision": null,
+    "applied": false
+  },
+  {
+    "id": "D09",
+    "proposed_value": "QUARANTINE; no automatic replacement; explicit versioned rebuild later",
+    "status": "APPROVED",
+    "owner_decision": "Approved in user instruction 2026-10-30",
+    "applied": true
+  },
+  {
+    "id": "D10",
+    "proposed_value": "Layer3 owns long-context; future NULL until approved",
+    "status": "OPEN_NOT_IMPLEMENTED",
+    "owner_decision": null,
+    "applied": false
+  },
+  {
+    "id": "D11",
+    "proposed_value": "UNVERIFIED_PROJECT_HYPOTHESIS",
+    "status": "APPROVED",
+    "owner_decision": "Approved in user instruction 2026-10-30",
+    "applied": true
+  }
+]

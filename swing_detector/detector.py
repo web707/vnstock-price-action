@@ -1,262 +1,134 @@
-"""
-Layer 1 — Swing Point Detection Engine (Strict ZigZag Alternation & Wilder ATR).
-Identifies meaningful Swing High and Swing Low extrema.
-Does NOT assign market structure labels (HH, HL, LH, LL) and does NOT import Layer 2.
-"""
+"""Independent causal Layer 1. No Layer 2 or database dependency.
 
+Candidate extrema must satisfy the left window. Equal prices in that window
+reject a later candidate (first tie); right window allows equality. Only a
+complete right window makes a pivot eligible. Frozen threshold uses ATR at the
+extreme candle, not at pivot discovery. Reversal must still be present on the
+confirmation candle; earlier touches are not replayed/backdated.
+
+An outside bar that spans the active threshold is ambiguous: defer confirmation
+on that bar. INIT with both directions eligible also defers. At most one swing
+per bar. Opposite seeds may be selected from already observed bars after the
+last extreme, but confirmation can only happen on a later processing step.
+"""
 from dataclasses import dataclass
-from typing import List, Optional, Tuple
+import logging
 import numpy as np
 import pandas as pd
-
-from common.models import Swing
-from swing_detector.atr import compute_wilder_atr, validate_and_clean_data
-
+from .config import SwingDetectorConfig
+from .atr import clean_data,compute_wilder_atr
+LOG=logging.getLogger(__name__)
+SOURCE_VERSION='qta-layer1-1.1.0'
+RULE_VERSION='wilder-pivot-zigzag-v1'
+COLUMNS=['swing_id','ticker','timeframe','swing_type','extreme_price','extreme_time','confirmed_at',
+         'atr_at_extreme','source_version','rule_version','threshold_T',
+         'reversal_size_in_ATR','bars_since_prev_swing','confirm_delay_bars','volume_ratio','label']
 
 @dataclass
-class SwingDetectorConfig:
-    """Configuration parameters for Layer 1 Swing Detection."""
-    swing_left: int = 3  # Legacy compatibility only; not used by ZigZag detection.
-    swing_right: int = 3
-    reversal_mult: float = 2.0
-    min_reversal_pct: float = 0.005
-    atr_period: int = 14
-    timeframe: str = "15m"
+class DetectionResult:
+    swings: pd.DataFrame
+    candles: pd.DataFrame
+    diagnostics: dict
+    events: list
+    indices: list
 
+def left_qualified(values,i,left,kind):
+    if i<left:return False
+    prior=values[i-left:i]
+    return bool(values[i]>np.max(prior) if kind=='HIGH' else values[i]<np.min(prior))
 
-def detect_swings(
-    ohlcv_15m: pd.DataFrame,
-    config: Optional[SwingDetectorConfig] = None
-) -> List[Swing]:
-    """
-    Main entry point for Layer 1: Detects swing points on 15m candlestick data.
-    
-    Guarantees:
-    - Zero Lookahead Bias: Confirmed at bar t >= cand_idx + swing_right.
-    - Strict Alternation: Peak -> Trough -> Peak -> Trough (100% ZigZag).
-    - Dynamic Volatility Adaptation: T_i = max(reversal_mult * ATR_i, 0.5% Price).
-    - Candidate Replacement: Higher peaks / lower troughs continuously replace trailing candidates.
-    - Structure labels remain None (responsibility of Layer 2 Step A).
-    """
-    if config is None:
-        config = SwingDetectorConfig()
+def pivot_qualified(values,i,t,left,right,kind):
+    if t<i+right or not left_qualified(values,i,left,kind):return False
+    following=values[i+1:i+right+1]
+    return bool(values[i]>=np.max(following) if kind=='HIGH' else values[i]<=np.min(following))
 
-    df = validate_and_clean_data(ohlcv_15m)
-    n = len(df)
-    # Validate the actual cadence, without changing swing detection parameters.
-    d_col = next((c for c in ["TRADE_DATE", "trade_date", "Datetime", "datetime", "Date", "date"] if c in df.columns), None)
-    times = pd.to_datetime(df[d_col]) if d_col else (df.index if isinstance(df.index, pd.DatetimeIndex) else None)
-    if config.timeframe == "15m" and times is not None and len(times) >= 2:
-        deltas = pd.Series(times).diff().dropna().dt.total_seconds().div(60)
-        # Trading sessions contain overnight/weekend gaps, hence median rather than maximum.
-        actual = float(deltas.median())
-        if not (14 <= actual <= 16):
-            raise ValueError(f"Expected timeframe 15m; actual median candle spacing is {actual:g} minutes")
-    if n == 0:
-        return []
+def detect_result(ohlcv_15m,config=None,*,as_of=None,expected_timestamps=None):
+    cfg=config or SwingDetectorConfig()
+    df,diag=clean_data(ohlcv_15m,cfg,as_of,expected_timestamps)
+    atr=compute_wilder_atr(df,cfg.atr_period);df['ATR']=atr
+    values={'HIGH':df.High.to_numpy(float),'LOW':df.Low.to_numpy(float)}
+    vol=df.Volume.to_numpy(float); cumulative=np.r_[0.,np.cumsum(vol)]
+    median=pd.Series(vol).shift(1).rolling(cfg.volume_lookback,min_periods=cfg.volume_lookback).median().to_numpy()
+    candidates={'HIGH':None,'LOW':None};state='INIT';rows=[];events=[];indices=[];prior_same={};previous=None
+    def event(t,reason,**kw):events.append(dict(bar=int(t),time=str(df.Datetime.iloc[t]),reason=reason,**kw))
+    def new_candidate(kind,i,t):
+        p=values[kind][i];candidate=(i,float(p),float(atr[i]),float(max(cfg.reversal_atr_mult*atr[i],cfg.reversal_min_pct*p)))
+        event(t,'candidate',type=kind,extreme_index=int(i),threshold_T=candidate[3]);return candidate
+    def update(kind,t):
+        if not np.isfinite(atr[t]):return
+        c=candidates[kind];v=values[kind][t]
+        better=c is None or (v>c[1] if kind=='HIGH' else v<c[1])
+        if better:
+            if left_qualified(values[kind],t,cfg.pivot_left,kind):candidates[kind]=new_candidate(kind,t,t)
+            else:event(t,'rejected_left_or_first_tie',type=kind,price=float(v))
+    for t in range(len(df)):
+        active=('HIGH','LOW') if state=='INIT' else (state,)
+        for kind in active:update(kind,t)
+        ready=[]; ambiguous=False
+        for kind in active:
+            c=candidates[kind]
+            if c is None:continue
+            i,p,a,threshold=c
+            reversal=p-values['LOW'][t] if kind=='HIGH' else values['HIGH'][t]-p
+            # Broad, conservative outside-bar rule avoids inventing intrabar order.
+            outside=(t>0 and values['HIGH'][t]>values['HIGH'][t-1] and values['LOW'][t]<values['LOW'][t-1])
+            if outside and values['HIGH'][t]-values['LOW'][t]>=threshold and (i==t or reversal>=threshold):
+                ambiguous=True
+            if pivot_qualified(values[kind],i,t,cfg.pivot_left,cfg.pivot_right,kind) and reversal>=threshold:
+                if previous is not None and i-previous<cfg.min_bars_between_swings:
+                    event(t,'min_spacing',type=kind,extreme_index=i);continue
+                ready.append((kind,c,float(reversal)))
+        event(t,'state',state=state,candidates={kind: {'index':c[0],'price':c[1],'threshold_T':c[3],
+                'reversal':float(c[1]-values['LOW'][t] if kind=='HIGH' else values['HIGH'][t]-c[1]),
+                'pivot_ready':pivot_qualified(values[kind],c[0],t,cfg.pivot_left,cfg.pivot_right,kind)}
+                for kind,c in candidates.items() if c is not None})
+        if ambiguous or len(ready)>1:
+            event(t,'ambiguous_defer',state=state,eligible=[r[0] for r in ready]);continue
+        if not ready:continue
+        kind,(i,p,a,threshold),reversal=ready[0]
+        last=prior_same.get(kind)
+        label=None if last is None or p==last else (('HH' if p>last else 'LH') if kind=='HIGH' else ('HL' if p>last else 'LL'))
+        volume_ratio=(cumulative[t+1]-cumulative[i+1])/median[i] if np.isfinite(median[i]) and median[i]>0 else np.nan
+        rows.append(dict(swing_id=len(rows)+1,ticker=cfg.ticker,timeframe=cfg.timeframe,
+                         swing_type=kind,extreme_price=p,extreme_time=df.Datetime.iloc[i],
+                         source_version=SOURCE_VERSION,rule_version=RULE_VERSION,
+                         confirmed_at=df.available_time.iloc[t],atr_at_extreme=a,threshold_T=threshold,
+                         reversal_size_in_ATR=reversal/a if a>0 else np.nan,
+                         bars_since_prev_swing=i-previous if previous is not None else np.nan,
+                         confirm_delay_bars=t-i,volume_ratio=volume_ratio,label=label))
+        indices.append((int(i),int(t)));prior_same[kind]=p;previous=i
+        event(t,'confirmed',type=kind,extreme_index=i,threshold_T=threshold)
+        state='LOW' if kind=='HIGH' else 'HIGH';candidates={'HIGH':None,'LOW':None}
+        # Seed from known bars, strictly after the previous extreme; no future data.
+        for j in range(i+1,t+1):
+            if not np.isfinite(atr[j]) or not left_qualified(values[state],j,cfg.pivot_left,state):continue
+            c=candidates[state]
+            if c is None or (values[state][j]>c[1] if state=='HIGH' else values[state][j]<c[1]):
+                candidates[state]=new_candidate(state,j,t)
+    result=pd.DataFrame(rows,columns=COLUMNS)
+    diag['ambiguous_deferred_bars']=sum(e['reason']=='ambiguous_defer' for e in events)
+    diag['confirmed_swings']=len(rows)
+    if diag['ambiguous_deferred_bars']:LOG.info('Ambiguous bars deferred: %s',diag['ambiguous_deferred_bars'])
+    result.attrs['diagnostics']=diag
+    return DetectionResult(result,df,diag,events,indices)
 
-    h_col = next((c for c in ["HIGH_PRICE", "High", "high"] if c in df.columns), None)
-    l_col = next((c for c in ["LOW_PRICE", "Low", "low"] if c in df.columns), None)
-    v_col = next((c for c in ["VOLUME", "Volume", "volume"] if c in df.columns), None)
-    d_col = next((c for c in ["TRADE_DATE", "trade_date", "Datetime", "datetime", "Date", "date"] if c in df.columns), None)
+def detect_swings_frame(ohlcv_15m,config=None,**kwargs):
+    return detect_result(ohlcv_15m,config,**kwargs).swings
 
-    highs = df[h_col].values.astype(float)
-    lows = df[l_col].values.astype(float)
-    volumes = df[v_col].values.astype(float) if v_col else np.ones(n, dtype=float)
-    raw_dates = pd.to_datetime(df[d_col]) if d_col else pd.to_datetime(df.index)
-    # Convert timezone-aware timestamps to Vietnam wall time before removing tz.
-    if getattr(raw_dates.dt if isinstance(raw_dates, pd.Series) else raw_dates, "tz", None) is not None:
-        raw_dates = raw_dates.dt.tz_convert("Asia/Ho_Chi_Minh").dt.tz_localize(None) if isinstance(raw_dates, pd.Series) else raw_dates.tz_convert("Asia/Ho_Chi_Minh").tz_localize(None)
-    dates = np.asarray(raw_dates)
+class SwingList(list):
+    """Legacy list interface carrying canonical output for the Layer 1 exporter."""
+    pass
 
-    # 1. Compute Wilder ATR(14)
-    atr = compute_wilder_atr(df, period=config.atr_period)
-
-    # 2. Compute 20-bar rolling median volume
-    if v_col:
-        vol_median_20 = pd.Series(volumes).rolling(window=20, min_periods=1).median().values
-    else:
-        vol_median_20 = np.ones(n, dtype=float)
-
-    swings: List[Swing] = []
-    state = "INIT"
-    cand_h_idx = 0
-    cand_l_idx = 0
-
-    for t in range(1, n):
-        h_t = highs[t]
-        l_t = lows[t]
-
-        if state == "INIT":
-            if h_t > highs[cand_h_idx]:
-                cand_h_idx = t
-            if l_t < lows[cand_l_idx]:
-                cand_l_idx = t
-
-            thresh_h = max(config.reversal_mult * atr[cand_h_idx], config.min_reversal_pct * highs[cand_h_idx])
-            thresh_l = max(config.reversal_mult * atr[cand_l_idx], config.min_reversal_pct * lows[cand_l_idx])
-
-            can_confirm_h = (t >= cand_h_idx + config.swing_right) and (highs[cand_h_idx] - l_t >= thresh_h)
-            can_confirm_l = (t >= cand_l_idx + config.swing_right) and (h_t - lows[cand_l_idx] >= thresh_l)
-
-            if can_confirm_h and not can_confirm_l:
-                swings.append(_create_swing(
-                    stt=len(swings) + 1,
-                    index=cand_h_idx,
-                    price=highs[cand_h_idx],
-                    point_type="HIGH",
-                    conf_idx=t,
-                    dates=dates,
-                    atr_val=atr[cand_h_idx],
-                    thresh_val=thresh_h,
-                    vol_ratio=volumes[cand_h_idx] / vol_median_20[cand_h_idx] if vol_median_20[cand_h_idx] > 0 else 1.0,
-                    timeframe=config.timeframe,
-                    prev_swing=None
-                ))
-                state = "SEEKING_LOW"
-                sub_l = lows[cand_h_idx + 1 : t + 1]
-                cand_l_idx = cand_h_idx + 1 + int(np.argmin(sub_l))
-
-            elif can_confirm_l and not can_confirm_h:
-                swings.append(_create_swing(
-                    stt=len(swings) + 1,
-                    index=cand_l_idx,
-                    price=lows[cand_l_idx],
-                    point_type="LOW",
-                    conf_idx=t,
-                    dates=dates,
-                    atr_val=atr[cand_l_idx],
-                    thresh_val=thresh_l,
-                    vol_ratio=volumes[cand_l_idx] / vol_median_20[cand_l_idx] if vol_median_20[cand_l_idx] > 0 else 1.0,
-                    timeframe=config.timeframe,
-                    prev_swing=None
-                ))
-                state = "SEEKING_HIGH"
-                sub_h = highs[cand_l_idx + 1 : t + 1]
-                cand_h_idx = cand_l_idx + 1 + int(np.argmax(sub_h))
-
-            elif can_confirm_h and can_confirm_l:
-                if cand_h_idx <= cand_l_idx:
-                    swings.append(_create_swing(
-                        stt=len(swings) + 1,
-                        index=cand_h_idx,
-                        price=highs[cand_h_idx],
-                        point_type="HIGH",
-                        conf_idx=t,
-                        dates=dates,
-                        atr_val=atr[cand_h_idx],
-                        thresh_val=thresh_h,
-                        vol_ratio=volumes[cand_h_idx] / vol_median_20[cand_h_idx] if vol_median_20[cand_h_idx] > 0 else 1.0,
-                        timeframe=config.timeframe,
-                        prev_swing=None
-                    ))
-                    state = "SEEKING_LOW"
-                    sub_l = lows[cand_h_idx + 1 : t + 1]
-                    cand_l_idx = cand_h_idx + 1 + int(np.argmin(sub_l))
-                else:
-                    swings.append(_create_swing(
-                        stt=len(swings) + 1,
-                        index=cand_l_idx,
-                        price=lows[cand_l_idx],
-                        point_type="LOW",
-                        conf_idx=t,
-                        dates=dates,
-                        atr_val=atr[cand_l_idx],
-                        thresh_val=thresh_l,
-                        vol_ratio=volumes[cand_l_idx] / vol_median_20[cand_l_idx] if vol_median_20[cand_l_idx] > 0 else 1.0,
-                        timeframe=config.timeframe,
-                        prev_swing=None
-                    ))
-                    state = "SEEKING_HIGH"
-                    sub_h = highs[cand_l_idx + 1 : t + 1]
-                    cand_h_idx = cand_l_idx + 1 + int(np.argmax(sub_h))
-
-        elif state == "SEEKING_HIGH":
-            # Candidate replacement: higher high updates peak candidate
-            if h_t > highs[cand_h_idx]:
-                cand_h_idx = t
-
-            thresh_h = max(config.reversal_mult * atr[cand_h_idx], config.min_reversal_pct * highs[cand_h_idx])
-
-            if (t >= cand_h_idx + config.swing_right) and (highs[cand_h_idx] - l_t >= thresh_h):
-                prev_swing = swings[-1] if swings else None
-                swings.append(_create_swing(
-                    stt=len(swings) + 1,
-                    index=cand_h_idx,
-                    price=highs[cand_h_idx],
-                    point_type="HIGH",
-                    conf_idx=t,
-                    dates=dates,
-                    atr_val=atr[cand_h_idx],
-                    thresh_val=thresh_h,
-                    vol_ratio=volumes[cand_h_idx] / vol_median_20[cand_h_idx] if vol_median_20[cand_h_idx] > 0 else 1.0,
-                    timeframe=config.timeframe,
-                    prev_swing=prev_swing
-                ))
-                state = "SEEKING_LOW"
-                sub_l = lows[cand_h_idx + 1 : t + 1]
-                cand_l_idx = cand_h_idx + 1 + int(np.argmin(sub_l))
-
-        elif state == "SEEKING_LOW":
-            # Candidate replacement: lower low updates trough candidate
-            if l_t < lows[cand_l_idx]:
-                cand_l_idx = t
-
-            thresh_l = max(config.reversal_mult * atr[cand_l_idx], config.min_reversal_pct * lows[cand_l_idx])
-
-            if (t >= cand_l_idx + config.swing_right) and (h_t - lows[cand_l_idx] >= thresh_l):
-                prev_swing = swings[-1] if swings else None
-                swings.append(_create_swing(
-                    stt=len(swings) + 1,
-                    index=cand_l_idx,
-                    price=lows[cand_l_idx],
-                    point_type="LOW",
-                    conf_idx=t,
-                    dates=dates,
-                    atr_val=atr[cand_l_idx],
-                    thresh_val=thresh_l,
-                    vol_ratio=volumes[cand_l_idx] / vol_median_20[cand_l_idx] if vol_median_20[cand_l_idx] > 0 else 1.0,
-                    timeframe=config.timeframe,
-                    prev_swing=prev_swing
-                ))
-                state = "SEEKING_HIGH"
-                sub_h = highs[cand_l_idx + 1 : t + 1]
-                cand_h_idx = cand_l_idx + 1 + int(np.argmax(sub_h))
-
-    return swings
-
-
-def _create_swing(
-    stt: int,
-    index: int,
-    price: float,
-    point_type: str,
-    conf_idx: int,
-    dates: np.ndarray,
-    atr_val: float,
-    thresh_val: float,
-    vol_ratio: float,
-    timeframe: str,
-    prev_swing: Optional[Swing]
-) -> Swing:
-    """Helper to build a clean Swing object (Layer 1)."""
-    pct = ((price - prev_swing.extreme_price) / prev_swing.extreme_price * 100.0) if prev_swing else None
-    ext_time_str = pd.Timestamp(dates[index]).strftime("%Y-%m-%d %H:%M:%S")
-    conf_time_str = pd.Timestamp(dates[conf_idx]).strftime("%Y-%m-%d %H:%M:%S")
-
-    return Swing(
-        swing_id=stt,
-        swing_type=point_type,
-        extreme_price=float(price),
-        extreme_time=ext_time_str,
-        confirmed_at=conf_time_str,
-        atr_at_extreme=float(atr_val),
-        threshold=float(thresh_val),
-        source_timeframe=timeframe,
-        lag_bars=int(conf_idx - index),
-        vol_over_median=round(float(vol_ratio), 2),
-        pct_change=round(float(pct), 2) if pct is not None else None,
-        index=index,
-        confirmed_at_index=conf_idx,
-        structure_label=None  # Explicitly None in Layer 1
-    )
+def detect_swings(ohlcv_15m,config=None):
+    """Backward compatible List[common.models.Swing] adapter; core stays independent."""
+    from common.models import Swing
+    result=detect_result(ohlcv_15m,config);output=SwingList()
+    output.layer1_result=result
+    for r,(i,t) in zip(result.swings.to_dict('records'),result.indices):
+        pct=(r['extreme_price']/output[-1].extreme_price-1)*100 if output else None
+        output.append(Swing(swing_id=r['swing_id'],swing_type=r['swing_type'],extreme_price=r['extreme_price'],
+            extreme_time=r['extreme_time'].strftime('%Y-%m-%d %H:%M:%S'),
+            confirmed_at=r['confirmed_at'].strftime('%Y-%m-%d %H:%M:%S'),
+            atr_at_extreme=r['atr_at_extreme'],threshold=r['threshold_T'],lag_bars=r['confirm_delay_bars'],
+            vol_over_median=r['volume_ratio'],pct_change=pct,index=i,confirmed_at_index=t,structure_label=None))
+    return output

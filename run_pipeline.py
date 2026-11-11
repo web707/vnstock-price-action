@@ -62,7 +62,7 @@ def main():
 
     # 2. Run Layer 1: Detect Swings
     print(f">> [BƯỚC 2] Chạy Layer 1 — Phát hiện đỉnh/đáy (Wilder ATR 14, Ngưỡng T_i, ZigZag)...")
-    cfg = SwingDetectorConfig(swing_left=3, swing_right=3, reversal_mult=2.0, timeframe="15m")
+    cfg = SwingDetectorConfig(ticker=sym, swing_left=3, swing_right=3, reversal_mult=2.0, timeframe="15m")
     detected_swings = detect_swings(df_candles, config=cfg)
     print(f">> Layer 1 phát hiện thành công: {len(detected_swings)} swings (Đỉnh & Đáy luân phiên 100%).")
 

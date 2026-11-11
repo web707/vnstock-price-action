@@ -1,0 +1,74 @@
+[
+  {
+    "id": "D01",
+    "status": "APPROVED",
+    "current": "B: không dùng lại leg, chung swing biên",
+    "remaining": "Thử cho chồng lấn vẫn chỉ 1 INTERNAL; chưa ủng hộ giả thuyết D01-B là nguyên nhân chính."
+  },
+  {
+    "id": "D02",
+    "status": "APPROVED",
+    "current": "A: strict HH+HL/LH+LL, không confirm pre-broken",
+    "remaining": "Xem lại khi D05 được quyết; không tự đổi baseline."
+  },
+  {
+    "id": "D03",
+    "status": "APPROVED",
+    "current": "A: 4 swing / 3 leg",
+    "remaining": "Giữ nguyên; cần thêm mẫu/giai đoạn."
+  },
+  {
+    "id": "D04",
+    "status": "APPROVED",
+    "current": "3.0 ATR classification, không gate confirmation",
+    "remaining": "2.5 chỉ đổi VNM 62→65; khả năng phân biệt vẫn thấp."
+  },
+  {
+    "id": "D05",
+    "status": "DEFERRED",
+    "current": "Giữ CURRENT; 3 phương án đã chạy thử",
+    "remaining": "Đề xuất CURRENT cho baseline nghiên cứu, chờ owner duyệt; tick proxy cần factor verified."
+  },
+  {
+    "id": "D06",
+    "status": "APPROVED",
+    "current": "A: pivot hồi gần nhất cố định",
+    "remaining": "C = buffer 0.5 ATR đã thử; chưa đề xuất đổi mặc định chỉ vì ít BROKEN."
+  },
+  {
+    "id": "D07",
+    "status": "APPROVED",
+    "current": "A: một Close strict vượt level",
+    "remaining": "C = hai Close đã thử; cần policy missing candle/session chuẩn hơn."
+  },
+  {
+    "id": "D08",
+    "status": "DEFERRED",
+    "current": "EVER_CONFIRMED và ACTIVE triển khai riêng",
+    "remaining": "Owner chưa chọn mặc định; API bắt buộc mode."
+  },
+  {
+    "id": "D09",
+    "status": "APPROVED",
+    "current": "Quarantine, không ngầm thay lịch sử",
+    "remaining": "Chưa hoàn chỉnh live feed correction/rebuild protocol."
+  },
+  {
+    "id": "D10",
+    "status": "DEFERRED",
+    "current": "NULL + LONG_CONTEXT_NOT_EVALUATED",
+    "remaining": "Layer 3 quyết; không tính hiệu quả giao dịch ở đây."
+  },
+  {
+    "id": "D11",
+    "status": "APPROVED",
+    "current": "Giả thuyết kỹ thuật dự án",
+    "remaining": "Chưa xác minh với nguồn phương pháp gốc; không tự gán attribution."
+  },
+  {
+    "id": "D12",
+    "status": "APPROVED",
+    "current": "FORMING: ba swing HL/LH, swing thứ tư quyết định",
+    "remaining": "Giữ quy ước đã duyệt, không tự coi là phương pháp gốc."
+  }
+]

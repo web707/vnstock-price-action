@@ -1,0 +1,60 @@
+{
+  "rule_version": "sfs-layer2-phase4-approved-v1",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "upstream_rule_version": "sfs-layer2-phase3-approved-baseline-v1",
+  "upstream_config_hash": "227f16a812ede4a5d0d63f3fa3e46e996ac0a9a9696f6a0b646bc5d4eda97f09",
+  "upstream_transitions": {
+    "NONE": [
+      "FORMING"
+    ],
+    "FORMING": [
+      "CONFIRMED",
+      "UNCLEAR"
+    ],
+    "CONFIRMED": [
+      "BROKEN"
+    ],
+    "BROKEN": [],
+    "UNCLEAR": []
+  },
+  "amplitude_threshold_atr": 3.0,
+  "classification_operator": "GE",
+  "classification_scope": "EVER_CONFIRMED",
+  "missing_atr_classification": "UNCLASSIFIED",
+  "sequence_order": [
+    "confirmed_at",
+    "end_time",
+    "start_time",
+    "structure_id"
+  ],
+  "directions": [
+    "UP",
+    "DOWN"
+  ],
+  "query_modes": [
+    "EVER_CONFIRMED",
+    "ACTIVE"
+  ],
+  "default_query_mode": null,
+  "active_status": "CONFIRMED",
+  "long_enabled": false,
+  "is_long_candidate": null,
+  "long_reason": "LONG_CONTEXT_NOT_EVALUATED",
+  "pair_size": 2,
+  "decisions": {
+    "D04": "APPROVED_3ATR_CLASSIFICATION_ONLY",
+    "D05": "DEFERRED_BEFORE_PHASE5",
+    "D08": "BOTH_MODES_IMPLEMENTED_DEFAULT_DEFERRED",
+    "D10": "DEFERRED_TO_LAYER3",
+    "D12": "APPROVED_PROJECT_TECHNICAL_HYPOTHESIS"
+  },
+  "notes": {
+    "D04": "Bộ lọc hiện ít phân biệt: 63 MAJOR / 1 INTERNAL trên 64 cấu trúc. INTERNAL gần như không xuất hiện trong baseline D01-B không cho chồng lấn; xem lại ở Phase 5. Vai trò nhân quả của D01-B là giả thuyết dự án cần kiểm thử.",
+    "FORMING": "D12: ba swing đã xác nhận cho HL/LH; swing thứ tư quyết định hình học đầy đủ.",
+    "phase5_followup": [
+      "Review D04 discrimination with D01-B non-overlap",
+      "Resolve D05 and revisit D02-A before Phase 5 validation",
+      "Report BROKEN counts and rates for D06-C and D07-C with explicit denominator and follow-up horizon"
+    ]
+  }
+}
