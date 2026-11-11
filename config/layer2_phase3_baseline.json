@@ -1,0 +1,119 @@
+{
+  "rule_version": "sfs-layer2-phase3-approved-baseline-v1",
+  "release": "RESEARCH_BASELINE_D05_DEFERRED",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "timeframe": "15m",
+  "bar_minutes": 15,
+  "candle_label": "open",
+  "pivot_right": 3,
+  "min_tick_tolerance": 1.0,
+  "equal_price_pct": 0.0001,
+  "min_swings": 4,
+  "forming_swings": 3,
+  "forming_rule": "ALL_AVAILABLE_RELATIONS",
+  "sequence_policy": "NO_REUSED_LEGS_SHARED_ENDPOINT",
+  "consume_geometry_even_if_unconfirmed": true,
+  "atr_multiplier": 3.0,
+  "amplitude_role": "DIAGNOSTIC_ONLY",
+  "classification": "UNCLASSIFIED",
+  "protected_level_rule": "FIXED_CORRECTION_PIVOT",
+  "protected_swing_index": 2,
+  "break_basis": "CLOSE",
+  "break_rule_status": "APPROVED",
+  "break_bar_policy": "OPEN_AT_OR_AFTER_CONFIRMATION",
+  "price_at_availability": "LATEST_CLOSED_CANDLE",
+  "pre_broken_status": "UNCLEAR",
+  "geometry_failure_status": "UNCLEAR",
+  "missing_price_status": "UNCLEAR",
+  "late_swing_policy": "QUARANTINE_AFTER_PUBLISHED_HISTORY",
+  "directions": {
+    "UP": {
+      "pattern": [
+        "LOW",
+        "HIGH",
+        "LOW",
+        "HIGH"
+      ],
+      "relations": [
+        [
+          0,
+          2,
+          "GT"
+        ],
+        [
+          1,
+          3,
+          "GT"
+        ]
+      ],
+      "break_operator": "LT"
+    },
+    "DOWN": {
+      "pattern": [
+        "HIGH",
+        "LOW",
+        "HIGH",
+        "LOW"
+      ],
+      "relations": [
+        [
+          0,
+          2,
+          "LT"
+        ],
+        [
+          1,
+          3,
+          "LT"
+        ]
+      ],
+      "break_operator": "GT"
+    }
+  },
+  "transitions": {
+    "NONE": [
+      "FORMING"
+    ],
+    "FORMING": [
+      "CONFIRMED",
+      "UNCLEAR"
+    ],
+    "CONFIRMED": [
+      "BROKEN"
+    ],
+    "BROKEN": [],
+    "UNCLEAR": []
+  },
+  "reason_codes": {
+    "forming": "STRUCTURE_CANDIDATE_CREATED",
+    "geometry_failure": "STRUCTURE_RULE_NOT_MET",
+    "confirmed": "STRUCTURE_CONFIRMED",
+    "broken": "STRUCTURE_BROKEN",
+    "pre_broken": "PROTECTED_LEVEL_VIOLATED_AT_AVAILABILITY",
+    "missing_price": "PRICE_AT_AVAILABILITY_MISSING",
+    "break_not_configured": "BREAK_RULE_NOT_CONFIGURED"
+  },
+  "phase5_variants": {
+    "D06-C": {
+      "enabled": false,
+      "protected_buffer_atr": 0.5
+    },
+    "D07-C": {
+      "enabled": false,
+      "consecutive_closes": 2
+    }
+  },
+  "decisions": {
+    "D01": "B_APPROVED",
+    "D02": "A_APPROVED_REVIEW_AFTER_D05",
+    "D03": "A_APPROVED",
+    "D04": "DIAGNOSTIC_ONLY",
+    "D05": "DEFERRED_BEFORE_PHASE5",
+    "D06": "A_APPROVED",
+    "D07": "A_APPROVED",
+    "D08": "OPEN_PHASE4",
+    "D09": "QUARANTINE_APPROVED",
+    "D10": "OPEN_LONG_CONTEXT",
+    "D11": "PROJECT_TECHNICAL_HYPOTHESIS_APPROVED"
+  }
+}

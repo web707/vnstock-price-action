@@ -1,0 +1,95 @@
+[
+  {
+    "id": "D01",
+    "proposed_value": "4 alternating swings (future proposal)",
+    "status": "PROPOSED",
+    "owner_decision": null,
+    "applied": false
+  },
+  {
+    "id": "D02",
+    "proposed_value": "UP=LOW,HIGH,HL,HH; DOWN=HIGH,LOW,LH,LL (future proposal)",
+    "status": "PROPOSED",
+    "owner_decision": null,
+    "applied": false
+  },
+  {
+    "id": "D03",
+    "proposed_value": {
+      "min_swings": 4,
+      "min_legs": 3
+    },
+    "status": "PROPOSED",
+    "owner_decision": null,
+    "applied": false
+  },
+  {
+    "id": "D04",
+    "proposed_value": {
+      "atr_multiplier": 3.0,
+      "sensitivity": [
+        1.5,
+        2.0,
+        2.5,
+        3.0
+      ],
+      "role": "Phase 2 diagnostic filter only; structure role not decided"
+    },
+    "status": "PROPOSED",
+    "owner_decision": null,
+    "applied": true
+  },
+  {
+    "id": "D05",
+    "proposed_value": {
+      "min_tick_tolerance": 1.0,
+      "equal_price_pct": 0.0001
+    },
+    "status": "PROPOSED",
+    "owner_decision": "Review units/ticks; do not change tolerance",
+    "applied": true,
+    "review": "D05_PRICE_UNIT_REVIEW.md"
+  },
+  {
+    "id": "D06",
+    "proposed_value": "latest HL/LH protected; strict < or > (future only)",
+    "status": "PROPOSED",
+    "owner_decision": null,
+    "applied": false
+  },
+  {
+    "id": "D07",
+    "proposed_value": "CLOSE (future only)",
+    "status": "PROPOSED",
+    "owner_decision": null,
+    "applied": false
+  },
+  {
+    "id": "D08",
+    "proposed_value": "last two ever-confirmed, separate active mode (future only)",
+    "status": "PROPOSED",
+    "owner_decision": null,
+    "applied": false
+  },
+  {
+    "id": "D09",
+    "proposed_value": "QUARANTINE; no automatic replacement; explicit versioned rebuild later",
+    "status": "APPROVED",
+    "owner_decision": "Approved in user instruction 2026-10-30",
+    "applied": true
+  },
+  {
+    "id": "D10",
+    "proposed_value": "Layer3 owns long-context; future NULL until approved",
+    "status": "PROPOSED",
+    "owner_decision": null,
+    "applied": false
+  },
+  {
+    "id": "D11",
+    "proposed_value": "UNVERIFIED_PROJECT_HYPOTHESIS",
+    "status": "APPROVED",
+    "owner_decision": "Approved in user instruction 2026-10-30",
+    "applied": true
+  }
+]

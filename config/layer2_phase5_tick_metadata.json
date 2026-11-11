@@ -1,0 +1,42 @@
+{
+  "HPG": {
+    "exchange": "HOSE",
+    "unit_scale": 1,
+    "split_proxy": [],
+    "verification": "UNVERIFIED_SNAPSHOT_SPLIT_PROXY"
+  },
+  "FPT": {
+    "exchange": "HOSE",
+    "unit_scale": 1,
+    "split_proxy": [
+      {
+        "date": "2026-09-21",
+        "ratio": 1.1
+      }
+    ],
+    "verification": "UNVERIFIED_SNAPSHOT_SPLIT_PROXY"
+  },
+  "VNM": {
+    "exchange": "HOSE",
+    "unit_scale": 1,
+    "split_proxy": [],
+    "verification": "UNVERIFIED_SNAPSHOT_SPLIT_PROXY"
+  },
+  "VCB": {
+    "exchange": "HOSE",
+    "unit_scale": 1,
+    "split_proxy": [],
+    "verification": "UNVERIFIED_SNAPSHOT_SPLIT_PROXY"
+  },
+  "SSI": {
+    "exchange": "HOSE",
+    "unit_scale": 1,
+    "split_proxy": [
+      {
+        "date": "2026-08-17",
+        "ratio": 1.2
+      }
+    ],
+    "verification": "UNVERIFIED_SNAPSHOT_SPLIT_PROXY"
+  }
+}

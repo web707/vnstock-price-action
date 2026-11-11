@@ -1,0 +1,107 @@
+[
+  {
+    "id": "D01",
+    "proposed_value": "B: SHARED_ENDPOINT; no reused legs; gaps allowed",
+    "status": "APPROVED",
+    "owner_decision": "B",
+    "applied": true
+  },
+  {
+    "id": "D02",
+    "proposed_value": "A: STRICT HH+HL / LH+LL; additional owner decision: reject confirmation if Close already violates protected level at availability",
+    "status": "APPROVED",
+    "owner_decision": "A + retain pre-broken as UNCLEAR; never CONFIRMED",
+    "applied": true,
+    "review_when": "D05 resolved, before Phase 5"
+  },
+  {
+    "id": "D03",
+    "proposed_value": "A: 4 swings / 3 legs",
+    "status": "APPROVED",
+    "owner_decision": "A",
+    "applied": true
+  },
+  {
+    "id": "D04",
+    "proposed_value": {
+      "atr_multiplier": 3.0,
+      "mandatory": false
+    },
+    "status": "APPROVED",
+    "owner_decision": "3.0 ATR classification: >= MAJOR; < INTERNAL; not confirmation gate",
+    "applied": true,
+    "phase3_rule_unchanged": true,
+    "classification_threshold": 3.0,
+    "review_options": [
+      2.5,
+      3.0
+    ],
+    "phase5_review": "Bộ lọc hiện ít phân biệt: 63 MAJOR / 1 INTERNAL trên 64 cấu trúc. INTERNAL gần như không xuất hiện trong baseline D01-B không cho chồng lấn; xem lại ở Phase 5. Vai trò nhân quả của D01-B là giả thuyết dự án cần kiểm thử."
+  },
+  {
+    "id": "D05",
+    "proposed_value": {
+      "min_tick_tolerance": 1.0,
+      "equal_price_pct": 0.0001
+    },
+    "status": "DEFERRED",
+    "owner_decision": "Resolve before Phase 5; retain current tolerance for this comparison",
+    "applied": true,
+    "review": "D05_PRICE_UNIT_REVIEW.md"
+  },
+  {
+    "id": "D06",
+    "proposed_value": "A: latest correction pivot, fixed level",
+    "status": "APPROVED",
+    "owner_decision": "A",
+    "applied": true,
+    "phase5_followup": "Report BROKEN counts/rates for D06-C; not implemented in Phase 4"
+  },
+  {
+    "id": "D07",
+    "proposed_value": "A: one CLOSE strictly beyond protected level",
+    "status": "APPROVED",
+    "owner_decision": "A",
+    "applied": true,
+    "phase5_followup": "Report BROKEN counts/rates for D07-C; not implemented in Phase 4"
+  },
+  {
+    "id": "D08",
+    "proposed_value": "last two ever-confirmed, separate active mode (future only)",
+    "status": "DEFERRED_DEFAULT_MODE",
+    "owner_decision": "Implement BOTH EVER_CONFIRMED and ACTIVE separately; require explicit mode; no default",
+    "applied": true,
+    "implementation": "BOTH_MODES_NO_DEFAULT"
+  },
+  {
+    "id": "D09",
+    "proposed_value": "QUARANTINE; no automatic replacement; explicit versioned rebuild later",
+    "status": "APPROVED",
+    "owner_decision": "Approved in user instruction 2026-10-30",
+    "applied": true
+  },
+  {
+    "id": "D10",
+    "proposed_value": "Layer3 owns long-context; future NULL until approved",
+    "status": "DEFERRED_TO_LAYER3",
+    "owner_decision": "is_long_candidate=NULL; reason=LONG_CONTEXT_NOT_EVALUATED",
+    "applied": true,
+    "implementation": "NULL + LONG_CONTEXT_NOT_EVALUATED only"
+  },
+  {
+    "id": "D11",
+    "proposed_value": "UNVERIFIED_PROJECT_HYPOTHESIS",
+    "status": "APPROVED",
+    "owner_decision": "Approved in user instruction 2026-10-30",
+    "applied": true
+  },
+  {
+    "id": "D12",
+    "name": "FORMING convention",
+    "status": "APPROVED_PROJECT_TECHNICAL_HYPOTHESIS",
+    "owner_decision": "First 3 confirmed swings exhibit HL/LH; fourth confirmed swing decides full structure geometry",
+    "applied_in": "Phase 3",
+    "attribution": "Project technical hypothesis, not verified original methodology",
+    "rule_change": false
+  }
+]

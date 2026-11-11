@@ -27,3 +27,25 @@ data/state/*.json
 
 # Private account/session database
 data/state/qta_accounts.db*
+
+# Local environments, market data and generated QTA artifacts
+.venv/
+venv/
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.db3
+*.zip
+*.lock
+*.jsonl
+reports/
+data/local/
+data/collector_15m/
+extensions/daily_15m_collector/data/
+temp/
+tmp/

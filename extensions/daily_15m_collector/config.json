@@ -1,0 +1,1 @@
+{"tickers":["HPG","FPT","VNM","VCB","SSI"],"lookback_days":5,"database":"data/collector_15m.sqlite","log":"logs/fetch_runs.jsonl","source":"yfinance"}

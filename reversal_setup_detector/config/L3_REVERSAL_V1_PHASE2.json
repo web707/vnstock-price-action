@@ -1,0 +1,58 @@
+{
+  "rule_version": "L3_REVERSAL_V1_PHASE2",
+  "implementation_phase": 2,
+  "timeframe": "15m",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "naive_timezone": "Asia/Ho_Chi_Minh",
+  "timestamp_label": "open",
+  "availability_policy": "MAX_CLOSE_AND_SOURCE_AVAILABLE",
+  "missing_available_at": "DERIVE_CLOSE",
+  "duplicate_policy": "QUARANTINE_ALL_KNOWN",
+  "invalid_policy": "BARRIER_NO_REPAIR",
+  "unknown_calendar_policy": "BLOCK_UNCERTAIN_ADJACENCY",
+  "calendar_template": {
+    "id": "L1_WEEKDAY_SESSION_TEMPLATE_UNVERIFIED",
+    "verified": false,
+    "weekdays": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "sessions": [
+      [
+        "09:00",
+        "11:30",
+        "AM"
+      ],
+      [
+        "13:00",
+        "15:00",
+        "PM"
+      ]
+    ]
+  },
+  "allow_cross_session_sequences": true,
+  "red_candle_1_requires_body_gt_total_wick": true,
+  "red_candle_2_requires_body_gt_total_wick": false,
+  "red_candle_3_requires_body_gt_total_wick": true,
+  "max_wait_candles": 5,
+  "body_ratio_min": 1.0,
+  "body_ratio_max": 2.0,
+  "require_green_close_above_red3_high": false,
+  "require_break_above_current_structure_high": false,
+  "allow_overlapping_candidates": true,
+  "invalidate_if_context_structure_broken_before_found": true,
+  "context_query_mode": "EVER_CONFIRMED",
+  "long_context_owner": "LAYER3",
+  "max_context_age_bars": null,
+  "record_context_age_bars": true,
+  "decision_status": {
+    "L3-D01": "APPROVED",
+    "L3-D02": "APPROVED",
+    "L3-D03": "CONDITIONALLY_APPROVED",
+    "L3-D04": "DEFERRED",
+    "L3-D05": "APPROVED"
+  }
+}

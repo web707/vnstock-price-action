@@ -368,7 +368,9 @@ def test_case_10_round_trip_io_and_zero_cross_imports(synthetic_swings_user_exam
 # --------------------------------------------------------------------------
 # Test 11: Regression: New Layer 1 detector matches legacy detector on 15m data
 # --------------------------------------------------------------------------
-def test_case_11_regression_vs_legacy_15m(hpg_15m_candles):
+def test_case_11_archived_regression_vs_legacy_15m(hpg_15m_candles):
+    # Preserve the old regression; new semantics have independent tests.
+    from swing_detector_old import detect_swings, SwingDetectorConfig
     from legacy.market_structure_legacy import MarketStructureTracker as LegacyTracker
     from legacy.market_structure_legacy import validate_and_clean_data as legacy_clean
     df = hpg_15m_candles.copy()
