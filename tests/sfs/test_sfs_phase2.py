@@ -3,7 +3,7 @@ from dataclasses import replace
 import pandas as pd
 import numpy as np
 from structure_builder_sfs.phase2 import LegConfig,build_legs,sensitivity,COLUMNS
-from phase1_tests.test_phase1 import sample
+from tests.sfs.test_sfs_phase1 import sample
 
 END='2026-01-08 00:00+07:00'
 def run(d=None,**kw):return build_legs(sample() if d is None else d,as_of=kw.pop('as_of',END),**kw)

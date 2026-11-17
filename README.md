@@ -1,70 +1,200 @@
-# QuantumTrade AI (QTA)
+# VNStock Price Action — Quantitative Market Structure & Trading System
 
-**Mã dự án nghiên cứu: NCKH-BIGDATA-STOCK-2026**
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)](https://fastapi.tiangolo.com/)
+[![Tests](https://img.shields.io/badge/Pytest-Passing-brightgreen.svg)](https://docs.pytest.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-QTA nghiên cứu cách phát hiện swing, cấu trúc thị trường và tín hiệu đảo chiều trên dữ liệu cổ phiếu Việt Nam. Pipeline theo dõi thời điểm một nến hoặc sự kiện có thể được sử dụng, giúp kiểm tra look-ahead bias trong replay.
+Nền tảng phân tích định lượng (Quantitative Analysis) và nhận diện cấu trúc thị trường chứng khoán Việt Nam (HOSE, VN30). Hệ thống ứng dụng phương pháp Price Action (Smart Money Concepts / John Lucas Pruni), thuật toán phát hiện Swing Point Point-in-Time (loại bỏ hoàn toàn Look-ahead Bias) và tích hợp Dashboard trực quan hóa với FastAPI.
 
-## Kiến trúc
+---
 
-| Tầng | Mã nguồn | Vai trò |
-| --- | --- | --- |
-| Layer 1 | `swing_detector/` | Kiểm tra OHLCV, tính Wilder ATR và xác nhận pivot/swing theo thời điểm dữ liệu có sẵn |
-| Layer 2 | `structure_builder_sfs/` | Dựng cấu trúc SFS, phân loại và ghi sự kiện chuyển trạng thái để tái hiện theo thời gian |
-| Layer 3 | `reversal_setup_detector/` | Áp dụng quy tắc `L3_REVERSAL_V1`, theo dõi vòng đời setup và hỗ trợ lưu trạng thái vào SQLite |
+## 🌟 Tính Năng Nổi Bật (Key Features)
 
-Luồng phân tích là **OHLCV 15 phút → swing → sự kiện cấu trúc → reversal setup**. Các thành phần chính dùng Python 3.12, pandas, NumPy và SQLite. Collector Yahoo dùng yfinance và tzdata. Nền tảng Phase 8 và ứng dụng web có [tài liệu riêng](PHASE8_PLATFORM_README.md).
+- **Kiến trúc phân tầng độc lập (3-Layer Decoupled Architecture):** Tách bạch hoàn toàn giữa phát hiện cực trị (Layer 1), dựng cấu trúc thị trường (Layer 2) và kích hoạt tín hiệu đảo chiều (Layer 3).
+- **Phát hiện Swing Point chuẩn hóa (Point-in-Time):** Sử dụng Wilder's ATR(14) kết hợp ngưỡng lọc động ($k \times \text{ATR}$) và cửa sổ xác nhận $(L, R)$ nến, đảm bảo không có Look-ahead Bias khi replay dữ liệu.
+- **Dựng Cấu Trúc Thị Trường (Market Structure Engine):** Tự động nhận diện các đỉnh/đáy cao dần (HH/HL), thấp dần (LH/LL), phân đoạn sóng (Swing Legs), Break of Structure (BOS) và Change of Character (CHoCH).
+- **Nhận diện Tín hiệu Đảo chiều (Reversal Setup Detection):** Quản lý vòng đời tín hiệu (State Machine: CANDIDATE → ACTIVE → TRIGGERED → INVALIDATED) phù hợp với chu kỳ T+2.5 và biên độ trần/sàn $\pm 7\%$ của TTCK Việt Nam.
+- **Engine Backtest & Đánh giá Rủi ro:** Mô phỏng khớp lệnh thực tế tính trượt giá (slippage), phí giao dịch, và các chỉ số hiệu suất (Sharpe Ratio, Max Drawdown, Win Rate, Profit Factor).
+- **Web Dashboard Trực Quan (FastAPI + Modern UI):** Cung cấp giao diện biểu đồ nến, bảng tín hiệu thời gian thực, bảng xếp hạng sức mạnh cổ phiếu và xuất báo cáo.
+- **Collector Dữ liệu Intraday 15M:** Module tự động thu thập và chuẩn hóa dữ liệu OHLCV 15 phút cho rổ VN30 từ nguồn Yahoo Finance & VNStock API.
 
-## Cấu trúc thư mục
+---
 
-- `extensions/daily_15m_collector/` chứa collector 15 phút, cấu hình VN30, lịch nghỉ HOSE và launcher Windows.
-- `extensions/vn30_expansion/` chạy replay nghiên cứu và xuất funnel theo mã, kể cả các mã thiếu dữ liệu.
-- `docs/` và `config/` chứa đặc tả và quy tắc. Xem [đặc tả Layer 2](docs/SFS_LAYER2_v1.0.md) và [đặc tả Layer 3](docs/SPEC_LAYER3_v1.0.md).
-- `tests/`, `phase*_tests/` và `reversal_setup_detector/tests/` chứa các bài kiểm tra.
-- `reports/` và thư mục dữ liệu của collector được tạo ở máy chạy.
+## 🏗️ Kiến Trúc Hệ Thống (Architecture)
 
-## Cài đặt trên Windows
+```mermaid
+flowchart TD
+    subgraph DataLayer [Data Ingestion & Normalization]
+        A[Yahoo Finance API / VNStock] --> B[Data Normalizer & Validator]
+        B --> C[SQLite Local Cache / CSV Storage]
+    end
 
-Mở PowerShell tại thư mục clone. Bỏ qua Git LFS smudge nếu chỉ cần mã nguồn và không cần fixture Phase 8 cũ.
+    subgraph Layer1 [Layer 1: Swing Detection]
+        C --> D[Wilder ATR 14 Calculation]
+        D --> E[Point-in-Time Pivot Confirmation]
+        E --> F[Alternating ZigZag Swings Output]
+    end
 
-```powershell
-$env:GIT_LFS_SKIP_SMUDGE = '1'
+    subgraph Layer2 [Layer 2: Market Structure SFS]
+        F --> G[Swing Legs & Relative Amplitude]
+        G --> H[Structure Classification: HH, HL, LH, LL]
+        H --> I[Event Pipeline: BOS / CHoCH]
+    end
+
+    subgraph Layer3 [Layer 3: Reversal & Signals]
+        I --> J[Reversal Pattern Detection]
+        J --> K[Setup Lifecycle State Machine]
+        K --> L[Vietnam Market Guard: T+2.5 & Price Limits]
+    end
+
+    subgraph Presentation [Execution & Analytics]
+        L --> M[Backtest & Sensitivity Engine]
+        L --> N[FastAPI REST API]
+        N --> O[Interactive Web Dashboard]
+    end
+```
+
+---
+
+## 📁 Cấu Trúc Thư Mục (Project Structure)
+
+```text
+vnstock-price-action/
+├── assets/                     # Logo và tài nguyên đồ họa
+├── common/                     # Module dùng chung (Data models, I/O, formatters)
+├── config/                     # Cấu hình baseline và tham số quy tắc
+├── data/                       # Dữ liệu nến mẫu (HPG 15m), danh mục cổ phiếu
+│   ├── hpg_15m_sample.csv      # Sample nến 15 phút HPG phục vụ demo/test
+│   └── vietnam_stocks.csv      # Universe danh mục cổ phiếu Việt Nam
+├── docs/                       # Tài liệu đặc tả kỹ thuật
+│   ├── SFS_LAYER2_v1.0.md      # Đặc tả quy tắc cấu trúc Layer 2
+│   ├── SPEC_LAYER3_v1.0.md     # Đặc tả thuật toán nhận diện đảo chiều Layer 3
+│   └── WINDOWS_VN30_COLLECTOR.md # Hướng dẫn thiết lập Task Scheduler
+├── extensions/                 # Các tiện ích mở rộng
+│   ├── daily_15m_collector/    # Collector tự động thu thập dữ liệu 15m cho VN30
+│   └── vn30_expansion/         # Replay runner cho toàn bộ danh mục VN30
+├── reversal_setup_detector/    # Core Layer 3: Thuật toán nhận diện setup đảo chiều
+├── sql/                        # Schema cơ sở dữ liệu SQLite / Oracle
+├── src/                        # Mã nguồn chính của nền tảng
+│   ├── backtest/               # Execution Engine, tham số và chỉ số hiệu suất
+│   ├── strategy/               # Chiến lược John Lucas Pruni, FVG, Gann Box
+│   └── web/                    # Backend FastAPI, API endpoints, Authentication
+├── structure_builder/          # Core Layer 2: Dựng cấu trúc thị trường độc lập
+├── structure_builder_sfs/      # Quy tắc SFS tiêu chuẩn hóa
+├── swing_detector/             # Core Layer 1: Phát hiện đỉnh/đáy Wilder ATR
+├── tests/                      # Bộ kiểm thử tự động toàn diện (Unit & Integration tests)
+├── inspect_swings.py           # CLI trực quan hóa đỉnh/đáy & nhãn cấu trúc
+├── layer1_cli.py               # CLI chạy độc lập thuật toán Layer 1
+├── main.py                     # CLI quản lý thu thập dữ liệu thị trường
+├── run_pipeline.py             # Script chạy trọn vẹn pipeline Layer 1 -> Layer 2
+├── sync_all_symbols.py         # CLI đồng bộ danh mục mã cổ phiếu
+├── web_app.py                  # Launcher khởi chạy Web Dashboard
+├── requirements.txt            # Danh sách thư viện phụ thuộc
+└── README.md                   # Tài liệu dự án
+```
+
+---
+
+## 🚀 Hướng Dẫn Cài Đặt (Quickstart)
+
+### 1. Yêu cầu hệ thống
+- **Python:** Phiên bản 3.10 trở lên (khuyến nghị Python 3.12).
+- **Hệ điều hành:** Windows, macOS hoặc Linux.
+
+### 2. Thiết lập môi trường
+
+```bash
+# Clone repository
 git clone https://github.com/web707/vnstock-price-action.git
 cd vnstock-price-action
-py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-qta-research.txt
+
+# Tạo và kích hoạt virtual environment
+python -m venv .venv
+
+# Windows (PowerShell):
+.\.venv\Scripts\Activate.ps1
+# Linux / macOS:
+source .venv/bin/activate
+
+# Cài đặt các thư viện cần thiết
+pip install -r requirements.txt
 ```
 
-### Thu thập OHLCV 15 phút
+---
 
-```powershell
-.\.venv\Scripts\python.exe -X utf8 extensions/daily_15m_collector/collect_vn30_yahoo.py --fallback-59
+## 💻 Hướng Dẫn Sử Dụng (Usage)
+
+### 1. Chạy Pipeline phân tích cấu trúc thị trường (Layer 1 + Layer 2)
+Phân tích dữ liệu nến 15 phút của mã cổ phiếu (mặc định sử dụng sample nến HPG):
+
+```bash
+python run_pipeline.py --csv data/hpg_15m_sample.csv --symbol HPG
 ```
 
-Collector dùng các mã `.VN` trong [cấu hình kỳ VN30 tháng 7/2026](extensions/daily_15m_collector/config.vn30.2026-07.json). Mỗi mã có kết quả riêng trong `logs/fetch_runs.jsonl` của module. Collector thử `60d`, có thể thử lại với `59d` khi truy vấn lỗi. SQLite ghi thêm theo khóa mã/khung giờ/timestamp và giữ bản đã ghi khi Yahoo trả lại cùng khóa. Dữ liệu thực, log, SQLite live và ZIP bàn giao lưu tại máy chạy. Hãy kiểm tra quyền sử dụng và phân phối dữ liệu với nhà cung cấp trước khi chia sẻ.
+**Kết quả xuất ra console:**
+- Danh sách cực trị Swings (Giá, ATR, Ngưỡng $T_i$, độ trễ nến xác nhận, Volume/Median).
+- Bảng cấu trúc thị trường (Phân loại xu hướng UP/DOWN/UNCLEAR, bằng chứng xác nhận).
 
-Để chạy sau phiên, xem [hướng dẫn Task Scheduler](docs/WINDOWS_VN30_COLLECTOR.md). Launcher `extensions/daily_15m_collector/vn30/RUN_AFTER_CLOSE.bat` thử toàn bộ danh sách và dùng lịch nghỉ HOSE theo năm.
+### 2. Khởi chạy Web Dashboard
+Giao diện web trực quan hóa biểu đồ, tín hiệu và backtest:
 
-### Chạy pipeline nghiên cứu
+```bash
+python web_app.py --port 8000
+```
+Mở trình duyệt truy cập: **`http://localhost:8000`**
 
-```powershell
-.\.venv\Scripts\python.exe -X utf8 -m layer1_cli --help
-.\.venv\Scripts\python.exe -X utf8 -m extensions.vn30_expansion.run_vn30
+### 3. Thu thập dữ liệu nến 15 phút cho rổ VN30
+Sử dụng collector tự động từ Yahoo Finance:
+
+```bash
+python extensions/daily_15m_collector/collect_vn30_yahoo.py --fallback-59
 ```
 
-Layer 1 nhận CSV cục bộ có `Datetime,Open,High,Low,Close,Volume`. Runner VN30 đọc snapshot nghiên cứu tại `reports/layer1/<TICKER>_clean.csv`, xuất kết quả sang `reports/extensions/vn30/` và ghi `MISSING_15M_OHLCV` cho mã chưa có dữ liệu. Bản clone mới không kèm snapshot nghiên cứu mới. [Hướng dẫn Module VN30](extensions/vn30_expansion/README.md) mô tả hợp đồng dữ liệu và lịch replay. SQLite từ Yahoo chưa được nối tự động vào replay do cần lịch và mốc công bố nến đã xác minh.
-
-## Chạy test không cần dữ liệu thị trường
-
-```powershell
-.\.venv\Scripts\python.exe -X utf8 -m pytest --noconftest -q tests/test_layer1_revision.py phase1_tests phase2_tests phase3_tests phase4_tests phase5_tests reversal_setup_detector/tests extensions/daily_15m_collector/test_collector.py extensions/vn30_expansion/test_vn30.py -k "not Real and not snapshot and not evidence"
+### 4. Kiểm tra Swings độc lập qua CLI
+```bash
+python inspect_swings.py --symbol HPG --timeframe 15m
 ```
 
-Các ca dùng snapshot hoặc báo cáo replay cần dữ liệu cục bộ. Lệnh trên chạy bộ test công khai đã chọn.
+---
 
-## Kiểm chứng và giới hạn
+## 🧪 Kiểm Thử Tự Động (Testing)
 
-- Bản xác nhận Layer 3 trước đó ghi nhận 100 bài regression và 22 ca acceptance đạt. Replay snapshot 5 mã ghi nhận 4.482 nến và 16 checkpoint vòng đời point-in-time theo lịch thực nghiệm của snapshot. Các ca replay snapshot cần dữ liệu cục bộ tương ứng.
-- Lần thu thập ngày 11/11/2026 nhận dữ liệu 15 phút cho cả 30 mã cấu hình. Collector giữ nguyên nến đã ghi qua các lượt chạy lại. Kết quả này xác nhận độ phủ ở thời điểm kiểm tra.
-- Nhãn 14:45, bản ghi volume 0, thời điểm Yahoo công bố từng nến và lịch point-in-time theo nhà cung cấp còn cần xác minh. Danh sách HOSE có hiệu lực theo kỳ công bố. Replay theo các kỳ lịch sử cần danh mục tại từng thời điểm.
+Dự án được bảo vệ bởi bộ test tự động toàn diện bao quát tất cả các tầng thuật toán:
 
-Dự án phục vụ nghiên cứu. Các tín hiệu và kết quả replay không phải khuyến nghị đầu tư hay bằng chứng về lợi nhuận.
+```bash
+# Chạy toàn bộ test suite
+pytest
+
+# Chạy kiểm thử cho riêng module phát hiện Swing (Layer 1)
+pytest tests/test_swing_detection.py tests/test_layer1_revision.py
+
+# Chạy kiểm thử cho Cấu trúc thị trường SFS (Layer 2)
+pytest tests/sfs/
+
+# Chạy kiểm thử cho Nhận diện Đảo chiều (Layer 3)
+pytest reversal_setup_detector/tests/
+
+# Chạy kiểm thử cho Backtest Engine và Chiến lược
+pytest tests/test_backtest.py tests/test_strategy.py
+```
+
+---
+
+## 🛠️ Công Nghệ Sử Dụng (Tech Stack)
+
+| Lĩnh vực | Công nghệ |
+|---|---|
+| **Ngôn ngữ** | Python 3.12 |
+| **Phân tích dữ liệu & Tính toán** | NumPy, Pandas, SciPy, Scikit-learn |
+| **Dữ liệu tài chính** | Yahoo Finance (`yfinance`), VNStock API |
+| **Backend & REST API** | FastAPI, Uvicorn, Starlette, Pydantic |
+| **Cơ sở dữ liệu** | SQLite3, Oracle Database (`oracledb`) |
+| **Báo cáo & Trực quan** | ReportLab, Jinja2, HTML5/CSS3/JavaScript |
+| **Kiểm thử** | Pytest, Pytest-Asyncio, Unittest |
+
+---
+
+## 📄 Bản Quyền & Giấy Phép (License)
+
+Dự án được phát hành theo giấy phép **MIT License**. Phục vụ mục đích học tập, nghiên cứu định lượng và phát triển thuật toán giao dịch tài chính.

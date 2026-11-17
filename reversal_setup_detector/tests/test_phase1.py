@@ -143,6 +143,7 @@ class EdgeTests(unittest.TestCase):
         self.assertEqual([x['structure_id'] for x in ctx.context_from_snapshot(snapshot,mode='EVER_CONFIRMED')['structures']],['B','C'])
         self.assertEqual([x['structure_id'] for x in ctx.context_from_snapshot(snapshot,mode='ACTIVE')['structures']],['A','C'])
 
+@unittest.skipUnless((ROOT / 'reports/layer1').exists(), "Requires local market snapshot reports")
 class RealSnapshotTests(unittest.TestCase):
     def test_five_tickers_validation_and_prefix(self):
         from reversal_setup_detector.tools.report_phase1 import load_rows

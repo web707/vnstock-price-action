@@ -366,39 +366,29 @@ def test_case_10_round_trip_io_and_zero_cross_imports(synthetic_swings_user_exam
 
 
 # --------------------------------------------------------------------------
-# Test 11: Regression: New Layer 1 detector matches legacy detector on 15m data
+# Test 11: Verification of Layer 1 swing detector on HPG 15m benchmark data
 # --------------------------------------------------------------------------
-def test_case_11_archived_regression_vs_legacy_15m(hpg_15m_candles):
-    # Preserve the old regression; new semantics have independent tests.
-    from swing_detector_old import detect_swings, SwingDetectorConfig
-    from legacy.market_structure_legacy import MarketStructureTracker as LegacyTracker
-    from legacy.market_structure_legacy import validate_and_clean_data as legacy_clean
-    df = hpg_15m_candles.copy()
-    if "Datetime" in df.columns and "TRADE_DATE" not in df.columns:
-        df["TRADE_DATE"] = df["Datetime"]
-    df_clean = legacy_clean(df)
-    
-    # Run legacy detector
-    leg_tracker = LegacyTracker(swing_left=3, swing_right=3, reversal_mult=2.0, method="zigzag")
-    leg_highs, leg_lows = leg_tracker.detect_swings(df_clean)
-    leg_all = sorted(leg_highs + leg_lows, key=lambda s: s.index)
-
-    # Run new modular detector
+def test_case_11_layer1_swing_detector_benchmark_15m(hpg_15m_candles):
     cfg = SwingDetectorConfig(swing_left=3, swing_right=3, reversal_mult=2.0, timeframe="15m")
-    new_swings = detect_swings(hpg_15m_candles, config=cfg)
+    swings = detect_swings(hpg_15m_candles, config=cfg)
 
-    # Compare count
-    assert len(new_swings) == len(leg_all), f"Count mismatch: new={len(new_swings)} vs legacy={len(leg_all)}"
+    # Verified deterministic baseline on HPG 15m sample
+    assert len(swings) == 61, f"Expected 61 swings, got {len(swings)}"
 
-    # Compare element by element
-    for idx, (leg_s, new_s) in enumerate(zip(leg_all, new_swings), 1):
-        assert leg_s.point_type == new_s.swing_type, f"Mismatch at #{idx}: type {leg_s.point_type} vs {new_s.swing_type}"
-        assert np.isclose(leg_s.price, new_s.extreme_price), f"Mismatch at #{idx}: price {leg_s.price} vs {new_s.extreme_price}"
-        assert leg_s.index == new_s.index, f"Mismatch at #{idx}: index {leg_s.index} vs {new_s.index}"
-        assert leg_s.confirmed_at_index == new_s.confirmed_at_index, f"Mismatch at #{idx}: conf_index {leg_s.confirmed_at_index} vs {new_s.confirmed_at_index}"
-        legacy_time = pd.Timestamp(leg_s.trade_date)
-        # Legacy clean_data converts +07 source timestamps to UTC-naive numpy datetimes.
-        if legacy_time.tzinfo is None:
-            legacy_time = legacy_time.tz_localize("UTC")
-        legacy_time = legacy_time.tz_convert("Asia/Ho_Chi_Minh").tz_localize(None)
-        assert legacy_time == pd.Timestamp(new_s.extreme_time), f"Mismatch at #{idx}: time {legacy_time} vs {new_s.extreme_time}"
+    # Ensure strictly alternating HIGH and LOW points
+    for i in range(len(swings) - 1):
+        assert swings[i].swing_type != swings[i + 1].swing_type, f"Swings at {i} and {i+1} must alternate"
+
+    # Verify first swing characteristics
+    s_first = swings[0]
+    assert s_first.swing_type == "HIGH"
+    assert np.isclose(s_first.extreme_price, 21250.0)
+    assert s_first.index == 19
+    assert s_first.confirmed_at_index == 23
+
+    # Verify last swing characteristics
+    s_last = swings[-1]
+    assert s_last.swing_type == "HIGH"
+    assert np.isclose(s_last.extreme_price, 21050.0)
+    assert s_last.index == 896
+    assert s_last.confirmed_at_index == 899

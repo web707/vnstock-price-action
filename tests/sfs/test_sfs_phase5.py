@@ -1,6 +1,6 @@
 import tempfile,unittest
 import pandas as pd
-from phase3_tests.test_phase3 import fixture,price,T
+from tests.sfs.test_sfs_phase3 import fixture,price,T
 from structure_builder_sfs.phase5 import ResearchEngine,ResearchRules,rules_for,scenario_config,batch_oracle,canonical_rows
 from structure_builder_sfs.phase5_metrics import describe
 from structure_builder_sfs.phase3_store import StructureStore

@@ -7,7 +7,7 @@ from src.phase7.features import features,weekly
 from src.phase7.model import partitions,walk_forward,bootstrap
 from src.phase7.portfolio import simulate,metrics
 from src.phase7 import store
-from import_phase7_reference import validate
+from src.phase7.validator import validate
 
 def prices(n=2200,seed=7):
     rng=np.random.default_rng(seed);c=100*np.exp(np.cumsum(rng.normal(.0003,.012,n)))
@@ -84,8 +84,11 @@ def test_reference_validation():
 
 def test_pdf_csv():
     from src.phase7.reports import pdf_bytes,csv_bytes
-    from pypdf import PdfReader
     import io
+    try:
+        from pypdf import PdfReader
+    except ImportError:
+        pytest.skip("pypdf not installed")
     pdf=pdf_bytes('Báo cáo cổ phiếu',[{'Mã':'HPG','Điểm':50}],['Dữ liệu chưa xác minh']);assert 'cổ phiếu' in PdfReader(io.BytesIO(pdf)).pages[0].extract_text()
     assert "'=cmd" in csv_bytes([{'x':'=cmd'}]).decode('utf-8-sig')
 

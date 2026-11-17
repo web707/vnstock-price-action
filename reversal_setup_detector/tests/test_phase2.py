@@ -1,6 +1,8 @@
 import copy,json,unittest
+from pathlib import Path
 import pandas as pd
-from phase4_tests.test_phase4 import fixture,T,STREAM
+ROOT = Path(__file__).resolve().parents[2]
+from tests.sfs.test_sfs_phase4 import fixture,T,STREAM
 from structure_builder_sfs.phase4 import canonical
 from reversal_setup_detector.context import ContextProvider,phase2_rules
 from reversal_setup_detector import analyze,Calendar
@@ -75,6 +77,7 @@ class Phase2Tests(unittest.TestCase):
         p=ContextProvider(fixture(downs()));s=p.snapshot(T(12),**STREAM);z=MajorContext([],p.upstream).context_from_snapshot(s,mode='EVER_CONFIRMED')
         self.assertIsNone(z['is_long_candidate']);self.assertEqual(z['reason_code'],'LONG_CONTEXT_NOT_EVALUATED')
 
+@unittest.skipUnless((ROOT / 'reports/layer1').exists(), "Requires local market snapshot reports")
 class Phase2RealTests(unittest.TestCase):
     def test_real_context_history_prefix_at_every_event_boundary(self):
         for ticker in ['HPG','FPT','VNM','VCB','SSI']:

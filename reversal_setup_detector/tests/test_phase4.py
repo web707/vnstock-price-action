@@ -3,6 +3,7 @@ All DBs in this suite are temporary sidecars; no upstream database is touched.
 """
 import copy,json,sqlite3,tempfile,unittest
 from pathlib import Path
+ROOT = Path(__file__).resolve().parents[2]
 from decimal import Decimal
 from datetime import timedelta
 from reversal_setup_detector.candles import Calendar
@@ -14,7 +15,7 @@ from reversal_setup_detector.context import ContextProvider
 from reversal_setup_detector.tools.report_phase1 import load_rows
 from reversal_setup_detector.tools.report_phase2 import events,SOURCE
 from reversal_setup_detector.tests.test_phase3 import synthetic_case,make_bar
-from phase4_tests.test_phase4 import fixture,T
+from tests.sfs.test_sfs_phase4 import fixture,T
 
 TICKERS=('HPG','FPT','VNM','VCB','SSI')
 
@@ -113,6 +114,7 @@ class Phase4SyntheticAcceptance(unittest.TestCase):
         with self.assertRaises(sqlite3.IntegrityError):
             with self.db:self.db.execute("INSERT INTO reversal_setup_event(event_id,setup_id,event_type,event_time,available_at,reason_code,event_payload,rule_version,config_hash,created_at) VALUES ('bad','missing','CREATED','t','t','r','{}','v','hash','now')")
 
+@unittest.skipUnless((ROOT / 'reports/layer1').exists(), "Requires local market snapshot reports")
 class Phase4RealSnapshot(unittest.TestCase):
     def test_real_four_candidates_and_two_long_signals(self):
         z=[real_one(t) for t in TICKERS]

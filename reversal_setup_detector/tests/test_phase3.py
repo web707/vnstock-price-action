@@ -14,7 +14,7 @@ from reversal_setup_detector.context import ContextProvider
 from reversal_setup_detector.lifecycle import scan_lifecycle
 from reversal_setup_detector.tools.report_phase1 import load_rows
 from reversal_setup_detector.tools.report_phase2 import events,SOURCE
-from phase4_tests.test_phase4 import fixture,STREAM,T
+from tests.sfs.test_sfs_phase4 import fixture,STREAM,T
 
 ROOT=Path(__file__).resolve().parents[2]
 
@@ -144,6 +144,7 @@ class Phase3AcceptanceSynthetic(unittest.TestCase):
         self.assertEqual(s['status'],'INVALIDATED')
         self.assertEqual(s['reason_code'],'CROSS_SESSION_WINDOW_BLOCKED')
 
+@unittest.skipUnless((ROOT / 'reports/layer1').exists(), "Requires local market snapshot reports")
 class Phase3RealSnapshot(unittest.TestCase):
     def test_real_calendar_slot_distribution_and_exchange_holiday(self):
         for ticker in ['HPG','FPT','VNM','VCB','SSI']:

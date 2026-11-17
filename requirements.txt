@@ -1,13 +1,21 @@
-yfinance>=1.7.0
-pandas>=2.2.0
+# Core Data Processing & Quantitative Analysis
 numpy>=2.0.0
-oracledb>=2.5.0
+pandas>=2.2.0
+scipy>=1.13.0
+scikit-learn>=1.5.0
+yfinance>=1.7.0
+tzdata>=2024.1
+
+# Web Framework & API Backend
+fastapi>=0.115.0
+uvicorn>=0.30.0
+httpx>=0.27.0
 python-dotenv>=1.0.1
-pytest>=8.0.0
 requests>=2.31.0
-fastapi>=0.115,<1
-uvicorn>=0.30,<1
-httpx>=0.27,<1
-scikit-learn>=1.5,<2
-reportlab>=4,<5
-scipy>=1.13,<2
+pydantic>=2.0.0
+
+# Database & Storage
+oracledb>=2.5.0
+
+# PDF & Reporting
+reportlab>=4.0.0
